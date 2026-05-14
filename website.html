@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FASA - Forum Alumni Sunan Ampel | Elegan & Berprestasi</title>
+  <!-- Google Fonts: Poppins + Playfair Display untuk sentuhan elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2fcf5;  /* latar lembut krem dengan sentuhan elegan */
+      color: #1F2E1C;
+      scroll-behavior: smooth;
+    }
+
+    /* warna elegan: hijau deep & sage, kuning keemasan, aksen gelap */
+    :root {
+      --sage-green: #93A67E;
+      --forest-green: #2B5E2A;
+      --hijau-elegan: #1E4620;
+      --kuning-muda: #FDF1C0;
+      --golden: #E6BC2E;
+      --soft-gold: #F7E5A2;
+      --cream: #FFFDF5;
+      --abu-elegan: #4A5B3E;
+      --shadow-soft: 0 18px 30px -12px rgba(0, 0, 0, 0.08);
+      --border-radius-card: 28px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header & navbar elegan */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1.6rem 0 1rem;
+      border-bottom: 1px solid #EADFA8;
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2C6E2A, #CDA81A);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .logo span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #6F7C60;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2F5530;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #D6A419;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #BCC9AE;
+      background: transparent;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #2A5827;
+      transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--golden);
+      border-color: var(--golden);
+      color: #1F3E1C;
+    }
+
+    /* hero section modern, elegan */
+    .hero {
+      padding: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: var(--kuning-muda);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #896E1A;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.3rem;
+      color: #1F4620;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #F9ECB0 0%, #F9ECB0 40%, transparent 60%);
+      padding: 0 0.2rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #3E5D38;
+      margin-bottom: 2rem;
+      line-height: 1.55;
+      max-width: 90%;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--golden);
+      color: #1F411B;
+      padding: 0.85rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: 0.2s;
+      box-shadow: 0 5px 0 #B68F1A;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover {
+      background: #F0CD4A;
+      transform: translateY(0px);
+      box-shadow: 0 2px 0 #B68F1A;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 2px solid #CBDAbf;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #2F6E28;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      background: #FEF7E0;
+      border-color: var(--golden);
+    }
+
+    .member-stats {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #FFFFFFdd;
+      backdrop-filter: blur(2px);
+      padding: 0.6rem 1.3rem;
+      border-radius: 50px;
+      width: fit-content;
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-illustration {
+      flex: 0.9;
+      background: linear-gradient(135deg, #E5F0DD, #FFF3CE);
+      border-radius: 52% 48% 50% 50% / 60% 40% 60% 40%;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-illustration i {
+      font-size: 4.5rem;
+      color: #609B4A;
+      margin: 0 0.3rem;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.05));
+    }
+
+    /* stats grid - sesuai permintaan: alumni, siswa aktif, guru, prestasi */
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: #FFFFFF;
+      border-radius: 48px;
+      padding: 2rem 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 12px 28px -10px rgba(60, 80, 30, 0.1);
+      border: 1px solid #E6E0BE;
+    }
+
+    .stat-card {
+      flex: 1;
+      text-align: center;
+      min-width: 130px;
+    }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      color: #3B7A32;
+      letter-spacing: -0.5px;
+    }
+
+    .stat-label {
+      font-weight: 600;
+      color: #6C8260;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    /* section umum */
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #2F542A;
+    }
+
+    .section-sub {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #6D8062;
+    }
+
+    /* card grid untuk program / kegiatan */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: var(--border-radius-card);
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+      border: 1px solid #EEE5C8;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      border-color: #EEDB92;
+      box-shadow: 0 20px 30px -12px rgba(120, 100, 30, 0.15);
+    }
+
+    .card-icon {
+      background: #ECF5E4;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      margin-bottom: 1.4rem;
+      font-size: 1.8rem;
+      color: #578C45;
+    }
+
+    .program-card h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    /* komunitas section */
+    .community-section {
+      background: #FDF8E7;
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      text-align: center;
+      border: 1px solid #F1E5BD;
+    }
+
+    .quote {
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 500;
+      color: #3C5836;
+      max-width: 750px;
+      margin: 1rem auto;
+    }
+
+    .avatar-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.8rem 0;
+    }
+
+    .avatar-group i {
+      font-size: 2rem;
+      background: #DFECC9;
+      padding: 0.6rem;
+      border-radius: 50%;
+      color: #437A35;
+    }
+
+    /* partner/prestasi */
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .brand-item {
+      background: white;
+      padding: 0.5rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #5A784B;
+      border: 1px solid #DED39E;
+      font-size: 0.9rem;
+    }
+
+    /* cta-footer */
+    .cta-footer {
+      background: linear-gradient(115deg, #E2EFD8, #FCF2CE);
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid #E0D8B6;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .social i {
+      font-size: 1.3rem;
+      margin-left: 1rem;
+      color: #789867;
+      transition: 0.2s;
+    }
+
+    .social i:hover {
+      color: #DBAA1A;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .stats-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-desc {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Navbar FASA - Forum Alumni Sunan Ampel -->
+  <div class="navbar">
+    <div class="logo">
+      <h1>FASA</h1>
+      <span>Forum Alumni Sunan Ampel</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Beranda</a>
+      <a href="#">Program Alumni</a>
+      <a href="#">Komunitas</a>
+      <a href="#">Prestasi</a>
+      <a href="#" class="btn-outline"><i class="fas fa-handshake"></i> Gabung Forum</a>
+    </div>
+  </div>
+
+  <!-- Hero Section tetap dengan nuansa skill & pemberdayaan alumni -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-graduation-cap"></i> Jaringan Prestasi & Kolaborasi
+      </div>
+      <h1>
+        Membangun Jejak <span class="hero-highlight">Keunggulan Alumni</span><br>
+        Sinergi, Prestasi & Inspirasi
+      </h1>
+      <p class="hero-desc">
+        Forum Alumni Sunan Ampel (FASA) adalah wadah bagi alumni, siswa aktif, dan pendidik untuk berkolaborasi, berbagi inovasi, 
+        serta menciptakan prestasi membanggakan. Didukung mentor berpengalaman dan komunitas yang suportif.
+      </p>
+      <div class="btn-group">
+        <a href="#" class="btn-primary"><i class="fas fa-users"></i> Bergabung Sekarang</a>
+        <a href="#" class="btn-secondary"><i class="fas fa-trophy"></i> Lihat Prestasi</a>
+      </div>
+      <div class="member-stats">
+        <i class="fas fa-user-friends"></i>
+        <span>Terhubung dengan <strong>12.500+</strong> alumni & keluarga besar</span>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <i class="fas fa-university"></i>
+      <i class="fas fa-chalkboard-user"></i>
+      <i class="fas fa-medal"></i>
+      <p style="margin-top: 1rem;">Alumni | Siswa | Guru | Prestasi</p>
+    </div>
+  </div>
+
+  <!-- STATISTIK sesuai permintaan: alumni, siswa aktif, guru, prestasi -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">8,4K+</div>
+      <div class="stat-label">Alumni Terdaftar</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3,2K+</div>
+      <div class="stat-label">Siswa Aktif</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">480+</div>
+      <div class="stat-label">Guru & Mentor</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">120+</div>
+      <div class="stat-label">Prestasi Nasional/Internasional</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">10 Thn</div>
+      <div class="stat-label">Mencetak Generasi Unggul</div>
+    </div>
+  </div>
+
+  <!-- PROGRAM UNGGULAN / bentuk kontribusi -->
+  <h2 class="section-title">✨ Program & Komunitas FASA</h2>
+  <div class="card-grid">
+    <div class="program-card">
+      <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+      <h3>Mentoring Alumni</h3>
+      <p>Sesi bimbingan karier dan pengembangan soft skill dari alumni sukses di berbagai bidang.</p>
+      <span class="brand-item" style="background:#F8F2DD;">Tersedia 40+ mentor</span>
+    </div>
+    <div class="program-card">
+      <div class="card-icon"><i class="fas fa-flask"></i></div>
+      <h3>Inovasi & Riset</h3>
+      <p>Kolaborasi riset antar siswa, guru, dan alumni untuk kompetisi sains & teknologi.</p>
+      <span class="brand-item" style="background:#F8F2DD;">30+ penelitian</span>
+    </div>
+    <div class="program-card">
+      <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+      <h3>Beasiswa & Bakti Sosial</h3>
+      <p>Program peduli pendidikan dan pemberdayaan masyarakat sekitar kampus.</p>
+      <span class="brand-item" style="background:#F8F2DD;">didanai alumni</span>
+    </div>
+    <div class="program-card">
+      <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+      <h3>Annual Summit</h3>
+      <p>Temu tahunan alumni, pameran prestasi, dan networking dengan tokoh pendidikan.</p>
+      <span class="brand-item" style="background:#F8F2DD;">#FASAConnect</span>
+    </div>
+  </div>
+
+  <!-- KOMUNITAS AKTIF + testimoni suportif (nuansa forum suportif) -->
+  <div class="community-section">
+    <i class="fas fa-comments" style="font-size: 2.4rem; color: #DCB42C;"></i>
+    <div class="quote">
+      “FASA menjadi rumah kedua. Kolaborasi antara alumni, siswa, dan guru sangat solid. Banyak prestasi lahir dari sinergi ini.”
+    </div>
+    <div class="avatar-group">
+      <i class="fas fa-user-graduate"></i>
+      <i class="fas fa-chalkboard"></i>
+      <i class="fas fa-user-astronaut"></i>
+      <i class="fas fa-school"></i>
+    </div>
+    <p style="font-weight: 500; color:#5C784A;">Komunitas Aktif: 3.200+ anggota tergabung dalam grup diskusi & sharing session</p>
+    <a href="#" class="btn-secondary" style="margin-top: 1rem; background:#FFF2D2;"><i class="fab fa-whatsapp"></i> Gabung Grup Alumni</a>
+  </div>
+
+  <!-- PRESTASI dan kepercayaan (menggambarkan 20+ brand global? disesuaikan jadi prestasi dan mitra) -->
+  <h2 class="section-title">🏆 Prestasi & Mitra Kepercayaan</h2>
+  <div class="brands">
+    <div class="brand-item">Juara Olimpiade Sains</div>
+    <div class="brand-item">Startup Pendiri Alumni</div>
+    <div class="brand-item">Penghargaan Sekolah Berprestasi</div>
+    <div class="brand-item">Kemdikbudristek Mitra</div>
+    <div class="brand-item">UNESCO Global School</div>
+    <div class="brand-item">+15 Institusi Mitra</div>
+  </div>
+  <p style="text-align: center; color:#637A53; margin-top: -1rem;">Dipercaya oleh berbagai lembaga, perusahaan, dan yayasan pendidikan.</p>
+
+  <!-- CTA besar untuk memperkuat aksi -->
+  <div class="cta-footer">
+    <h2>🌿 Bersama FASA, Wujudkan Generasi Berkemajuan</h2>
+    <p style="margin-bottom: 1.6rem;">Alumni, siswa, dan guru bergandengan tangan meraih prestasi. Ayo wujudkan inspirasi baru!</p>
+    <a href="#" class="btn-primary" style="background: #DBAA1A; box-shadow: 0 5px 0 #9E7812;"><i class="fas fa-user-plus"></i> Daftar Jadi Member</a>
+    <a href="#" class="btn-outline" style="background: white; margin-left: 0.8rem;">Lihat Kalender Kegiatan</a>
+  </div>
+
+  <!-- FOOTER elegan -->
+  <div class="footer">
+    <div>
+      <h3 style="color: #477A3C; font-family: 'Playfair Display';">FASA</h3>
+      <p>Forum Alumni Sunan Ampel<br>Membangun Silaturahmi & Prestasi</p>
+    </div>
+    <div>
+      <p><i class="fas fa-envelope"></i> sekretariat@fasa.or.id</p>
+      <p><i class="fas fa-map-pin"></i> Surabaya | Nusantara</p>
+    </div>
+    <div class="social">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-youtube"></i>
+    </div>
+  </div>
+</div>
+</body>
+</html>
