@@ -2,657 +2,513 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FASA Official | E-Ujian MTs Sunan Ampel Mulyosari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FASA - Forum Alumni Sunan Ampel</title>
+    <!-- Font Awesome 6 (gratis) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f1f8e9;
-            color: #1e2a1e;
-        }
-        :root {
-            --primary: #2e7d32;
-            --primary-light: #e8f5e9;
-            --primary-bg: #f1f8e9;
-            --border: #dcedc8;
-            --text-muted: #5a6e5a;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        /* Layout */
-        .app-wrapper { display: flex; min-height: 100vh; }
-        
-        /* Sidebar Putih seperti contoh */
-        .sidebar {
-            width: 280px;
-            background: #ffffff;
-            border-right: 1px solid var(--border);
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
+        body {
+            background: #f9f9f9;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
         }
-        .sidebar-header {
-            padding: 24px 20px;
-            border-bottom: 1px solid var(--border);
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .sidebar-header h2 {
-            font-size: 1.5rem;
+
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #0b3b2f, #1c6e4b);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .moto {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Section Umum */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--primary);
+            margin-bottom: 40px;
+            position: relative;
+            color: #1c6e4b;
         }
-        .sidebar-header p {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 4px;
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f4b942;
+            margin: 12px auto 0;
+            border-radius: 5px;
         }
-        .nav-menu {
-            flex: 1;
-            padding: 16px 12px;
-            overflow-y: auto;
+
+        /* Sambutan (grid 3 kolom) */
+        .sambutan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
-        .nav-item {
+
+        .card-sambutan {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 4px solid #f4b942;
+        }
+        .card-sambutan i {
+            font-size: 2.5rem;
+            color: #1c6e4b;
+            margin-bottom: 15px;
+        }
+        .card-sambutan h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .card-sambutan .jabatan {
+            color: #f4b942;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .card-sambutan p {
+            line-height: 1.5;
+            color: #444;
+        }
+
+        /* Slider Foto Kenangan */
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .slider {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 16px;
-            margin: 2px 0;
-            border-radius: 12px;
-            color: #2d3e2d;
-            font-weight: 500;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #d9e3db;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 12px 18px;
             cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
             transition: 0.2s;
         }
-        .nav-item i { width: 24px; font-size: 1.1rem; }
-        .nav-item.active {
-            background: var(--primary-light);
-            color: var(--primary);
+        .slider-btn:hover {
+            background: #1c6e4b;
+        }
+        .btn-prev { left: 15px; }
+        .btn-next { right: 15px; }
+
+        /* Alumni Sukses (Pencetak Alumni) */
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .alumni-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .alumni-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #cbd5e1;
+        }
+        .alumni-card h4 {
+            font-size: 1.2rem;
+            margin: 15px 0 5px;
+        }
+        .alumni-card p {
+            color: #1c6e4b;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        /* Prestasi */
+        .prestasi-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        .prestasi-item {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+            font-weight: 600;
+            color: #1c6e4b;
+            border-left: 5px solid #f4b942;
+        }
+        .prestasi-item i {
+            margin-right: 10px;
+            color: #f4b942;
+        }
+
+        /* Pesan & Kesan (grid) */
+        .pesan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .pesan-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+        .pesan-card i.fa-quote-left {
+            color: #f4b942;
+            font-size: 1.8rem;
+            opacity: 0.5;
+            margin-right: 5px;
+        }
+        .pesan-card p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        .pesan-card h4 {
+            margin-top: 15px;
+            color: #1c6e4b;
             font-weight: 600;
         }
-        .nav-item:hover:not(.active) { background: #eef5ea; }
-        
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            background: #f9fbf7;
-            overflow-x: auto;
-        }
-        .topbar {
-            background: white;
-            padding: 16px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
-        .page-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        .user-badge {
-            background: var(--primary-light);
-            padding: 8px 20px;
-            border-radius: 40px;
-            color: var(--primary);
-            font-weight: 500;
-        }
-        .content-pane { padding: 28px; }
-        
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 20px 24px;
-            margin-bottom: 28px;
-            border: 1px solid var(--border);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-        }
-        .stat-grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 28px;
-        }
-        .stat-card {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            flex: 1;
-            min-width: 150px;
-            border: 1px solid var(--border);
-            border-left: 5px solid var(--primary);
-        }
-        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); }
-        
-        table { width: 100%; border-collapse: collapse; }
-        th, td {
-            text-align: left;
-            padding: 14px 8px;
-            border-bottom: 1px solid var(--border);
-        }
-        th { background: #f5f9f0; font-weight: 600; color: var(--primary); }
-        
-        .btn {
-            padding: 8px 18px;
-            border-radius: 40px;
-            border: none;
-            font-weight: 500;
-            background: #eef2ea;
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: #1b5e20; }
-        .btn-sm { padding: 4px 12px; font-size: 0.75rem; }
-        .badge {
-            background: var(--primary-light);
+
+        /* Persebaran & Total */
+        .statistik {
+            background: linear-gradient(120deg, #eef2f0, #fff);
             border-radius: 30px;
-            padding: 4px 12px;
-            font-size: 0.7rem;
-            color: var(--primary);
+            padding: 40px;
+            text-align: center;
         }
-        
-        /* Login Modal */
-        .login-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(6px);
-            z-index: 1000;
+        .stat-flex {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
         }
-        .login-card {
+        .stat-box {
             background: white;
-            width: 400px;
-            padding: 32px;
-            border-radius: 32px;
+            padding: 20px 35px;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
-        .input-field {
-            width: 100%;
-            padding: 12px 16px;
-            margin: 12px 0;
-            border: 1px solid #c8e0c8;
-            border-radius: 60px;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1c6e4b;
         }
-        
-        /* Peserta Dashboard */
-        .jadwal-item {
-            background: white;
-            border-radius: 20px;
-            padding: 18px;
-            margin-bottom: 16px;
-            border-left: 6px solid var(--primary);
+        .map-dummy {
+            margin-top: 25px;
+            background: #e2e8f0;
+            padding: 20px;
+            border-radius: 30px;
+            font-weight: 500;
         }
-        .welcome-card {
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            padding: 24px;
-            border-radius: 28px;
-            margin-bottom: 24px;
+        .badge-lokasi {
+            display: inline-block;
+            background: #1c6e4b;
+            color: white;
+            border-radius: 30px;
+            padding: 5px 15px;
+            margin: 5px;
+            font-size: 0.85rem;
         }
-        .hidden { display: none; }
-        footer { text-align: center; padding: 20px; font-size: 0.7rem; color: var(--text-muted); }
-        @media (max-width: 768px) { .sidebar { width: 70px; } .sidebar-header h2, .sidebar-header p, .nav-item span { display: none; } .nav-item { justify-content: center; } }
+
+        footer {
+            background: #0b3b2f;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #f4b942;
+            text-decoration: none;
+        }
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2rem; }
+            .slide { height: 250px; }
+        }
     </style>
 </head>
 <body>
-<div id="app"></div>
+
+<!-- HERO / SAPAAN + MOTO -->
+<div class="hero">
+    <h1>FASA</h1>
+    <p class="tagline">Forum Alumni Sunan Ampel</p>
+    <div class="moto">
+        <i class="fas fa-quote-left"></i> "Satu Alumni Satu Aksi" 
+    </div>
+    <div style="margin-top: 25px; font-size: 0.9rem;">
+        <i class="fas fa-map-marker-alt"></i> Jl. Sumber Lungun No.1, Dusun Mulyosari, Desa Bunder, Kec. Kabat, Kab. Banyuwangi, Jawa Timur 68461
+    </div>
+</div>
+
+<main class="container">
+    <!-- SAMBUTAN KETUA YAYASAN, KEPALA MI, KEPALA MTS -->
+    <section>
+        <div class="section-title">Sambutan Pengurus & Pimpinan</div>
+        <div class="sambutan-grid">
+            <div class="card-sambutan">
+                <i class="fas fa-user-tie"></i>
+                <h3>Bapak H. Nurul Muhtarom</h3>
+                <div class="jabatan">Ketua Yayasan Sunan Ampel</div>
+                <p>Assalamu'alaikum. Selamat datang di wadah silaturahmi alumni. FASA hadir untuk mempererat ukhuwah dan memajukan almamater tercinta.</p>
+            </div>
+            <div class="card-sambutan">
+                <i class="fas fa-user-tie"></i>
+                <h3>Bapak Ahmad Hamdani, S.Pd</h3>
+                <div class="jabatan">Kepala MI Sunan Ampel</div>
+                <p>Alumni adalah aset berharga. Mari bersama bangun MI yang lebih hebat, mencetak generasi Qur'ani dan berprestasi.</p>
+            </div>
+            <div class="card-sambutan">
+                <i class="fas fa-user-tie"></i>
+                <h3>Bapak Santoso, S.Hi</h3>
+                <div class="jabatan">Kepala MTs Sunan Ampel</div>
+                <p>Terima kasih atas kepedulian alumni. Sinergi kita wujudkan untuk kemajuan pendidikan di Banyuwangi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDER FOTO KENANGAN -->
+    <section style="padding-top: 0;">
+        <div class="section-title">Galeri Kenangan</div>
+        <div class="slider-container">
+            <div class="slider" id="sliderKenangan">
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533405/IMG-20230417-WA0036_rcz7kq.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533403/IMG-20240407-WA0015_1_wtigdo.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533404/Gambar_WhatsApp_2025-03-27_pukul_22.32.11_f01b0b19_yis2d4.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533408/DSCF0572_fgih03.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533409/DSCF0590_khchzt.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533429/IMG_20230429_133950_dgpoks.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533405/IMG_20230429_104131_n8tpgt.jpg'); background-size: cover;"></div>
+                <div class="slide" style="background-image: url('https://res.cloudinary.com/dppixmteb/image/upload/v1781533405/IMG_20230429_123608_fcarw8.jpg'); background-size: cover;"></div>
+            </div>
+            <button class="slider-btn btn-prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn btn-next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #555;"><i class="fas fa-camera"></i> Kenangan bersama keluarga Sunan Ampel</p>
+    </section>
+
+    <!-- FOTO ALUMNI SUKSES KE PERGURUAN TINGGI (PENCETAK ALUMNI) -->
+    <section>
+        <div class="section-title">Alumni Sukses ke Perguruan Tinggi Negeri di Indonesia</div>
+        <div class="alumni-grid">
+             <div class="alumni-card">
+                <img src="https://res.cloudinary.com/dppixmteb/image/upload/v1781534428/WhatsApp_Image_2026-06-15_at_21.39.36_ex84fk.jpg" alt="Alumni">
+                <h4>Achmad Muqorrobin</h4>
+                <p><i class="fas fa-university"></i> S1- Matematika Universitas Negeri Semarang</p>
+            </div>
+             <div class="alumni-card">
+                <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Alumni">
+                <h4>Ach. Rohandi</h4>
+                <p><i class="fas fa-gavel"></i> S1-Ilmu Politik Universitas Islam Negeri Sunan Ampel Surabaya</p>
+            </div>
+            <div class="alumni-card">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Alumni">
+                <h4>Egy Falzah Maulidiyah</h4>
+                <p><i class="fas fa-graduation-cap"></i> S1-Pertanian Universitas Jember</p>
+            </div>
+            <div class="alumni-card">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alumni">
+                <h4>Salman</h4>
+                <p><i class="fas fa-stethoscope"></i> D4-Teknik Elektronika Universitas Jember</p>
+            </div>
+            <div class="alumni-card">
+                <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Alumni">
+                <h4>Rofidotul Hasanah</h4>
+                <p><i class="fas fa-gavel"></i> S1-Pendidikan Fisika Universitas Jember</p>
+            </div>
+            <div class="alumni-card">
+                <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Alumni">
+                <h4>Reny Farizkah</h4>
+                <p><i class="fas fa-gavel"></i> S1-Bahasan dan Sastra Inggris Universitas Jember</p>
+            </div>
+             <div class="alumni-card">
+                <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Alumni">
+                <h4>Juwita Sri Wahyuningsih</h4>
+                <p><i class="fas fa-gavel"></i> D4-Rekayasa Perangkat Lunak Politeknik Negeri Banyuwangi</p>
+            </div>
+        </div>
+        <p class="map-dummy" style="text-align:center; margin-top:15px; background:#eef2f0;">✨ Alumni terus berkiprah di berbagai PTN/PTS favorit ✨</p>
+    </section>
+
+    <!-- PRESTASI-PRESTASI -->
+    <section style="background: #f0f5f2; border-radius: 50px; margin: 20px 0;">
+        <div class="section-title">Prestasi & Capaian</div>
+        <div class="prestasi-list">
+            <div class="prestasi-item"><i class="fas fa-trophy"></i> Juara 1 OSN Matematika tingkat Kabupaten 2023</div>
+            <div class="prestasi-item"><i class="fas fa-flag-checkered"></i> Lomba Pidato Bahasa Arab se-Ex Karesidenan 2024</div>
+            <div class="prestasi-item"><i class="fas fa-futbol"></i> Juara 3 Turnamen Futsal Alumni se-Banyuwangi</div>
+            <div class="prestasi-item"><i class="fas fa-mosque"></i> MTQ Kecamatan Kabat Juara Umum 2022</div>
+            <div class="prestasi-item"><i class="fas fa-laptop-code"></i> Web Developer Competition Juara Harapan 1</div>
+        </div>
+    </section>
+
+    <!-- PESAN DAN KESAN -->
+    <section>
+        <div class="section-title">Pesan & Kesan Alumni</div>
+        <div class="pesan-grid">
+            <div class="pesan-card">
+                <i class="fas fa-quote-left"></i>
+                <p>“Yayasan Sunan Ampel adalah rumah kedua saya. Disini saya belajar disiplin dan agama yang kuat. Semoga FASA semakin jaya.”</p>
+                <h4>- Fatimah Azzahra, Alumni 2018</h4>
+            </div>
+            <div class="pesan-card">
+                <i class="fas fa-quote-left"></i>
+                <p>“Terima kasih para guru yang tulus. Kesan saya, lingkungannya sangat kekeluargaan. Pesan untuk adik kelas, teruslah berprestasi.”</p>
+                <h4>- Imron Rosyadi, Alumni 2015</h4>
+            </div>
+            <div class="pesan-card">
+                <i class="fas fa-quote-left"></i>
+                <p>“Alhamdulillah, berkat pondasi dari MI & MTs Sunan Ampel saya bisa kuliah di UB. Jaga nama baik almamater!”</p>
+                <h4>- Dewi Sartika, Alumni 2020</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSEBARAN ALUMNI / TOTAL ALUMNI -->
+    <section>
+        <div class="section-title">Persebaran & Total Alumni</div>
+        <div class="statistik">
+            <div class="stat-flex">
+                <div class="stat-box">
+                    <div class="stat-number">281</div>
+                    <div><i class="fas fa-users"></i> Total Alumni</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8+</div>
+                    <div><i class="fas fa-map-marked-alt"></i> Provinsi Tersebar</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">67%</div>
+                    <div><i class="fas fa-graduation-cap"></i> Alumni Lanjut PTN/PTS</div>
+                </div>
+            </div>
+            <div class="map-dummy">
+                <i class="fas fa-globe-asia"></i> <strong>Persebaran Alumni :</strong> 
+                <span class="badge-lokasi">Banyuwangi</span>
+                <span class="badge-lokasi">Surabaya</span>
+                <span class="badge-lokasi">Malang</span>
+                <span class="badge-lokasi">Jember</span>
+                <span class="badge-lokasi">Jakarta</span>
+                <span class="badge-lokasi">Semarang</span>
+                <p style="margin-top: 15px;"><i class="fas fa-map-pin"></i> Kantor Sekretariat FASA: Jl. Sumber Lungun No.1, Bunder, Kabat, Banyuwangi 68461</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Forum Alumni Sunan Ampel (FASA) | Satu Alumni Satu Aksi</p>
+    <p><i class="fab fa-instagram"></i> @official_fasa7 | <i class="fab fa-whatsapp"></i> +62 857-4934-3688</p>
+</footer>
 
 <script>
-    // ==================== DATA STATIS SESUAI CONTOH GAMBAR ====================
-    const materiData = [
-        "Al-Qur'an, Hadits, Tajwid, Makharijul Huruf, dan Gharib",
-        "Aqidah Akhlak, Fiqih, dan Sejarah Kebudayaan Islam",
-        "Bahasa Indonesia",
-        "Matematika",
-        "Nahwu, Shorof, dan Bahasa Arab",
-        "UJI COBA"
-    ];
-    
-    const paketData = [
-        { nama: "Try Out Tes Kemampuan Akademik(TKA) Jenjang SD/MI Matematika SD Kelas 6", idPaket: 315167, dibuat: "31-Jan-2026 11:53", diubah: "17-May-2026 11:57", jml: 30 },
-        { nama: "Try Out Tes Kemampuan Akademik(TKA) Jenjang SD/MI Bahasa Indonesia SD Kelas 6", idPaket: 315168, dibuat: "31-Jan-2026 11:54", diubah: "17-May-2026 11:57", jml: 30 },
-        { nama: "FASA ISLAMIC COMPETITION 2026 SESI 3 Nahwu, Shorof, dan Bahasa Arab", idPaket: 312211, dibuat: "05-Jan-2026 14:32", diubah: "24-Jan-2026 17:43", jml: 25 },
-        { nama: "FASA ISLAMIC COMPETITION 2026 SESI 2 Aqidah Akhlak, Fiqih, dan Sejarah Kebudayaan Islam", idPaket: 312210, dibuat: "05-Jan-2026 14:31", diubah: "24-Jan-2026 17:43", jml: 25 }
-    ];
-    
-    // Data jadwal ujian untuk peserta
-    let jadwalPeserta = [
-        { id: 1, nama: "Try Out TKA Matematika SD Kelas 6", tanggal: "20 Mei 2026", durasi: 60, status: "Aktif" },
-        { id: 2, nama: "Try Out TKA Bahasa Indonesia SD Kelas 6", tanggal: "22 Mei 2026", durasi: 60, status: "Aktif" },
-        { id: 3, nama: "FASA Islamic Competition - Nahwu & Shorof", tanggal: "25 Mei 2026", durasi: 45, status: "Aktif" }
-    ];
-    
-    // Bank soal
-    const bankSoal = {
-        1: [
-            { text: "Hasil dari 25 × 4 + 45 : 9 adalah ...", options: ["105", "115", "125", "135"], jawaban: 0 },
-            { text: "Bilangan pecahan yang senilai dengan 3/4 adalah ...", options: ["6/8", "5/8", "7/12", "2/3"], jawaban: 0 },
-            { text: "Akar kuadrat dari 144 adalah ...", options: ["10", "11", "12", "13"], jawaban: 2 }
-        ],
-        2: [
-            { text: "Sinonim dari kata 'Cepat' adalah ...", options: ["Lambat", "Laju", "Perlahan", "Jauh"], jawaban: 1 },
-            { text: "Kalimat baku yang tepat adalah ...", options: ["Saya makan nasi", "Saya mkn nasi", "Aku makann"], jawaban: 0 }
-        ],
-        3: [
-            { text: "Huruf hijaiyah yang keluar dari tenggorokan bagian bawah adalah ...", options: ["Hamzah", "'Ain", "Kha", "Ghain"], jawaban: 1 },
-            { text: "Apa arti dari 'Sharaf' dalam ilmu Nahwu?", options: ["Perubahan kata", "Tata bahasa", "Makna kalimat"], jawaban: 0 }
-        ]
-    };
-    
-    // ==================== STATE GLOBAL ====================
-    let mode = "admin";           // 'admin' atau 'peserta'
-    let pesertaLogged = false;
-    let pesertaNama = "";
-    let activeMenu = "Dashboard";
-    let examActive = false;
-    let currentExam = null;       // { soal, jawabanUser, currentIndex, namaUjian }
-    
-    // ==================== RENDER UTAMA ====================
-    function render() {
-        const root = document.getElementById("app");
-        if (!root) return;
-        
-        // Mode Peserta Belum Login
-        if (mode === "peserta" && !pesertaLogged) {
-            root.innerHTML = renderLoginPeserta();
-            attachLoginEvents();
-            return;
-        }
-        
-        // Mode Peserta Login & tidak sedang ujian -> Dashboard Jadwal
-        if (mode === "peserta" && pesertaLogged && !examActive) {
-            root.innerHTML = renderDashboardPeserta();
-            attachPesertaEvents();
-            return;
-        }
-        
-        // Mode Peserta sedang ujian
-        if (mode === "peserta" && pesertaLogged && examActive && currentExam) {
-            root.innerHTML = renderExamSession();
-            attachExamEvents();
-            return;
-        }
-        
-        // Mode ADMIN (Default) - LENGKAP SEMUA MENU
-        root.innerHTML = renderAdminLayout();
-        attachAdminEvents();
-        renderAdminContent();
-        drawChart();
+    // SLIDER FOTO KENANGAN otomatis + manual
+    const slider = document.getElementById('sliderKenangan');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    
-    // =============== LOGIN PESERTA ===============
-    function renderLoginPeserta() {
-        return `
-            <div class="login-overlay">
-                <div class="login-card">
-                    <div style="text-align:center; margin-bottom:20px;">
-                        <i class="fas fa-graduation-cap" style="font-size:48px; color:#2e7d32;"></i>
-                        <h2>Login Peserta</h2>
-                        <p>MTs Sunan Ampel Mulyosari</p>
-                    </div>
-                    <input type="text" id="loginNama" class="input-field" placeholder="Nama Lengkap" value="Ahmad Fauzan">
-                    <input type="text" id="loginNIS" class="input-field" placeholder="NIS / Username" value="2024001">
-                    <input type="password" id="loginPass" class="input-field" placeholder="Password" value="123">
-                    <button id="doLogin" class="btn btn-primary" style="width:100%;">Login</button>
-                    <hr style="margin:20px 0">
-                    <button id="switchToAdmin" class="btn" style="width:100%;">← Mode Admin</button>
-                    <div style="font-size:12px; margin-top:16px; text-align:center;">Demo: Nama bebas / Password: 123</div>
-                </div>
-            </div>
-        `;
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
     }
-    
-    function attachLoginEvents() {
-        document.getElementById("doLogin")?.addEventListener("click", () => {
-            const nama = document.getElementById("loginNama").value;
-            const pass = document.getElementById("loginPass").value;
-            if (nama.trim() && pass === "123") {
-                pesertaLogged = true;
-                pesertaNama = nama;
-                examActive = false;
-                mode = "peserta";
-                render();
-            } else { alert("Password salah! Gunakan 123"); }
-        });
-        document.getElementById("switchToAdmin")?.addEventListener("click", () => {
-            mode = "admin";
-            pesertaLogged = false;
-            render();
-        });
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlider();
     }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto slide setiap 4 detik
+    setInterval(() => {
+        nextSlide();
+    }, 4000);
     
-    // =============== DASHBOARD PESERTA (Welcome + Jadwal) ===============
-    function renderDashboardPeserta() {
-        return `
-            <div style="background:#f1f8e9; min-height:100vh;">
-                <div style="background:white; padding:16px 28px; display:flex; justify-content:space-between; border-bottom:1px solid #dcedc8;">
-                    <div><i class="fas fa-school"></i> <strong>FASA Official - MTs Sunan Ampel Mulyosari</strong></div>
-                    <div><i class="fas fa-user-circle"></i> ${pesertaNama} 
-                        <button id="logoutPeserta" class="btn btn-sm" style="margin-left:12px;">Logout</button>
-                        <button id="goToAdmin" class="btn btn-sm">Admin Panel</button>
-                    </div>
-                </div>
-                <div style="max-width:1000px; margin:0 auto; padding:28px;">
-                    <div class="welcome-card">
-                        <h2><i class="fas fa-smile-wink"></i> Selamat Datang, ${pesertaNama}!</h2>
-                        <p>Silakan pilih jadwal ujian di bawah ini. Klik tombol "Mulai Ujian" untuk mengerjakan.</p>
-                    </div>
-                    <h3><i class="fas fa-calendar-alt"></i> Jadwal Ujian Anda</h3>
-                    ${jadwalPeserta.map(uj => `
-                        <div class="jadwal-item">
-                            <div style="display:flex; justify-content:space-between; align-items:center;">
-                                <div>
-                                    <strong><i class="fas fa-file-alt"></i> ${uj.nama}</strong><br>
-                                    <small><i class="far fa-calendar"></i> ${uj.tanggal} | Durasi: ${uj.durasi} menit</small>
-                                </div>
-                                <button class="btn btn-primary mulai-ujian" data-id="${uj.id}" data-nama="${uj.nama}">Mulai Ujian</button>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-                <footer>© 2020-2026 e-ujian.com | SRV-177873492 | v4.7</footer>
-            </div>
-        `;
-    }
-    
-    function attachPesertaEvents() {
-        document.querySelectorAll(".mulai-ujian").forEach(btn => {
-            btn.onclick = () => {
-                const id = parseInt(btn.dataset.id);
-                const namaUjian = btn.dataset.nama;
-                const soal = bankSoal[id] || [
-                    { text: "Contoh soal untuk ujian ini", options: ["A", "B", "C"], jawaban: 0 }
-                ];
-                currentExam = {
-                    id: id,
-                    nama: namaUjian,
-                    soal: soal,
-                    jawabanUser: new Array(soal.length).fill(null),
-                    currentIndex: 0
-                };
-                examActive = true;
-                render();
-            };
-        });
-        document.getElementById("logoutPeserta")?.addEventListener("click", () => {
-            pesertaLogged = false;
-            mode = "admin";
-            render();
-        });
-        document.getElementById("goToAdmin")?.addEventListener("click", () => {
-            mode = "admin";
-            pesertaLogged = false;
-            render();
-        });
-    }
-    
-    // =============== SESI UJIAN PESERTA ===============
-    function renderExamSession() {
-        const q = currentExam.soal[currentExam.currentIndex];
-        const selected = currentExam.jawabanUser[currentExam.currentIndex];
-        const total = currentExam.soal.length;
-        return `
-            <div style="background:#2e7d32; color:white; padding:15px 24px;">
-                <div style="display:flex; justify-content:space-between;">
-                    <span><i class="fas fa-book-open"></i> ${currentExam.nama}</span>
-                    <span><i class="fas fa-user"></i> ${pesertaNama} 
-                        <button id="keluarUjian" style="background:transparent; border:1px solid white; border-radius:20px; padding:5px 12px; color:white;">Keluar</button>
-                    </span>
-                </div>
-            </div>
-            <div style="max-width:800px; margin:30px auto; padding:16px;">
-                <div class="card">
-                    <div style="display:flex; justify-content:space-between;"><span class="badge">Soal ${currentExam.currentIndex+1}/${total}</span></div>
-                    <h3 style="margin:20px 0;">${q.text}</h3>
-                    ${q.options.map((opt, idx) => `
-                        <div class="option-item" data-opt="${idx}" style="margin:12px 0; padding:12px; background:${selected===idx?'#d9f0d9':'#f9fbf7'}; border-radius:40px; border:1px solid ${selected===idx?'#2e7d32':'#dcedc8'}; cursor:pointer;">
-                            <i class="far fa-circle"></i> ${String.fromCharCode(65+idx)}. ${opt}
-                        </div>
-                    `).join('')}
-                    <div style="display:flex; justify-content:space-between; margin-top:24px;">
-                        <button id="prevBtn" class="btn" ${currentExam.currentIndex===0?'disabled style="opacity:0.5"':''}>← Sebelumnya</button>
-                        <button id="nextBtn" class="btn btn-primary">${currentExam.currentIndex===total-1?'Selesai & Kirim':'Selanjutnya →'}</button>
-                    </div>
-                    <div style="margin-top:20px;">
-                        <small>Navigasi:</small><br>
-                        ${currentExam.soal.map((_,idx)=>`
-                            <span class="nav-soal" data-idx="${idx}" style="display:inline-block; width:36px; margin:5px; text-align:center; padding:6px; background:${currentExam.jawabanUser[idx]!==null?'#2e7d32':'#cfe9cf'}; color:${currentExam.jawabanUser[idx]!==null?'white':'#2e7d32'}; border-radius:50%; cursor:pointer;">${idx+1}</span>
-                        `).join('')}
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-    
-    function attachExamEvents() {
-        document.querySelectorAll('.option-item').forEach(el => {
-            el.onclick = () => {
-                const val = parseInt(el.dataset.opt);
-                if(!isNaN(val)) {
-                    currentExam.jawabanUser[currentExam.currentIndex] = val;
-                    render();
-                }
-            };
-        });
-        document.getElementById("prevBtn")?.addEventListener("click", () => {
-            if(currentExam.currentIndex > 0) { currentExam.currentIndex--; render(); }
-        });
-        document.getElementById("nextBtn")?.addEventListener("click", () => {
-            if(currentExam.currentIndex < currentExam.soal.length-1) {
-                currentExam.currentIndex++;
-                render();
-            } else {
-                let benar = 0;
-                currentExam.soal.forEach((soal,i) => { if(currentExam.jawabanUser[i] === soal.jawaban) benar++; });
-                alert(`Ujian selesai! Skor Anda: ${benar}/${currentExam.soal.length}`);
-                examActive = false;
-                currentExam = null;
-                render();
-            }
-        });
-        document.getElementById("keluarUjian")?.addEventListener("click", () => {
-            examActive = false;
-            currentExam = null;
-            render();
-        });
-        document.querySelectorAll('.nav-soal').forEach(span => {
-            span.onclick = () => { currentExam.currentIndex = parseInt(span.dataset.idx); render(); };
-        });
-    }
-    
-    // =============== ADMIN LAYOUT LENGKAP (Semua Menu Fungsional) ===============
-    function renderAdminLayout() {
-        const menus = ["Dashboard", "Paket Soal", "Ujian Online", "Kategori Materi", "Sesi Pelaksanaan", "Ruang Ujian", "Koreksi Ujian", "Laporan", "Reset Data", "Pembelian Poin", "Manajemen", "Rekap Data", "Registrasi", "PPDB", "Pengumuman", "Sertifikat"];
-        return `
-            <div class="app-wrapper">
-                <div class="sidebar">
-                    <div class="sidebar-header">
-                        <h2>FASA</h2>
-                        <p>MTs Sunan Ampel Mulyosari</p>
-                    </div>
-                    <div class="nav-menu">
-                        ${menus.map(menu => `<div class="nav-item ${activeMenu === menu ? 'active' : ''}" data-menu="${menu}"><i class="${getIcon(menu)}"></i><span>${menu}</span></div>`).join('')}
-                    </div>
-                    <div style="padding:16px; border-top:1px solid #dcedc8;">
-                        <button id="switchToPesertaMode" class="btn btn-sm" style="width:100%;"><i class="fas fa-user-graduate"></i> Mode Peserta</button>
-                        <div style="margin-top:8px; font-size:12px;">Kode Lembaga: 23079</div>
-                    </div>
-                </div>
-                <div class="main-content">
-                    <div class="topbar">
-                        <div class="page-title">${activeMenu}</div>
-                        <div class="user-badge"><i class="fas fa-user-shield"></i> Admin FASA</div>
-                    </div>
-                    <div class="content-pane" id="adminContent"></div>
-                    <footer>© 2020-2026 e-ujian.com | SRV-177873492 | v4.7 | Your IP: 103.23.103.138</footer>
-                </div>
-            </div>
-        `;
-    }
-    
-    function getIcon(menu) {
-        const icons = {
-            "Dashboard": "fas fa-tachometer-alt", "Paket Soal": "fas fa-box", "Ujian Online": "fas fa-laptop-code",
-            "Kategori Materi": "fas fa-tags", "Sesi Pelaksanaan": "fas fa-calendar-alt", "Ruang Ujian": "fas fa-door-open",
-            "Koreksi Ujian": "fas fa-check-double", "Laporan": "fas fa-chart-line", "Reset Data": "fas fa-sync-alt",
-            "Pembelian Poin": "fas fa-coins", "Manajemen": "fas fa-cogs", "Rekap Data": "fas fa-table",
-            "Registrasi": "fas fa-user-plus", "PPDB": "fas fa-school", "Pengumuman": "fas fa-bullhorn", "Sertifikat": "fas fa-award"
-        };
-        return icons[menu] || "fas fa-circle";
-    }
-    
-    function renderAdminContent() {
-        const container = document.getElementById("adminContent");
-        if(!container) return;
-        switch(activeMenu) {
-            case "Dashboard": container.innerHTML = renderDashboardAdmin(); drawChart(); break;
-            case "Kategori Materi": container.innerHTML = renderMateriAdmin(); break;
-            case "Paket Soal": container.innerHTML = renderPaketSoalAdmin(); break;
-            case "Sesi Pelaksanaan": container.innerHTML = renderSesiAdmin(); break;
-            case "Manajemen": container.innerHTML = renderManajemenAdmin(); break;
-            default: container.innerHTML = `<div class="card"><h3>${activeMenu}</h3><p>Modul ${activeMenu} siap digunakan. Semua fitur berfungsi penuh.</p><button class="btn btn-primary" onclick="alert('Fitur ${activeMenu} telah diaktifkan')">Kelola ${activeMenu}</button></div>`;
-        }
-    }
-    
-    function renderDashboardAdmin() {
-        return `
-            <div class="stat-grid">
-                <div class="stat-card"><div class="stat-number">156</div><div>User Online</div><small>12 jam terakhir</small></div>
-                <div class="stat-card"><div class="stat-number">50</div><div>Poin Didapat</div></div>
-                <div class="stat-card"><div class="stat-number">40</div><div>Poin Digunakan</div></div>
-                <div class="stat-card"><div class="stat-number">10</div><div>Sisa Poin</div></div>
-            </div>
-            <div class="card"><h4>Statistik User Online 12 Jam Terakhir</h4><canvas id="chartOnline" style="max-height:300px;"></canvas></div>
-            <div class="card">
-                <h4><i class="fas fa-bell"></i> Update Terakhir</h4>
-                <p><strong>Token Keluar (Universal)</strong> — Sekarang lembaga dapat mengatur token keluar untuk keperluan exit SEB atau Android App E-Ujian Browser. Token ini di level lembaga, jadi tidak perlu di-set per sesi. Peserta ujian tidak bisa keluar app tanpa kode ini apabila sedang mengerjakan sesi ujian.<br><small>Updated on 08 Apr 2026</small></p>
-                <p><strong>Download SEB Config</strong> — Sekarang file konfigurasi Safe Exam Browser (SEB) bisa diunduh secara mandiri oleh lembaga. Untuk kode keluar (exit code) bisa diatur di isian "Token Masuk" pada saat pembuatan sesi.<br><small>Updated on 01 Feb 2026</small></p>
-                <p><strong>Pembuatan Sesi Remedial/Susulan Massal</strong> — Sekarang pembuatan sesi remedial atau susulan dapat dilakukan dengan lebih praktis, melalui tombol Peserta Remedial di menu Sesi Pelaksanaan.</p>
-            </div>
-        `;
-    }
-    
-    function renderMateriAdmin() {
-        return `
-            <div class="card">
-                <h3>Materi</h3>
-                <p><small>Data materi ini tidak boleh mengandung pembeda jurusan/jenis lembaga. Cukup dengan "Matematika". Pembeda jurusan cukup anda beri keterangan pada isian Nama Paket Soal.</small></p>
-                <table>
-                    <thead><tr><th>No.</th><th>Aksi</th><th>Nama Materi</th></tr></thead>
-                    <tbody>
-                        ${materiData.map((m, i) => `<tr><td>${i+1}</td><td><button class="btn btn-sm editMateri" data-materi="${m}"><i class="fas fa-edit"></i> Aksi</button></td><td>${m}</td></tr>`).join('')}
-                    </tbody>
-                </table>
-                <button id="tambahMateriBtn" class="btn btn-primary" style="margin-top:20px;">+ Tambah Baru</button>
-                <div style="margin-top:16px;"><small>1 s.d ${materiData.length} dari total ${materiData.length} data</small></div>
-            </div>
-        `;
-    }
-    
-    function renderPaketSoalAdmin() {
-        return `
-            <div class="card">
-                <h3>Paket Soal</h3>
-                <p><small>Daftar yang ditampilkan di bawah ini hanyalah paket soal yang dibuat oleh lembaga Anda saja.</small></p>
-                <div style="display:flex; gap:10px; margin:16px 0; flex-wrap:wrap;">
-                    <select class="btn"><option>Semua Materi</option></select>
-                    <select class="btn"><option>Semua Kelas</option></select>
-                    <button class="btn">Filter</button>
-                    <button class="btn btn-primary" style="margin-left:auto;">+ Tambah Baru</button>
-                </div>
-                <div class="badge">Perhatian! Anda sedang melihat data arsip paket soal. Untuk melihat data soal aktif, klik tombol Lihat Soal Aktif pada sebelah kanan atas.</div>
-                <table style="margin-top:16px;">
-                    <thead><tr><th>No.</th><th>Aksi</th><th>Nama Paket Soal</th><th>ID Paket</th><th>Dibuat</th><th>Diubah</th><th>Jumlah Soal</th></tr></thead>
-                    <tbody>
-                        ${paketData.map((p, i) => `<tr>
-                            <td>${i+1}</td>
-                            <td><button class="btn btn-sm listSoalBtn" data-paket="${p.nama}"><i class="fas fa-list"></i> List Soal</button></td>
-                            <td>${p.nama}</td>
-                            <td>${p.idPaket}</td>
-                            <td>${p.dibuat}</td>
-                            <td>${p.diubah}</td>
-                            <td>${p.jml}</td>
-                        </tr>`).join('')}
-                    </tbody>
-                </table>
-            </div>
-        `;
-    }
-    
-    function renderSesiAdmin() {
-        return `
-            <div class="card">
-                <h3>Sesi Pelaksanaan Manajemen Data</h3>
-                <p><small>Sesi pelaksanaan adalah jadwal pelaksanaan ujian yang dapat diatur secara mandiri oleh lembaga/sekolah.</small></p>
-                <div style="display:flex; gap:10px; margin:16px 0; flex-wrap:wrap;">
-                    <input type="text" placeholder="ketik kata kunci lalu tekan enter" class="input-field" style="width:200px;">
-                    <select class="btn"><option>Semua Kelas</option></select>
-                    <select class="btn"><option>Status Sesi</option><option>Aktif</option><option>Non Aktif</option></select>
-                    <button class="btn btn-primary">Filter</button>
-                </div>
-                <div class="badge">Data sesi tidak ditemukan. Silakan cek filter yang Anda gunakan.</div>
-                <div class="stat-grid" style="margin-top:20px;">
-                    <div class="stat-card">Poin Didapat<br><span class="stat-number">50</span></div>
-                    <div class="stat-card">Poin Dibeli<br><span class="stat-number">0</span></div>
-                    <div class="stat-card">Poin Digunakan<br><span class="stat-number">40</span></div>
-                    <div class="stat-card">Perkiraan Sisa Poin<br><span class="stat-number">10</span></div>
-                </div>
-            </div>
-        `;
-    }
-    
-    function renderManajemenAdmin() {
-        return `
-            <div class="card">
-                <h3>Data Lembaga</h3>
-                <p><strong>TRY OUT TES KEMAMPUAN AKADEMIK (TKA) JENJANG SD/MI</strong><br>
-                FASA OFFICIAL - MTs SUNAN AMPEL MULYOSARI<br>
-                Email: officialfasa7424@gmail.com</p>
-                <p><strong>URL Lembaga:</strong> https://e-ujian.com/fasaofficial</p>
-                <p><strong>Kode Lembaga:</strong> 23079</p>
-                <button class="btn btn-primary" onclick="alert('Edit data lembaga')">Edit Lembaga</button>
-            </div>
-        `;
-    }
-    
-    function drawChart() {
-        const canvas = document.getElementById("chartOnline");
-        if(canvas) {
-            if(window.myChart) window.myChart.destroy();
-            window.myChart = new Chart(canvas, {
-                type: 'line',
-                data: { labels: ['1j','2j','3j','4j','5j','6j','7j','8j','9j','10j','11j','12j'], datasets: [{ label: 'User Online', data: [0.5,0.6,0.8,0.9,1.0,0.95,0.85,0.75,0.68,0.62,0.55,0.5], borderColor: '#2e7d32', fill: false, tension: 0.2 }] }
-            });
-        }
-    }
-    
-    function attachAdminEvents() {
-        document.querySelectorAll('.nav-item').forEach(el => {
-            el.addEventListener('click', () => {
-                activeMenu = el.getAttribute('data-menu');
-                render();
-            });
-        });
-        document.getElementById("switchToPesertaMode")?.addEventListener("click", () => {
-            mode = "peserta";
-            pesertaLogged = false;
-            render();
-        });
-        document.querySelectorAll('.editMateri')?.forEach(btn => btn.addEventListener('click', () => alert("Edit materi: " + btn.dataset.materi)));
-        document.getElementById("tambahMateriBtn")?.addEventListener("click", () => alert("Form tambah materi baru"));
-        document.querySelectorAll('.listSoalBtn')?.forEach(btn => btn.addEventListener("click", () => alert("List soal untuk: " + btn.dataset.paket)));
-    }
-    
-    // START
-    render();
+    // Jika gambar placeholder ingin diganti dengan foto asli, cukup ganti url di background-image
+    // Contoh data tambahan: dinamiskan foto kenangan (bisa ditambah)
+    console.log("Website FASA siap digunakan!");
 </script>
+
+<!-- Catatan: Untuk penggunaan production, ganti gambar placeholder dengan foto asli kenangan, foto alumni sukses & prestasi sesuai data yayasan -->
 </body>
 </html>
