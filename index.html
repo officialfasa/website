@@ -6,8 +6,6 @@
     <title>FASA - Forum Alumni Sunan Ampel</title>
     <!-- Font Awesome 6 (gratis) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -38,13 +36,84 @@
             padding: 80px 20px 100px;
             text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: 2px;
+        /* Logo tengah atas */
+        .logo-atas {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        .logo-atas i {
+            font-size: 2.5rem;
+            color: #1c6e4b;
+        }
+
+      /* Animasi untuk huruf FASA menyusun satu per satu */
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 8px;
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00, #FFD700);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShine 3s ease infinite;
+    display: inline-block;
+}
+
+/* Efek gradien berkilau */
+@keyframes gradientShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
+
+/* Animasi kemunculan huruf satu per satu */
+@keyframes fadeInUpLetter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) rotate(10deg);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+        filter: blur(0);
+    }
+}
+
+/* Setiap huruf akan memiliki animasi terpisah */
+.letter-f {
+    display: inline-block;
+    animation: fadeInUpLetter 0.5s ease forwards;
+    opacity: 0;
+}
+.letter-a {
+    display: inline-block;
+    animation: fadeInUpLetter 0.5s ease 0.15s forwards;
+    opacity: 0;
+}
+.letter-s1 {
+    display: inline-block;
+    animation: fadeInUpLetter 0.5s ease 0.3s forwards;
+    opacity: 0;
+}
+.letter-a2 {
+    display: inline-block;
+    animation: fadeInUpLetter 0.5s ease 0.45s forwards;
+    opacity: 0;
+}
 
         .hero .tagline {
             font-size: 1.3rem;
@@ -53,8 +122,16 @@
             opacity: 0.95;
         }
 
+        .deskripsi-selamat {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
         .moto {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 1.2rem;
             font-style: italic;
             background: rgba(255,255,255,0.2);
@@ -285,29 +362,90 @@
             font-size: 0.85rem;
         }
 
+        /* Style untuk Dokumentasi FASA - Card Judul */
+.dokumentasi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+.dokumentasi-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+.dokumentasi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    border-color: #1c6e4b;
+}
+.dokumentasi-card .card-icon {
+    font-size: 3rem;
+    color: #1c6e4b;
+    margin-bottom: 15px;
+}
+.dokumentasi-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e2a3e;
+    margin-bottom: 12px;
+}
+.dokumentasi-card .card-link {
+    font-size: 0.85rem;
+    color: #f4b942;
+    font-weight: 500;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #fef5e6;
+    transition: 0.2s;
+}
+.dokumentasi-card:hover .card-link {
+    background: #f4b942;
+    color: white;
+}
+        /* Footer */
         footer {
             background: #0b3b2f;
             color: #ccc;
             text-align: center;
             padding: 30px 0;
             font-size: 0.9rem;
+            margin-top: 40px;
         }
         footer a {
             color: #f4b942;
             text-decoration: none;
         }
-        @media (max-width: 700px) {
-            .hero h1 { font-size: 2rem; }
-            .slide { height: 250px; }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-<!-- HERO / SAPAAN + MOTO -->
+<!-- HERO / SAPAAN + MOTO dengan LOGO TENGAH ATAS -->
 <div class="hero">
+    <!-- Logo Tengah Atas -->
+    <div class="logo-atas">
+    <img src="https://res.cloudinary.com/dppixmteb/image/upload/v1781538505/Logo_Fasa_forum_angkatan_sunan_ampel_splais.png" alt="Logo FASA" style="width: 100px; height: 100px; object-fit: contain; border-radius: 100%;">
+    </div>
+    
     <h1>FASA</h1>
     <p class="tagline">Forum Alumni Sunan Ampel</p>
+    
+    <!-- Deskripsi Selamat Datang -->
+    <div class="deskripsi-selamat">
+        <i class="fas fa-hand-wave" style="margin-right: 8px;"></i> 
+        Selamat datang di wadah kebersamaan alumni Yayasan Sunan Ampel. 
+        Bersama kita jalin silaturahmi, bangun prestasi, dan wujudkan generasi yang berkontribusi.
+    </div>
+    
     <div class="moto">
         <i class="fas fa-quote-left"></i> "Satu Alumni Satu Aksi" 
     </div>
@@ -360,6 +498,42 @@
             <button class="slider-btn btn-next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
         </div>
         <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #555;"><i class="fas fa-camera"></i> Kenangan bersama keluarga Sunan Ampel</p>
+    </section>
+<!-- DOKUMENTASI FASA - Card Judul dengan Link Drive -->
+    <section style="background: #fff9f0; border-radius: 40px; margin: 20px 0;">
+         <div class="section-title">Dokumentasi FASA</div>
+         <div class="dokumentasi-grid">
+         <div class="dokumentasi-card" onclick="window.open('https://drive.google.com/drive/folders/18C19_F7T4WXqG3jBl-9TMIRYIOPpnYy4?usp=sharing', '_blank')">
+            <div class="card-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="card-title">Reuni & Bukber 2023</div>
+            <div class="card-link"><i class="fas fa-external-link-alt"></i> Lihat</div>
+         </div>
+        <div class="dokumentasi-card" onclick="window.open('https://drive.google.com/drive/folders/12ov0s2_2OHoiP4wrHWPWHiQ0-q31rbPQ?usp=sharing', '_blank')">
+            <div class="card-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="card-title">Alas Purwo 2023</div>
+            <div class="card-link"><i class="fas fa-external-link-alt"></i> Lihat</div>
+        </div>
+        <div class="dokumentasi-card" onclick="window.open('https://drive.google.com/drive/folders/1AdcdfAMeA2bzKShHQcmojBGAAr-Nt_KC?usp=sharing', '_blank')">
+            <div class="card-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="card-title">Reuni & Bukber 2024</div>
+            <div class="card-link"><i class="fas fa-external-link-alt"></i> Lihat</div>
+        </div>
+        <div class="dokumentasi-card" onclick="window.open('https://drive.google.com/drive/folders/1Gva0eQ3rORapC04VEpjORDfTHueUFuL9?usp=sharing', '_blank')">
+            <div class="card-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="card-title">Reuni & Bukber 2025</div>
+            <div class="card-link"><i class="fas fa-external-link-alt"></i> Lihat</div>
+        </div>
+        <div class="dokumentasi-card" onclick="window.open('https://drive.google.com/drive/folders/1tuiioAPKTOp8hDD8tLU6GMmkF5rGm9NE?usp=sharing', '_blank')">
+            <div class="card-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="card-title">Reuni & Bukber 2026</div>
+            <div class="card-link"><i class="fas fa-external-link-alt"></i> Lihat</div>
+        </div>
+        <div class="dokumentasi-card" onclick="window.open('https://drive.google.com/drive/folders/1EM57wo9BGaw2ZtToETQLX40j7fjBBW_z?usp=sharing', '_blank')">
+            <div class="card-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="card-title">FASA MENGABDI</div>
+            <div class="card-link"><i class="fas fa-external-link-alt"></i> Lihat</div>
+        </div>
+        </div>
     </section>
 
     <!-- FOTO ALUMNI SUKSES KE PERGURUAN TINGGI (PENCETAK ALUMNI) -->
@@ -418,18 +592,6 @@
         <p class="map-dummy" style="text-align:center; margin-top:15px; background:#eef2f0;">✨ Alumni terus berkiprah di berbagai PTN/PTS favorit ✨</p>
     </section>
 
-    <!-- PRESTASI-PRESTASI -->
-    <section style="background: #f0f5f2; border-radius: 50px; margin: 20px 0;">
-        <div class="section-title">Prestasi & Capaian</div>
-        <div class="prestasi-list">
-            <div class="prestasi-item"><i class="fas fa-trophy"></i> Juara 1 OSN Matematika tingkat Kabupaten 2023</div>
-            <div class="prestasi-item"><i class="fas fa-flag-checkered"></i> Lomba Pidato Bahasa Arab se-Ex Karesidenan 2024</div>
-            <div class="prestasi-item"><i class="fas fa-futbol"></i> Juara 3 Turnamen Futsal Alumni se-Banyuwangi</div>
-            <div class="prestasi-item"><i class="fas fa-mosque"></i> MTQ Kecamatan Kabat Juara Umum 2022</div>
-            <div class="prestasi-item"><i class="fas fa-laptop-code"></i> Web Developer Competition Juara Harapan 1</div>
-        </div>
-    </section>
-
     <!-- PESAN DAN KESAN -->
     <section>
         <div class="section-title">Pesan & Kesan Alumni</div>
@@ -476,7 +638,8 @@
                 <span class="badge-lokasi">Surabaya</span>
                 <span class="badge-lokasi">Malang</span>
                 <span class="badge-lokasi">Jember</span>
-                <span class="badge-lokasi">Jakarta</span>
+                <span class="badge-lokasi">Jombang</span>
+                <span class="badge-lokasi">Situbondo</span>
                 <span class="badge-lokasi">Semarang</span>
                 <p style="margin-top: 15px;"><i class="fas fa-map-pin"></i> Kantor Sekretariat FASA: Jl. Sumber Lungun No.1, Bunder, Kabat, Banyuwangi 68461</p>
             </div>
@@ -519,11 +682,8 @@
         nextSlide();
     }, 4000);
     
-    // Jika gambar placeholder ingin diganti dengan foto asli, cukup ganti url di background-image
-    // Contoh data tambahan: dinamiskan foto kenangan (bisa ditambah)
     console.log("Website FASA siap digunakan!");
 </script>
 
-<!-- Catatan: Untuk penggunaan production, ganti gambar placeholder dengan foto asli kenangan, foto alumni sukses & prestasi sesuai data yayasan -->
 </body>
 </html>
