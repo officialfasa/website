@@ -464,6 +464,185 @@
             margin: 5px;
             font-size: 0.85rem;
         }
+                /* ========== NAVIGASI HAMBURGER ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            padding: 15px 20px;
+            background: transparent;
+            transition: 0.3s;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(11, 59, 47, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            transition: 0.3s;
+            border: none;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hamburger:hover {
+            background: rgba(255,255,255,0.35);
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        
+        /* Animasi hamburger menjadi X */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+        
+        /* Menu Dropdown */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, #0b3b2f, #1c6e4b);
+            padding: 80px 30px 30px;
+            transition: left 0.4s ease;
+            z-index: 9998;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+        
+        .nav-menu.open {
+            left: 0;
+        }
+        
+        .nav-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: 0.3s;
+        }
+        
+        .nav-menu .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        .nav-menu .menu-title {
+            color: #f4b942;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-menu ul li {
+            margin-bottom: 5px;
+        }
+        
+        .nav-menu ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+        
+        .nav-menu ul li a i {
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            color: #f4b942;
+        }
+        
+        .nav-menu ul li a:hover {
+            background: rgba(244, 185, 66, 0.2);
+            transform: translateX(8px);
+        }
+        
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        /* Overlay gelap */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+        
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nav-menu {
+                width: 280px;
+                left: -300px;
+            }
+            .hamburger {
+                width: 45px;
+                height: 45px;
+            }
+            .hamburger span {
+                width: 24px;
+            }
+        }
 
         /* Style untuk Dokumentasi FASA - Card Judul */
 .dokumentasi-grid {
@@ -556,7 +735,53 @@
         <i class="fas fa-map-marker-alt"></i> Jl. Sumber Lungun No.1, Dusun Mulyosari, Desa Bunder, Kec. Kabat, Kab. Banyuwangi, Jawa Timur 68461
     </div>
 </div>
-
+    <!-- OVERLAY -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    
+    <!-- MENU NAVIGASI -->
+    <div class="nav-menu" id="navMenu">
+        <button class="close-btn" id="closeMenu">✕</button>
+        <div class="menu-title">✦ MENU FASA</div>
+        <ul>
+            <li>
+                <a href="#" onclick="bukaHalaman('info')">
+                    <i class="fas fa-info-circle"></i> Info
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="bukaHalaman('pendataan')">
+                    <i class="fas fa-clipboard-list"></i> Pendataan
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="bukaHalaman('pembayaran')">
+                    <i class="fas fa-money-bill-wave"></i> Pembayaran
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="bukaHalaman('login')">
+                    <i class="fas fa-sign-in-alt"></i> Login Member
+                </a>
+            </li>
+        </ul>
+        
+        <!-- Info tambahan di bawah menu -->
+        <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.75rem; text-align: center;">
+                <i class="fas fa-graduation-cap"></i> FASA v1.0<br>
+                Forum Alumni Sunan Ampel
+            </p>
+        </div>
+    </div>
+    
+    <!-- TOMBOL HAMBURGER -->
+    <nav class="navbar" id="navbar">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 <main class="container">
     <!-- SAMBUTAN KETUA YAYASAN, KEPALA MI, KEPALA MTS -->
     <section>
@@ -701,7 +926,7 @@
             <li class="alumni-horizontal-item">
                 <div class="alumni-number-photo">
                     <span class="alumni-number">1.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto">
+                    <img class="alumni-thumbnail" src="https://res.cloudinary.com/dppixmteb/image/upload/v1781605616/718699013_17886670263561998_1990707614762064931_n_xgdyxq.jpg" alt="Foto">
                     <span class="alumni-name">Eni Sulisti Ningsih</span>
                 </div>
                 <div class="alumni-prodi">
@@ -715,7 +940,7 @@
             <li class="alumni-horizontal-item">
                 <div class="alumni-number-photo">
                     <span class="alumni-number">2.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Foto">
+                    <img class="alumni-thumbnail" src="https://res.cloudinary.com/dppixmteb/image/upload/v1781605616/718597272_18099637745112082_1213928252333778985_n_wvrpir.jpg" alt="Foto">
                     <span class="alumni-name">Siti Ainur Rohmah</span>
                 </div>
                 <div class="alumni-prodi">
@@ -729,7 +954,7 @@
             <li class="alumni-horizontal-item">
                 <div class="alumni-number-photo">
                     <span class="alumni-number">3.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Foto">
+                    <img class="alumni-thumbnail" src="https://res.cloudinary.com/dppixmteb/image/upload/v1781605626/Cuplikan_layar_2026-06-16_172556_neod8o.png" alt="Foto">
                     <span class="alumni-name">Siti Rohmah</span>
                 </div>
                 <div class="alumni-prodi">
@@ -737,101 +962,6 @@
                 </div>
                 <div class="alumni-univ">
                     <i class="fas fa-university"></i> Universitas Islam Ibrahimy Banyuwangi
-                </div>
-            </li>
-            
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">4.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/55.jpg" alt="Foto">
-                    <span class="alumni-name">Muhammad Daniel</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> SMA
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> SMAN 1 TEBING SYAHBANDAR
-                </div>
-            </li>
-            
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">5.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto">
-                    <span class="alumni-name">Nur Darwati</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> S1 Pendidikan
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> SMP Science Qur'an Al Irsyad Al Islamiy
-                </div>
-            </li>
-            
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">6.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Foto">
-                    <span class="alumni-name">MUHAMMAD HAFID BACHTIAR</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> S1 Kedokteran
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> UNIVERSITAS AIRLANGGA
-                </div>
-            </li>
-            
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">7.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
-                    <span class="alumni-name">ADINRA MANIK</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> SMA
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
-                </div>
-            </li>
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">8.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
-                    <span class="alumni-name">ADINRA MANIK</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> SMA
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
-                </div>
-            </li>
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">9.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
-                    <span class="alumni-name">ADINRA MANIK</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> SMA
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
-                </div>
-            </li>
-            <li class="alumni-horizontal-item">
-                <div class="alumni-number-photo">
-                    <span class="alumni-number">10.</span>
-                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
-                    <span class="alumni-name">ADINRA MANIK</span>
-                </div>
-                <div class="alumni-prodi">
-                    <i class="fas fa-graduation-cap"></i> SMA
-                </div>
-                <div class="alumni-univ">
-                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
                 </div>
             </li>
         </ul>
@@ -927,6 +1057,209 @@
     function updateSlider() {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
+        // ========== NAVIGASI HAMBURGER ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+    const navbar = document.getElementById('navbar');
+    
+    // Buka menu
+    function openMenu() {
+        navMenu.classList.add('open');
+        navOverlay.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Tutup menu
+    function closeMenuFunc() {
+        navMenu.classList.remove('open');
+        navOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    hamburger.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    navOverlay.addEventListener('click', closeMenuFunc);
+    
+    // Efek navbar saat di-scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // ========== FUNGSI BUKA HALAMAN BARU ==========
+    function bukaHalaman(page) {
+        closeMenuFunc();
+        
+        // Buat konten sesuai halaman
+        let konten = '';
+        let judul = '';
+        
+        switch(page) {
+            case 'info':
+                konten = `
+                    <div style="max-width: 700px; margin: 0 auto;">
+                        <h2 style="color: #1c6e4b; margin-bottom: 20px;">Informasi FASA</h2>
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                            <p><strong>📌 Nama:</strong> Forum Alumni Sunan Ampel (FASA)</p>
+                            <p><strong>📍 Alamat:</strong> Jl. Sumber Lungun No.1, Bunder, Kabat, Banyuwangi</p>
+                            <p><strong>📧 Email:</strong> fasa@yayasansunanampel.sch.id</p>
+                            <p><strong>📱 WhatsApp:</strong> +62 857-4934-3688</p>
+                            <p><strong>📅 Didirikan:</strong> 2023</p>
+                            <hr style="margin: 20px 0;">
+                            <p style="font-style: italic;">"Satu Alumni Satu Aksi"</p>
+                            <p>Forum ini bertujuan untuk menjalin silaturahmi antar alumni dan memajukan almamater Yayasan Sunan Ampel.</p>
+                        </div>
+                    </div>
+                `;
+                break;
+                
+            case 'pendataan':
+                konten = `
+                    <div style="max-width: 700px; margin: 0 auto;">
+                        <h2 style="color: #1c6e4b; margin-bottom: 20px;">Form Pendataan Alumni</h2>
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                            <p style="margin-bottom: 20px;">Silakan isi data diri Anda untuk memperbarui database alumni FASA.</p>
+                            <form style="display: flex; flex-direction: column; gap: 15px;">
+                                <input type="text" placeholder="Nama Lengkap" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                                <input type="text" placeholder="Tempat, Tanggal Lahir" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                                <select style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option>Laki-Laki</option>
+                                    <option>Perempuan</option>
+                                </select>
+                                <input type="text" placeholder="Angkatan MI" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                                <input type="text" placeholder="Pekerjaan / Prodi" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                                <input type="text" placeholder="Universitas / Instansi" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                                <button style="background: #1c6e4b; color: white; padding: 14px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">Kirim Data</button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+                break;
+                
+           case 'pembayaran':
+    konten = `
+        <div style="max-width: 700px; margin: 0 auto;">
+            <h2 style="color: #1c6e4b; margin-bottom: 20px;">Pembayaran Iuran Alumni</h2>
+            <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <p style="margin-bottom: 20px;">Bayar iuran alumni melalui QRIS atau transfer ke rekening berikut:</p>
+                
+                <!-- QRIS -->
+                <div style="background: #f0f5f2; border-radius: 15px; padding: 25px; margin-bottom: 20px; text-align: center;">
+                    <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">
+                        <i class="fas fa-qrcode" style="color: #1c6e4b; font-size: 1.5rem;"></i> Scan QRIS
+                    </p>
+                    <div style="background: white; padding: 20px; border-radius: 15px; display: inline-block; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                        <img 
+                            src="https://res.cloudinary.com/dppixmteb/image/upload/v1781606615/WhatsApp_Image_2026-06-16_at_17.43.11_xq5pmx.jpg" 
+                            alt="QRIS FASA" 
+                            style="width: 200px; height: 200px; border-radius: 10px;"
+                            onerror="this.src='https://via.placeholder.com/200x200/1c6e4b/white?text=QRIS+FASA'"
+                        >
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.85rem; color: #555;">
+                        <i class="fas fa-info-circle"></i> Scan menggunakan aplikasi mobile banking atau e-wallet
+                    </p>
+                </div>
+                
+                <!-- Rekening Bank -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="background: #f0f5f2; border-radius: 15px; padding: 20px; text-align: center;">
+                        <p><strong>🏦 BCA</strong></p>
+                        <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">123-456-7890</p>
+                        <p style="font-size: 0.8rem;">a.n. Forum Alumni Sunan Ampel</p>
+                    </div>
+                    <div style="background: #f0f5f2; border-radius: 15px; padding: 20px; text-align: center;">
+                        <p><strong>🏦 BSI</strong></p>
+                        <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">987-654-3210</p>
+                        <p style="font-size: 0.8rem;">a.n. Yayasan Sunan Ampel</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 0.85rem; color: #555; text-align: center; background: #fef5e6; padding: 12px; border-radius: 10px;">
+                    <i class="fas fa-whatsapp" style="color: #25D366;"></i> Konfirmasi pembayaran ke WhatsApp <strong>+62 857-4934-3688</strong>
+                </p>
+            </div>
+        </div>
+    `;
+    break;
+                
+            case 'login':
+                konten = `
+                    <div style="max-width: 450px; margin: 0 auto;">
+                        <h2 style="color: #1c6e4b; margin-bottom: 20px;">Login Member FASA</h2>
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                            <form style="display: flex; flex-direction: column; gap: 15px;">
+                                <input type="email" placeholder="Email" style="padding: 14px; border: 1px solid #ddd; border-radius: 10px;">
+                                <input type="password" placeholder="Password" style="padding: 14px; border: 1px solid #ddd; border-radius: 10px;">
+                                <button style="background: #1c6e4b; color: white; padding: 14px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">Login</button>
+                            </form>
+                            <p style="text-align: center; margin-top: 15px; font-size: 0.85rem;">
+                                Belum punya akun? <a href="#" style="color: #f4b942; text-decoration: none;">Daftar di sini</a>
+                            </p>
+                        </div>
+                    </div>
+                `;
+                break;
+                
+            default:
+                judul = 'FASA';
+                konten = '<p>Halaman tidak ditemukan.</p>';
+        }
+        
+        // Tampilkan halaman baru
+        const container = document.querySelector('.container');
+        const sectionBaru = document.createElement('section');
+        sectionBaru.id = 'halamanBaru';
+        sectionBaru.style.paddingTop = '100px';
+        sectionBaru.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="color: #1c6e4b;">${judul}</h2>
+                <button onclick="tutupHalaman()" style="background: #e74c3c; color: white; border: none; padding: 10px 25px; border-radius: 30px; cursor: pointer; font-weight: 600;">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
+            ${konten}
+        `;
+        
+        // Hapus halaman sebelumnya jika ada
+        const halamanLama = document.getElementById('halamanBaru');
+        if (halamanLama) halamanLama.remove();
+        
+        // Sisipkan setelah hero atau di dalam container
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.insertAdjacentElement('afterend', sectionBaru);
+        } else {
+            document.querySelector('.container').prepend(sectionBaru);
+        }
+        
+        // Scroll ke atas
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function tutupHalaman() {
+        const halaman = document.getElementById('halamanBaru');
+        if (halaman) {
+            halaman.style.transition = 'opacity 0.3s';
+            halaman.style.opacity = '0';
+            setTimeout(() => halaman.remove(), 300);
+        }
+    }
+    
+    // Tutup menu dengan tombol ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMenuFunc();
+        }
+    });
 
     function nextSlide() {
         currentIndex = (currentIndex + 1) % totalSlides;
