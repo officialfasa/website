@@ -521,6 +521,249 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -6px);
         }
+                /* ========== LOGIN & DASHBOARD ========== */
+        .login-container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .login-container h2 {
+            text-align: center;
+            color: #1c6e4b;
+            margin-bottom: 10px;
+        }
+        
+        .login-container .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+        
+        .login-container .form-group {
+            margin-bottom: 18px;
+        }
+        
+        .login-container label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        
+        .login-container input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        
+        .login-container input:focus {
+            border-color: #1c6e4b;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(28, 110, 75, 0.1);
+        }
+        
+        .login-container .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: #1c6e4b;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .login-container .btn-login:hover {
+            background: #0b3b2f;
+        }
+        
+        .login-container .error-msg {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Dashboard Admin */
+        .dashboard-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .dashboard-header h2 {
+            color: #1c6e4b;
+        }
+        
+        .dashboard-header .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .dashboard-header .user-badge .role {
+            background: #f4b942;
+            color: #1e2a3e;
+            padding: 4px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .dashboard-header .btn-logout {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .dashboard-header .btn-logout:hover {
+            background: #c0392b;
+        }
+        
+        /* Statistik Dashboard */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1c6e4b;
+        }
+        
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        /* Tabel Data Alumni */
+        .table-wrapper {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        .table-wrapper th {
+            background: #1c6e4b;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .table-wrapper td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .table-wrapper tr:hover td {
+            background: #f5f9f7;
+        }
+        
+        .table-wrapper .btn-delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+        
+        .table-wrapper .btn-delete:hover {
+            background: #c0392b;
+        }
+        
+        .empty-data {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+        
+        /* Menu Admin */
+        .admin-menu {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .admin-menu .menu-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .admin-menu .menu-btn:hover,
+        .admin-menu .menu-btn.active {
+            background: #1c6e4b;
+            color: white;
+            border-color: #1c6e4b;
+        }
+        
+        @media (max-width: 600px) {
+            .dashboard-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .dashboard-header .user-badge {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
         
         /* Menu Dropdown */
         .nav-menu {
@@ -759,10 +1002,10 @@
                 </a>
             </li>
             <li>
-                <a href="#" onclick="bukaHalaman('login')">
-                    <i class="fas fa-sign-in-alt"></i> Login Member
-                </a>
-            </li>
+    <a href="#" onclick="bukaHalaman('login')">
+        <i class="fas fa-sign-in-alt"></i> Login Member
+    </a>
+</li>
         </ul>
         
         <!-- Info tambahan di bawah menu -->
@@ -1057,6 +1300,1185 @@
     function updateSlider() {
         slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
+
+            // ================================================================
+    // ========== SISTEM LOGIN & DATABASE FASA ==========
+    // ================================================================
+    
+    // ----- DATA DEFAULT (Admin & Member Bawaan) -----
+    const DEFAULT_USERS = [
+        {
+            id: 'admin1',
+            username: 'admin',
+            password: 'admin123',
+            role: 'admin',
+            nama: 'Administrator FASA'
+        },
+        {
+            id: 'member1',
+            username: 'member1',
+            password: 'member123',
+            role: 'member',
+            nama: 'Ahmad Fauzi'
+        },
+        {
+            id: 'member2',
+            username: 'member2',
+            password: 'member123',
+            role: 'member',
+            nama: 'Siti Nur Aisyah'
+        }
+    ];
+    
+    // ----- INISIALISASI DATABASE -----
+    function initDatabase() {
+        if (!localStorage.getItem('fasa_users')) {
+            localStorage.setItem('fasa_users', JSON.stringify(DEFAULT_USERS));
+        }
+        if (!localStorage.getItem('fasa_pendataan')) {
+            localStorage.setItem('fasa_pendataan', JSON.stringify([]));
+        }
+        if (!localStorage.getItem('fasa_session')) {
+            localStorage.setItem('fasa_session', JSON.stringify(null));
+        }
+    }
+    
+    // ----- FUNGSI AKSES DATABASE -----
+    function getUsers() {
+        return JSON.parse(localStorage.getItem('fasa_users')) || [];
+    }
+    
+    function getPendataan() {
+        return JSON.parse(localStorage.getItem('fasa_pendataan')) || [];
+    }
+    
+    function getSession() {
+        return JSON.parse(localStorage.getItem('fasa_session')) || null;
+    }
+    
+    function saveUsers(users) {
+        localStorage.setItem('fasa_users', JSON.stringify(users));
+    }
+    
+    function savePendataan(data) {
+        localStorage.setItem('fasa_pendataan', JSON.stringify(data));
+    }
+    
+    function saveSession(session) {
+        localStorage.setItem('fasa_session', JSON.stringify(session));
+    }
+    
+    // ----- FUNGSI LOGIN -----
+    function loginUser(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('loginUsername').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+        const errorMsg = document.getElementById('loginError');
+        
+        if (!username || !password) {
+            errorMsg.textContent = '⚠️ Username dan password harus diisi!';
+            errorMsg.style.display = 'block';
+            return;
+        }
+        
+        const users = getUsers();
+        const user = users.find(u => u.username === username && u.password === password);
+        
+        if (user) {
+            saveSession({
+                id: user.id,
+                username: user.username,
+                role: user.role,
+                nama: user.nama
+            });
+            errorMsg.style.display = 'none';
+            showDashboard();
+        } else {
+            errorMsg.textContent = '❌ Username atau password salah!';
+            errorMsg.style.display = 'block';
+        }
+    }
+    
+    // ----- FUNGSI LOGOUT -----
+    function logoutUser() {
+        if (confirm('Yakin ingin logout?')) {
+            saveSession(null);
+            const halaman = document.getElementById('halamanBaru');
+            if (halaman) halaman.remove();
+            const loginPage = document.getElementById('halamanLogin');
+            if (loginPage) loginPage.remove();
+            showLoginPage();
+        }
+    }
+    
+    // ----- TAMPILAN LOGIN PAGE -----
+    function showLoginPage() {
+        const existingPage = document.getElementById('halamanLogin');
+        if (existingPage) existingPage.remove();
+        
+        const halamanLama = document.getElementById('halamanBaru');
+        if (halamanLama) halamanLama.remove();
+        
+        const container = document.querySelector('.container');
+        const section = document.createElement('section');
+        section.id = 'halamanLogin';
+        section.style.paddingTop = '100px';
+        section.innerHTML = `
+            <div class="login-container">
+                <h2>🔐 Login Member FASA</h2>
+                <p class="subtitle">Silakan login untuk mengakses dashboard</p>
+                <form onsubmit="loginUser(event)">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="loginUsername" placeholder="Masukkan username" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+                    </div>
+                    <button type="submit" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <div class="error-msg" id="loginError"></div>
+                </form>
+                <div style="margin-top: 20px; padding: 15px; background: #f0f5f2; border-radius: 12px; text-align: center;">
+                    <p style="font-size: 0.8rem; color: #555; margin-bottom: 5px;">
+                        <i class="fas fa-info-circle"></i> Akun Demo:
+                    </p>
+                    <p style="font-size: 0.8rem; color: #1c6e4b;">
+                        <strong>Admin:</strong> admin / admin123
+                    </p>
+                    <p style="font-size: 0.8rem; color: #1c6e4b;">
+                        <strong>Member:</strong> member1 / member123
+                    </p>
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-size: 0.75rem; color: #888;">
+                    <i class="fas fa-shield-alt"></i> Hubungi admin jika lupa password
+                </p>
+            </div>
+        `;
+        
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.insertAdjacentElement('afterend', section);
+        } else {
+            container.prepend(section);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // ----- TAMPILAN DASHBOARD -----
+    function showDashboard() {
+        const session = getSession();
+        if (!session) {
+            showLoginPage();
+            return;
+        }
+        
+        const existingPage = document.getElementById('halamanLogin');
+        if (existingPage) existingPage.remove();
+        
+        const halamanLama = document.getElementById('halamanBaru');
+        if (halamanLama) halamanLama.remove();
+        
+        const container = document.querySelector('.container');
+        const section = document.createElement('section');
+        section.id = 'halamanLogin';
+        section.style.paddingTop = '100px';
+        section.innerHTML = `
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2>📊 Dashboard ${session.role === 'admin' ? 'Admin' : 'Member'} FASA</h2>
+                    <div class="user-badge">
+                        <span>👤 ${session.nama}</span>
+                        <span class="role">${session.role === 'admin' ? '🛡️ Admin' : '⭐ Member'}</span>
+                        <button class="btn-logout" onclick="logoutUser()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                
+                ${session.role === 'admin' ? `
+                <div class="admin-menu">
+                    <button class="menu-btn active" onclick="showAdminMenu('dashboard')" id="menuDashboard">📊 Dashboard</button>
+                    <button class="menu-btn" onclick="showAdminMenu('data')" id="menuData">📋 Data Pendataan</button>
+                    <button class="menu-btn" onclick="showAdminMenu('kelola')" id="menuKelola">👥 Kelola Member</button>
+                    <button class="menu-btn" onclick="showAdminMenu('reset')" id="menuReset" style="border-color: #e74c3c; color: #e74c3c;">🔄 Reset Database</button>
+                </div>
+                ` : ''}
+                
+                <div id="dashboardContent">
+                    ${session.role === 'admin' ? getAdminDashboard() : getMemberDashboard(session)}
+                </div>
+            </div>
+        `;
+        
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.insertAdjacentElement('afterend', section);
+        } else {
+            container.prepend(section);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // ----- DASHBOARD ADMIN -----
+    function getAdminDashboard() {
+        const data = getPendataan();
+        const users = getUsers();
+        const totalAlumni = data.length;
+        const totalMember = users.filter(u => u.role === 'member').length;
+        
+        return `
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">${totalAlumni}</div>
+                    <div class="label">📋 Total Alumni Terdata</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${totalMember}</div>
+                    <div class="label">👥 Total Member</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.filter(d => d.status === 'baru').length || 0}</div>
+                    <div class="label">🆕 Pendaftar Baru</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.length > 0 ? Math.round((data.filter(d => d.status === 'verified').length / data.length) * 100) : 0}%</div>
+                    <div class="label">✅ Data Terverifikasi</div>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
+                <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                    <i class="fas fa-list"></i> Data Alumni Terbaru
+                </h3>
+                ${data.length > 0 ? `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>TTL</th>
+                            <th>JK</th>
+                            <th>Angkatan</th>
+                            <th>Prodi</th>
+                            <th>Universitas</th>
+                            <th>WhatsApp</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.map((d, i) => `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td><strong>${d.nama || '-'}</strong></td>
+                                <td>${d.ttl || '-'}</td>
+                                <td>${d.jk || '-'}</td>
+                                <td>${d.angkatan || '-'}</td>
+                                <td>${d.prodi || '-'}</td>
+                                <td>${d.universitas || '-'}</td>
+                                <td>${d.whatsapp || '-'}</td>
+                                <td>
+                                    <button class="btn-delete" onclick="hapusData(${i})">
+                                        <i class="fas fa-trash"></i> Hapus
+                                    </button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+                ` : `
+                <div class="empty-data">
+                    <i class="fas fa-inbox" style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 10px;"></i>
+                    <p>Belum ada data pendataan alumni.</p>
+                </div>
+                `}
+            </div>
+        `;
+    }
+    
+    // ----- DASHBOARD MEMBER -----
+    function getMemberDashboard(session) {
+        const data = getPendataan();
+        const myData = data.filter(d => d.whatsapp === session.username || d.nama === session.nama);
+        
+        return `
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">${myData.length}</div>
+                    <div class="label">📋 Data Anda</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.length}</div>
+                    <div class="label">👥 Total Alumni</div>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
+                <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                    <i class="fas fa-user"></i> Data Diri Anda
+                </h3>
+                ${myData.length > 0 ? `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>TTL</th>
+                            <th>JK</th>
+                            <th>Angkatan</th>
+                            <th>Prodi</th>
+                            <th>Universitas</th>
+                            <th>WhatsApp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${myData.map((d, i) => `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td><strong>${d.nama || '-'}</strong></td>
+                                <td>${d.ttl || '-'}</td>
+                                <td>${d.jk || '-'}</td>
+                                <td>${d.angkatan || '-'}</td>
+                                <td>${d.prodi || '-'}</td>
+                                <td>${d.universitas || '-'}</td>
+                                <td>${d.whatsapp || '-'}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+                ` : `
+                <div class="empty-data">
+                    <i class="fas fa-user-plus" style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 10px;"></i>
+                    <p>Anda belum mengisi data pendataan.</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">
+                        <a href="#" onclick="bukaHalaman('pendataan'); return false;" style="color: #1c6e4b; font-weight: 600;">
+                            <i class="fas fa-arrow-right"></i> Isi data sekarang
+                        </a>
+                    </p>
+                </div>
+                `}
+            </div>
+        `;
+    }
+    
+    // ----- MENU ADMIN -----
+    function showAdminMenu(menu) {
+        document.querySelectorAll('.admin-menu .menu-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        const btnMap = {
+            'dashboard': 'menuDashboard',
+            'data': 'menuData',
+            'kelola': 'menuKelola',
+            'reset': 'menuReset'
+        };
+        const activeBtn = document.getElementById(btnMap[menu]);
+        if (activeBtn) activeBtn.classList.add('active');
+        
+        const content = document.getElementById('dashboardContent');
+        
+        if (menu === 'dashboard') {
+            content.innerHTML = getAdminDashboard();
+        } else if (menu === 'data') {
+            const data = getPendataan();
+            content.innerHTML = `
+                <div class="table-wrapper">
+                    <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                        <i class="fas fa-database"></i> Semua Data Pendataan Alumni
+                        <span style="font-size: 0.8rem; font-weight: normal; color: #888;"> (${data.length} data)</span>
+                    </h3>
+                    ${data.length > 0 ? `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>TTL</th>
+                                <th>JK</th>
+                                <th>Angkatan</th>
+                                <th>Prodi</th>
+                                <th>Universitas</th>
+                                <th>WhatsApp</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.map((d, i) => `
+                                <tr>
+                                    <td>${i + 1}</td>
+                                    <td><strong>${d.nama || '-'}</strong></td>
+                                    <td>${d.ttl || '-'}</td>
+                                    <td>${d.jk || '-'}</td>
+                                    <td>${d.angkatan || '-'}</td>
+                                    <td>${d.prodi || '-'}</td>
+                                    <td>${d.universitas || '-'}</td>
+                                    <td>${d.whatsapp || '-'}</td>
+                                    <td>
+                                        <button class="btn-delete" onclick="hapusData(${i})">
+                                            <i class="fas fa-trash"></i> Hapus
+                                        </button>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    ` : `
+                    <div class="empty-data">
+                        <i class="fas fa-inbox" style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 10px;"></i>
+                        <p>Belum ada data pendataan alumni.</p>
+                    </div>
+                    `}
+                </div>
+            `;
+        } else if (menu === 'kelola') {
+            const users = getUsers();
+            content.innerHTML = `
+                <div class="table-wrapper">
+                    <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                        <i class="fas fa-users-cog"></i> Kelola Member
+                    </h3>
+                    <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="text" id="newUsername" placeholder="Username baru" style="padding: 10px; border: 2px solid #ddd; border-radius: 10px; flex: 1; min-width: 150px;">
+                        <input type="password" id="newPassword" placeholder="Password" style="padding: 10px; border: 2px solid #ddd; border-radius: 10px; flex: 1; min-width: 150px;">
+                        <input type="text" id="newNama" placeholder="Nama lengkap" style="padding: 10px; border: 2px solid #ddd; border-radius: 10px; flex: 1; min-width: 150px;">
+                        <button onclick="tambahMember()" style="background: #1c6e4b; color: white; border: none; padding: 10px 25px; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-user-plus"></i> Tambah
+                        </button>
+                    </div>
+                    ${users.length > 0 ? `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Username</th>
+                                <th>Nama</th>
+                                <th>Role</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${users.map((u, i) => `
+                                <tr>
+                                    <td>${i + 1}</td>
+                                    <td>${u.username}</td>
+                                    <td>${u.nama}</td>
+                                    <td><span style="background: ${u.role === 'admin' ? '#f4b942' : '#1c6e4b'}; color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.75rem;">${u.role === 'admin' ? '🛡️ Admin' : '⭐ Member'}</span></td>
+                                    <td>
+                                        ${u.role !== 'admin' ? `<button class="btn-delete" onclick="hapusMember('${u.id}')"><i class="fas fa-trash"></i> Hapus</button>` : '<span style="color: #888; font-size: 0.75rem;">Admin utama</span>'}
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    ` : `
+                    <div class="empty-data">
+                        <p>Belum ada member terdaftar.</p>
+                    </div>
+                    `}
+                </div>
+            `;
+        } else if (menu === 'reset') {
+            content.innerHTML = `
+                <div class="table-wrapper" style="text-align: center; padding: 40px;">
+                    <h3 style="color: #e74c3c; margin-bottom: 15px;">
+                        <i class="fas fa-exclamation-triangle"></i> Reset Database
+                    </h3>
+                    <p style="color: #555; margin-bottom: 20px;">
+                        Tindakan ini akan menghapus SEMUA data pendataan alumni dan mengembalikan member ke default.
+                        <br><strong style="color: #e74c3c;">Data tidak dapat dikembalikan!</strong>
+                    </p>
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="resetDatabase()" style="background: #e74c3c; color: white; border: none; padding: 12px 30px; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-trash-alt"></i> Ya, Reset Sekarang
+                        </button>
+                        <button onclick="showAdminMenu('dashboard')" style="background: #1c6e4b; color: white; border: none; padding: 12px 30px; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-times"></i> Batal
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    }
+    
+    // ----- FUNGSI CRUD DATA -----
+    function tambahMember() {
+        const username = document.getElementById('newUsername').value.trim();
+        const password = document.getElementById('newPassword').value.trim();
+        const nama = document.getElementById('newNama').value.trim();
+        
+        if (!username || !password || !nama) {
+            alert('⚠️ Semua field harus diisi!');
+            return;
+        }
+        if (username.length < 3) {
+            alert('⚠️ Username minimal 3 karakter!');
+            return;
+        }
+        const users = getUsers();
+        if (users.find(u => u.username === username)) {
+            alert('❌ Username sudah digunakan!');
+            return;
+        }
+        users.push({
+            id: 'member_' + Date.now(),
+            username: username,
+            password: password,
+            role: 'member',
+            nama: nama
+        });
+        saveUsers(users);
+        alert('✅ Member berhasil ditambahkan!');
+        showAdminMenu('kelola');
+    }
+    
+    function hapusMember(id) {
+        if (confirm('⚠️ Yakin ingin menghapus member ini?')) {
+            let users = getUsers();
+            users = users.filter(u => u.id !== id);
+            saveUsers(users);
+            alert('✅ Member berhasil dihapus!');
+            showAdminMenu('kelola');
+        }
+    }
+    
+    function hapusData(index) {
+        if (confirm('⚠️ Yakin ingin menghapus data ini? Data bersifat permanen dan tidak bisa dikembalikan!')) {
+            let data = getPendataan();
+            data.splice(index, 1);
+            savePendataan(data);
+            alert('✅ Data berhasil dihapus!');
+            showDashboard();
+        }
+    }
+    
+    function resetDatabase() {
+        if (confirm('⚠️ PERINGATAN! Ini akan menghapus SEMUA data pendataan dan mengembalikan member ke default. Lanjutkan?')) {
+            if (confirm('⚠️ Konfirmasi akhir: Yakin ingin mereset database?')) {
+                savePendataan([]);
+                saveUsers(DEFAULT_USERS);
+                alert('✅ Database berhasil direset!');
+                showDashboard();
+            }
+        }
+    }
+    
+    // ----- SIMPAN DATA PENDAATAAN -----
+    function simpanPendataan(data) {
+        let allData = getPendataan();
+        data.status = 'baru';
+        data.tanggal = new Date().toLocaleDateString('id-ID');
+        allData.push(data);
+        savePendataan(allData);
+    }
+    
+    // ----- FUNGSI KIRIM FORM PENDAATAAN -----
+    function kirimPendataanBaru(event) {
+        event.preventDefault();
+        const form = document.getElementById('formPendataan');
+        if (!form) {
+            console.error('Form tidak ditemukan!');
+            return;
+        }
+        const inputs = form.querySelectorAll('input, select');
+        if (inputs.length < 7) {
+            alert('⚠️ Form tidak lengkap!');
+            return;
+        }
+        const data = {
+            nama: inputs[0].value.trim(),
+            ttl: inputs[1].value.trim(),
+            jk: inputs[2].value,
+            angkatan: inputs[3].value.trim(),
+            prodi: inputs[4].value.trim(),
+            universitas: inputs[5].value.trim(),
+            whatsapp: inputs[6].value.trim()
+        };
+        if (!data.nama || !data.ttl || !data.jk || !data.angkatan || !data.whatsapp) {
+            alert('⚠️ Field yang bertanda * wajib diisi!');
+            return;
+        }
+        simpanPendataan(data);
+        const notif = document.getElementById('notifikasiSukses');
+        if (notif) {
+            form.style.display = 'none';
+            notif.style.display = 'block';
+            notif.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        setTimeout(() => { form.reset(); }, 3000);
+        console.log('✅ Data pendataan terkirim:', data);
+    }
+    
+    // ----- CEK SESSION SAAT LOAD -----
+    function cekSession() {
+        initDatabase();
+        const session = getSession();
+        if (session) {
+            setTimeout(function() {
+                showDashboard();
+            }, 500);
+            return true;
+        }
+        return false;
+    }
+    
+    // ----- PANGGIL SAAT HALAMAN DIMUAT -----
+    document.addEventListener('DOMContentLoaded', function() {
+        cekSession();
+    });
+    // ================================================================
+
+    
+    // Inisialisasi database di LocalStorage
+    function initDatabase() {
+        if (!localStorage.getItem('fasa_users')) {
+            localStorage.setItem('fasa_users', JSON.stringify(DEFAULT_USERS));
+        }
+        if (!localStorage.getItem('fasa_pendataan')) {
+            localStorage.setItem('fasa_pendataan', JSON.stringify([]));
+        }
+        if (!localStorage.getItem('fasa_session')) {
+            localStorage.setItem('fasa_session', JSON.stringify(null));
+        }
+    }
+    
+    // Ambil data dari LocalStorage
+    function getUsers() {
+        return JSON.parse(localStorage.getItem('fasa_users')) || [];
+    }
+    
+    function getPendataan() {
+        return JSON.parse(localStorage.getItem('fasa_pendataan')) || [];
+    }
+    
+    function getSession() {
+        return JSON.parse(localStorage.getItem('fasa_session')) || null;
+    }
+    
+    function saveUsers(users) {
+        localStorage.setItem('fasa_users', JSON.stringify(users));
+    }
+    
+    function savePendataan(data) {
+        localStorage.setItem('fasa_pendataan', JSON.stringify(data));
+    }
+    
+    function saveSession(session) {
+        localStorage.setItem('fasa_session', JSON.stringify(session));
+    }
+    
+    // ========== FUNGSI LOGIN ==========
+    function loginUser(event) {
+        event.preventDefault();
+        
+        const username = document.getElementById('loginUsername').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+        const errorMsg = document.getElementById('loginError');
+        
+        const users = getUsers();
+        const user = users.find(u => u.username === username && u.password === password);
+        
+        if (user) {
+            saveSession({
+                id: user.id,
+                username: user.username,
+                role: user.role,
+                nama: user.nama
+            });
+            errorMsg.style.display = 'none';
+            showDashboard();
+        } else {
+            errorMsg.textContent = '❌ Username atau password salah!';
+            errorMsg.style.display = 'block';
+        }
+    }
+    
+    // ========== FUNGSI LOGOUT ==========
+    function logoutUser() {
+        if (confirm('Yakin ingin logout?')) {
+            saveSession(null);
+            showLoginPage();
+        }
+    }
+    
+    // ========== TAMPILAN HALAMAN ==========
+    function showLoginPage() {
+        // Hapus halaman login/dashboard yang ada
+        const existingPage = document.getElementById('halamanLogin');
+        if (existingPage) existingPage.remove();
+        
+        const container = document.querySelector('.container');
+        const section = document.createElement('section');
+        section.id = 'halamanLogin';
+        section.style.paddingTop = '100px';
+        section.innerHTML = `
+            <div class="login-container">
+                <h2>🔐 Login Member FASA</h2>
+                <p class="subtitle">Silakan login untuk mengakses dashboard</p>
+                <form onsubmit="loginUser(event)">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="loginUsername" placeholder="Masukkan username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+                    </div>
+                    <button type="submit" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <div class="error-msg" id="loginError"></div>
+                </form>
+                <p style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: #888;">
+                    <i class="fas fa-info-circle"></i> Hubungi admin jika lupa password
+                </p>
+            </div>
+        `;
+        
+        // Hapus halaman sebelumnya
+        const halamanLama = document.getElementById('halamanBaru');
+        if (halamanLama) halamanLama.remove();
+        
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.insertAdjacentElement('afterend', section);
+        } else {
+            container.prepend(section);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function showDashboard() {
+        const session = getSession();
+        if (!session) {
+            showLoginPage();
+            return;
+        }
+        
+        // Hapus halaman login/dashboard yang ada
+        const existingPage = document.getElementById('halamanLogin');
+        if (existingPage) existingPage.remove();
+        
+        const container = document.querySelector('.container');
+        const section = document.createElement('section');
+        section.id = 'halamanLogin';
+        section.style.paddingTop = '100px';
+        section.innerHTML = `
+            <div class="dashboard-container">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <h2>📊 Dashboard ${session.role === 'admin' ? 'Admin' : 'Member'} FASA</h2>
+                    <div class="user-badge">
+                        <span>👤 ${session.nama}</span>
+                        <span class="role">${session.role === 'admin' ? '🛡️ Admin' : '⭐ Member'}</span>
+                        <button class="btn-logout" onclick="logoutUser()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Menu Admin (hanya untuk admin) -->
+                ${session.role === 'admin' ? `
+                <div class="admin-menu">
+                    <button class="menu-btn active" onclick="showAdminMenu('dashboard')" id="menuDashboard">📊 Dashboard</button>
+                    <button class="menu-btn" onclick="showAdminMenu('data')" id="menuData">📋 Data Pendataan</button>
+                    <button class="menu-btn" onclick="showAdminMenu('kelola')" id="menuKelola">👥 Kelola Member</button>
+                </div>
+                ` : ''}
+                
+                <!-- Konten Dashboard -->
+                <div id="dashboardContent">
+                    ${session.role === 'admin' ? getAdminDashboard() : getMemberDashboard(session)}
+                </div>
+            </div>
+        `;
+        
+        // Hapus halaman sebelumnya
+        const halamanLama = document.getElementById('halamanBaru');
+        if (halamanLama) halamanLama.remove();
+        
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.insertAdjacentElement('afterend', section);
+        } else {
+            container.prepend(section);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // ========== DASHBOARD ADMIN ==========
+    function getAdminDashboard() {
+        const data = getPendataan();
+        const users = getUsers();
+        const totalAlumni = data.length;
+        const totalMember = users.filter(u => u.role === 'member').length;
+        
+        return `
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">${totalAlumni}</div>
+                    <div class="label">📋 Total Alumni Terdata</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${totalMember}</div>
+                    <div class="label">👥 Total Member</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.filter(d => d.status === 'baru').length || 0}</div>
+                    <div class="label">🆕 Pendaftar Baru</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.length > 0 ? Math.round((data.filter(d => d.status === 'verified').length / data.length) * 100) : 0}%</div>
+                    <div class="label">✅ Data Terverifikasi</div>
+                </div>
+            </div>
+            
+            <div class="table-wrapper" id="dataTableWrapper">
+                <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                    <i class="fas fa-list"></i> Data Alumni Terbaru
+                </h3>
+                ${data.length > 0 ? `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>TTL</th>
+                            <th>JK</th>
+                            <th>Angkatan</th>
+                            <th>Prodi</th>
+                            <th>Universitas</th>
+                            <th>WhatsApp</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.map((d, i) => `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td><strong>${d.nama || '-'}</strong></td>
+                                <td>${d.ttl || '-'}</td>
+                                <td>${d.jk || '-'}</td>
+                                <td>${d.angkatan || '-'}</td>
+                                <td>${d.prodi || '-'}</td>
+                                <td>${d.universitas || '-'}</td>
+                                <td>${d.whatsapp || '-'}</td>
+                                <td>
+                                    <button class="btn-delete" onclick="hapusData(${i})">
+                                        <i class="fas fa-trash"></i> Hapus
+                                    </button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+                ` : `
+                <div class="empty-data">
+                    <i class="fas fa-inbox" style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 10px;"></i>
+                    <p>Belum ada data pendataan alumni.</p>
+                </div>
+                `}
+            </div>
+        `;
+    }
+    
+    // ========== DASHBOARD MEMBER ==========
+    function getMemberDashboard(session) {
+        const data = getPendataan();
+        const myData = data.filter(d => d.whatsapp === session.username || d.nama === session.nama);
+        
+        return `
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">${myData.length}</div>
+                    <div class="label">📋 Data Anda</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.length}</div>
+                    <div class="label">👥 Total Alumni</div>
+                </div>
+            </div>
+            
+            <div class="table-wrapper">
+                <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                    <i class="fas fa-user"></i> Data Diri Anda
+                </h3>
+                ${myData.length > 0 ? `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>TTL</th>
+                            <th>JK</th>
+                            <th>Angkatan</th>
+                            <th>Prodi</th>
+                            <th>Universitas</th>
+                            <th>WhatsApp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${myData.map((d, i) => `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td><strong>${d.nama || '-'}</strong></td>
+                                <td>${d.ttl || '-'}</td>
+                                <td>${d.jk || '-'}</td>
+                                <td>${d.angkatan || '-'}</td>
+                                <td>${d.prodi || '-'}</td>
+                                <td>${d.universitas || '-'}</td>
+                                <td>${d.whatsapp || '-'}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+                ` : `
+                <div class="empty-data">
+                    <i class="fas fa-user-plus" style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 10px;"></i>
+                    <p>Anda belum mengisi data pendataan.</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">
+                        <a href="#" onclick="bukaHalaman('pendataan')" style="color: #1c6e4b; font-weight: 600;">
+                            <i class="fas fa-arrow-right"></i> Isi data sekarang
+                        </a>
+                    </p>
+                </div>
+                `}
+            </div>
+        `;
+    }
+    
+    // ========== MENU ADMIN ==========
+    function showAdminMenu(menu) {
+        // Update active button
+        document.querySelectorAll('.admin-menu .menu-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(`menu${menu.charAt(0).toUpperCase() + menu.slice(1)}`).classList.add('active');
+        
+        const content = document.getElementById('dashboardContent');
+        
+        if (menu === 'dashboard') {
+            content.innerHTML = getAdminDashboard();
+        } else if (menu === 'data') {
+            // Tampilkan semua data pendataan
+            const data = getPendataan();
+            content.innerHTML = `
+                <div class="table-wrapper">
+                    <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                        <i class="fas fa-database"></i> Semua Data Pendataan Alumni
+                        <span style="font-size: 0.8rem; font-weight: normal; color: #888;"> (${data.length} data)</span>
+                    </h3>
+                    ${data.length > 0 ? `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>TTL</th>
+                                <th>JK</th>
+                                <th>Angkatan</th>
+                                <th>Prodi</th>
+                                <th>Universitas</th>
+                                <th>WhatsApp</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.map((d, i) => `
+                                <tr>
+                                    <td>${i + 1}</td>
+                                    <td><strong>${d.nama || '-'}</strong></td>
+                                    <td>${d.ttl || '-'}</td>
+                                    <td>${d.jk || '-'}</td>
+                                    <td>${d.angkatan || '-'}</td>
+                                    <td>${d.prodi || '-'}</td>
+                                    <td>${d.universitas || '-'}</td>
+                                    <td>${d.whatsapp || '-'}</td>
+                                    <td>
+                                        <button class="btn-delete" onclick="hapusData(${i})">
+                                            <i class="fas fa-trash"></i> Hapus
+                                        </button>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    ` : `
+                    <div class="empty-data">
+                        <i class="fas fa-inbox" style="font-size: 3rem; color: #ccc; display: block; margin-bottom: 10px;"></i>
+                        <p>Belum ada data pendataan alumni.</p>
+                    </div>
+                    `}
+                </div>
+            `;
+        } else if (menu === 'kelola') {
+            // Kelola member
+            const users = getUsers();
+            content.innerHTML = `
+                <div class="table-wrapper">
+                    <h3 style="margin-bottom: 15px; color: #1c6e4b;">
+                        <i class="fas fa-users-cog"></i> Kelola Member
+                    </h3>
+                    <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="text" id="newUsername" placeholder="Username baru" style="padding: 10px; border: 2px solid #ddd; border-radius: 10px; flex: 1; min-width: 150px;">
+                        <input type="password" id="newPassword" placeholder="Password" style="padding: 10px; border: 2px solid #ddd; border-radius: 10px; flex: 1; min-width: 150px;">
+                        <input type="text" id="newNama" placeholder="Nama lengkap" style="padding: 10px; border: 2px solid #ddd; border-radius: 10px; flex: 1; min-width: 150px;">
+                        <button onclick="tambahMember()" style="background: #1c6e4b; color: white; border: none; padding: 10px 25px; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-user-plus"></i> Tambah
+                        </button>
+                    </div>
+                    ${users.length > 0 ? `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Username</th>
+                                <th>Nama</th>
+                                <th>Role</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${users.map((u, i) => `
+                                <tr>
+                                    <td>${i + 1}</td>
+                                    <td>${u.username}</td>
+                                    <td>${u.nama}</td>
+                                    <td><span style="background: ${u.role === 'admin' ? '#f4b942' : '#1c6e4b'}; color: white; padding: 2px 12px; border-radius: 20px; font-size: 0.75rem;">${u.role === 'admin' ? '🛡️ Admin' : '⭐ Member'}</span></td>
+                                    <td>
+                                        ${u.role !== 'admin' ? `<button class="btn-delete" onclick="hapusMember('${u.id}')"><i class="fas fa-trash"></i> Hapus</button>` : '<span style="color: #888; font-size: 0.75rem;">Admin utama</span>'}
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    ` : `
+                    <div class="empty-data">
+                        <p>Belum ada member terdaftar.</p>
+                    </div>
+                    `}
+                </div>
+            `;
+        }
+    }
+    
+    // ========== FUNGSI CRUD DATA ==========
+    function tambahMember() {
+        const username = document.getElementById('newUsername').value.trim();
+        const password = document.getElementById('newPassword').value.trim();
+        const nama = document.getElementById('newNama').value.trim();
+        
+        if (!username || !password || !nama) {
+            alert('Semua field harus diisi!');
+            return;
+        }
+        
+        const users = getUsers();
+        if (users.find(u => u.username === username)) {
+            alert('Username sudah digunakan!');
+            return;
+        }
+        
+        users.push({
+            id: 'member_' + Date.now(),
+            username: username,
+            password: password,
+            role: 'member',
+            nama: nama
+        });
+        
+        saveUsers(users);
+        alert('✅ Member berhasil ditambahkan!');
+        showAdminMenu('kelola');
+    }
+    
+    function hapusMember(id) {
+        if (confirm('Yakin ingin menghapus member ini?')) {
+            let users = getUsers();
+            users = users.filter(u => u.id !== id);
+            saveUsers(users);
+            alert('✅ Member berhasil dihapus!');
+            showAdminMenu('kelola');
+        }
+    }
+    
+    function hapusData(index) {
+        if (confirm('Yakin ingin menghapus data ini? Data bersifat permanen dan tidak bisa dikembalikan!')) {
+            let data = getPendataan();
+            data.splice(index, 1);
+            savePendataan(data);
+            alert('✅ Data berhasil dihapus!');
+            showDashboard();
+        }
+    }
+    
+    // ========== SIMPAN DATA PENDAATAAN ==========
+    function simpanPendataan(data) {
+        let allData = getPendataan();
+        data.status = 'baru';
+        data.tanggal = new Date().toLocaleDateString('id-ID');
+        allData.push(data);
+        savePendataan(allData);
+    }
+    
+    // ========== UPDATE FUNGSI KIRIM FORM ==========
+    // Ganti fungsi kirimPendataan yang lama dengan yang ini
+    function kirimPendataan(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('formPendataan');
+        const inputs = form.querySelectorAll('input, select');
+        
+        // Ambil data dari form
+        const data = {
+            nama: inputs[0].value.trim(),
+            ttl: inputs[1].value.trim(),
+            jk: inputs[2].value,
+            angkatan: inputs[3].value.trim(),
+            prodi: inputs[4].value.trim(),
+            universitas: inputs[5].value.trim(),
+            whatsapp: inputs[6].value.trim()
+        };
+        
+        // Validasi
+        if (!data.nama || !data.ttl || !data.jk || !data.angkatan || !data.whatsapp) {
+            alert('⚠️ Field yang bertanda * wajib diisi!');
+            return;
+        }
+        
+        // Simpan ke database
+        simpanPendataan(data);
+        
+        // Sembunyikan form, tampilkan notifikasi sukses
+        form.style.display = 'none';
+        document.getElementById('notifikasiSukses').style.display = 'block';
+        
+        // Scroll ke notifikasi
+        document.getElementById('notifikasiSukses').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Reset form
+        setTimeout(() => {
+            form.reset();
+        }, 3000);
+        
+        console.log('Data pendataan terkirim:', data);
+    }
+    
+    // ========== CEK SESSION SAAT LOAD ==========
+    function cekSession() {
+        initDatabase();
+        const session = getSession();
+        if (session) {
+            // Jika sudah login, cek role dan tampilkan dashboard
+            setTimeout(() => {
+                showDashboard();
+            }, 100);
+            return true;
+        }
+        return false;
+    }
         // ========== NAVIGASI HAMBURGER ==========
     const hamburger = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
@@ -1121,33 +2543,70 @@
                 break;
                 
             case 'pendataan':
-                konten = `
-                    <div style="max-width: 700px; margin: 0 auto;">
-                        <h2 style="color: #1c6e4b; margin-bottom: 20px;">Form Pendataan Alumni</h2>
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                            <p style="margin-bottom: 20px;">Silakan isi data diri Anda untuk memperbarui database alumni FASA.</p>
-                            <form style="display: flex; flex-direction: column; gap: 15px;">
-                                <input type="text" placeholder="Nama Lengkap" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
-                                <input type="text" placeholder="Tempat, Tanggal Lahir" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
-                                <select style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
-                                    <option value="">Pilih Jenis Kelamin</option>
-                                    <option>Laki-Laki</option>
-                                    <option>Perempuan</option>
-                                </select>
-                                <input type="text" placeholder="Angkatan MI" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
-                                <input type="text" placeholder="Pekerjaan / Prodi" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
-                                <input type="text" placeholder="Universitas / Instansi" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
-                                <button style="background: #1c6e4b; color: white; padding: 14px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">Kirim Data</button>
-                            </form>
-                        </div>
-                    </div>
-                `;
-                break;
-                
-           case 'pembayaran':
     konten = `
         <div style="max-width: 700px; margin: 0 auto;">
-            <h2 style="color: #1c6e4b; margin-bottom: 20px;">Pembayaran Iuran Alumni</h2>
+            <h2 style="color: #1c6e4b; margin-bottom: 20px;">Form Pendataan Alumni</h2>
+            <div style="background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); overflow: hidden;">
+                <p style="margin-bottom: 15px; text-align: center;">
+                    <i class="fas fa-info-circle" style="color: #f4b942;"></i> 
+                    Silakan isi data diri Anda. Data akan tersimpan di database FASA.
+                </p>
+                
+                <!-- NOTIFIKASI SUKSES (disembunyikan awal) -->
+                <div id="notifikasiSukses" style="display: none; background: #d4edda; border: 2px solid #28a745; border-radius: 15px; padding: 30px; text-align: center; margin-bottom: 20px;">
+                    <div style="font-size: 4rem; margin-bottom: 10px;">🎉</div>
+                    <h3 style="color: #155724; margin-bottom: 10px;">Selamat! Data Anda Berhasil Dikirim</h3>
+                    <p style="color: #155724; font-size: 1.1rem;">
+                        Terima kasih telah mengisi data alumni FASA. 
+                        <br>Kami akan segera memproses data Anda.
+                    </p>
+                    <div style="font-size: 3rem; margin-top: 10px;">
+                        👍😊
+                    </div>
+                    <p style="color: #155724; margin-top: 10px; font-style: italic;">
+                        "Satu Alumni Satu Aksi"
+                    </p>
+                </div>
+                
+                <!-- FORM PENDAATAAN -->
+                <form id="formPendataan" onsubmit="kirimPendataan(event)" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" placeholder="Nama Lengkap" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                    <input type="text" placeholder="Tempat, Tanggal Lahir" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                    <select required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option>Laki-Laki</option>
+                        <option>Perempuan</option>
+                    </select>
+                    <input type="text" placeholder="Angkatan MI" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                    <input type="text" placeholder="Pekerjaan / Prodi" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                    <input type="text" placeholder="Universitas / Instansi" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                    <input type="text" placeholder="WhatsApp / Email" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                    <input type="hidden" id="statusData" value="baru">
+                    <button type="submit" style="background: #1c6e4b; color: white; padding: 14px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.3s;">
+                        <i class="fas fa-paper-plane"></i> Kirim Data
+                    </button>
+                </form>
+                
+                <!-- IFrame Google Form (Alternatif jika mau pakai Google Form) -->
+                <!-- 
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/GANTI_DENGAN_LINK_FORM_ANDA/viewform?embedded=true" 
+                    style="width: 100%; height: 600px; border: none; border-radius: 10px;">
+                </iframe>
+                -->
+                
+                <p style="margin-top: 15px; font-size: 0.8rem; color: #555; text-align: center;">
+                    <i class="fas fa-lock"></i> Data Anda aman dan hanya digunakan untuk keperluan alumni FASA
+                </p>
+            </div>
+        </div>
+    `;
+    break;
+                
+          case 'pembayaran':
+    konten = `
+        <div style="max-width: 700px; margin: 0 auto;">
+            <h2 style="color: #1c6e4b; margin-bottom: 20px;">Pembayaran</h2>
             <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
                 <p style="margin-bottom: 20px;">Bayar iuran alumni melalui QRIS atau transfer ke rekening berikut:</p>
                 
@@ -1158,7 +2617,7 @@
                     </p>
                     <div style="background: white; padding: 20px; border-radius: 15px; display: inline-block; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
                         <img 
-                            src="https://res.cloudinary.com/dppixmteb/image/upload/v1781606615/WhatsApp_Image_2026-06-16_at_17.43.11_xq5pmx.jpg" 
+                            src="https://res.cloudinary.com/dppixmteb/image/upload/v1781607011/WhatsApp_Image_2026-06-16_at_17.49.52_wfzhqq.jpg" 
                             alt="QRIS FASA" 
                             style="width: 200px; height: 200px; border-radius: 10px;"
                             onerror="this.src='https://via.placeholder.com/200x200/1c6e4b/white?text=QRIS+FASA'"
@@ -1183,8 +2642,16 @@
                     </div>
                 </div>
                 
-                <p style="margin-top: 20px; font-size: 0.85rem; color: #555; text-align: center; background: #fef5e6; padding: 12px; border-radius: 10px;">
-                    <i class="fas fa-whatsapp" style="color: #25D366;"></i> Konfirmasi pembayaran ke WhatsApp <strong>+62 857-4934-3688</strong>
+                <!-- KONFIRMASI WHATSAPP - Link wa.me -->
+                <a href="https://wa.me/6285749343688?text=Assalamualaikum%20Admin%20FASA%2C%20saya%20ingin%20konfirmasi%20pembayaran%20iuran%20alumni.%20Berikut%20data%20saya%3A%0A%0A1.%20Nama%20Lengkap%3A%0A2.%20Tanggal%20Pembayaran%3A%0A3.%20Jumlah%20Pembayaran%3A%0A4.%20Metode%20Pembayaran%3A%0A5.%20Bukti%20Pembayaran%3A" 
+                   target="_blank" 
+                   style="display: block; margin-top: 20px; background: #25D366; color: white; padding: 14px; border-radius: 12px; text-align: center; font-weight: 600; text-decoration: none; transition: 0.3s;"
+                   onmouseover="this.style.background='#128C7E'"
+                   onmouseout="this.style.background='#25D366'">
+                    <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Konfirmasi Pembayaran via WhatsApp
+                </a>
+                <p style="margin-top: 10px; font-size: 0.75rem; color: #888; text-align: center;">
+                    Klik tombol di atas untuk langsung terhubung ke admin FASA
                 </p>
             </div>
         </div>
@@ -1192,22 +2659,15 @@
     break;
                 
             case 'login':
-                konten = `
-                    <div style="max-width: 450px; margin: 0 auto;">
-                        <h2 style="color: #1c6e4b; margin-bottom: 20px;">Login Member FASA</h2>
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                            <form style="display: flex; flex-direction: column; gap: 15px;">
-                                <input type="email" placeholder="Email" style="padding: 14px; border: 1px solid #ddd; border-radius: 10px;">
-                                <input type="password" placeholder="Password" style="padding: 14px; border: 1px solid #ddd; border-radius: 10px;">
-                                <button style="background: #1c6e4b; color: white; padding: 14px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">Login</button>
-                            </form>
-                            <p style="text-align: center; margin-top: 15px; font-size: 0.85rem;">
-                                Belum punya akun? <a href="#" style="color: #f4b942; text-decoration: none;">Daftar di sini</a>
-                            </p>
-                        </div>
-                    </div>
-                `;
-                break;
+    // Cek apakah sudah login
+    const session = getSession();
+    if (session) {
+        showDashboard();
+    } else {
+        showLoginPage();
+    }
+    return; // keluar dari fungsi
+    break;
                 
             default:
                 judul = 'FASA';
@@ -1252,6 +2712,46 @@
             halaman.style.opacity = '0';
             setTimeout(() => halaman.remove(), 300);
         }
+    }
+        // ========== FUNGSI KIRIM FORM PENDAATAAN ==========
+    function kirimPendataan(event) {
+        event.preventDefault(); // Mencegah reload halaman
+        
+        // Ambil data dari form
+        const form = document.getElementById('formPendataan');
+        const inputs = form.querySelectorAll('input, select');
+        let data = {};
+        inputs.forEach(input => {
+            if (input.placeholder) {
+                data[input.placeholder] = input.value;
+            } else if (input.tagName === 'SELECT') {
+                data['Jenis Kelamin'] = input.value;
+            }
+        });
+        
+        // Sembunyikan form, tampilkan notifikasi sukses
+        form.style.display = 'none';
+        document.getElementById('notifikasiSukses').style.display = 'block';
+        
+        // Scroll ke notifikasi
+        document.getElementById('notifikasiSukses').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Reset form setelah 3 detik (opsional)
+        setTimeout(() => {
+            form.reset();
+        }, 3000);
+        
+        console.log('Data pendataan terkirim:', data);
+        
+        // KIRIM KE GOOGLE SHEETS (opsional, jika sudah punya Apps Script)
+        /*
+        fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vR2Ky25Y66Vj3CjQnACOjzTkzu3iAkzqyIgiWZuKHgzOXWZ9GyT3iUqlaYUFDGXIQ/pubhtml?gid=388702477&amp;single=true&amp;widget=true&amp;headers=false"
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        */
     }
     
     // Tutup menu dengan tombol ESC
