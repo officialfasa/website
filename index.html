@@ -319,6 +319,109 @@
             color: #1c6e4b;
             font-weight: 600;
         }
+                  /* Style untuk Alumni PTS - List Horizontal dengan Foto */
+        .alumni-pts-section {
+            background: #f0f5f2;
+            border-radius: 30px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .alumni-horizontal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .alumni-horizontal-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            gap: 15px;
+        }
+        
+        .alumni-horizontal-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #fffef5;
+        }
+        
+        .alumni-number-photo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 260px;
+            flex: 2;
+        }
+        
+        .alumni-number {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #1c6e4b;
+            min-width: 35px;
+        }
+        
+        .alumni-thumbnail {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #cbd5e1;
+            border: 2px solid #f4b942;
+        }
+        
+        .alumni-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1e2a3e;
+        }
+        
+        .alumni-prodi {
+            flex: 2;
+            min-width: 180px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .alumni-prodi i {
+            color: #f4b942;
+            margin-right: 6px;
+            width: 18px;
+        }
+        
+        .alumni-univ {
+            flex: 3;
+            min-width: 200px;
+            font-weight: 600;
+            color: #1c6e4b;
+            font-size: 0.9rem;
+        }
+        
+        .alumni-univ i {
+            color: #f4b942;
+            margin-right: 6px;
+            width: 18px;
+        }
+        
+        @media (max-width: 800px) {
+            .alumni-horizontal-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .alumni-number-photo, .alumni-prodi, .alumni-univ {
+                width: 100%;
+            }
+            .alumni-number-photo {
+                margin-bottom: 5px;
+            }
+        }
 
         /* Persebaran & Total */
         .statistik {
@@ -589,7 +692,166 @@
                <p><i class="fas fa-university"></i> Universitas Islam Negeri KH. Ahmad Siddiq Jember</p>
             </div>
         </div>
-        <p class="map-dummy" style="text-align:center; margin-top:15px; background:#eef2f0;">✨ Alumni terus berkiprah di berbagai PTN/PTS favorit ✨</p>
+    </section>
+              <!-- ALUMNI PTS (PERGURUAN TINGGI SWASTA) - LIST HORIZONTAL DENGAN FOTO -->
+    <div class="alumni-pts-section">
+        <div class="section-title">Alumni Sukses ke Perguruan Tinggi Swasta Favorit</div>
+        
+        <ul class="alumni-horizontal-list">
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">1.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto">
+                    <span class="alumni-name">Achmad Muqorrobin</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> S1 Matematika
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> Universitas Negeri Semarang
+                </div>
+            </li>
+            
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">2.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Foto">
+                    <span class="alumni-name">GIYITNO, S.Pd., Gr.</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> S1 PGSD
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SD NEGERI 101/X LAMBUR I
+                </div>
+            </li>
+            
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">3.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Foto">
+                    <span class="alumni-name">Ardiansyah, S.Pd</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> S1 Pendidikan
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SD SWASTA YAHDI
+                </div>
+            </li>
+            
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">4.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/55.jpg" alt="Foto">
+                    <span class="alumni-name">Muhammad Daniel</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> SMA
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SMAN 1 TEBING SYAHBANDAR
+                </div>
+            </li>
+            
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">5.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto">
+                    <span class="alumni-name">Nur Darwati</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> S1 Pendidikan
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SMP Science Qur'an Al Irsyad Al Islamiy
+                </div>
+            </li>
+            
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">6.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Foto">
+                    <span class="alumni-name">MUHAMMAD HAFID BACHTIAR</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> S1 Kedokteran
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> UNIVERSITAS AIRLANGGA
+                </div>
+            </li>
+            
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">7.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
+                    <span class="alumni-name">ADINRA MANIK</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> SMA
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
+                </div>
+            </li>
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">8.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
+                    <span class="alumni-name">ADINRA MANIK</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> SMA
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
+                </div>
+            </li>
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">9.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
+                    <span class="alumni-name">ADINRA MANIK</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> SMA
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
+                </div>
+            </li>
+            <li class="alumni-horizontal-item">
+                <div class="alumni-number-photo">
+                    <span class="alumni-number">10.</span>
+                    <img class="alumni-thumbnail" src="https://randomuser.me/api/portraits/women/33.jpg" alt="Foto">
+                    <span class="alumni-name">ADINRA MANIK</span>
+                </div>
+                <div class="alumni-prodi">
+                    <i class="fas fa-graduation-cap"></i> SMA
+                </div>
+                <div class="alumni-univ">
+                    <i class="fas fa-university"></i> SMAN 2 SIDIKALANG
+                </div>
+            </li>
+        </ul>
+        
+        <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: #1c6e4b;">
+            <i class="fas fa-chart-line"></i> Dan masih banyak alumni lainnya yang berkiprah di berbagai bidang
+        </p>
+    </div>
+        <!-- TABEL DATA ALUMNI DARI GOOGLE SHEETS -->
+    <section>
+        <div class="section-title">Data Terbaru Alumni FASA</div>
+        <div style="background: rgb(7, 107, 20); border-radius: 30px; padding: 20px; overflow-x: auto; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <iframe 
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2Ky25Y66Vj3CjQnACOjzTkzu3iAkzqyIgiWZuKHgzOXWZ9GyT3iUqlaYUFDGXIQ/pubhtml?gid=388702477&amp;single=true&amp;widget=true&amp;headers=false" 
+                style="width: 100%; height: 550px; border: none; border-radius: 15px;">
+            </iframe>
+        </div>
+        <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #555;">
+            <i class="fas fa-database"></i> Data diperbarui secara berkala oleh admin FASA
+        </p>
     </section>
 
     <!-- PESAN DAN KESAN -->
