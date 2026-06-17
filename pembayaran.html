@@ -464,6 +464,83 @@
             .hero h1 { font-size: 2rem; }
             .info-pembayaran .bank-grid { grid-template-columns: 1fr; }
         }
+                /* Metode Pembayaran Detail */
+        .metode-detail {
+            margin-bottom: 15px;
+        }
+        
+        .metode-detail > div {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            background: white;
+            transition: 0.3s;
+        }
+        
+        .metode-detail > div:hover {
+            border-color: #1c6e4b;
+        }
+        
+        .metode-detail .icon-bank {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .metode-detail .bank-name {
+            font-weight: 700;
+            color: #1c6e4b;
+            font-size: 1.1rem;
+        }
+        
+        .metode-detail .rekening {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1c6e4b;
+        }
+        
+        .metode-detail .an {
+            font-size: 0.8rem;
+            color: #888;
+        }
+                /* Input Rupiah */
+        .input-rupiah {
+            position: relative;
+        }
+        
+        .input-rupiah input {
+            padding-left: 45px;
+            width: 100%;
+        }
+        
+        .input-rupiah .rp-prefix {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            color: #1c6e4b;
+            font-size: 0.95rem;
+            pointer-events: none;
+            z-index: 2;
+        }
+                /* Input Rupiah */
+        .input-rupiah {
+            position: relative;
+        }
+        
+        .input-rupiah input {
+            padding-left: 45px;
+        }
+        
+        .input-rupiah .rp-prefix {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            color: #1c6e4b;
+            font-size: 0.95rem;
+        }
 
         /* Footer */
         footer {
@@ -484,6 +561,9 @@
     </style>
 </head>
 <body>
+
+<!-- OVERLAY -->
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- HERO / SAPAAN + MOTO dengan LOGO TENGAH ATAS -->
 <div class="hero">
@@ -534,63 +614,114 @@
             
             <!-- FORM -->
             <form id="formPembayaran" onsubmit="kirimPembayaran(event)">
-                <input type="text" placeholder="Nama Lengkap *" required>
-                <input type="text" placeholder="NISN / No. Peserta *" required>
-                
-                <select required>
-                    <option value="">Pilih Metode Pembayaran *</option>
-                    <option>QRIS</option>
-                    <option>Transfer BCA</option>
-                    <option>Transfer BSI</option>
-                    <option>Lainnya</option>
-                </select>
-                
-                <input type="number" placeholder="Nominal Pembayaran *" required>
-                <input type="date" placeholder="Tanggal Pembayaran *" required>
+                <input type="text" placeholder="Nama Lengkap *" required>                
+               <select id="metodeBayar" onchange="tampilkanMetode()" required>
+    <option value="">Pilih Metode Pembayaran *</option>
+    <option value="qris">QRIS</option>
+    <option value="shopeepay">ShopeePay</option>
+    <option value="bri">BRI</option>
+    <option value="gopay">GoPay</option>
+    <option value="ovo">OVO</option>
+    <option value="bsi">BSI</option>
+    <option value="seabank">SeaBank</option>
+</select>
+
+            <div class="input-rupiah">
+    <span class="rp-prefix">Rp</span>
+    <input type="text" id="nominalInput" placeholder="0" required oninput="formatRupiah(this)">
+</div>
+<input type="date" placeholder="Tanggal Pembayaran *" required>
                 
                 <textarea placeholder="Keterangan Tambahan (opsional)" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 0.95rem; resize: vertical; min-height: 80px;"></textarea>
                 
-                <!-- Informasi Pembayaran -->
-                <div class="info-pembayaran">
-                    <div class="qris-box">
-                        <p style="font-weight: 600; margin-bottom: 10px;">
-                            <i class="fas fa-qrcode" style="color: #1c6e4b; font-size: 1.5rem;"></i> Scan QRIS
-                        </p>
-                        <img 
-                            src="https://res.cloudinary.com/dppixmteb/image/upload/v1781607011/WhatsApp_Image_2026-06-16_at_17.49.52_wfzhqq.jpg" 
-                            alt="QRIS FASA"
-                            onerror="this.src='https://via.placeholder.com/180x180/1c6e4b/white?text=QRIS+FASA'"
-                        >
-                        <p style="margin-top: 10px; font-size: 0.8rem; color: #555;">
-                            <i class="fas fa-info-circle"></i> Scan menggunakan mobile banking atau e-wallet
-                        </p>
-                    </div>
-                    
-                    <div class="bank-grid">
-                        <div class="bank-item">
-                            <p class="bank-name">ShoppePay</p>
-                            <p class="rekening">085749343688</p>
-                            <p class="an">a.n. Achmad Muqorrobin</p>
-                        </div>
-                        <div class="bank-item">
-                            <p class="bank-name">Bank BRI</p>
-                            <p class="rekening">6142-0100-2652-524</p>
-                            <p class="an">a.n. Achmad Muqorrobin</p>
-                        </div>
-                    </div>
-                    
-                    <a href="https://wa.me/6285749343688?text=Assalamualaikum%20Admin%20FASA%2C%20saya%20ingin%20konfirmasi%20pembayaran" 
-                       target="_blank" 
-                       class="wa-button">
-                        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Konfirmasi via WhatsApp
-                    </a>
-                </div>
-                
-                <button type="submit" class="btn-submit">
-                    <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
-                </button>
-            </form>
-            
+                <div class="info-pembayaran" id="infoPembayaran">
+    <!-- QRIS -->
+    <div id="metodeQris" class="metode-detail" style="display: none;">
+        <div style="text-align: center; padding: 15px; background: white; border-radius: 15px;">
+            <p style="font-weight: 600; margin-bottom: 10px;">
+                <i class="fas fa-qrcode" style="color: #1c6e4b; font-size: 1.5rem;"></i> Scan QRIS
+            </p>
+            <img 
+                src="https://res.cloudinary.com/dppixmteb/image/upload/v1781607011/WhatsApp_Image_2026-06-16_at_17.49.52_wfzhqq.jpg" 
+                alt="QRIS FASA"
+                style="width: 180px; height: 180px; border-radius: 10px;"
+                onerror="this.src='https://via.placeholder.com/180x180/1c6e4b/white?text=QRIS+FASA'"
+            >
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #555;">
+                <i class="fas fa-info-circle"></i> Scan menggunakan mobile banking atau e-wallet
+            </p>
+        </div>
+    </div>
+    
+    <!-- ShopeePay -->
+    <div id="metodeShopeepay" class="metode-detail" style="display: none;">
+        <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 5px;">🛍️</p>
+            <p style="font-weight: 700; color: #1c6e4b; font-size: 1.1rem;">ShopeePay</p>
+            <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">0857-4934-3688</p>
+            <p style="font-size: 0.8rem; color: #888;">a.n. Achmad Muqorrobin</p>
+        </div>
+    </div>
+    
+    <!-- BRI -->
+    <div id="metodeBri" class="metode-detail" style="display: none;">
+        <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 5px;">🏦</p>
+            <p style="font-weight: 700; color: #1c6e4b; font-size: 1.1rem;">BRI</p>
+            <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">6142-0100-2652-524</p>
+            <p style="font-size: 0.8rem; color: #888;">a.n. Achmad Muqorrobin</p>
+        </div>
+    </div>
+    
+    <!-- GoPay -->
+    <div id="metodeGopay" class="metode-detail" style="display: none;">
+        <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 5px;">💚</p>
+            <p style="font-weight: 700; color: #1c6e4b; font-size: 1.1rem;">GoPay</p>
+            <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">0857-4934-3688</p>
+            <p style="font-size: 0.8rem; color: #888;">a.n. Achmad Muqorrobin</p>
+        </div>
+    </div>
+    
+    <!-- OVO -->
+    <div id="metodeOvo" class="metode-detail" style="display: none;">
+        <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 5px;">💜</p>
+            <p style="font-weight: 700; color: #1c6e4b; font-size: 1.1rem;">OVO</p>
+            <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">0857-4934-3688</p>
+            <p style="font-size: 0.8rem; color: #888;">a.n. Achmad Muqorrobin</p>
+        </div>
+    </div>
+    
+    <!-- BSI -->
+    <div id="metodeBsi" class="metode-detail" style="display: none;">
+        <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 5px;">🏦</p>
+            <p style="font-weight: 700; color: #1c6e4b; font-size: 1.1rem;">BSI</p>
+            <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">7342-1205-68</p>
+            <p style="font-size: 0.8rem; color: #888;">a.n. Achmad Muqorrobin</p>
+        </div>
+    </div>
+    
+    <!-- SeaBank -->
+    <div id="metodeSeabank" class="metode-detail" style="display: none;">
+        <div style="background: white; border-radius: 15px; padding: 20px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 5px;">🌊</p>
+            <p style="font-weight: 700; color: #1c6e4b; font-size: 1.1rem;">SeaBank</p>
+            <p style="font-size: 1.3rem; font-weight: 800; color: #1c6e4b;">9019-2384-5080</p>
+            <p style="font-size: 0.8rem; color: #888;">a.n. Achmad Muqorrobin</p>
+        </div>
+    </div>
+    
+    <a href="https://wa.me/6285749343688?text=Assalamualaikum%20Admin%20FASA%2C%20saya%20ingin%20konfirmasi%20pembayaran%20iuran%20alumni" 
+       target="_blank" 
+       class="wa-button">
+        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Konfirmasi via WhatsApp
+    </a>
+</div>
+            <button type="submit" class="btn-submit">
+    <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
+</button>
             <p class="form-footer">
                 <i class="fas fa-lock"></i> Data Anda aman dan hanya digunakan untuk keperluan alumni FASA
             </p>
@@ -614,6 +745,21 @@
     const navOverlay = document.getElementById('navOverlay');
     const closeMenu = document.getElementById('closeMenu');
     const navbar = document.getElementById('navbar');
+
+        // ========== PERBAIKAN INPUT NOMINAL ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        const nominalInput = document.getElementById('nominalInput');
+        if (nominalInput) {
+            // Biarkan pengguna mengetik angka
+            nominalInput.addEventListener('keydown', function(e) {
+                // Izinkan tombol: angka, backspace, delete, panah, tab, escape
+                const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Tab', 'Escape', 'Home', 'End'];
+                if (allowedKeys.includes(e.key)) return;
+                if (e.key >= '0' && e.key <= '9') return;
+                e.preventDefault();
+            });
+        }
+    });
 
     function openMenu() {
         navMenu.classList.add('open');
@@ -646,8 +792,58 @@
             closeMenuFunc();
         }
     });
+        // ========== FUNGSI TAMPILKAN METODE PEMBAYARAN ==========
+    function tampilkanMetode() {
+        const metode = document.getElementById('metodeBayar').value;
+        
+        // Sembunyikan semua metode
+        document.querySelectorAll('.metode-detail').forEach(el => {
+            el.style.display = 'none';
+        });
+        
+        // Tampilkan metode yang dipilih
+        if (metode === 'qris') {
+            document.getElementById('metodeQris').style.display = 'block';
+        } else if (metode === 'shopeepay') {
+            document.getElementById('metodeShopeepay').style.display = 'block';
+        } else if (metode === 'bri') {
+            document.getElementById('metodeBri').style.display = 'block';
+        } else if (metode === 'gopay') {
+            document.getElementById('metodeGopay').style.display = 'block';
+        } else if (metode === 'ovo') {
+            document.getElementById('metodeOvo').style.display = 'block';
+        } else if (metode === 'bsi') {
+            document.getElementById('metodeBsi').style.display = 'block';
+        } else if (metode === 'seabank') {
+            document.getElementById('metodeSeabank').style.display = 'block';
+        }
+    }
+        // ========== FORMAT RUPIAH ==========
+    function formatRupiah(input) {
+    // Hapus semua karakter kecuali angka
+    let value = input.value.replace(/[^0-9]/g, '');
+    
+    if (value === '') {
+        input.value = '';
+        return;
+    }
+    
+    // Ubah ke number dan format ribuan
+    let number = parseInt(value);
+    if (!isNaN(number)) {
+        let formatted = number.toLocaleString('id-ID');
+        input.value = formatted;
+    }
+}
+    
+    // Fungsi untuk mengambil nilai angka (tanpa format) saat submit
+    function getNominalAngka() {
+        const input = document.getElementById('nominalInput');
+        return parseInt(input.value.replace(/[^0-9]/g, '')) || 0;
+    }
 
     // ========== FUNGSI KIRIM FORM PEMBAYARAN ==========
+        // ========== FUNGSI KIRIM FORM PEMBAYARAN ==========
     function kirimPembayaran(event) {
         event.preventDefault();
         
@@ -656,18 +852,17 @@
         
         // Ambil data dari form
         const data = {
-            nama: inputs[0].value.trim(),
-            nisn: inputs[1].value.trim(),
-            metode: inputs[2].value,
-            nominal: inputs[3].value.trim(),
-            tanggal: inputs[4].value,
-            keterangan: inputs[5].value.trim(),
+            nama: inputs[0].value.trim(),           // Nama Lengkap
+            metode: inputs[1].value,                // Metode Pembayaran
+            nominal: getNominalAngka(),             // Nominal
+            tanggal: inputs[3].value,               // Tanggal Pembayaran
+            keterangan: inputs[4].value.trim(),     // Keterangan
             status: 'konfirmasi',
             tanggalKirim: new Date().toLocaleDateString('id-ID')
         };
         
         // Validasi wajib
-        if (!data.nama || !data.nisn || !data.metode || !data.nominal || !data.tanggal) {
+        if (!data.nama || !data.metode || !data.nominal || !data.tanggal) {
             alert('⚠️ Field yang bertanda * wajib diisi!');
             return;
         }
@@ -690,6 +885,10 @@
                 form.reset();
                 form.style.display = 'flex';
                 document.getElementById('notifikasiSukses').style.display = 'none';
+                // Sembunyikan semua metode
+                document.querySelectorAll('.metode-detail').forEach(el => {
+                    el.style.display = 'none';
+                });
             }, 5000);
             
             console.log('✅ Data pembayaran terkirim ke Google Sheets:', data);
