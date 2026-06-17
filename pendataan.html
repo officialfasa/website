@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pendataan Alumni - FASA</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #0b3b2f, #1c6e4b);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+        }
+
+        .logo-atas {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00, #FFD700);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShine 3s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes gradientShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+
+        @keyframes fadeInUpLetter {
+            0% { opacity: 0; transform: translateY(30px) rotate(10deg); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0) rotate(0); filter: blur(0); }
+        }
+
+        .letter-f { display: inline-block; animation: fadeInUpLetter 0.5s ease forwards; opacity: 0; }
+        .letter-a { display: inline-block; animation: fadeInUpLetter 0.5s ease 0.15s forwards; opacity: 0; }
+        .letter-s1 { display: inline-block; animation: fadeInUpLetter 0.5s ease 0.3s forwards; opacity: 0; }
+        .letter-a2 { display: inline-block; animation: fadeInUpLetter 0.5s ease 0.45s forwards; opacity: 0; }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .deskripsi-selamat {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .moto {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ========== FORM PENDAATAAN ========== */
+        .form-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            color: #1c6e4b;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f4b942;
+            margin: 12px auto 0;
+            border-radius: 5px;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .form-container p i {
+            color: #f4b942;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-container input,
+        .form-container select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .form-container input:focus,
+        .form-container select:focus {
+            border-color: #1c6e4b;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(28, 110, 75, 0.1);
+        }
+
+        .form-container .btn-submit {
+            background: #1c6e4b;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-container .btn-submit:hover {
+            background: #0b3b2f;
+        }
+
+        .form-group-note {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: -8px;
+            margin-bottom: 5px;
+        }
+
+        .form-group-note i {
+            color: #f4b942;
+        }
+
+        /* NOTIFIKASI SUKSES */
+        #notifikasiSukses {
+            display: none;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #notifikasiSukses .icon-besar {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        #notifikasiSukses h3 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        #notifikasiSukses p {
+            color: #155724;
+            font-size: 1.1rem;
+        }
+
+        #notifikasiSukses .emot {
+            font-size: 3rem;
+            margin-top: 10px;
+        }
+
+        #notifikasiSukses .moto-form {
+            color: #155724;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .form-footer i {
+            color: #1c6e4b;
+        }
+
+        /* ========== NAVIGASI HAMBURGER ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            padding: 15px 20px;
+            background: transparent;
+            transition: 0.3s;
+        }
+
+        .navbar.scrolled {
+            background: rgba(11, 59, 47, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            transition: 0.3s;
+            border: none;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger:hover {
+            background: rgba(255,255,255,0.35);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, #0b3b2f, #1c6e4b);
+            padding: 80px 30px 30px;
+            transition: left 0.4s ease;
+            z-index: 9998;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+
+        .nav-menu.open {
+            left: 0;
+        }
+
+        .nav-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .nav-menu .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .nav-menu .menu-title {
+            color: #f4b942;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu ul li {
+            margin-bottom: 5px;
+        }
+
+        .nav-menu ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-menu ul li a i {
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            color: #f4b942;
+        }
+
+        .nav-menu ul li a:hover {
+            background: rgba(244, 185, 66, 0.2);
+            transform: translateX(8px);
+        }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu { width: 280px; left: -300px; }
+            .hamburger { width: 45px; height: 45px; }
+            .hamburger span { width: 24px; }
+            .hero h1 { font-size: 2rem; }
+        }
+
+        /* Footer */
+        footer {
+            background: #0b3b2f;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #f4b942;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- HERO / SAPAAN + MOTO dengan LOGO TENGAH ATAS -->
+<div class="hero">
+    <!-- Logo Tengah Atas -->
+    <div class="logo-atas">
+    <img src="https://res.cloudinary.com/dppixmteb/image/upload/v1781538505/Logo_Fasa_forum_angkatan_sunan_ampel_splais.png" alt="Logo FASA" style="width: 100px; height: 100px; object-fit: contain; border-radius: 100%;">
+    </div>
+    
+    <h1>FASA</h1>
+    <p class="tagline">Forum Alumni Sunan Ampel</p>
+    
+    <!-- Deskripsi Selamat Datang -->
+    <div class="deskripsi-selamat">
+        <i class="fas fa-hand-wave" style="margin-right: 8px;"></i> 
+        Selamat datang di wadah kebersamaan alumni Yayasan Sunan Ampel. 
+        Bersama kita jalin silaturahmi, bangun prestasi, dan wujudkan generasi yang berkontribusi.
+    </div>
+    
+    <div class="moto">
+        <i class="fas fa-quote-left"></i> Satu Alumni Satu Aksi <i class="fas fa-quote-right"></i>
+    </div>
+    <div style="margin-top: 25px; font-size: 0.9rem;">
+        <i class="fas fa-map-marker-alt"></i> Jl. Sumber Lungun No.1, Dusun Mulyosari, Desa Bunder, Kec. Kabat, Kab. Banyuwangi, Jawa Timur 68461
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+    <section class="form-section">
+        <div class="section-title">Pengisian Pendataan Alumni</div>
+        <div class="form-container">
+            <p>
+                <i class="fas fa-info-circle"></i> 
+                Silakan isi data diri Anda. Data akan tersimpan di database FASA.
+            </p>
+            
+            <!-- NOTIFIKASI SUKSES -->
+            <div id="notifikasiSukses">
+                <div class="icon-besar">🎉</div>
+                <h3>Selamat! Data Anda Berhasil Dikirim ✅</h3>
+                <p>
+                    Terima kasih telah mengisi data alumni FASA. 
+                    <br>Kami akan segera memproses data Anda.
+                </p>
+                <div class="emot">👍😊</div>
+                <p class="moto-form">"Satu Alumni Satu Aksi"</p>
+            </div>
+            
+            <!-- FORM -->
+            <form id="formPendataan" onsubmit="kirimPendataan(event)">
+                <!-- Nama Lengkap -->
+                <input type="text" placeholder="Nama Lengkap *" required>
+                
+                <!-- Tempat Lahir (manual) + Tanggal Lahir (date picker) -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <input type="text" placeholder="Tempat Lahir *" required>
+                    <input type="date" placeholder="Tanggal Lahir *" required>
+                </div>
+                
+                <!-- Jenis Kelamin -->
+                <select required>
+                    <option value="">Pilih Jenis Kelamin *</option>
+                    <option>Laki-Laki</option>
+                    <option>Perempuan</option>
+                </select>
+                
+                <!-- Angkatan MI -->
+                <input type="text" placeholder="Angkatan MI *" required>
+                
+                <!-- Pekerjaan / Prodi -->
+                <input type="text" placeholder="Pekerjaan / Prodi (jika kuliah)">
+                
+                <!-- Universitas / Instansi -->
+                <input type="text" placeholder="Universitas / Instansi (jika kuliah/kerja)">
+                
+                <!-- WhatsApp / Email -->
+                <input type="text" placeholder="WhatsApp / Email *" required>
+                
+                                               <!-- ===== BAGIAN PENDIDIKAN LANJUTAN ===== -->
+                <div style="border-top: 2px dashed #e0e0e0; padding-top: 15px; margin-top: 5px;">
+                    <p style="font-weight: 600; color: #1c6e4b; font-size: 0.9rem; text-align: left; margin-bottom: 10px;">
+                        <i class="fas fa-school"></i> Data Pendidikan Lanjutan (Opsional)
+                    </p>
+                    
+                    <!-- Lanjut ke MTs? -->
+                    <select id="lanjutMTs" onchange="toggleLanjutan()" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 0.95rem;">
+                        <option value="">Apakah melanjutkan ke MTs Sunan Ampel?</option>
+                        <option value="ya">Ya, melanjutkan ke MTs Sunan Ampel</option>
+                        <option value="tidak">Tidak melanjutkan ke MTs Sunan Ampel</option>
+                    </select>
+                    
+                    <!-- Jika memilih "Tidak", muncul ini -->
+                    <div id="tidakLanjutContainer" style="display: none; border-left: 3px solid #f4b942; padding-left: 15px; margin-top: 10px;">
+                        <p style="font-size: 0.8rem; color: #888; margin-bottom: 10px;">
+                            <i class="fas fa-info-circle"></i> Karena tidak melanjutkan ke MTs Sunan Ampel, silakan isi data di bawah ini:
+                        </p>
+                        <input type="text" placeholder="Nama MTs / Sekolah Lanjutan / Instansi Pekerjaan" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 0.95rem;">
+                        <input type="text" placeholder="Pondok Pesantren (jika mondok)" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 0.95rem; margin-top: 10px;">
+                    </div>
+                    
+                    <!-- Jika memilih "Ya", hanya tampil pesan -->
+                    <div id="yaLanjutContainer" style="display: none; border-left: 3px solid #1c6e4b; padding-left: 15px; margin-top: 10px;">
+                        <p style="font-size: 0.85rem; color: #1c6e4b;">
+                            <i class="fas fa-check-circle"></i> Anda melanjutkan ke MTs Sunan Ampel. 
+                            <br>Data Anda sudah terdaftar sebagai alumni MTs Sunan Ampel.
+                        </p>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Kirim Data
+                </button>
+            </form>
+            
+            <p class="form-footer">
+                <i class="fas fa-lock"></i> Data Anda aman dan hanya digunakan untuk keperluan alumni FASA
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Forum Alumni Sunan Ampel (FASA) | Satu Alumni Satu Aksi</p>
+    <p><i class="fab fa-instagram"></i> @official_fasa7 | <i class="fab fa-whatsapp"></i> +62 857-4934-3688</p>
+</footer>
+
+<script>
+    // ========== NAVIGASI HAMBURGER ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+    const navbar = document.getElementById('navbar');
+
+    function openMenu() {
+        navMenu.classList.add('open');
+        navOverlay.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFunc() {
+        navMenu.classList.remove('open');
+        navOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    navOverlay.addEventListener('click', closeMenuFunc);
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMenuFunc();
+        }
+    });
+
+        // ========== FUNGSI TOGGLE LANJUTAN MTs ==========
+    function toggleLanjutan() {
+        const select = document.getElementById('lanjutMTs');
+        const yaContainer = document.getElementById('yaLanjutContainer');
+        const tidakContainer = document.getElementById('tidakLanjutContainer');
+        
+        if (select.value === 'ya') {
+            yaContainer.style.display = 'block';
+            tidakContainer.style.display = 'none';
+        } else if (select.value === 'tidak') {
+            yaContainer.style.display = 'none';
+            tidakContainer.style.display = 'block';
+        } else {
+            yaContainer.style.display = 'none';
+            tidakContainer.style.display = 'none';
+        }
+    }
+
+    // ========== FUNGSI KIRIM FORM ==========
+    function kirimPendataan(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('formPendataan');
+        const inputs = form.querySelectorAll('input, select');
+        
+                // Ambil data dari form
+        const data = {
+            nama: inputs[0].value.trim(),
+            tempatLahir: inputs[1].value.trim(),
+            tanggalLahir: inputs[2].value,
+            jk: inputs[3].value,
+            angkatan: inputs[4].value.trim(),
+            prodi: inputs[5].value.trim(),
+            universitas: inputs[6].value.trim(),
+            whatsapp: inputs[7].value.trim(),
+            lanjutMTs: inputs[8].value,
+            // Jika tidak lanjut MTs, ambil data dari field tambahan
+            namaMTsLain: inputs[9] ? inputs[9].value.trim() : '',
+            pondok: inputs[10] ? inputs[10].value.trim() : ''
+        };
+        
+        // Validasi wajib
+        if (!data.nama || !data.tempatLahir || !data.tanggalLahir || !data.jk || !data.angkatan || !data.whatsapp) {
+            alert('⚠️ Field yang bertanda * wajib diisi!');
+            return;
+        }
+        
+        // Simpan ke localStorage (database sementara)
+        let allData = JSON.parse(localStorage.getItem('fasa_pendataan')) || [];
+        data.status = 'baru';
+        data.tanggal = new Date().toLocaleDateString('id-ID');
+        allData.push(data);
+        localStorage.setItem('fasa_pendataan', JSON.stringify(allData));
+        
+        // Sembunyikan form, tampilkan notifikasi sukses
+        form.style.display = 'none';
+        document.getElementById('notifikasiSukses').style.display = 'block';
+        
+        // Scroll ke notifikasi
+        document.getElementById('notifikasiSukses').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+                // Reset form setelah 3 detik
+        setTimeout(() => {
+            form.reset();
+            document.getElementById('yaLanjutContainer').style.display = 'none';
+            document.getElementById('tidakLanjutContainer').style.display = 'none';
+        }, 3000);
+        
+        console.log('✅ Data pendataan terkirim:', data);
+    }
+
+    console.log('📋 Halaman Pendataan FASA siap digunakan!');
+</script>
+
+</body>
+</html>
