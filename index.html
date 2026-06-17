@@ -982,32 +982,32 @@
     <div class="nav-overlay" id="navOverlay"></div>
     
     <!-- MENU NAVIGASI -->
-    <div class="nav-menu" id="navMenu">
-        <button class="close-btn" id="closeMenu">✕</button>
-        <div class="menu-title">✦ MENU FASA</div>
-        <ul>
-            <li>
-                <a href="#" onclick="bukaHalaman('info')">
-                    <i class="fas fa-info-circle"></i> Info
-                </a>
-            </li>
-            <li>
-                <a href="#" onclick="bukaHalaman('pendataan')">
-                    <i class="fas fa-clipboard-list"></i> Pendataan
-                </a>
-            </li>
-            <li>
-                <a href="#" onclick="bukaHalaman('pembayaran')">
-                    <i class="fas fa-money-bill-wave"></i> Pembayaran
-                </a>
-            </li>
-            <li>
-    <a href="#" onclick="bukaHalaman('login')">
-        <i class="fas fa-sign-in-alt"></i> Login Member
-    </a>
-</li>
-        </ul>
-        
+    <!-- MENU NAVIGASI -->
+<div class="nav-menu" id="navMenu">
+    <button class="close-btn" id="closeMenu">✕</button>
+    <div class="menu-title">✦ MENU FASA</div>
+    <ul>
+        <li>
+            <a href="#" onclick="bukaHalaman('info')">
+                <i class="fas fa-info-circle"></i> Info
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="bukaHalaman('pendataan')">
+                <i class="fas fa-clipboard-list"></i> Pendataan
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="bukaHalaman('pembayaran')">
+                <i class="fas fa-money-bill-wave"></i> Pembayaran
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="window.location.href='learning-center.html'">
+                <i class="fas fa-sign-in-alt"></i> Login Member
+            </a>
+        </li>
+    </ul>        
         <!-- Info tambahan di bawah menu -->
         <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
             <p style="color: rgba(255,255,255,0.5); font-size: 0.75rem; text-align: center;">
@@ -2541,6 +2541,7 @@
                     </div>
                 `;
                 break;
+            
                 
             case 'pendataan':
     konten = `
@@ -2602,6 +2603,7 @@
         </div>
     `;
     break;
+    
                 
           case 'pembayaran':
     konten = `
@@ -2658,16 +2660,18 @@
     `;
     break;
                 
-            case 'login':
-    // Cek apakah sudah login
-    const session = getSession();
-    if (session) {
-        showDashboard();
-    } else {
-        showLoginPage();
-    }
-    return; // keluar dari fungsi
-    break;
+                        case 'learning':
+                // Cek apakah sudah login menggunakan session dari sistem login FASA
+                const session = getSession();
+                if (session) {
+                    // Jika sudah login, buka halaman Learning Center di tab baru
+                    window.open('learning-center.html', '_blank');
+                } else {
+                    // Jika belum login, arahkan ke halaman login
+                    showLoginPage();
+                }
+                return; // keluar dari fungsi
+                break;
                 
             default:
                 judul = 'FASA';
@@ -2704,6 +2708,7 @@
         // Scroll ke atas
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    
     
     function tutupHalaman() {
         const halaman = document.getElementById('halamanBaru');
