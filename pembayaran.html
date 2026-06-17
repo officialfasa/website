@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pembayaran - FASA</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #0b3b2f, #1c6e4b);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+        }
+
+        .logo-atas {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00, #FFD700);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShine 3s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes gradientShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+
+        @keyframes fadeInUpLetter {
+            0% { opacity: 0; transform: translateY(30px) rotate(10deg); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0) rotate(0); filter: blur(0); }
+        }
+
+        .letter-f { display: inline-block; animation: fadeInUpLetter 0.5s ease forwards; opacity: 0; }
+        .letter-a { display: inline-block; animation: fadeInUpLetter 0.5s ease 0.15s forwards; opacity: 0; }
+        .letter-s1 { display: inline-block; animation: fadeInUpLetter 0.5s ease 0.3s forwards; opacity: 0; }
+        .letter-a2 { display: inline-block; animation: fadeInUpLetter 0.5s ease 0.45s forwards; opacity: 0; }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .deskripsi-selamat {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .moto {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ========== FORM PEMBAYARAN ========== */
+        .form-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            color: #1c6e4b;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f4b942;
+            margin: 12px auto 0;
+            border-radius: 5px;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .form-container p i {
+            color: #f4b942;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-container input,
+        .form-container select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .form-container input:focus,
+        .form-container select:focus {
+            border-color: #1c6e4b;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(28, 110, 75, 0.1);
+        }
+
+        .form-container .btn-submit {
+            background: #1c6e4b;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-container .btn-submit:hover {
+            background: #0b3b2f;
+        }
+
+        /* Info QRIS & Bank */
+        .info-pembayaran {
+            background: #f0f5f2;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0 15px;
+        }
+
+        .info-pembayaran .qris-box {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        .info-pembayaran .qris-box img {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+        }
+
+        .info-pembayaran .bank-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-pembayaran .bank-item {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info-pembayaran .bank-item .bank-name {
+            font-weight: 600;
+            color: #1c6e4b;
+        }
+
+        .info-pembayaran .bank-item .rekening {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #1c6e4b;
+        }
+
+        .info-pembayaran .bank-item .an {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .wa-button {
+            display: block;
+            margin-top: 15px;
+            background: #25D366;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .wa-button:hover {
+            background: #128C7E;
+        }
+
+        /* NOTIFIKASI SUKSES */
+        #notifikasiSukses {
+            display: none;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #notifikasiSukses .icon-besar {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        #notifikasiSukses h3 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        #notifikasiSukses p {
+            color: #155724;
+            font-size: 1.1rem;
+        }
+
+        #notifikasiSukses .emot {
+            font-size: 3rem;
+            margin-top: 10px;
+        }
+
+        #notifikasiSukses .moto-form {
+            color: #155724;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .form-footer i {
+            color: #1c6e4b;
+        }
+
+        /* ========== NAVIGASI HAMBURGER ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            padding: 15px 20px;
+            background: transparent;
+            transition: 0.3s;
+        }
+
+        .navbar.scrolled {
+            background: rgba(11, 59, 47, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            transition: 0.3s;
+            border: none;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger:hover {
+            background: rgba(255,255,255,0.35);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, #0b3b2f, #1c6e4b);
+            padding: 80px 30px 30px;
+            transition: left 0.4s ease;
+            z-index: 9998;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+
+        .nav-menu.open {
+            left: 0;
+        }
+
+        .nav-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .nav-menu .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .nav-menu .menu-title {
+            color: #f4b942;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu ul li {
+            margin-bottom: 5px;
+        }
+
+        .nav-menu ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-menu ul li a i {
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            color: #f4b942;
+        }
+
+        .nav-menu ul li a:hover {
+            background: rgba(244, 185, 66, 0.2);
+            transform: translateX(8px);
+        }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu { width: 280px; left: -300px; }
+            .hamburger { width: 45px; height: 45px; }
+            .hamburger span { width: 24px; }
+            .hero h1 { font-size: 2rem; }
+            .info-pembayaran .bank-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Footer */
+        footer {
+            background: #0b3b2f;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #f4b942;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- OVERLAY -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- MENU NAVIGASI -->
+<div class="nav-menu" id="navMenu">
+    <button class="close-btn" id="closeMenu">✕</button>
+    <div class="menu-title">✦ MENU FASA</div>
+    <ul>
+        <li>
+            <a href="index.html">
+                <i class="fas fa-home"></i> Beranda
+            </a>
+        </li>
+        <li>
+            <a href="index.html#">
+                <i class="fas fa-info-circle"></i> Info
+            </a>
+        </li>
+        <li>
+            <a href="pendataan.html">
+                <i class="fas fa-clipboard-list"></i> Pendataan
+            </a>
+        </li>
+        <li>
+            <a href="pembayaran.html">
+                <i class="fas fa-money-bill-wave"></i> Pembayaran
+            </a>
+        </li>
+        <li>
+            <a href="learning-center.html">
+                <i class="fas fa-sign-in-alt"></i> Login Member
+            </a>
+        </li>
+    </ul>
+    
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.75rem; text-align: center;">
+            <i class="fas fa-graduation-cap"></i> FASA v1.0<br>
+            Forum Alumni Sunan Ampel
+        </p>
+    </div>
+</div>
+
+<!-- TOMBOL HAMBURGER -->
+<nav class="navbar" id="navbar">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- HERO / SAPAAN + MOTO dengan LOGO TENGAH ATAS -->
+<div class="hero">
+    <!-- Logo Tengah Atas -->
+    <div class="logo-atas">
+    <img src="https://res.cloudinary.com/dppixmteb/image/upload/v1781538505/Logo_Fasa_forum_angkatan_sunan_ampel_splais.png" alt="Logo FASA" style="width: 100px; height: 100px; object-fit: contain; border-radius: 100%;">
+    </div>
+    
+    <h1>FASA</h1>
+    <p class="tagline">Forum Alumni Sunan Ampel</p>
+    
+    <!-- Deskripsi Selamat Datang -->
+    <div class="deskripsi-selamat">
+        <i class="fas fa-hand-wave" style="margin-right: 8px;"></i> 
+        Selamat datang di wadah kebersamaan alumni Yayasan Sunan Ampel. 
+        Bersama kita jalin silaturahmi, bangun prestasi, dan wujudkan generasi yang berkontribusi.
+    </div>
+    
+    <div class="moto">
+        <i class="fas fa-quote-left"></i> Satu Alumni Satu Aksi <i class="fas fa-quote-right"></i>
+    </div>
+    <div style="margin-top: 25px; font-size: 0.9rem;">
+        <i class="fas fa-map-marker-alt"></i> Jl. Sumber Lungun No.1, Dusun Mulyosari, Desa Bunder, Kec. Kabat, Kab. Banyuwangi, Jawa Timur 68461
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+    <section class="form-section">
+        <div class="section-title">💳 Konfirmasi Pembayaran</div>
+        <div class="form-container">
+            <p>
+                <i class="fas fa-info-circle"></i> 
+                Silakan isi form di bawah ini untuk konfirmasi pembayaran iuran alumni FASA.
+            </p>
+            
+            <!-- NOTIFIKASI SUKSES -->
+            <div id="notifikasiSukses">
+                <div class="icon-besar">🎉</div>
+                <h3>Pembayaran Berhasil Dikonfirmasi! ✅</h3>
+                <p>
+                    Terima kasih telah melakukan pembayaran. 
+                    <br>Kami akan segera memverifikasi data Anda.
+                </p>
+                <div class="emot">👍😊</div>
+                <p class="moto-form">"Satu Alumni Satu Aksi"</p>
+            </div>
+            
+            <!-- FORM -->
+            <form id="formPembayaran" onsubmit="kirimPembayaran(event)">
+                <input type="text" placeholder="Nama Lengkap *" required>
+                <input type="text" placeholder="NISN / No. Peserta *" required>
+                
+                <select required>
+                    <option value="">Pilih Metode Pembayaran *</option>
+                    <option>QRIS</option>
+                    <option>Transfer BCA</option>
+                    <option>Transfer BSI</option>
+                    <option>Lainnya</option>
+                </select>
+                
+                <input type="number" placeholder="Nominal Pembayaran *" required>
+                <input type="date" placeholder="Tanggal Pembayaran *" required>
+                
+                <textarea placeholder="Keterangan Tambahan (opsional)" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 0.95rem; resize: vertical; min-height: 80px;"></textarea>
+                
+                <!-- Informasi Pembayaran -->
+                <div class="info-pembayaran">
+                    <div class="qris-box">
+                        <p style="font-weight: 600; margin-bottom: 10px;">
+                            <i class="fas fa-qrcode" style="color: #1c6e4b; font-size: 1.5rem;"></i> Scan QRIS
+                        </p>
+                        <img 
+                            src="https://res.cloudinary.com/dppixmteb/image/upload/v1781607011/WhatsApp_Image_2026-06-16_at_17.49.52_wfzhqq.jpg" 
+                            alt="QRIS FASA"
+                            onerror="this.src='https://via.placeholder.com/180x180/1c6e4b/white?text=QRIS+FASA'"
+                        >
+                        <p style="margin-top: 10px; font-size: 0.8rem; color: #555;">
+                            <i class="fas fa-info-circle"></i> Scan menggunakan mobile banking atau e-wallet
+                        </p>
+                    </div>
+                    
+                    <div class="bank-grid">
+                        <div class="bank-item">
+                            <p class="bank-name">🏦 BCA</p>
+                            <p class="rekening">123-456-7890</p>
+                            <p class="an">a.n. Forum Alumni Sunan Ampel</p>
+                        </div>
+                        <div class="bank-item">
+                            <p class="bank-name">🏦 BSI</p>
+                            <p class="rekening">987-654-3210</p>
+                            <p class="an">a.n. Yayasan Sunan Ampel</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/6285749343688?text=Assalamualaikum%20Admin%20FASA%2C%20saya%20ingin%20konfirmasi%20pembayaran%20iuran%20alumni" 
+                       target="_blank" 
+                       class="wa-button">
+                        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Konfirmasi via WhatsApp
+                    </a>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
+                </button>
+            </form>
+            
+            <p class="form-footer">
+                <i class="fas fa-lock"></i> Data Anda aman dan hanya digunakan untuk keperluan alumni FASA
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Forum Alumni Sunan Ampel (FASA) | Satu Alumni Satu Aksi</p>
+    <p><i class="fab fa-instagram"></i> @official_fasa7 | <i class="fab fa-whatsapp"></i> +62 857-4934-3688</p>
+</footer>
+
+<script>
+    // ========== KONFIGURASI ==========
+    // GANTI DENGAN URL Google Apps Script ANDA
+    const SCRIPT_URL = 'https://script.google.com/macros/s/GANTI_DENGAN_URL_ANDA/exec';
+
+    // ========== NAVIGASI HAMBURGER ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+    const navbar = document.getElementById('navbar');
+
+    function openMenu() {
+        navMenu.classList.add('open');
+        navOverlay.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFunc() {
+        navMenu.classList.remove('open');
+        navOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    navOverlay.addEventListener('click', closeMenuFunc);
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMenuFunc();
+        }
+    });
+
+    // ========== FUNGSI KIRIM FORM PEMBAYARAN ==========
+    function kirimPembayaran(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('formPembayaran');
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        // Ambil data dari form
+        const data = {
+            nama: inputs[0].value.trim(),
+            nisn: inputs[1].value.trim(),
+            metode: inputs[2].value,
+            nominal: inputs[3].value.trim(),
+            tanggal: inputs[4].value,
+            keterangan: inputs[5].value.trim(),
+            status: 'konfirmasi',
+            tanggalKirim: new Date().toLocaleDateString('id-ID')
+        };
+        
+        // Validasi wajib
+        if (!data.nama || !data.nisn || !data.metode || !data.nominal || !data.tanggal) {
+            alert('⚠️ Field yang bertanda * wajib diisi!');
+            return;
+        }
+        
+        // Kirim ke Google Sheets via Apps Script
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            // Sembunyikan form, tampilkan notifikasi sukses
+            form.style.display = 'none';
+            document.getElementById('notifikasiSukses').style.display = 'block';
+            document.getElementById('notifikasiSukses').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form setelah 5 detik
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'flex';
+                document.getElementById('notifikasiSukses').style.display = 'none';
+            }, 5000);
+            
+            console.log('✅ Data pembayaran terkirim ke Google Sheets:', data);
+        })
+        .catch(error => {
+            alert('❌ Gagal mengirim data! Coba lagi.');
+            console.error('Error:', error);
+        });
+    }
+
+    console.log('💳 Halaman Pembayaran FASA siap digunakan!');
+</script>
+
+</body>
+</html>
