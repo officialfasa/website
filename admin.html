@@ -392,20 +392,21 @@
             <label>Username</label>
             <div class="input-icon">
                 <i class="fas fa-user"></i>
-                <input type="text" id="adminUsername" placeholder="Masukkan username">
+                <input type="text" id="adminUsername" placeholder="Masukkan username" value="admin">
             </div>
         </div>
         <div class="form-group">
             <label>Password</label>
             <div class="input-icon">
                 <i class="fas fa-lock"></i>
-                <input type="password" id="adminPassword" placeholder="Masukkan password">
+                <input type="password" id="adminPassword" placeholder="Masukkan password" value="admin123">
             </div>
         </div>
         <button class="btn-login" onclick="loginAdmin()">
             <i class="fas fa-sign-in-alt"></i> Masuk
         </button>
         <p style="text-align:center;margin-top:15px;font-size:0.7rem;color:#888;">
+            <i class="fas fa-info-circle"></i> Default: admin / admin123
         </p>
     </div>
 </div>
@@ -511,9 +512,10 @@
 </div>
 
 <script>
+    const SCRIPT_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnR5jBXnuZRb-Os4QkkAalY7EZjGkLdwRqvfr1E-ArYuXbRwYY4EcYz-LM2QSfAGrMI-FB2K08jUil-dl4QD7hxQOVPM5AK7deHzF-n8D-hAOG9y0TIzhdmvVLR3WsGKaLx5gOwz2RDn49uckfCHUtJqCD2gvC4xY2LTJg2u2epKB1a0PbZa6YUNNMrE8y237wJ4Ubfcnodm_Tb7JS6M7wQM9XCKWCmR-vUWTdaXRIg2t5mX7d-PHDVqt3OrYiw3hMTvIoTKN9XBwkEmbMfF7qhtKzs-Nw&lib=MFWN1jAtJfLx0UG7oQDOV8v5dscEWlwvh'; // GANTI DENGAN URL ANDA
     // ========== KONFIGURASI ==========
-    const ADMIN_USERNAME = 'adminfasa';
-    const ADMIN_PASSWORD = 'adminfasarobin140906';
+    const ADMIN_USERNAME = 'admin';
+    const ADMIN_PASSWORD = 'admin123';
 
     // ========== FUNGSI LOGIN ==========
     function loginAdmin() {
@@ -550,8 +552,19 @@
     }
 
     // ========== AMBIL DATA DARI LOCALSTORAGE ==========
+        // ========== AMBIL DATA DARI GOOGLE SHEETS ==========
     function getPendataan() {
-        return JSON.parse(localStorage.getItem('fasa_pendataan')) || [];
+        return fetch(SCRIPT_URL)
+            .then(response => response.json())
+            .then(data => {
+                // Simpan ke localStorage sebagai cache
+                localStorage.setItem('fasa_pendataan', JSON.stringify(data));
+                return data;
+            })
+            .catch(() => {
+                // Jika gagal, ambil dari localStorage
+                return JSON.parse(localStorage.getItem('fasa_pendataan')) || [];
+            });
     }
 
     function getPembayaran() {
@@ -575,12 +588,14 @@
     }
 
     // ========== LOAD ALL DATA ==========
-    function loadAllData() {
-        const pendataan = getPendataan();
+        // ========== LOAD ALL DATA ==========
+    async function loadAllData() {
+        // Ambil data dari Google Sheets (cloud)
+        const pendataan = await getPendataan();
         const pembayaran = getPembayaran();
         const learning = getLearning();
 
-        document.getElementById('totalPendataan').textContent = pendataan.length;
+        document.getElementById('totalPendataan').textContent = pendataan.length || 0;
         document.getElementById('totalPembayaran').textContent = pembayaran.length;
         document.getElementById('totalUjian').textContent = learning.length;
 
