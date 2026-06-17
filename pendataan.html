@@ -612,13 +612,17 @@
     }
 
     // ========== FUNGSI KIRIM FORM ==========
+       // ========== KONFIGURASI ==========
+    const SCRIPT_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnR5jBXnuZRb-Os4QkkAalY7EZjGkLdwRqvfr1E-ArYuXbRwYY4EcYz-LM2QSfAGrMI-FB2K08jUil-dl4QD7hxQOVPM5AK7deHzF-n8D-hAOG9y0TIzhdmvVLR3WsGKaLx5gOwz2RDn49uckfCHUtJqCD2gvC4xY2LTJg2u2epKB1a0PbZa6YUNNMrE8y237wJ4Ubfcnodm_Tb7JS6M7wQM9XCKWCmR-vUWTdaXRIg2t5mX7d-PHDVqt3OrYiw3hMTvIoTKN9XBwkEmbMfF7qhtKzs-Nw&lib=MFWN1jAtJfLx0UG7oQDOV8v5dscEWlwvh'; // GANTI DENGAN URL ANDA
+
+    // ========== FUNGSI KIRIM FORM ==========
     function kirimPendataan(event) {
         event.preventDefault();
         
         const form = document.getElementById('formPendataan');
         const inputs = form.querySelectorAll('input, select');
         
-                // Ambil data dari form
+        // Ambil data dari form
         const data = {
             nama: inputs[0].value.trim(),
             tempatLahir: inputs[1].value.trim(),
@@ -628,10 +632,11 @@
             prodi: inputs[5].value.trim(),
             universitas: inputs[6].value.trim(),
             whatsapp: inputs[7].value.trim(),
-            lanjutMTs: inputs[8].value,
-            // Jika tidak lanjut MTs, ambil data dari field tambahan
+            lanjutMTs: inputs[8] ? inputs[8].value : '',
             namaMTsLain: inputs[9] ? inputs[9].value.trim() : '',
-            pondok: inputs[10] ? inputs[10].value.trim() : ''
+            pondok: inputs[10] ? inputs[10].value.trim() : '',
+            status: 'baru',
+            tanggal: new Date().toLocaleDateString('id-ID')
         };
         
         // Validasi wajib
@@ -640,28 +645,34 @@
             return;
         }
         
-        // Simpan ke localStorage (database sementara)
-        let allData = JSON.parse(localStorage.getItem('fasa_pendataan')) || [];
-        data.status = 'baru';
-        data.tanggal = new Date().toLocaleDateString('id-ID');
-        allData.push(data);
-        localStorage.setItem('fasa_pendataan', JSON.stringify(allData));
-        
-        // Sembunyikan form, tampilkan notifikasi sukses
-        form.style.display = 'none';
-        document.getElementById('notifikasiSukses').style.display = 'block';
-        
-        // Scroll ke notifikasi
-        document.getElementById('notifikasiSukses').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-                // Reset form setelah 3 detik
-        setTimeout(() => {
-            form.reset();
-            document.getElementById('yaLanjutContainer').style.display = 'none';
-            document.getElementById('tidakLanjutContainer').style.display = 'none';
-        }, 3000);
-        
-        console.log('✅ Data pendataan terkirim:', data);
+        // Kirim ke Google Sheets via Apps Script
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            // Sembunyikan form, tampilkan notifikasi sukses
+            form.style.display = 'none';
+            document.getElementById('notifikasiSukses').style.display = 'block';
+            document.getElementById('notifikasiSukses').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form setelah 3 detik
+            setTimeout(() => {
+                form.reset();
+                document.getElementById('yaLanjutContainer').style.display = 'none';
+                document.getElementById('tidakLanjutContainer').style.display = 'none';
+                form.style.display = 'flex';
+                document.getElementById('notifikasiSukses').style.display = 'none';
+            }, 5000);
+            
+            console.log('✅ Data pendataan terkirim ke Google Sheets:', data);
+        })
+        .catch(error => {
+            alert('❌ Gagal mengirim data! Coba lagi.');
+            console.error('Error:', error);
+        });
     }
 
     console.log('📋 Halaman Pendataan FASA siap digunakan!');
