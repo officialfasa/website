@@ -887,6 +887,64 @@
             }
         }
 
+                /* ====== VIDEO PROFIL FASA ====== */
+        .video-section {
+            padding: 60px 0;
+        }
+
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            position: relative;
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .video-wrapper .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .video-wrapper .play-overlay:hover {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .video-wrapper .play-overlay i {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .video-caption i {
+            color: #1c6e4b;
+            margin-right: 8px;
+        }
         /* Style untuk Dokumentasi FASA - Card Judul */
 .dokumentasi-grid {
     display: grid;
@@ -949,6 +1007,368 @@
         }
         footer a:hover {
             text-decoration: underline;
+        }
+                      /* ====== GRUP WHATSAPP & INSTAGRAM FASA ====== */
+        .wa-group-section {
+            padding: 40px 0;
+        }
+
+        .wa-group-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 2px solid #25D366;
+            transition: 0.3s;
+        }
+
+        .wa-group-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.15);
+        }
+
+        .wa-group-card .wa-icon {
+            font-size: 3.5rem;
+            color: #25D366;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .wa-group-card h3 {
+            color: #1a4d5f;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .wa-group-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .wa-group-card .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .wa-group-card .social-buttons .btn-social {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            flex: 1;
+            min-width: 140px;
+            max-width: 230px;
+        }
+
+        .wa-group-card .social-buttons .btn-social i {
+            font-size: 1.2rem;
+        }
+
+        .wa-group-card .social-buttons .btn-wa {
+            background: #25D366;
+            color: white;
+        }
+
+        .wa-group-card .social-buttons .btn-wa:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .wa-group-card .social-buttons .btn-ig {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+        }
+
+        .wa-group-card .social-buttons .btn-ig:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+        }
+
+        .wa-group-card .group-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .wa-group-card .group-info span {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .wa-group-card .group-info i {
+            color: #25D366;
+            margin-right: 5px;
+        }
+                /* ====== WIDGET CHAT AI ====== */
+        .chat-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 20px rgba(28, 110, 75, 0.4);
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+                .chat-body .message .msg-bubble.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border-color: #fecaca;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(28, 110, 75, 0.5);
+        }
+
+        .chat-toggle .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f4b942;
+            color: #1e2a3e;
+            font-size: 0.6rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-box {
+            display: none;
+            width: 340px;
+            max-width: 90vw;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+            border: 1px solid #e2edf2;
+        }
+
+        .chat-box.open {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-header .chat-title .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #f4b942;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1e2a3e;
+            font-size: 0.8rem;
+        }
+
+        .chat-header .chat-title span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .chat-header .chat-title small {
+            font-size: 0.65rem;
+            opacity: 0.7;
+            display: block;
+        }
+
+        .chat-header .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .chat-header .close-chat:hover {
+            opacity: 1;
+        }
+
+        .chat-body {
+            padding: 15px 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: #f9fbfe;
+        }
+
+        .chat-body .message {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .chat-body .message .msg-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f4b942;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1e2a3e;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .chat-body .message .msg-bubble {
+            background: white;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            max-width: 85%;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border: 1px solid #e2edf2;
+        }
+
+        .chat-body .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .chat-body .message.user .msg-bubble {
+            background: #1c6e4b;
+            color: white;
+            border: none;
+        }
+
+        .chat-body .message .msg-time {
+            font-size: 0.6rem;
+            color: #999;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .chat-body .message.user .msg-time {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .chat-footer {
+            padding: 12px 15px;
+            background: white;
+            border-top: 1px solid #e2edf2;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .chat-footer input:focus {
+            border-color: #1c6e4b;
+            box-shadow: 0 0 0 3px rgba(28, 110, 75, 0.1);
+        }
+
+        .chat-footer .send-btn {
+            background: #1c6e4b;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .chat-footer .send-btn:hover {
+            background: #0b3b2f;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 8px 15px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        @media (max-width: 500px) {
+            .chat-box {
+                width: 100%;
+                max-width: 100%;
+                bottom: 80px;
+                right: 0;
+                border-radius: 20px 20px 0 0;
+            }
+            .chat-toggle {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -1056,6 +1476,7 @@
         </div>
     </section>
 
+
     <!-- SLIDER FOTO KENANGAN -->
     <section style="padding-top: 0;">
         <div class="section-title">Galeri Kenangan</div>
@@ -1075,6 +1496,24 @@
         </div>
         <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #555;"><i class="fas fa-camera"></i> Kenangan bersama keluarga Sunan Ampel</p>
     </section>
+        <!-- VIDEO PROFIL FASA -->
+    <section class="video-section">
+        <div class="section-title">Video Profil FASA</div>
+        <div class="video-wrapper">
+            <video id="videoProfil" muted loop playsinline>
+                <source src="https://res.cloudinary.com/dppixmteb/video/upload/v1781538505/your-video-file.mp4" type="video/mp4">
+                <!-- Fallback jika video tidak bisa diputar -->
+                <p>Browser Anda tidak mendukung video.</p>
+            </video>
+            <div class="play-overlay" id="playOverlay" onclick="toggleVideo()">
+                <i class="fas fa-play-circle"></i>
+            </div>
+        </div>
+        <p class="video-caption">
+            <i class="fas fa-video"></i> Video profil FASA - Perjalanan dan kebersamaan alumni Sunan Ampel
+        </p>
+    </section>
+      
 <!-- DOKUMENTASI FASA - Card Judul dengan Link Drive -->
     <section style="background: #fff9f0; border-radius: 40px; margin: 20px 0;">
          <div class="section-title">Dokumentasi FASA</div>
@@ -1286,6 +1725,80 @@
             </div>
         </div>
     </section>
+     <!-- GRUP WHATSAPP & INSTAGRAM FASA -->
+    <section class="wa-group-section">
+        <div class="section-title">Sosial Media FASA</div>
+        <div class="wa-group-card">
+            <span class="wa-icon">
+                <i class="fas fa-share-alt"></i>
+            </span>
+            <h3>Ikuti Kami</h3>
+            <p>
+                Bergabunglah dengan grup WhatsApp dan ikuti Instagram resmi 
+                Forum Alumni Sunan Ampel (FASA) untuk informasi terbaru dan silaturahmi.
+            </p>
+            
+            <div class="social-buttons">
+                <a href="https://chat.whatsapp.com/EgiGcFU6upLH5UvWhAykRy" target="_blank" class="btn-social btn-wa">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.instagram.com/official_fasa7" target="_blank" class="btn-social btn-ig">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+            
+            <div class="group-info">
+                <span><i class="fas fa-users"></i> 100+ Anggota</span>
+                <span><i class="fas fa-shield-alt"></i> Terverifikasi</span>
+            </div>
+        </div>
+    </section>
+        <!-- ====== WIDGET CHAT AI ====== -->
+    <div class="chat-widget">
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <div class="avatar">F</div>
+                    <div>
+                        <span>FASA AI Assistant</span>
+                        <small>Online</small>
+                    </div>
+                </div>
+                <button class="close-chat" onclick="toggleChat()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="message">
+                    <div class="msg-avatar">F</div>
+                    <div class="msg-bubble">
+                        Halo! 👋 Saya asisten virtual FASA. 
+                        Ada yang bisa saya bantu?
+                        <span class="msg-time">Sekarang</span>
+                    </div>
+                </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <i class="fas fa-circle" style="color:#1c6e4b;font-size:0.5rem;"></i>
+                <i class="fas fa-circle" style="color:#1c6e4b;font-size:0.5rem;margin-left:4px;"></i>
+                <i class="fas fa-circle" style="color:#1c6e4b;font-size:0.5rem;margin-left:4px;"></i>
+                <span style="margin-left:8px;">AI sedang mengetik...</span>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Tulis pesan..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button class="send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Tombol Toggle -->
+        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i>
+            <span class="badge">1</span>
+        </button>
+    </div>
 </main>
 
 <footer>
@@ -1335,6 +1848,31 @@
         }
     ];
     
+        // ========== VIDEO PROFIL ==========
+    function toggleVideo() {
+        const video = document.getElementById('videoProfil');
+        const overlay = document.getElementById('playOverlay');
+        
+        if (video.paused) {
+            video.play();
+            overlay.style.display = 'none';
+        } else {
+            video.pause();
+            overlay.style.display = 'flex';
+        }
+    }
+
+    // Video autoplay saat visible
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('videoProfil');
+        if (video) {
+            // Coba autoplay
+            video.play().catch(() => {
+                // Jika autoplay diblokir, tampilkan overlay play
+                document.getElementById('playOverlay').style.display = 'flex';
+            });
+        }
+    });
     // ----- INISIALISASI DATABASE -----
     function initDatabase() {
         if (!localStorage.getItem('fasa_users')) {
@@ -2779,6 +3317,175 @@
         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
         updateSlider();
     }
+        // ========== WIDGET CHAT AI ==========
+    function toggleChat() {
+        const chatBox = document.getElementById('chatBox');
+        const toggle = document.getElementById('chatToggle');
+        chatBox.classList.toggle('open');
+        
+        // Ubah ikon tombol
+        if (chatBox.classList.contains('open')) {
+            toggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+            toggle.innerHTML = '<i class="fas fa-comment-dots"></i><span class="badge">1</span>';
+        }
+    }
+
+        // ========== FASA AI DENGAN GEMINI API ==========
+    const GEMINI_API_KEY = 'AQ.Ab8RN6JAC4CoeMfGIwT8BQcJU5UJzlEqVqnpjSKfZhWEzH_k8w'; // Ganti dengan API Key Gemini Anda
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${AQ.Ab8RN6IOnM_TfQk-hx8M_tq-Dt2cM1f2TRZ2je8zypoVmuMAyA}`;
+
+    // Konteks FASA untuk AI
+    const FASA_CONTEXT = `Kamu adalah FASA AI, asisten virtual dari Forum Alumni Sunan Ampel (FASA). 
+    FASA adalah forum alumni yang berlokasi di Jl. Sumber Lungun No.1, Dusun Mulyosari, Desa Bunder, Kec. Kabat, Kab. Banyuwangi, Jawa Timur 68461.
+    Moto FASA adalah "Satu Alumni Satu Aksi".
+    Tugasmu adalah membantu alumni dan pengunjung dengan informasi tentang FASA, alumni, kegiatan, pendataan, pembayaran, dan hal-hal terkait.
+    Jawab dengan ramah, sopan, dan informatif. Gunakan bahasa Indonesia yang baik.
+    Jika ditanya tentang hal di luar konteks FASA, tetaplah ramah dan arahkan ke topik FASA.`;
+
+    let chatHistory = [];
+
+    function sendMessage() {
+        const input = document.getElementById('chatInput');
+        const body = document.getElementById('chatBody');
+        const typing = document.getElementById('typingIndicator');
+        const msg = input.value.trim();
+        
+        if (!msg) return;
+        
+        // Tampilkan pesan user
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message user';
+        userMsg.innerHTML = `
+            <div class="msg-avatar" style="background:#1c6e4b;color:white;">U</div>
+            <div class="msg-bubble">
+                ${msg}
+                <span class="msg-time">${new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+        `;
+        body.appendChild(userMsg);
+        body.scrollTop = body.scrollHeight;
+        input.value = '';
+        
+        // Tampilkan typing indicator
+        typing.classList.add('active');
+        body.scrollTop = body.scrollHeight;
+        
+        // Simpan history
+        chatHistory.push({ role: 'user', parts: [{ text: msg }] });
+        
+        // Kirim ke Gemini API
+        fetch(GEMINI_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [
+                    { role: 'user', parts: [{ text: FASA_CONTEXT + '\n\nPertanyaan: ' + msg }] }
+                ],
+                generationConfig: {
+                    temperature: 0.7,
+                    maxOutputTokens: 500,
+                    topP: 0.9
+                }
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            typing.classList.remove('active');
+            
+            let reply = "Maaf, saya sedang tidak bisa menjawab. Coba lagi nanti.";
+            
+            if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                reply = data.candidates[0].content.parts[0].text;
+            } else if (data.error) {
+                console.error('Gemini Error:', data.error);
+                reply = `⚠️ Error: ${data.error.message || 'Terjadi kesalahan'}`;
+            }
+            
+            // Tampilkan balasan AI
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'message';
+            aiMsg.innerHTML = `
+                <div class="msg-avatar" style="background:#f4b942;color:#1e2a3e;">F</div>
+                <div class="msg-bubble">
+                    ${reply.replace(/\n/g, '<br>')}
+                    <span class="msg-time">${new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
+                </div>
+            `;
+            body.appendChild(aiMsg);
+            body.scrollTop = body.scrollHeight;
+            
+            // Simpan history
+            chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+            
+            // Update badge
+            const badge = document.querySelector('.chat-toggle .badge');
+            if (badge) {
+                const current = parseInt(badge.textContent) || 0;
+                badge.textContent = current + 1;
+            }
+        })
+        .catch(error => {
+            typing.classList.remove('active');
+            console.error('Error:', error);
+            
+            // Tampilkan pesan error
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'message';
+            aiMsg.innerHTML = `
+                <div class="msg-avatar" style="background:#f4b942;color:#1e2a3e;">F</div>
+                <div class="msg-bubble">
+                    ⚠️ Maaf, terjadi kesalahan. Silakan coba lagi nanti.
+                    <span class="msg-time">${new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
+                </div>
+            `;
+            body.appendChild(aiMsg);
+            body.scrollTop = body.scrollHeight;
+        });
+    }
+
+    // Fungsi toggle chat (sudah ada, tidak perlu diubah)
+    function toggleChat() {
+        const chatBox = document.getElementById('chatBox');
+        const toggle = document.getElementById('chatToggle');
+        chatBox.classList.toggle('open');
+        
+        if (chatBox.classList.contains('open')) {
+            toggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+            toggle.innerHTML = '<i class="fas fa-comment-dots"></i><span class="badge">1</span>';
+        }
+    }
+
+    // Tutup chat saat klik di luar
+    document.addEventListener('click', function(e) {
+        const widget = document.querySelector('.chat-widget');
+        if (widget && !widget.contains(e.target)) {
+            const chatBox = document.getElementById('chatBox');
+            const toggle = document.getElementById('chatToggle');
+            if (chatBox && chatBox.classList.contains('open')) {
+                chatBox.classList.remove('open');
+                toggle.innerHTML = '<i class="fas fa-comment-dots"></i><span class="badge">1</span>';
+            }
+        }
+    });
+
+    // Kirim pesan dengan Enter
+    document.addEventListener('DOMContentLoaded', function() {
+        const input = document.getElementById('chatInput');
+        if (input) {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
+    });
 
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
