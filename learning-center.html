@@ -307,6 +307,241 @@
         /* Tab Content */
         .tab-content { display: none; }
         .tab-content.active { display: block; }
+        /* ====== ADMIN PANEL ELEGAN ====== */
+.admin-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-sidebar {
+    width: 240px;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: fit-content;
+    position: sticky;
+    top: 80px;
+}
+
+.admin-sidebar .admin-title {
+    font-weight: 700;
+    color: #1a4d5f;
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e8f5e9;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-sidebar .admin-title i {
+    color: #1c6e4b;
+}
+
+.admin-sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #4a627a;
+    font-weight: 500;
+    margin-bottom: 4px;
+    text-decoration: none;
+}
+
+.admin-sidebar .menu-item:hover {
+    background: #f0f4fa;
+    color: #1c6e4b;
+}
+
+.admin-sidebar .menu-item.active {
+    background: #e8f5e9;
+    color: #1c6e4b;
+    font-weight: 600;
+}
+
+.admin-sidebar .menu-item i {
+    width: 24px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.admin-sidebar .menu-item .badge {
+    margin-left: auto;
+    background: #1c6e4b;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+.admin-sidebar .menu-divider {
+    height: 1px;
+    background: #e2edf2;
+    margin: 0.5rem 0;
+}
+
+.admin-content {
+    flex: 1;
+    min-width: 280px;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #f0f2f5;
+}
+
+.admin-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #f0f2f5;
+}
+
+.admin-card .card-header h3 {
+    font-size: 1.1rem;
+    color: #1a4d5f;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-card .card-header h3 i {
+    color: #1c6e4b;
+}
+
+.admin-card .card-header .badge-count {
+    background: #e8f5e9;
+    color: #1c6e4b;
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Statistik Grid */
+.stats-grid-elegant {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card-elegant {
+    background: linear-gradient(135deg, #f8fafc, #f0f4fa);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    border: 1px solid #e8edf2;
+    transition: 0.3s;
+}
+
+.stat-card-elegant:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.stat-card-elegant .number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1c6e4b;
+}
+
+.stat-card-elegant .label {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+.stat-card-elegant .icon-bg {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+/* Quick Action Cards */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.quick-action {
+    background: white;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    border: 1px solid #e2edf2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-color: #1c6e4b;
+}
+
+.quick-action .icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.quick-action .title {
+    font-weight: 600;
+    color: #1a4d5f;
+    font-size: 0.9rem;
+}
+
+.quick-action .desc {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-wrapper {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 1rem;
+    }
+    .admin-sidebar .admin-title {
+        width: 100%;
+    }
+    .admin-sidebar .menu-item {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    .admin-sidebar .menu-divider {
+        display: none;
+    }
+    .stats-grid-elegant {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
         /* Table */
         .table-wrapper { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); overflow-x: auto; }
@@ -341,6 +576,207 @@
         .modal-content .info-row { margin: 0.8rem 0; text-align: left; padding: 0.5rem; border-bottom: 1px solid #e2edf2; }
         .modal-content .info-row strong { display: inline-block; width: 110px; color: #1c6e4b; }
         .close-modal { background: #1c6e4b; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 2rem; cursor: pointer; margin-top: 1rem; font-weight: 600; }
+
+        /* ====== MODAL EDIT PESERTA ====== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 90%;
+    padding: 2rem;
+    animation: fadeInUp 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal .modal-content h3 {
+    color: #1a4d5f;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal .modal-content label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 4px;
+    color: #2c4c6c;
+}
+
+.modal .modal-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.modal .modal-content input:disabled {
+    background: #f0f2f5;
+    color: #888;
+}
+
+.modal .modal-content small {
+    color: #888;
+    font-size: 0.7rem;
+}
+
+.modal .modal-content .btn-admin {
+    background: #1c6e4b;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.modal .modal-content .btn-admin:hover {
+    background: #0b3b2f;
+}
+
+.modal .modal-content .btn-danger {
+    background: #e74c3c;
+}
+
+.modal .modal-content .btn-danger:hover {
+    background: #c0392b;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ====== FORM YANG LEBIH BESAR & NYAMAN ====== */
+.admin-card .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.admin-card .form-row input,
+.admin-card .form-row select,
+.admin-card .form-row textarea {
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    width: 100%;
+    transition: 0.3s;
+    background: white;
+    color: #1e2a3e;
+}
+
+.admin-card .form-row input:focus,
+.admin-card .form-row select:focus,
+.admin-card .form-row textarea:focus {
+    border-color: #1c6e4b;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(28, 110, 75, 0.1);
+}
+
+.admin-card .form-row input::placeholder,
+.admin-card .form-row textarea::placeholder {
+    color: #999;
+    font-size: 0.95rem;
+}
+
+.admin-card .form-row textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-size: 1rem;
+}
+
+.admin-card .form-row select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.admin-card .btn-admin {
+    background: #1c6e4b;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.admin-card .btn-admin:hover {
+    background: #0b3b2f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(28, 110, 75, 0.3);
+}
+
+.admin-card .btn-admin i {
+    margin-right: 8px;
+}
+
+/* Label form */
+.admin-card .form-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1a4d5f;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Form group dengan label */
+.admin-card .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.admin-card .form-group label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #1a4d5f;
+}
+
+.admin-card .form-group input,
+.admin-card .form-group select,
+.admin-card .form-group textarea {
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.admin-card .form-group input:focus,
+.admin-card .form-group select:focus,
+.admin-card .form-group textarea:focus {
+    border-color: #1c6e4b;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(28, 110, 75, 0.1);
+}
+
+.admin-card .form-group input::placeholder,
+.admin-card .form-group textarea::placeholder {
+    color: #aaa;
+    font-size: 0.95rem;
+}
 
         /* ====== HALAMAN UJIAN ====== */
         .ujian-page { display: none; min-height: 100vh; background: #f0f2f5; }
@@ -490,23 +926,43 @@
 
         <!-- Tab Admin -->
 <div id="tabAdmin" class="tab-content">
-    <div class="section-header"><h3>⚙️ Panel Admin FASA</h3></div>
-    
-    <!-- Stats -->
-    <div class="stats-grid" id="adminStats"></div>
-    
-    <!-- Menu Admin -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
-        <button class="btn-admin" onclick="showAdminMenu('dashboard')" id="adminMenuDashboard">📊 Dashboard</button>
-        <button class="btn-admin" onclick="showAdminMenu('buatPaket')" id="adminMenuBuatPaket">📦 Buat Paket</button>
-        <button class="btn-admin" onclick="showAdminMenu('kelolaPaket')" id="adminMenuKelolaPaket">📋 Kelola Paket</button>
-        <button class="btn-admin" onclick="showAdminMenu('dataUjian')" id="adminMenuDataUjian">📊 Data Ujian</button>
-        <button class="btn-admin" onclick="showAdminMenu('ranking')" id="adminMenuRanking">🏆 Ranking</button>
-        <button class="btn-admin btn-danger" onclick="resetAllData()">🔄 Reset Data</button>
+    <div class="admin-wrapper" id="adminWrapper">
+        <!-- Sidebar Menu -->
+        <div class="admin-sidebar" id="adminSidebar">
+            <div class="admin-title">
+                <i class="fas fa-user-shield"></i> Panel Admin
+            </div>
+            <div class="menu-item active" data-admin="dashboard" onclick="showAdminMenu('dashboard')">
+                <i class="fas fa-chart-pie"></i> Dashboard
+                <span class="badge">Utama</span>
+            </div>
+            <div class="menu-item" data-admin="paket" onclick="showAdminMenu('paket')">
+                <i class="fas fa-box"></i> Kelola Paket
+                <span class="badge" id="badgePaket">0</span>
+            </div>
+            <div class="menu-item" data-admin="soal" onclick="showAdminMenu('soal')">
+                <i class="fas fa-pen-alt"></i> Buat Soal
+            </div>
+            <div class="menu-divider"></div>
+            <div class="menu-item" data-admin="data" onclick="showAdminMenu('data')">
+                <i class="fas fa-database"></i> Data Ujian
+                <span class="badge" id="badgeData">0</span>
+            </div>
+            <div class="menu-item" data-admin="ranking" onclick="showAdminMenu('ranking')">
+                <i class="fas fa-medal"></i> Ranking
+            </div>
+            <div class="menu-item" data-admin="peserta" onclick="showAdminMenu('peserta')">
+                <i class="fas fa-users"></i> Kelola Peserta
+            </div>
+            <div class="menu-divider"></div>
+            <div class="menu-item" data-admin="reset" onclick="resetAllData()" style="color:#e74c3c;">
+                <i class="fas fa-trash-alt"></i> Reset Data
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="admin-content" id="adminContent"></div>
     </div>
-    
-    <!-- Konten Admin -->
-    <div id="adminContent"></div>
 </div>
 
         <div class="help-card">
@@ -533,12 +989,6 @@
     </div>
     <div class="nav-item" data-tab="rekapan" onclick="selectTab('rekapan')">
         <i class="fas fa-chart-line"></i> Rekapan Nilai
-    </div>
-    <div class="nav-item" data-tab="ranking" onclick="selectTab('ranking')" id="menuRanking">
-        <i class="fas fa-medal"></i> Ranking
-    </div>
-    <div class="nav-item" data-tab="adminData" onclick="selectTab('adminData')" id="menuAdminData">
-        <i class="fas fa-database"></i> Data Ujian (Admin)
     </div>
     <div class="nav-item" data-tab="admin" onclick="selectTab('admin')" id="menuAdmin">
     <i class="fas fa-user-shield"></i> Admin Panel
@@ -739,6 +1189,239 @@ function getPaketSoal() {
     }
     return paket;
 }
+// ================================================================
+// ========== SAVE & RESTORE STATE ==========
+// ================================================================
+
+// Simpan state ke sessionStorage
+// ================================================================
+// ========== SAVE & RESTORE STATE ==========
+// ================================================================
+
+// Simpan state ke sessionStorage
+function saveState() {
+    const state = {
+        page: getCurrentPage(),
+        // Untuk admin
+        adminMenu: adminMenuActive || 'dashboard',
+        // Untuk ujian
+        ujian: currentUjian ? {
+            mapel: currentUjian.mapel,
+            soal: currentUjian.soal,
+            jawaban: currentUjian.jawaban,
+            ragu: currentUjian.ragu,
+            currentIndex: currentUjian.currentIndex
+        } : null,
+        selectedSoalData: selectedSoalData,
+        timer: document.getElementById('timer')?.textContent || '30:00',
+        // Untuk dashboard tab
+        dashboardTab: getActiveDashboardTab()
+    };
+    sessionStorage.setItem('fasa_state', JSON.stringify(state));
+}
+
+// Ambil state dari sessionStorage
+function getSavedState() {
+    try {
+        const data = sessionStorage.getItem('fasa_state');
+        return data ? JSON.parse(data) : null;
+    } catch {
+        return null;
+    }
+}
+
+// Dapatkan halaman saat ini
+function getCurrentPage() {
+    if (document.getElementById('loginPage').classList.contains('active')) return 'login';
+    if (document.getElementById('dashboardPage').classList.contains('active')) return 'dashboard';
+    if (document.getElementById('petunjukPage').classList.contains('active')) return 'petunjuk';
+    if (document.getElementById('ujianPage').classList.contains('active')) return 'ujian';
+    if (document.getElementById('hasilUjianPage').classList.contains('active')) return 'hasil';
+    return 'login';
+}
+
+// Dapatkan tab dashboard yang aktif
+function getActiveDashboardTab() {
+    const activeTab = document.querySelector('.tab-content.active');
+    if (activeTab) {
+        if (activeTab.id === 'tabKompetisi') return 'kompetisi';
+        if (activeTab.id === 'tabRiwayat') return 'riwayat';
+        if (activeTab.id === 'tabRekapan') return 'rekapan';
+        if (activeTab.id === 'tabAdmin') return 'admin';
+    }
+    return 'kompetisi';
+}
+
+// Ambil state dari sessionStorage
+function getSavedState() {
+    try {
+        return JSON.parse(sessionStorage.getItem('fasa_state'));
+    } catch {
+        return null;
+    }
+}
+
+// Dapatkan halaman saat ini
+function getCurrentPage() {
+    if (document.getElementById('loginPage').classList.contains('active')) return 'login';
+    if (document.getElementById('dashboardPage').classList.contains('active')) return 'dashboard';
+    if (document.getElementById('petunjukPage').classList.contains('active')) return 'petunjuk';
+    if (document.getElementById('ujianPage').classList.contains('active')) return 'ujian';
+    if (document.getElementById('hasilUjianPage').classList.contains('active')) return 'hasil';
+    return 'login';
+}
+
+// Restore state setelah refresh
+function restoreState() {
+    const saved = getSavedState();
+    if (!saved) return false;
+    
+    // Jika tidak ada user, tidak bisa restore
+    if (!currentUser) return false;
+    
+    const page = saved.page;
+    
+    // ====== DASHBOARD ======
+    if (page === 'dashboard' || page === 'login') {
+        showDashboard();
+        
+        // Restore tab dashboard
+        if (saved.dashboardTab) {
+            // Pilih tab yang sesuai
+            const tabMap = {
+                'kompetisi': 'kompetisi',
+                'riwayat': 'riwayat',
+                'rekapan': 'rekapan',
+                'admin': 'admin'
+            };
+            const tab = tabMap[saved.dashboardTab] || 'kompetisi';
+            
+            // Jika admin dan tabnya admin, langsung ke admin
+            if (tab === 'admin' && currentUser.role === 'admin') {
+                // Aktifkan tab admin
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+                document.getElementById('tabAdmin').classList.add('active');
+                document.querySelector(`.nav-item[data-tab="admin"]`)?.classList.add('active');
+                
+                // Restore menu admin
+                if (saved.adminMenu) {
+                    adminMenuActive = saved.adminMenu;
+                    // Update sidebar admin
+                    document.querySelectorAll('.admin-sidebar .menu-item').forEach(el => {
+                        el.classList.remove('active');
+                        if (el.dataset.admin === saved.adminMenu) el.classList.add('active');
+                    });
+                    
+                    // Render konten admin
+                    const content = document.getElementById('adminContent');
+                    switch(saved.adminMenu) {
+                        case 'dashboard': renderAdminDashboard(content); break;
+                        case 'paket': renderKelolaPaket(content); break;
+                        case 'soal': renderBuatSoal(content); break;
+                        case 'data': renderAdminData(content); break;
+                        case 'ranking': renderRankingAdmin(content); break;
+                        case 'peserta': renderKelolaPeserta(content); break;
+                        default: renderAdminDashboard(content);
+                    }
+                }
+            } else {
+                // Restore tab biasa
+                selectTab(tab);
+            }
+        }
+        
+        // Restore menu admin jika di halaman admin
+        if (saved.adminMenu && currentUser.role === 'admin') {
+            // Pastikan tab admin aktif
+            const adminTab = document.getElementById('tabAdmin');
+            if (adminTab && !adminTab.classList.contains('active')) {
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+                adminTab.classList.add('active');
+                document.querySelector(`.nav-item[data-tab="admin"]`)?.classList.add('active');
+            }
+            
+            adminMenuActive = saved.adminMenu;
+            // Update sidebar admin
+            document.querySelectorAll('.admin-sidebar .menu-item').forEach(el => {
+                el.classList.remove('active');
+                if (el.dataset.admin === saved.adminMenu) el.classList.add('active');
+            });
+            
+            // Render konten admin
+            const content = document.getElementById('adminContent');
+            switch(saved.adminMenu) {
+                case 'dashboard': renderAdminDashboard(content); break;
+                case 'paket': renderKelolaPaket(content); break;
+                case 'soal': renderBuatSoal(content); break;
+                case 'data': renderAdminData(content); break;
+                case 'ranking': renderRankingAdmin(content); break;
+                case 'peserta': renderKelolaPeserta(content); break;
+                default: renderAdminDashboard(content);
+            }
+        }
+        
+        return true;
+    }
+    
+    // ====== PETUNJUK ======
+    if (page === 'petunjuk' && saved.selectedSoalData) {
+        selectedSoalData = saved.selectedSoalData;
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('petunjukPage').classList.add('active');
+        document.getElementById('petunjukWaktu').textContent = '30 menit';
+        document.getElementById('setujuJujur').checked = false;
+        document.getElementById('btnMulaiUjian').disabled = true;
+        return true;
+    }
+    
+    // ====== UJIAN ======
+    if (page === 'ujian' && saved.ujian) {
+        currentUjian = saved.ujian;
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('ujianPage').classList.add('active');
+        document.getElementById('ujianMapel').textContent = currentUjian.mapel;
+        document.getElementById('timer').textContent = saved.timer || '30:00';
+        renderSoal();
+        renderNomor();
+        // Restart timer dengan sisa waktu
+        const timeParts = (saved.timer || '30:00').split(':');
+        const remaining = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+        startTimerFrom(remaining);
+        return true;
+    }
+    
+    // ====== HASIL ======
+    if (page === 'hasil') {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('hasilUjianPage').classList.add('active');
+        return true;
+    }
+    
+    return false;
+}
+
+// Timer dengan sisa waktu
+function startTimerFrom(remaining) {
+    if (timerInterval) clearInterval(timerInterval);
+    let waktu = remaining;
+    
+    timerInterval = setInterval(() => {
+        if (waktu <= 0) {
+            clearInterval(timerInterval);
+            alert('⏰ Waktu habis!');
+            kirimUjian();
+        } else {
+            waktu--;
+            let m = Math.floor(waktu / 60);
+            let d = waktu % 60;
+            document.getElementById('timer').textContent = `${String(m).padStart(2, '0')}:${String(d).padStart(2, '0')}`;
+            // Simpan state setiap detik
+            saveState();
+        }
+    }, 1000);
+}
 
 function savePaketSoal(paket) {
     localStorage.setItem('fasa_paket', JSON.stringify(paket));
@@ -749,28 +1432,45 @@ function savePaketSoal(paket) {
 
 // ----- TAMPILKAN MENU ADMIN -----
 function showAdminMenu(menu) {
-    // Hide all admin menus
-    document.querySelectorAll('#adminContent > div').forEach(el => el.style.display = 'none');
+    adminMenuActive = menu;
     
-    // Show selected
+    // Update sidebar active
+    document.querySelectorAll('.admin-sidebar .menu-item').forEach(el => {
+        el.classList.remove('active');
+        if (el.dataset.admin === menu) el.classList.add('active');
+    });
+    
+    // Update badge
+    const paket = getPaketSoal();
+    const dataUjian = getDataUjian();
+    document.getElementById('badgePaket').textContent = paket.length;
+    document.getElementById('badgeData').textContent = dataUjian.length;
+    
     const content = document.getElementById('adminContent');
     
-    if (menu === 'dashboard') {
-        renderAdminDashboard();
-    } else if (menu === 'buatPaket') {
-        renderBuatPaket();
-    } else if (menu === 'kelolaPaket') {
-        renderKelolaPaket();
-    } else if (menu === 'dataUjian') {
-        renderAdminDataUjian();
-    } else if (menu === 'ranking') {
-        renderRanking();
+    // Pastikan tab admin aktif
+    const adminTab = document.getElementById('tabAdmin');
+    if (adminTab && !adminTab.classList.contains('active')) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        adminTab.classList.add('active');
+        document.querySelector(`.nav-item[data-tab="admin"]`)?.classList.add('active');
     }
+    
+    switch(menu) {
+        case 'dashboard': renderAdminDashboard(content); break;
+        case 'paket': renderKelolaPaket(content); break;
+        case 'soal': renderBuatSoal(content); break;
+        case 'data': renderAdminData(content); break;
+        case 'ranking': renderRankingAdmin(content); break;
+        case 'peserta': renderKelolaPeserta(content); break;
+        default: renderAdminDashboard(content);
+    }
+    
+    saveState(); // Simpan state
 }
 
-// ----- DASHBOARD ADMIN -----
-function renderAdminDashboard() {
-    const content = document.getElementById('adminContent');
+function renderAdminDashboard(content) {
     const dataUjian = getDataUjian();
     const peserta = getPeserta();
     const paket = getPaketSoal();
@@ -781,87 +1481,160 @@ function renderAdminDashboard() {
     const lulus = dataUjian.filter(d => d.lulus).length;
     const rata = dataUjian.length > 0 ? (dataUjian.reduce((a,b) => a + b.nilai, 0) / dataUjian.length).toFixed(1) : 0;
     
-    document.getElementById('adminStats').innerHTML = `
-        <div class="stat-card"><div class="number">${totalPeserta}</div><div class="label">👥 Peserta</div></div>
-        <div class="stat-card"><div class="number">${totalUjian}</div><div class="label">📝 Ujian Selesai</div></div>
-        <div class="stat-card"><div class="number">${totalPaket}</div><div class="label">📦 Paket Soal</div></div>
-        <div class="stat-card"><div class="number">${lulus}</div><div class="label">✅ Lulus</div></div>
-        <div class="stat-card"><div class="number">${rata}</div><div class="label">📊 Rata-rata</div></div>
-    `;
-    
     content.innerHTML = `
-        <div class="admin-panel">
-            <div class="panel-title">📊 Selamat Datang, Admin!</div>
-            <p style="color:#888;margin-bottom:1rem;">Kelola paket soal, lihat data ujian, dan pantau perkembangan peserta.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
-                <div style="background:#e8f5e9;padding:1rem;border-radius:12px;text-align:center;cursor:pointer;" onclick="showAdminMenu('buatPaket')">
-                    <div style="font-size:2rem;">📦</div>
-                    <div style="font-weight:600;">Buat Paket Soal</div>
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-chart-pie"></i> Dashboard</h3>
+                <span class="badge-count">Selamat datang, Admin</span>
+            </div>
+            <div class="stats-grid-elegant">
+                <div class="stat-card-elegant">
+                    <div class="icon-bg">👥</div>
+                    <div class="number">${totalPeserta}</div>
+                    <div class="label">Total Peserta</div>
                 </div>
-                <div style="background:#fff8e1;padding:1rem;border-radius:12px;text-align:center;cursor:pointer;" onclick="showAdminMenu('kelolaPaket')">
-                    <div style="font-size:2rem;">📋</div>
-                    <div style="font-weight:600;">Kelola Paket</div>
+                <div class="stat-card-elegant">
+                    <div class="icon-bg">📝</div>
+                    <div class="number">${totalUjian}</div>
+                    <div class="label">Ujian Selesai</div>
                 </div>
-                <div style="background:#e3f2fd;padding:1rem;border-radius:12px;text-align:center;cursor:pointer;" onclick="showAdminMenu('dataUjian')">
-                    <div style="font-size:2rem;">📊</div>
-                    <div style="font-weight:600;">Data Ujian</div>
+                <div class="stat-card-elegant">
+                    <div class="icon-bg">📦</div>
+                    <div class="number">${totalPaket}</div>
+                    <div class="label">Paket Soal</div>
                 </div>
-                <div style="background:#fce4ec;padding:1rem;border-radius:12px;text-align:center;cursor:pointer;" onclick="showAdminMenu('ranking')">
-                    <div style="font-size:2rem;">🏆</div>
-                    <div style="font-weight:600;">Ranking</div>
+                <div class="stat-card-elegant">
+                    <div class="icon-bg">✅</div>
+                    <div class="number">${lulus}</div>
+                    <div class="label">Peserta Lulus</div>
+                </div>
+                <div class="stat-card-elegant">
+                    <div class="icon-bg">📊</div>
+                    <div class="number">${rata}</div>
+                    <div class="label">Rata-rata Nilai</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-rocket"></i> Akses Cepat</h3>
+            </div>
+            <div class="quick-actions">
+                <div class="quick-action" onclick="showAdminMenu('soal')">
+                    <div class="icon">📦</div>
+                    <div class="title">Buat Paket</div>
+                    <div class="desc">Soal & jadwal</div>
+                </div>
+                <div class="quick-action" onclick="showAdminMenu('paket')">
+                    <div class="icon">📋</div>
+                    <div class="title">Kelola Paket</div>
+                    <div class="desc">Lihat & hapus</div>
+                </div>
+                <div class="quick-action" onclick="showAdminMenu('data')">
+                    <div class="icon">📊</div>
+                    <div class="title">Data Ujian</div>
+                    <div class="desc">Semua peserta</div>
+                </div>
+                <div class="quick-action" onclick="showAdminMenu('ranking')">
+                    <div class="icon">🏆</div>
+                    <div class="title">Ranking</div>
+                    <div class="desc">Peringkat</div>
+                </div>
+                <div class="quick-action" onclick="showAdminMenu('peserta')">
+                    <div class="icon">👥</div>
+                    <div class="title">Kelola Peserta</div>
+                    <div class="desc">Tambah & hapus</div>
                 </div>
             </div>
         </div>
     `;
 }
 
-// ----- BUAT PAKET SOAL -----
-function renderBuatPaket() {
-    const content = document.getElementById('adminContent');
+function renderBuatSoal(content) {
     content.innerHTML = `
-        <div class="admin-panel">
-            <div class="panel-title">📦 Buat Paket Soal Baru</div>
-            <div class="form-row">
-                <input type="text" id="paketMapel" placeholder="Mata Pelajaran *" required>
-                <input type="date" id="paketTanggal" required>
-                <input type="time" id="paketJamMulai" required>
-                <input type="time" id="paketJamSelesai" required>
-                <input type="number" id="paketDurasi" placeholder="Durasi (menit) *" value="30" required>
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-pen-alt"></i> Buat Paket Soal Baru</h3>
+                <span class="badge-count">Isi data dengan lengkap</span>
             </div>
-            <button class="btn-admin" onclick="buatPaketBaru()">+ Buat Paket</button>
+            
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;">
+                <div class="form-group">
+                    <label>📚 Mata Pelajaran <span style="color:#e74c3c;">*</span></label>
+                    <input type="text" id="paketMapel" placeholder="Contoh: Matematika, Fisika, dll">
+                </div>
+                <div class="form-group">
+                    <label>📅 Tanggal Ujian <span style="color:#e74c3c;">*</span></label>
+                    <input type="date" id="paketTanggal">
+                </div>
+                <div class="form-group">
+                    <label>⏰ Jam Mulai <span style="color:#e74c3c;">*</span></label>
+                    <input type="time" id="paketJamMulai">
+                </div>
+                <div class="form-group">
+                    <label>⏰ Jam Selesai <span style="color:#e74c3c;">*</span></label>
+                    <input type="time" id="paketJamSelesai">
+                </div>
+                <div class="form-group">
+                    <label>⏱️ Durasi (menit) <span style="color:#e74c3c;">*</span></label>
+                    <input type="number" id="paketDurasi" placeholder="30" value="30" min="1">
+                </div>
+            </div>
+            
+            <button class="btn-admin" onclick="buatPaketBaru()"><i class="fas fa-plus-circle"></i> Buat Paket</button>
         </div>
         
-        <div class="admin-panel" id="tambahSoalPanel" style="display:none;">
-            <div class="panel-title">📝 Tambah Soal ke <span id="paketNamaSaatIni">-</span></div>
-            <div class="form-row">
-                <select id="tipeSoal" onchange="ubahTipeSoal()">
-                    <option value="pilihanGanda">✅ Pilihan Ganda</option>
-                    <option value="essay">📝 Essay/Uraian</option>
-                    <option value="isianSingkat">✏️ Isian Singkat</option>
-                    <option value="benarSalah">✓✗ Benar/Salah</option>
-                    <option value="mencocokkan">🔗 Mencocokkan</option>
-                </select>
-                <input type="number" id="bobotSoal" placeholder="Bobot Nilai" value="10">
-                <select id="bolehMinus">
-                    <option value="false">❌ Tidak boleh minus</option>
-                    <option value="true">✅ Boleh minus</option>
-                </select>
+        <div class="admin-card" id="tambahSoalPanel" style="display:none;">
+            <div class="card-header">
+                <h3><i class="fas fa-plus-circle"></i> Tambah Soal ke <span id="paketNamaSaatIni" style="color:#1c6e4b;">-</span></h3>
+                <span class="badge-count" id="jumlahSoalSaatIni">0 soal</span>
             </div>
-            <div class="form-row">
+            
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;">
+                <div class="form-group">
+                    <label>Tipe Soal</label>
+                    <select id="tipeSoal" onchange="ubahTipeSoal()">
+                        <option value="pilihanGanda">✅ Pilihan Ganda</option>
+                        <option value="essay">📝 Essay/Uraian</option>
+                        <option value="isianSingkat">✏️ Isian Singkat</option>
+                        <option value="benarSalah">✓✗ Benar/Salah</option>
+                        <option value="mencocokkan">🔗 Mencocokkan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Bobot Nilai</label>
+                    <input type="number" id="bobotSoal" placeholder="10" value="10" min="1">
+                </div>
+                <div class="form-group">
+                    <label>Sistem Penilaian</label>
+                    <select id="bolehMinus">
+                        <option value="false">❌ Tidak boleh minus</option>
+                        <option value="true">✅ Boleh minus</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-bottom:1.2rem;">
+                <label>📝 Pertanyaan</label>
                 <textarea id="soalPertanyaan" placeholder="Tulis pertanyaan di sini..." rows="3"></textarea>
             </div>
+            
             <div id="opsiSoalContainer"></div>
-            <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-                <button class="btn-admin" onclick="simpanSoalKePaket()">💾 Simpan Soal</button>
-                <button class="btn-admin btn-danger" onclick="selesaiBuatPaket()">✅ Selesai & Ekspor</button>
-                <button class="btn-admin btn-warning" onclick="batalBuatPaket()">✕ Batal</button>
+            
+            <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+                <button class="btn-admin" onclick="simpanSoalKePaket()"><i class="fas fa-save"></i> Simpan Soal</button>
+                <button class="btn-admin btn-danger" onclick="selesaiBuatPaket()"><i class="fas fa-check-circle"></i> Selesai & Ekspor</button>
+                <button class="btn-admin btn-warning" onclick="batalBuatPaket()"><i class="fas fa-times-circle"></i> Batal</button>
             </div>
-            <div id="daftarSoalPaketSementara" style="margin-top:1rem;"></div>
+            
+            <div id="daftarSoalPaketSementara" style="margin-top:1.2rem;"></div>
         </div>
     `;
     
     // Set default tanggal hari ini
-    document.getElementById('paketTanggal').value = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('paketTanggal').value = today;
     ubahTipeSoal();
 }
 
@@ -1091,15 +1864,25 @@ function simpanSoalKePaket() {
 function renderDaftarSoalSementara() {
     const container = document.getElementById('daftarSoalPaketSementara');
     if (paketSementaraSoal.length === 0) {
-        container.innerHTML = '<p style="color:#888;font-size:0.8rem;">Belum ada soal.</p>';
+        container.innerHTML = '<div style="color:#888;font-size:0.9rem;padding:10px;background:#f9fbfe;border-radius:8px;text-align:center;">📭 Belum ada soal. Tambahkan soal pertama Anda!</div>';
         return;
     }
-    container.innerHTML = paketSementaraSoal.map((s, i) => `
-        <div style="background:#f5f9f7;padding:8px 12px;margin-bottom:5px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;">
-            <span><strong>${i+1}.</strong> ${s.pertanyaan.substring(0,50)}${s.pertanyaan.length > 50 ? '...' : ''}</span>
-            <span style="color:#1c6e4b;">Bobot: ${s.bobot}</span>
+    container.innerHTML = `
+        <div style="background:#f5f9f7;border-radius:12px;padding:12px;border:1px solid #e2edf2;">
+            <div style="font-weight:600;color:#1a4d5f;margin-bottom:8px;font-size:0.85rem;">📋 Daftar Soal (${paketSementaraSoal.length} soal)</div>
+            ${paketSementaraSoal.map((s, i) => `
+                <div style="padding:10px 12px;margin-bottom:6px;background:white;border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;border-left:3px solid #1c6e4b;">
+                    <div>
+                        <strong>${i+1}.</strong> ${s.pertanyaan.length > 60 ? s.pertanyaan.substring(0,60) + '...' : s.pertanyaan}
+                    </div>
+                    <div style="display:flex;gap:12px;align-items:center;">
+                        <span style="background:#e8f5e9;color:#1c6e4b;padding:2px 12px;border-radius:20px;font-size:0.7rem;">${s.tipe}</span>
+                        <span style="color:#1c6e4b;font-weight:600;">Bobot: ${s.bobot}</span>
+                    </div>
+                </div>
+            `).join('')}
         </div>
-    `).join('');
+    `;
 }
 
 function selesaiBuatPaket() {
@@ -1108,24 +1891,52 @@ function selesaiBuatPaket() {
         return;
     }
     
-    // Simpan paket
+    // Simpan paket ke daftar paket
     const paket = getPaketSoal();
     paket.push(paketSementara);
     savePaketSoal(paket);
     
-    // Tampilkan konfirmasi ekspor
-    if (confirm(`✅ Paket "${paketSementara.mapel}" berhasil dibuat dengan ${paketSementara.soal.length} soal.\n\n📤 Ekspor ke peserta sekarang?`)) {
-        // Ekspor ke peserta
-        const dataUjian = getDataUjian();
-        // Tambahkan ke daftar ujian peserta (hanya referensi)
-        alert(`✅ Paket "${paketSementara.mapel}" telah diekspor ke peserta!`);
+    // ====== EKSPOR KE PESERTA ======
+    const peserta = getPeserta();
+    const dataUjian = getDataUjian();
+    
+    // Buat entri ujian untuk setiap peserta
+    const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+    
+    if (pesertaList.length === 0) {
+        alert('⚠️ Belum ada peserta terdaftar! Paket tetap tersimpan.');
+    } else {
+        // Tambahkan paket ke data ujian (agar muncul di dashboard peserta)
+        // Kita simpan sebagai referensi paket yang tersedia
+        const ujianBaru = {
+            id: paketSementara.id,
+            mapel: paketSementara.mapel,
+            tanggal: paketSementara.tanggal,
+            jamMulai: paketSementara.jamMulai,
+            jamSelesai: paketSementara.jamSelesai,
+            durasi: paketSementara.durasi,
+            soal: paketSementara.soal,
+            status: 'aktif',
+            peserta: pesertaList, // Daftar peserta yang bisa mengikuti
+            diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+        };
+        
+        // Simpan ke data ujian
+        dataUjian.push(ujianBaru);
+        saveDataUjian(dataUjian);
+        
+        alert(`✅ Paket "${paketSementara.mapel}" berhasil diekspor ke ${pesertaList.length} peserta!`);
     }
     
+    // Reset
     paketSementara = null;
     paketSementaraSoal = [];
     document.getElementById('tambahSoalPanel').style.display = 'none';
-    renderKelolaPaket();
-    showAdminMenu('kelolaPaket');
+    
+    // Refresh tampilan
+    renderKelolaPaket(document.getElementById('adminContent'));
+    showAdminMenu('paket');
+    loadUjian(); // Refresh ujian untuk peserta
 }
 
 function batalBuatPaket() {
@@ -1135,58 +1946,65 @@ function batalBuatPaket() {
         document.getElementById('tambahSoalPanel').style.display = 'none';
         renderKelolaPaket();
         showAdminMenu('kelolaPaket');
+        saveState();
     }
 }
 
-// ----- KELOLA PAKET SOAL -----
-function renderKelolaPaket() {
-    const content = document.getElementById('adminContent');
+function renderKelolaPaket(content) {
     const paket = getPaketSoal();
+    const dataUjian = getDataUjian();
+    
+    let html = `
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-box"></i> Kelola Paket Soal</h3>
+                <span class="badge-count">${paket.length} paket | ${dataUjian.filter(u => u.status === 'aktif').length} aktif</span>
+            </div>
+            <button class="btn-admin" onclick="showAdminMenu('soal')" style="margin-bottom:1.2rem;">
+                <i class="fas fa-plus-circle"></i> Buat Paket Baru
+            </button>
+    `;
     
     if (paket.length === 0) {
-        content.innerHTML = `
-            <div class="admin-panel">
-                <div class="panel-title">📋 Kelola Paket Soal</div>
-                <div class="empty-data">
-                    <i class="fas fa-inbox" style="font-size:3rem;display:block;margin-bottom:10px;"></i>
-                    <p>Belum ada paket soal.</p>
-                    <button class="btn-admin" onclick="showAdminMenu('buatPaket')">📦 Buat Paket Baru</button>
-                </div>
-            </div>
-        `;
-        return;
-    }
-    
-    content.innerHTML = `
-        <div class="admin-panel">
-            <div class="panel-title">📋 Kelola Paket Soal (${paket.length} paket)</div>
-            ${paket.map((p, idx) => `
+        html += `<div class="empty-data"><i class="fas fa-inbox" style="font-size:2.5rem;display:block;margin-bottom:10px;color:#ccc;"></i><p>Belum ada paket soal. Klik tombol di atas untuk membuat.</p></div>`;
+    } else {
+        paket.forEach((p, idx) => {
+            // Cek apakah paket sudah diekspor
+            const isExported = dataUjian.some(u => u.id === p.id && u.status === 'aktif');
+            
+            html += `
                 <div class="paket-card">
                     <div class="paket-header">
                         <div>
-                            <div class="paket-title">📚 ${p.mapel}</div>
+                            <div class="paket-title">📚 ${p.mapel} ${isExported ? '✅' : '⏳'}</div>
                             <div class="paket-info">
                                 📅 ${p.tanggal} | ⏰ ${p.jamMulai} - ${p.jamSelesai} | 📝 ${p.soal.length} soal | ⏱️ ${p.durasi} menit
+                                ${isExported ? '<span style="color:#1c6e4b;margin-left:10px;">Sudah diekspor</span>' : '<span style="color:#e67e22;margin-left:10px;">Belum diekspor</span>'}
                             </div>
                         </div>
                         <div class="paket-actions">
                             <button class="btn-edit" onclick="editPaket('${p.id}')">✏️ Edit</button>
                             <button class="btn-export" onclick="eksporPaket('${p.id}')">📤 Ekspor</button>
                             <button class="btn-delete" onclick="hapusPaket('${p.id}')">🗑️ Hapus</button>
+                            ${isExported ? `<button class="btn-delete" onclick="hapusUjianDariPeserta('${p.id}')" style="background:#e67e22;">🚫 Batalkan</button>` : ''}
                         </div>
                     </div>
                     <div class="paket-soal-list">
-                        ${p.soal.map((s, i) => `
+                        ${p.soal.slice(0, 3).map((s, i) => `
                             <div class="soal-item">
-                                <span><strong>${i+1}.</strong> ${s.pertanyaan.substring(0,60)}${s.pertanyaan.length > 60 ? '...' : ''}</span>
+                                <span><strong>${i+1}.</strong> ${s.pertanyaan.substring(0,50)}${s.pertanyaan.length > 50 ? '...' : ''}</span>
                                 <span style="color:#888;font-size:0.7rem;">${s.tipe} | Bobot: ${s.bobot}</span>
                             </div>
                         `).join('')}
+                        ${p.soal.length > 3 ? `<div style="color:#888;font-size:0.7rem;padding:4px 0;">+ ${p.soal.length - 3} soal lainnya</div>` : ''}
                     </div>
                 </div>
-            `).join('')}
-        </div>
-    `;
+            `;
+        });
+    }
+    
+    html += `</div>`;
+    content.innerHTML = html;
 }
 
 function editPaket(id) {
@@ -1200,13 +2018,53 @@ function editPaket(id) {
 function eksporPaket(id) {
     const paket = getPaketSoal();
     const p = paket.find(p => p.id === id);
-    if (!p) return;
+    if (!p) {
+        alert('❌ Paket tidak ditemukan!');
+        return;
+    }
     
     if (confirm(`📤 Ekspor paket "${p.mapel}" ke semua peserta?`)) {
-        // Simpan ke data ujian sebagai referensi
+        const peserta = getPeserta();
         const dataUjian = getDataUjian();
-        // Tambahkan entri untuk setiap peserta (simulasi)
-        alert(`✅ Paket "${p.mapel}" berhasil diekspor ke peserta!`);
+        
+        // Daftar peserta
+        const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+        
+        if (pesertaList.length === 0) {
+            alert('⚠️ Belum ada peserta terdaftar!');
+            return;
+        }
+        
+        // Cek apakah sudah ada ujian dengan mapel yang sama
+        const existingIndex = dataUjian.findIndex(u => u.mapel === p.mapel && u.status === 'aktif');
+        
+        const ujianBaru = {
+            id: p.id,
+            mapel: p.mapel,
+            tanggal: p.tanggal,
+            jamMulai: p.jamMulai,
+            jamSelesai: p.jamSelesai,
+            durasi: p.durasi,
+            soal: p.soal,
+            status: 'aktif',
+            peserta: pesertaList,
+            diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+        };
+        
+        if (existingIndex !== -1) {
+            // Update yang sudah ada
+            dataUjian[existingIndex] = ujianBaru;
+        } else {
+            // Tambah baru
+            dataUjian.push(ujianBaru);
+        }
+        
+        saveDataUjian(dataUjian);
+        alert(`✅ Paket "${p.mapel}" berhasil diekspor ke ${pesertaList.length} peserta!`);
+        
+        // Refresh tampilan
+        renderKelolaPaket(document.getElementById('adminContent'));
+        loadUjian();
     }
 }
 
@@ -1220,30 +2078,24 @@ function hapusPaket(id) {
     }
 }
 
-// ----- ADMIN DATA UJIAN -----
-function renderAdminDataUjian() {
-    const content = document.getElementById('adminContent');
+function renderAdminData(content) {
     const dataUjian = getDataUjian();
     
-    if (dataUjian.length === 0) {
-        content.innerHTML = `
-            <div class="admin-panel">
-                <div class="panel-title">📊 Data Ujian</div>
-                <div class="empty-data">
-                    <i class="fas fa-inbox" style="font-size:3rem;display:block;margin-bottom:10px;"></i>
-                    <p>Belum ada data ujian.</p>
-                </div>
+    let html = `
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-database"></i> Data Ujian</h3>
+                <span class="badge-count">${dataUjian.length} record</span>
             </div>
-        `;
-        return;
-    }
+    `;
     
-    content.innerHTML = `
-        <div class="admin-panel">
-            <div class="panel-title">📊 Data Ujian (${dataUjian.length} record)</div>
+    if (dataUjian.length === 0) {
+        html += `<div class="empty-data"><i class="fas fa-inbox" style="font-size:2.5rem;display:block;margin-bottom:10px;color:#ccc;"></i><p>Belum ada data ujian.</p></div>`;
+    } else {
+        html += `
             <div class="table-wrapper">
                 <table>
-                    <thead><tr><th>No</th><th>Nama</th><th>Mapel</th><th>Nilai</th><th>Status</th><th>Tanggal</th></tr></thead>
+                    <thead><tr><th>#</th><th>Nama</th><th>Mapel</th><th>Nilai</th><th>Status</th><th>Tanggal</th></tr></thead>
                     <tbody>
                         ${dataUjian.map((d, i) => `
                             <tr>
@@ -1258,8 +2110,11 @@ function renderAdminDataUjian() {
                     </tbody>
                 </table>
             </div>
-        </div>
-    `;
+        `;
+    }
+    
+    html += `</div>`;
+    content.innerHTML = html;
 }
 
 // ----- RANKING (SUDAH ADA, TAPI DIPERBAIKI) -----
@@ -1384,6 +2239,7 @@ function logoutUser() {
         currentUser = null;
         if (timerInterval) clearInterval(timerInterval);
         if (countdownInterval) clearInterval(countdownInterval);
+        sessionStorage.removeItem('fasa_state'); // Hapus state
         document.getElementById('dashboardPage').classList.remove('active');
         document.getElementById('loginPage').classList.add('active');
     }
@@ -1400,11 +2256,26 @@ function checkSession() {
         const user = peserta[saved.username];
         if (user) {
             currentUser = { ...user, username: saved.username };
-            showDashboard();
+            
+            // Coba restore state
+            const restored = restoreState();
+            if (!restored) {
+                showDashboard();
+            }
+            
+            // Jika ada state admin, pastikan diterapkan
+            const state = getSavedState();
+            if (state && state.adminMenu && currentUser.role === 'admin') {
+                setTimeout(() => {
+                    showAdminMenu(state.adminMenu);
+                }, 100);
+            }
+            
             return;
         }
     }
     document.getElementById('loginPage').classList.add('active');
+    sessionStorage.removeItem('fasa_state');
 }
 
 // ================================================================
@@ -1427,7 +2298,41 @@ function showDashboard() {
         menuAdmin.style.display = 'none';
     }
     
+    // Cek apakah ada state yang perlu direstore
+    const saved = getSavedState();
+    if (saved && saved.page === 'dashboard') {
+        // Restore tab dashboard
+        if (saved.dashboardTab) {
+            const tabMap = {
+                'kompetisi': 'kompetisi',
+                'riwayat': 'riwayat',
+                'rekapan': 'rekapan',
+                'admin': 'admin'
+            };
+            const tab = tabMap[saved.dashboardTab] || 'kompetisi';
+            
+            if (tab === 'admin' && currentUser.role === 'admin') {
+                // Aktifkan tab admin
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+                document.getElementById('tabAdmin').classList.add('active');
+                document.querySelector(`.nav-item[data-tab="admin"]`)?.classList.add('active');
+                
+                // Restore menu admin
+                if (saved.adminMenu) {
+                    adminMenuActive = saved.adminMenu;
+                    showAdminMenu(saved.adminMenu);
+                    return;
+                }
+            } else {
+                selectTab(tab);
+                return;
+            }
+        }
+    }
+    
     loadUjian();
+    saveState();
 }
 
 function showProfile() {
@@ -1475,6 +2380,7 @@ function selectTab(tab) {
     if (tab === 'admin' && currentUser.role === 'admin') {
         document.getElementById('adminStats').innerHTML = '';
         renderAdminDashboard();
+        saveState();
     }
 }
 
@@ -1483,73 +2389,90 @@ function selectTab(tab) {
 // ================================================================
 function loadUjian() {
     const grid = document.getElementById('ujianGrid');
-    const paket = getPaketSoal();
+    
+    // Jika admin, tampilkan pesan khusus
+    if (currentUser && currentUser.role === 'admin') {
+        grid.innerHTML = `
+            <div class="ujian-card">
+                <div style="text-align:center;padding:20px;">
+                    <i class="fas fa-user-shield" style="font-size:3rem;color:#1c6e4b;display:block;margin-bottom:10px;"></i>
+                    <h3 style="color:#1c6e4b;">Anda login sebagai Admin</h3>
+                    <p style="color:#888;">Admin tidak dapat mengerjakan ujian. <br>Silakan kelola paket soal dan lihat data peserta.</p>
+                    <button class="btn-admin" onclick="showAdminMenu('dashboard')" style="margin-top:10px;">📊 Buka Panel Admin</button>
+                </div>
+            </div>
+        `;
+        return;
+    }
+    
+    // Ambil data ujian yang tersedia untuk peserta
     const dataUjian = getDataUjian();
     const sudahSelesai = currentUser.ujianSelesai || {};
+    const username = currentUser.username;
     
-    // Gabungkan paket yang sudah diekspor
-    const ujianTersedia = [];
-    paket.forEach(p => {
-        if (p.status === 'aktif') {
-            ujianTersedia.push({
-                mapel: p.mapel,
-                soal: p.soal.map(s => ({ text: s.pertanyaan, options: s.opsi, jawaban: s.jawabanBenar })),
-                tanggal: p.tanggal,
-                waktu: `${p.jamMulai} - ${p.jamSelesai}`,
-                durasi: p.durasi || 30
-            });
-        }
+    // Filter ujian yang aktif dan untuk peserta ini
+    const ujianTersedia = dataUjian.filter(u => {
+        // Cek apakah ujian aktif
+        if (u.status !== 'aktif') return false;
+        // Cek apakah peserta termasuk dalam daftar
+        if (u.peserta && !u.peserta.includes(username)) return false;
+        return true;
     });
     
-    // Tambahkan soal default
+    // Tambahkan soal default untuk mapel yang belum ada
+    const mapelTersedia = ujianTersedia.map(u => u.mapel);
     for (const [mapel, soal] of Object.entries(soalDefault)) {
-        if (!ujianTersedia.find(u => u.mapel === mapel)) {
+        if (!mapelTersedia.includes(mapel)) {
             ujianTersedia.push({
+                id: 'default_' + mapel,
                 mapel: mapel,
-                soal: soal,
                 tanggal: new Date().toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }),
-                waktu: '08:00 - 09:00',
-                durasi: 30
+                jamMulai: '08:00',
+                jamSelesai: '09:00',
+                durasi: 30,
+                soal: soal.map(s => ({ pertanyaan: s.text, opsi: s.options, jawabanBenar: s.jawaban, tipe: 'pilihanGanda', bobot: 10 })),
+                status: 'aktif',
+                peserta: [username],
+                isDefault: true
             });
         }
     }
     
     if (ujianTersedia.length === 0) {
-        grid.innerHTML = '<div class="ujian-card"><p style="text-align:center;">Belum ada ujian tersedia.</p></div>';
+        grid.innerHTML = '<div class="ujian-card"><p style="text-align:center;">Belum ada ujian tersedia untuk Anda.</p></div>';
         return;
     }
     
-    grid.innerHTML = ujianTersedia.map(k => {
-        const selesai = sudahSelesai[k.mapel] || false;
-        const countdown = hitungMundur(k.tanggal, k.waktu);
+    grid.innerHTML = ujianTersedia.map(u => {
+        const selesai = sudahSelesai[u.mapel] || false;
+        const countdown = hitungMundur(u.tanggal, `${u.jamMulai} - ${u.jamSelesai}`);
         const bisaMulai = !selesai && countdown.canStart;
+        const jumlahSoal = u.soal ? u.soal.length : 0;
         
         return `<div class="ujian-card">
-            <div class="card-title">UJIAN ${k.mapel}</div>
+            <div class="card-title">📝 UJIAN ${u.mapel}</div>
             <div class="card-badges">
-                <span class="badge-mapel">📚 ${k.mapel}</span>
-                <span class="badge-soal">🎓 ${k.soal.length} Soal</span>
+                <span class="badge-mapel">📚 ${u.mapel}</span>
+                <span class="badge-soal">🎓 ${jumlahSoal} Soal</span>
             </div>
             <div class="card-date">
-                <span><i class="far fa-calendar-alt"></i> ${k.tanggal}</span>
-                <span><i class="far fa-clock"></i> ${k.waktu}</span>
+                <span><i class="far fa-calendar-alt"></i> ${u.tanggal}</span>
+                <span><i class="far fa-clock"></i> ${u.jamMulai} - ${u.jamSelesai}</span>
             </div>
             <div class="countdown-box">
                 <i class="fas fa-hourglass-half"></i>
                 <span class="countdown-text">${selesai ? '✅ Telah dikerjakan' : (countdown.ended ? '⏰ Ujian berakhir' : countdown.text)}</span>
             </div>
-            <button class="btn-mulai" onclick="mulaiUjian('${k.mapel}')" ${!bisaMulai ? 'disabled' : ''}>
-                ${selesai ? '✅ Sudah Dikerjakan' : (countdown.ended ? '⏰ Berakhir' : (bisaMulai ? 'Mulai Ujian' : '⏳ Belum tersedia'))}
+            <button class="btn-mulai" onclick="mulaiUjian('${u.mapel}')" ${!bisaMulai ? 'disabled' : ''}>
+                ${selesai ? '✅ Sudah Dikerjakan' : (countdown.ended ? '⏰ Berakhir' : (bisaMulai ? '🚀 Mulai Ujian' : '⏳ Belum tersedia'))}
             </button>
         </div>`;
     }).join('');
     
-    // Update countdown setiap detik
+    // Update countdown setiap 30 detik
     if (countdownInterval) clearInterval(countdownInterval);
     countdownInterval = setInterval(() => {
-        document.querySelectorAll('.countdown-text').forEach((el, idx) => {
-            // Update sederhana
-        });
+        // Refresh countdown sederhana
     }, 30000);
 }
 
@@ -1568,13 +2491,21 @@ function mulaiUjian(mapel) {
         return;
     }
     
-    // Ambil soal
+    // Ambil soal dari data ujian yang tersedia
+    const dataUjian = getDataUjian();
+    const ujian = dataUjian.find(u => u.mapel === mapel && u.status === 'aktif');
+    
     let soal = null;
-    const paket = getPaketSoal();
-    const p = paket.find(p => p.mapel === mapel && p.status === 'aktif');
-    if (p && p.soal.length > 0) {
-        soal = p.soal.map(s => ({ text: s.pertanyaan, options: s.opsi, jawaban: s.jawabanBenar }));
+    
+    if (ujian && ujian.soal && ujian.soal.length > 0) {
+        // Konversi format soal dari admin ke format ujian
+        soal = ujian.soal.map(s => ({
+            text: s.pertanyaan || s.text,
+            options: s.opsi || s.options || [],
+            jawaban: s.jawabanBenar || s.jawaban
+        }));
     } else if (soalDefault[mapel]) {
+        // Gunakan soal default
         soal = soalDefault[mapel];
     }
     
@@ -1584,7 +2515,7 @@ function mulaiUjian(mapel) {
     }
     
     selectedSoalData = { mapel, soal };
-    document.getElementById('petunjukWaktu').textContent = '30 menit';
+    document.getElementById('petunjukWaktu').textContent = (ujian?.durasi || 30) + ' menit';
     document.getElementById('setujuJujur').checked = false;
     document.getElementById('btnMulaiUjian').disabled = true;
     
@@ -1599,6 +2530,16 @@ function mulaiUjian(mapel) {
     document.getElementById('btnMulaiUjian').onclick = function() {
         startUjian();
     };
+}
+function hapusUjianDariPeserta(id) {
+    if (confirm('⚠️ Hapus ujian ini dari semua peserta?')) {
+        let dataUjian = getDataUjian();
+        dataUjian = dataUjian.filter(u => u.id !== id);
+        saveDataUjian(dataUjian);
+        alert('✅ Ujian berhasil dihapus dari peserta!');
+        renderKelolaPaket(document.getElementById('adminContent'));
+        loadUjian();
+    }
 }
 
 function startUjian() {
@@ -1620,6 +2561,7 @@ function startUjian() {
     renderSoal();
     renderNomor();
     startTimer(30);
+    saveState(); // Simpan state
 }
 
 function renderSoal() {
@@ -1638,12 +2580,14 @@ function renderSoal() {
     });
     document.getElementById('opsiContainer').innerHTML = html;
     renderNomor();
+    saveState(); // Simpan state setiap kali render
 }
 
 function pilihJawaban(index) {
     currentUjian.jawaban[currentUjian.currentIndex] = index;
     renderSoal();
     renderNomor();
+    saveState(); // Simpan state setiap kali pilih jawaban
 }
 
 function renderNomor() {
@@ -1666,6 +2610,7 @@ function toggleRagu() {
     currentUjian.ragu[idx] = !currentUjian.ragu[idx];
     renderNomor();
     alert(currentUjian.ragu[idx] ? '❓ Soal ditandai ragu' : '✅ Tanda ragu dihapus');
+    saveState(); // Simpan state setiap kali toggle ragu
 }
 
 function nextSoal() {
@@ -1706,6 +2651,9 @@ function startTimer(menit) {
 function kirimUjian() {
     if (!confirm('📤 Yakin ingin mengirim ujian?')) return;
     if (timerInterval) clearInterval(timerInterval);
+    
+    // Hapus state ujian
+    sessionStorage.removeItem('fasa_state');
     
     const { mapel, soal, jawaban } = currentUjian;
     let benar = 0;
@@ -1775,6 +2723,7 @@ function kembaliKeDashboard() {
     document.getElementById('hasilUjianPage').classList.remove('active');
     document.getElementById('dashboardPage').classList.add('active');
     loadUjian();
+    sessionStorage.removeItem('fasa_state'); // Hapus state ujian
 }
 
 // ================================================================
@@ -1837,8 +2786,7 @@ function renderRekapan() {
 // ================================================================
 // ========== RANKING (ADMIN) ==========
 // ================================================================
-function renderRanking() {
-    const container = document.getElementById('rankingContainer');
+function renderRankingAdmin(content) {
     const peserta = getPeserta();
     const data = [];
     
@@ -1853,30 +2801,218 @@ function renderRanking() {
     
     data.sort((a, b) => b.rata - a.rata);
     
+    let html = `
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-medal"></i> Ranking Peserta</h3>
+                <span class="badge-count">${data.length} peserta</span>
+            </div>
+    `;
+    
     if (data.length === 0) {
-        container.innerHTML = '<div class="empty-data"><p>Belum ada data ranking.</p></div>';
+        html += `<div class="empty-data"><p>Belum ada data ranking.</p></div>`;
+    } else {
+        html += `
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Rank</th><th>Nama</th><th>Rata-rata</th><th>Ujian</th></tr></thead>
+                    <tbody>
+                        ${data.map((d, i) => `
+                            <tr>
+                                <td><strong>${i + 1}</strong> ${i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''}</td>
+                                <td><strong>${d.nama}</strong></td>
+                                <td style="font-weight:700;color:#1c6e4b;">${d.rata}</td>
+                                <td>${d.total}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+    
+    html += `</div>`;
+    content.innerHTML = html;
+}
+
+function renderKelolaPeserta(content) {
+    const peserta = getPeserta();
+    const daftar = [];
+    
+    for (const [username, user] of Object.entries(peserta)) {
+        if (user.role === 'peserta') {
+            daftar.push({ username, ...user });
+        }
+    }
+    
+    let html = `
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-users"></i> Kelola Peserta</h3>
+                <span class="badge-count">${daftar.length} peserta</span>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1rem;">
+                <input type="text" id="newUsername" placeholder="Username" style="padding:10px;border:1px solid #ddd;border-radius:10px;flex:1;min-width:120px;">
+                <input type="password" id="newPassword" placeholder="Password" style="padding:10px;border:1px solid #ddd;border-radius:10px;flex:1;min-width:120px;">
+                <input type="text" id="newNama" placeholder="Nama Lengkap" style="padding:10px;border:1px solid #ddd;border-radius:10px;flex:1;min-width:120px;">
+                <button class="btn-admin" onclick="tambahPeserta()"><i class="fas fa-user-plus"></i> Tambah</button>
+            </div>
+    `;
+    
+    if (daftar.length === 0) {
+        html += `<div class="empty-data"><p>Belum ada peserta terdaftar.</p></div>`;
+    } else {
+        html += `
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>#</th><th>Username</th><th>Nama</th><th>NISN</th><th>Aksi</th></tr></thead>
+                    <tbody>
+                        ${daftar.map((d, i) => `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td><strong>${d.username}</strong></td>
+                                <td>${d.nama}</td>
+                                <td>${d.noPeserta || '-'}</td>
+                                <td>
+                                    <button class="btn-edit" onclick="editPeserta('${d.username}')" style="background:#f4b942;color:#1e2a3e;border:none;padding:4px 12px;border-radius:8px;cursor:pointer;margin-right:4px;">✏️ Edit</button>
+                                    <button class="btn-delete" onclick="hapusPeserta('${d.username}')" style="background:#e74c3c;color:white;border:none;padding:4px 12px;border-radius:8px;cursor:pointer;">🗑️ Hapus</button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+    
+    html += `</div>`;
+    content.innerHTML = html;
+}
+function tambahPeserta() {
+    const username = document.getElementById('newUsername').value.trim();
+    const password = document.getElementById('newPassword').value.trim();
+    const nama = document.getElementById('newNama').value.trim();
+    
+    if (!username || !password || !nama) {
+        alert('⚠️ Semua field harus diisi!');
         return;
     }
     
-    container.innerHTML = `
-        <div class="table-wrapper">
-            <table>
-                <thead><tr><th>Rank</th><th>Nama</th><th>Rata-rata</th><th>Jumlah Ujian</th></tr></thead>
-                <tbody>
-                    ${data.map((d, i) => `
-                        <tr>
-                            <td><strong>${i + 1}</strong> ${i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''}</td>
-                            <td><strong>${d.nama}</strong></td>
-                            <td style="font-weight:700;color:#1c6e4b;">${d.rata}</td>
-                            <td>${d.total}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
+    const peserta = getPeserta();
+    if (peserta[username]) {
+        alert('❌ Username sudah terdaftar!');
+        return;
+    }
+    
+    peserta[username] = {
+        nama: nama,
+        noPeserta: 'P' + Date.now().toString().slice(-6),
+        password: password,
+        role: 'peserta',
+        riwayatUjian: [],
+        nilaiPerMapel: {},
+        ujianSelesai: {}
+    };
+    
+    localStorage.setItem('fasa_peserta', JSON.stringify(peserta));
+    alert('✅ Peserta berhasil ditambahkan!');
+    showAdminMenu('peserta');
+}
+function editPeserta(username) {
+    const peserta = getPeserta();
+    const user = peserta[username];
+    if (!user) {
+        alert('❌ Peserta tidak ditemukan!');
+        return;
+    }
+    
+    // Buat modal edit
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.display = 'flex';
+    modal.style.zIndex = '1001';
+    modal.innerHTML = `
+        <div class="modal-content" style="max-width:450px;width:90%;">
+            <h3>✏️ Edit Peserta</h3>
+            <div style="margin-top:1rem;">
+                <div style="margin-bottom:0.8rem;text-align:left;">
+                    <label style="font-weight:600;font-size:0.8rem;display:block;margin-bottom:4px;">Username</label>
+                    <input type="text" id="editUsername" value="${username}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;" disabled>
+                    <small style="color:#888;font-size:0.7rem;">Username tidak dapat diubah</small>
+                </div>
+                <div style="margin-bottom:0.8rem;text-align:left;">
+                    <label style="font-weight:600;font-size:0.8rem;display:block;margin-bottom:4px;">Nama Lengkap</label>
+                    <input type="text" id="editNama" value="${user.nama || ''}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;">
+                </div>
+                <div style="margin-bottom:0.8rem;text-align:left;">
+                    <label style="font-weight:600;font-size:0.8rem;display:block;margin-bottom:4px;">NISN / No. Peserta</label>
+                    <input type="text" id="editNoPeserta" value="${user.noPeserta || ''}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;">
+                </div>
+                <div style="margin-bottom:0.8rem;text-align:left;">
+                    <label style="font-weight:600;font-size:0.8rem;display:block;margin-bottom:4px;">Password Baru (kosongkan jika tidak diubah)</label>
+                    <input type="password" id="editPassword" placeholder="Kosongkan jika tidak diubah" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;">
+                </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:1rem;justify-content:center;">
+                <button class="btn-admin" onclick="simpanEditPeserta('${username}')">💾 Simpan</button>
+                <button class="btn-admin btn-danger" onclick="tutupModalEdit()">✕ Batal</button>
+            </div>
         </div>
     `;
+    document.body.appendChild(modal);
+    
+    // Tutup modal saat klik di luar
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) tutupModalEdit();
+    });
 }
 
+function tutupModalEdit() {
+    const modal = document.querySelector('.modal');
+    if (modal) modal.remove();
+}
+
+function simpanEditPeserta(username) {
+    const nama = document.getElementById('editNama').value.trim();
+    const noPeserta = document.getElementById('editNoPeserta').value.trim();
+    const password = document.getElementById('editPassword').value.trim();
+    
+    if (!nama) {
+        alert('⚠️ Nama tidak boleh kosong!');
+        return;
+    }
+    
+    const peserta = getPeserta();
+    if (!peserta[username]) {
+        alert('❌ Peserta tidak ditemukan!');
+        return;
+    }
+    
+    // Update data
+    peserta[username].nama = nama;
+    peserta[username].noPeserta = noPeserta || peserta[username].noPeserta;
+    if (password) {
+        peserta[username].password = password;
+    }
+    
+    localStorage.setItem('fasa_peserta', JSON.stringify(peserta));
+    
+    // Tutup modal
+    tutupModalEdit();
+    
+    alert('✅ Data peserta berhasil diupdate!');
+    showAdminMenu('peserta');
+}
+
+function hapusPeserta(username) {
+    if (confirm(`⚠️ Hapus peserta "${username}"?`)) {
+        const peserta = getPeserta();
+        delete peserta[username];
+        localStorage.setItem('fasa_peserta', JSON.stringify(peserta));
+        alert('✅ Peserta berhasil dihapus!');
+        showAdminMenu('peserta');
+    }
+}
 // ================================================================
 // ========== ADMIN DATA ==========
 // ================================================================
@@ -1927,9 +3063,11 @@ function renderAdminData() {
 
 function resetAllData() {
     if (confirm('⚠️ PERINGATAN! Semua data ujian akan dihapus permanen. Lanjutkan?')) {
-        saveDataUjian([]);
-        alert('✅ Semua data ujian telah direset!');
-        renderAdminData();
+        if (confirm('⚠️ Konfirmasi akhir: Yakin ingin mereset semua data?')) {
+            saveDataUjian([]);
+            alert('✅ Semua data ujian telah direset!');
+            showAdminMenu('dashboard');
+        }
     }
 }
 
