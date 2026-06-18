@@ -122,6 +122,650 @@
         .admin-sidebar .menu-item .badge { margin-left: auto; background: #1c6e4b; color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; }
         .admin-sidebar .menu-divider { height: 1px; background: #e2edf2; margin: 0.5rem 0; }
 
+        /* ====== MODAL UCAPAN ELEGAN ====== */
+.modal-ucapan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.4s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-ucapan .card {
+    background: white;
+    border-radius: 24px;
+    max-width: 520px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    animation: slideUpModal 0.5s ease;
+}
+
+@keyframes slideUpModal {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-ucapan .card .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s;
+    line-height: 1;
+}
+
+.modal-ucapan .card .close-btn:hover {
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+/* ICON */
+.modal-ucapan .icon-wrapper {
+    background: #e8f5e9;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border: 4px solid #1c6e4b;
+    position: relative;
+}
+
+.modal-ucapan .icon-wrapper i {
+    font-size: 3.2rem;
+    color: #1c6e4b;
+}
+
+.modal-ucapan .icon-wrapper .badge-check {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    background: #1c6e4b;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border: 3px solid white;
+}
+
+/* JUDUL */
+.modal-ucapan .title {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.modal-ucapan .title h2 {
+    color: #1c6e4b;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-ucapan .title p {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 4px 0 0 0;
+}
+
+/* GRID INFO */
+.modal-ucapan .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.modal-ucapan .info-grid .item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #e8edf2;
+    transition: 0.3s;
+}
+
+.modal-ucapan .info-grid .item:hover {
+    border-color: #1c6e4b;
+    background: #f0faf5;
+}
+
+.modal-ucapan .info-grid .item .label {
+    color: #888;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.modal-ucapan .info-grid .item .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin-top: 4px;
+}
+
+.modal-ucapan .info-grid .item-full {
+    grid-column: 1 / -1;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #e8edf2;
+}
+
+.modal-ucapan .info-grid .item-full .label {
+    color: #888;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.modal-ucapan .info-grid .item-full .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin-top: 4px;
+}
+/* ====== KONFIRMASI KEREN DENGAN GRID ====== */
+.confirm-keren-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    z-index: 1003;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.4s ease;
+}
+
+.confirm-keren-overlay.show {
+    display: flex;
+}
+
+.confirm-keren-card {
+    background: white;
+    border-radius: 28px;
+    max-width: 550px;
+    width: 100%;
+    padding: 2.2rem 2rem 2rem;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.35);
+    animation: slideUpModal 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.confirm-keren-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #1c6e4b, #f4b942, #1c6e4b);
+    background-size: 200% 100%;
+    animation: gradientMove 3s ease infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+}
+
+.confirm-keren-card .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: #f0f2f5;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #888;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-keren-card .close-btn:hover {
+    background: #e74c3c;
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* HEADER ICON */
+.confirm-keren-card .header-icon {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.confirm-keren-card .header-icon .icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.confirm-keren-card .header-icon .icon-circle.warning {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0);
+    border: 3px solid #f4b942;
+    color: #f4b942;
+}
+
+.confirm-keren-card .header-icon .icon-circle.danger {
+    background: linear-gradient(135deg, #fde8e8, #fadbd8);
+    border: 3px solid #e74c3c;
+    color: #e74c3c;
+}
+
+.confirm-keren-card .header-icon .icon-circle.success {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6d9);
+    border: 3px solid #1c6e4b;
+    color: #1c6e4b;
+}
+
+.confirm-keren-card .header-icon .icon-circle.info {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border: 3px solid #2196F3;
+    color: #2196F3;
+}
+
+.confirm-keren-card .header-icon .icon-circle .badge-icon {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    background: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* JUDUL */
+.confirm-keren-card .judul {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.confirm-keren-card .judul h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a4d5f;
+}
+
+.confirm-keren-card .judul p {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 4px 0 0 0;
+}
+
+/* GRID INFO */
+.confirm-keren-card .grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.confirm-keren-card .grid-info .item {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+    border: 1px solid #e8edf2;
+    transition: 0.3s;
+}
+
+.confirm-keren-card .grid-info .item:hover {
+    border-color: #1c6e4b;
+    background: #f0faf5;
+    transform: translateY(-2px);
+}
+
+.confirm-keren-card .grid-info .item .label {
+    color: #888;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+}
+
+.confirm-keren-card .grid-info .item .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin-top: 4px;
+}
+
+.confirm-keren-card .grid-info .item-full {
+    grid-column: 1 / -1;
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+    border: 1px solid #e8edf2;
+}
+
+.confirm-keren-card .grid-info .item-full .label {
+    color: #888;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+}
+
+.confirm-keren-card .grid-info .item-full .value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin-top: 4px;
+}
+
+/* PESAN PERINGATAN */
+.confirm-keren-card .pesan-box {
+    background: #fef9e7;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin: 0 0 16px 0;
+    border-left: 4px solid #f4b942;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.confirm-keren-card .pesan-box i {
+    color: #f4b942;
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.confirm-keren-card .pesan-box p {
+    color: #856404;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.confirm-keren-card .pesan-box.danger {
+    background: #fde8e8;
+    border-left-color: #e74c3c;
+}
+
+.confirm-keren-card .pesan-box.danger i {
+    color: #e74c3c;
+}
+
+.confirm-keren-card .pesan-box.danger p {
+    color: #922b21;
+}
+
+.confirm-keren-card .pesan-box.success {
+    background: #e8f5e9;
+    border-left-color: #1c6e4b;
+}
+
+.confirm-keren-card .pesan-box.success i {
+    color: #1c6e4b;
+}
+
+.confirm-keren-card .pesan-box.success p {
+    color: #1a4d5f;
+}
+
+/* TOMBOL */
+.confirm-keren-card .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.confirm-keren-card .actions .btn {
+    padding: 12px 32px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.confirm-keren-card .actions .btn-primary {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.confirm-keren-card .actions .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+
+.confirm-keren-card .actions .btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    box-shadow: 0 4px 15px rgba(231,76,60,0.3);
+}
+
+.confirm-keren-card .actions .btn-danger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(231,76,60,0.4);
+}
+
+.confirm-keren-card .actions .btn-warning {
+    background: linear-gradient(135deg, #f4b942, #e0a832);
+    color: #1e2a3e;
+    box-shadow: 0 4px 15px rgba(244,185,66,0.3);
+}
+
+.confirm-keren-card .actions .btn-warning:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(244,185,66,0.4);
+}
+
+.confirm-keren-card .actions .btn-secondary {
+    background: #eef2f5;
+    color: #4a627a;
+}
+
+.confirm-keren-card .actions .btn-secondary:hover {
+    background: #e2e8ed;
+    transform: translateY(-3px);
+}
+
+.confirm-keren-card .actions .btn-success {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.confirm-keren-card .actions .btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .confirm-keren-card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 20px;
+    }
+    .confirm-keren-card .grid-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .confirm-keren-card .grid-info .item {
+        padding: 10px 8px;
+    }
+    .confirm-keren-card .actions .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        min-width: 100px;
+        width: 100%;
+    }
+    .confirm-keren-card .header-icon .icon-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    .confirm-keren-card .judul h2 {
+        font-size: 1.1rem;
+    }
+}
+/* NOTIF */
+.modal-ucapan .notif {
+    background: #fef9e7;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0 0 16px 0;
+    border-left: 4px solid #f4b942;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.modal-ucapan .notif i {
+    color: #f4b942;
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.modal-ucapan .notif p {
+    color: #856404;
+    font-size: 0.8rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.modal-ucapan .notif p strong {
+    font-weight: 700;
+}
+
+/* TOMBOL */
+.modal-ucapan .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-ucapan .actions .btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-ucapan .actions .btn-primary {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.modal-ucapan .actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+
+.modal-ucapan .actions .btn-warning {
+    background: #f4b942;
+    color: #1e2a3e;
+}
+
+.modal-ucapan .actions .btn-warning:hover {
+    background: #e0a832;
+    transform: translateY(-2px);
+}
+
+.modal-ucapan .actions .btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.modal-ucapan .actions .btn-danger:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .modal-ucapan .card {
+        padding: 1.5rem;
+    }
+    .modal-ucapan .info-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .modal-ucapan .actions .btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+    .modal-ucapan .icon-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+    .modal-ucapan .icon-wrapper i {
+        font-size: 2.5rem;
+    }
+}
+
         .admin-content { flex: 1; min-width: 280px; }
         .admin-card { background: white; border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #f0f2f5; }
         .admin-card .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 2px solid #f0f2f5; }
@@ -213,6 +857,224 @@
         .persetujuan { display: flex; align-items: center; gap: 0.5rem; margin: 1rem 0; padding: 0.5rem; background: #f9fbfe; border-radius: 0.5rem; }
         .persetujuan input { width: 18px; height: 18px; }
 
+        /* ====== HASIL UJIAN ELEGAN ====== */
+.hasil-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.hasil-card .icon-result {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 4rem;
+}
+
+.hasil-card .icon-result.sukses {
+    background: #e8f5e9;
+    border: 4px solid #1c6e4b;
+    color: #1c6e4b;
+}
+
+.hasil-card .icon-result.gagal {
+    background: #fde8e8;
+    border: 4px solid #e74c3c;
+    color: #e74c3c;
+}
+
+.hasil-card .icon-result .badge-icon {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    background: white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border: 3px solid white;
+}
+
+.hasil-card .title-sukses {
+    color: #1c6e4b;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.hasil-card .title-gagal {
+    color: #e74c3c;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.hasil-card .subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0 0 16px 0;
+}
+
+.hasil-card .mapel-badge {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    border-radius: 30px;
+    padding: 10px 28px;
+    display: inline-block;
+    margin: 0 auto 16px;
+}
+
+.hasil-card .mapel-badge span {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.hasil-card .pesan-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 0 0 16px 0;
+    border: 1px solid #e8edf2;
+}
+
+.hasil-card .pesan-box p {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.hasil-card .doa-box {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6d9);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 0 0 16px 0;
+}
+
+.hasil-card .doa-box p {
+    color: #1c6e4b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.hasil-card .info-time {
+    color: #aaa;
+    font-size: 0.7rem;
+    margin: 0 0 20px 0;
+}
+
+.hasil-card .btn-back {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.hasil-card .btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+
+/* ====== PERINGATAN PINDAH TAB ====== */
+.warning-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.warning-overlay.show {
+    display: flex;
+}
+
+.warning-overlay .warning-card {
+    background: white;
+    border-radius: 24px;
+    max-width: 450px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeInModal 0.4s ease;
+}
+
+.warning-overlay .warning-card .icon {
+    font-size: 4rem;
+    color: #e74c3c;
+    margin-bottom: 16px;
+}
+
+.warning-overlay .warning-card h2 {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.warning-overlay .warning-card p {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0 0 16px 0;
+    line-height: 1.6;
+}
+
+.warning-overlay .warning-card .timer {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #e74c3c;
+    font-family: 'Courier New', monospace;
+    margin: 8px 0;
+}
+
+.warning-overlay .warning-card .timer-label {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.warning-overlay .warning-card .btn-tutup {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 16px;
+    transition: 0.3s;
+}
+
+.warning-overlay .warning-card .btn-tutup:hover {
+    background: #c0392b;
+}
+
         .countdown-container { background: linear-gradient(135deg, #1c6e4b, #0b3b2f); border-radius: 16px; padding: 1.5rem; text-align: center; color: white; margin: 1rem 0; }
         .countdown-container .countdown-title { font-size: 1rem; font-weight: 600; opacity: 0.9; margin-bottom: 0.5rem; }
         .countdown-container .countdown-time { font-size: 2.5rem; font-weight: 800; letter-spacing: 4px; font-family: 'Courier New', monospace; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
@@ -226,6 +1088,206 @@
         .ujian-card .status-badge.selesai { background: #e74c3c; color: white; }
         .ujian-card .status-badge.berlangsung { background: #2196F3; color: white; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+
+        /* ====== MODAL UCAPAN ELEGAN ====== */
+.modal-ucapan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.4s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-ucapan .card {
+    background: white;
+    border-radius: 24px;
+    max-width: 520px;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    animation: slideUpModal 0.5s ease;
+}
+
+@keyframes slideUpModal {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-ucapan .card .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s;
+    line-height: 1;
+}
+
+.modal-ucapan .card .close-btn:hover {
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+/* ICON */
+.modal-ucapan .icon-wrapper {
+    background: #e8f5e9;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border: 4px solid #1c6e4b;
+    position: relative;
+}
+
+.modal-ucapan .icon-wrapper i {
+    font-size: 3.2rem;
+    color: #1c6e4b;
+}
+
+.modal-ucapan .icon-wrapper .badge-check {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    background: #1c6e4b;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border: 3px solid white;
+}
+
+/* JUDUL */
+.modal-ucapan .title {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.modal-ucapan .title h2 {
+    color: #1c6e4b;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-ucapan .title p {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 4px 0 0 0;
+}
+
+/* NOTIF */
+.modal-ucapan .notif {
+    background: #e8f5e9;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0 0 16px 0;
+    border-left: 4px solid #1c6e4b;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.modal-ucapan .notif i {
+    color: #1c6e4b;
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.modal-ucapan .notif p {
+    color: #1a4d5f;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.modal-ucapan .notif p strong {
+    font-weight: 700;
+    color: #1c6e4b;
+}
+
+/* TOMBOL */
+.modal-ucapan .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-ucapan .actions .btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-ucapan .actions .btn-primary {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.modal-ucapan .actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+
+.modal-ucapan .actions .btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.modal-ucapan .actions .btn-danger:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .modal-ucapan .card {
+        padding: 1.5rem;
+    }
+    .modal-ucapan .actions .btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+    .modal-ucapan .icon-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+    .modal-ucapan .icon-wrapper i {
+        font-size: 2.5rem;
+    }
+}
 
         .hasil-ujian-page { display: none; min-height: 100vh; background: #f0f2f5; justify-content: center; align-items: center; padding: 2rem; }
         .hasil-card { background: white; border-radius: 1.5rem; max-width: 600px; width: 100%; padding: 2rem; text-align: center; box-shadow: 0 20px 35px rgba(0,0,0,0.1); }
@@ -248,6 +1310,362 @@
             .stats-grid-elegant { grid-template-columns: repeat(2, 1fr); }
             .quick-actions { grid-template-columns: repeat(2, 1fr); }
         }
+        /* ====== KONFIRMASI DATA KIRIM UJIAN ====== */
+.confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1003;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.3s ease;
+}
+
+.confirm-overlay.show {
+    display: flex;
+}
+
+.confirm-overlay .confirm-card {
+    background: white;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+    animation: slideUpModal 0.4s ease;
+    position: relative;
+}
+
+.confirm-overlay .confirm-card .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.confirm-overlay .confirm-card .close-btn:hover {
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+.confirm-overlay .confirm-card .icon-wrapper {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.confirm-overlay .confirm-card .icon-wrapper .icon-bg {
+    background: #e8f5e9;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 3px solid #1c6e4b;
+}
+
+.confirm-overlay .confirm-card .icon-wrapper .icon-bg i {
+    font-size: 2.5rem;
+    color: #1c6e4b;
+}
+
+.confirm-overlay .confirm-card .title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin: 0 0 4px 0;
+}
+
+.confirm-overlay .confirm-card .subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0 0 16px 0;
+}
+/* ====== NOTIFIKASI HIJAU UCAPAN TERIMA KASIH ====== */
+.green-notification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.4s ease;
+}
+
+.green-notification-overlay .green-card {
+    background: linear-gradient(145deg, #1c6e4b, #0b3b2f);
+    border-radius: 30px;
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    animation: slideUpModal 0.5s ease;
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.green-notification-overlay .green-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: rotateBg 20s linear infinite;
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.green-notification-overlay .icon-circle {
+    background: rgba(255,255,255,0.15);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border: 3px solid rgba(255,255,255,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .icon-circle i {
+    font-size: 3.5rem;
+    color: white;
+}
+
+.green-notification-overlay .green-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .green-subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .doa-box-green {
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 12px 0 16px 0;
+    border-left: 4px solid #f4b942;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .doa-box-green p {
+    color: #f4b942;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.green-notification-overlay .mapel-badge-green {
+    background: rgba(255,255,255,0.08);
+    border-radius: 30px;
+    padding: 6px 20px;
+    display: inline-block;
+    margin: 0 auto 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .mapel-badge-green span {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.green-notification-overlay .tunggu-text {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    margin: 0 0 4px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .countdown-text {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    margin: 12px 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .countdown-text i {
+    margin-right: 6px;
+}
+/* GRID DATA */
+.confirm-overlay .confirm-card .data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 0 0 16px 0;
+}
+
+.confirm-overlay .confirm-card .data-grid .item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #e8edf2;
+    transition: 0.3s;
+}
+
+.confirm-overlay .confirm-card .data-grid .item:hover {
+    border-color: #1c6e4b;
+    background: #f0faf5;
+}
+
+.confirm-overlay .confirm-card .data-grid .item .label {
+    color: #888;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.confirm-overlay .confirm-card .data-grid .item .value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin-top: 4px;
+}
+
+.confirm-overlay .confirm-card .data-grid .item-full {
+    grid-column: 1 / -1;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #e8edf2;
+}
+
+.confirm-overlay .confirm-card .data-grid .item-full .label {
+    color: #888;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.confirm-overlay .confirm-card .data-grid .item-full .value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a4d5f;
+    margin-top: 4px;
+}
+
+/* STATUS BADGE */
+.confirm-overlay .confirm-card .status-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin: 0 auto 12px;
+}
+
+.confirm-overlay .confirm-card .status-badge.siap {
+    background: #e8f5e9;
+    color: #1c6e4b;
+}
+
+/* TOMBOL */
+.confirm-overlay .confirm-card .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.confirm-overlay .confirm-card .actions .btn {
+    padding: 10px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.confirm-overlay .confirm-card .actions .btn-primary {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.confirm-overlay .confirm-card .actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+
+.confirm-overlay .confirm-card .actions .btn-secondary {
+    background: #eef2f5;
+    color: #4a627a;
+}
+
+.confirm-overlay .confirm-card .actions .btn-secondary:hover {
+    background: #e2e8ed;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .confirm-overlay .confirm-card {
+        padding: 1.5rem;
+    }
+    .confirm-overlay .confirm-card .data-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .confirm-overlay .confirm-card .actions .btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>
@@ -387,6 +1805,51 @@
     </div>
 </div>
 
+<!-- ====== KONFIRMASI KEREN DENGAN GRID ====== -->
+<div id="confirmKerenOverlay" class="confirm-keren-overlay">
+    <div class="confirm-keren-card">
+        <button class="close-btn" onclick="tutupConfirmKeren()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- HEADER ICON -->
+        <div class="header-icon">
+            <div class="icon-circle" id="confirmKerenIcon">
+                <i class="fas fa-question-circle"></i>
+                <div class="badge-icon">
+                    <i class="fas fa-exclamation" style="font-size:0.7rem;"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JUDUL -->
+        <div class="judul">
+            <h2 id="confirmKerenJudul">Konfirmasi</h2>
+            <p id="confirmKerenSubtitle">Periksa kembali data Anda</p>
+        </div>
+        
+        <!-- GRID INFO -->
+        <div class="grid-info" id="confirmKerenGrid">
+            <!-- Akan diisi oleh JavaScript -->
+        </div>
+        
+        <!-- PESAN PERINGATAN -->
+        <div class="pesan-box" id="confirmKerenPesan">
+            <i class="fas fa-info-circle"></i>
+            <p id="confirmKerenPesanText">Apakah Anda yakin ingin melanjutkan?</p>
+        </div>
+        
+        <!-- TOMBOL -->
+        <div class="actions" id="confirmKerenActions">
+            <button class="btn btn-secondary" onclick="tutupConfirmKeren()">
+                <i class="fas fa-times"></i> Batal
+            </button>
+            <button class="btn btn-primary" id="confirmKerenBtnYa" onclick="lanjutkanConfirmKeren()">
+                <i class="fas fa-check"></i> Ya, Lanjutkan
+            </button>
+        </div>
+    </div>
+</div>
 <!-- ====== PETUNJUK ====== -->
 <div id="petunjukPage" class="page">
     <div class="petunjuk-page" style="display:flex;">
@@ -411,6 +1874,53 @@
     </div>
 </div>
 
+<!-- ====== KONFIRMASI DATA KIRIM UJIAN ====== -->
+<div id="confirmOverlay" class="confirm-overlay">
+    <div class="confirm-card">
+        <button class="close-btn" onclick="tutupConfirm()">&times;</button>
+        
+        <div class="icon-wrapper">
+            <div class="icon-bg">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+        </div>
+        
+        <h3 class="title">Konfirmasi</h3>
+        <p class="subtitle">Apakah Anda yakin kirim jawaban? Silahkan klik "Ya, Lanjutkan" jika yakin mengirim jawaban.</p>
+        
+        <!-- GRID DATA -->
+        <div class="data-grid" id="confirmDataGrid">
+            <!-- Akan diisi oleh JavaScript -->
+        </div>
+        
+        <div style="text-align:center;">
+            <span class="status-badge siap">✅ Siap Dikirim</span>
+        </div>
+        
+        <div class="actions">
+            <button class="btn btn-secondary" onclick="tutupConfirm()">
+                <i class="fas fa-times"></i> Batal
+            </button>
+            <button class="btn btn-primary" onclick="lanjutkanKirim()">
+                <i class="fas fa-check"></i> Ya, Lanjutkan.
+            </button>
+        </div>
+    </div>
+</div>
+<!-- ====== PERINGATAN PINDAH TAB ====== -->
+<div id="warningOverlay" class="warning-overlay">
+    <div class="warning-card">
+        <div class="icon">🚨</div>
+        <h2>⚠️ PERINGATAN!</h2>
+        <p>
+            Anda telah keluar dari halaman ujian.<br>
+            <strong>Ujian akan otomatis dikirim</strong> jika tidak kembali dalam:
+        </p>
+        <div class="timer" id="warningTimer">15</div>
+        <div class="timer-label">detik</div>
+        <button class="btn-tutup" onclick="tutupPeringatan()">Kembali ke Ujian</button>
+    </div>
+</div>
 <!-- ====== UJIAN ====== -->
 <div id="ujianPage" class="page">
     <div class="ujian-container">
@@ -1023,6 +2533,274 @@ function closeSidebar() {
     document.getElementById('sidebarOverlay').classList.remove('show');
 }
 
+// ================================================================
+// ========== KONFIRMASI KEREN DENGAN GRID ==========
+// ================================================================
+
+let confirmKerenCallback = null;
+let confirmKerenData = null;
+
+function showConfirmKeren(options) {
+    // options = {
+    //   type: 'warning' | 'danger' | 'success' | 'info',
+    //   icon: 'fa-exclamation-triangle',
+    //   title: 'Konfirmasi',
+    //   subtitle: 'Periksa kembali data Anda',
+    //   data: [{ label: 'Nama', value: 'Budi' }, ...],
+    //   pesan: 'Apakah Anda yakin?',
+    //   pesanType: 'warning' | 'danger' | 'success',
+    //   btnYa: 'Ya, Lanjutkan',
+    //   btnYaClass: 'btn-primary',
+    //   onConfirm: function() { ... }
+    // }
+    
+    const overlay = document.getElementById('confirmKerenOverlay');
+    const icon = document.getElementById('confirmKerenIcon');
+    const judul = document.getElementById('confirmKerenJudul');
+    const subtitle = document.getElementById('confirmKerenSubtitle');
+    const grid = document.getElementById('confirmKerenGrid');
+    const pesanBox = document.getElementById('confirmKerenPesan');
+    const pesanText = document.getElementById('confirmKerenPesanText');
+    const btnYa = document.getElementById('confirmKerenBtnYa');
+    const actions = document.getElementById('confirmKerenActions');
+    
+    // Set icon
+    const iconClass = options.icon || 'fa-question-circle';
+    icon.className = 'icon-circle ' + (options.type || 'info');
+    icon.innerHTML = `
+        <i class="fas ${iconClass}"></i>
+        <div class="badge-icon">
+            <i class="fas ${options.type === 'danger' ? 'fa-times' : options.type === 'warning' ? 'fa-exclamation' : options.type === 'success' ? 'fa-check' : 'fa-info'}" style="font-size:0.7rem;"></i>
+        </div>
+    `;
+    
+    // Set judul
+    judul.textContent = options.title || 'Konfirmasi';
+    subtitle.textContent = options.subtitle || 'Periksa kembali data Anda';
+    
+    // Set grid data
+    grid.innerHTML = '';
+    if (options.data && options.data.length > 0) {
+        options.data.forEach((item, index) => {
+            const div = document.createElement('div');
+            const isFull = index === options.data.length - 1 && options.data.length % 2 !== 0;
+            div.className = isFull ? 'item-full' : 'item';
+            div.innerHTML = `
+                <div class="label">${item.label}</div>
+                <div class="value">${item.value}</div>
+            `;
+            grid.appendChild(div);
+        });
+    } else {
+        // Data default jika tidak ada
+        grid.innerHTML = `
+            <div class="item-full">
+                <div class="label">📋 Status</div>
+                <div class="value">Siap diproses</div>
+            </div>
+        `;
+    }
+    
+    // Set pesan
+    const pesanType = options.pesanType || 'warning';
+    pesanBox.className = 'pesan-box ' + pesanType;
+    pesanText.textContent = options.pesan || 'Apakah Anda yakin ingin melanjutkan?';
+    
+    // Set tombol
+    btnYa.textContent = options.btnYa || 'Ya, Lanjutkan';
+    btnYa.className = 'btn ' + (options.btnYaClass || 'btn-primary');
+    
+    // Simpan callback
+    confirmKerenCallback = options.onConfirm || null;
+    confirmKerenData = options.data || null;
+    
+    // Tampilkan overlay
+    overlay.classList.add('show');
+}
+
+function tutupConfirmKeren() {
+    document.getElementById('confirmKerenOverlay').classList.remove('show');
+    confirmKerenCallback = null;
+    confirmKerenData = null;
+}
+
+function lanjutkanConfirmKeren() {
+    if (confirmKerenCallback && typeof confirmKerenCallback === 'function') {
+        confirmKerenCallback();
+    }
+    tutupConfirmKeren();
+}
+
+// ================================================================
+// ========== FUNGSI KONFIRMASI UNTUK ADMIN ==========
+// ================================================================
+
+function confirmHapusPaket(id) {
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) {
+        alert('❌ Paket tidak ditemukan!');
+        return;
+    }
+    
+    showConfirmKeren({
+        type: 'danger',
+        icon: 'fa-trash-alt',
+        title: '🗑️ Hapus Paket',
+        subtitle: 'Aksi ini tidak bisa dibatalkan!',
+        data: [
+            { label: '📚 Mata Pelajaran', value: p.mapel },
+            { label: '📝 Jumlah Soal', value: p.soal.length + ' soal' },
+            { label: '📅 Tanggal', value: p.tanggal },
+            { label: '⏱️ Durasi', value: p.durasi + ' menit' },
+            { label: '📌 Status', value: 'Akan dihapus permanen' }
+        ],
+        pesan: '⚠️ Data ujian terkait juga akan dihapus dari semua peserta!',
+        pesanType: 'danger',
+        btnYa: '🗑️ Hapus Sekarang',
+        btnYaClass: 'btn-danger',
+        onConfirm: function() {
+            // Eksekusi hapus
+            let paketBaru = paket.filter(p => p.id !== id);
+            savePaketSoal(paketBaru);
+            
+            let dataUjian = getDataUjian();
+            dataUjian = dataUjian.filter(u => u.id !== id);
+            saveDataUjian(dataUjian);
+            
+            const semuaPeserta = getPeserta();
+            for (const [username, user] of Object.entries(semuaPeserta)) {
+                if (user.role === 'peserta') {
+                    if (user.riwayatUjian) {
+                        user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+                    }
+                    if (user.nilaiPerMapel) {
+                        delete user.nilaiPerMapel[p.mapel];
+                    }
+                    if (user.ujianSelesai) {
+                        delete user.ujianSelesai[p.mapel];
+                    }
+                }
+            }
+            savePeserta(semuaPeserta);
+            
+            alert(`✅ Paket "${p.mapel}" berhasil dihapus!`);
+            refreshAdminData();
+        }
+    });
+}
+
+function confirmEksporPaket(id) {
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) { 
+        alert('❌ Paket tidak ditemukan!'); 
+        return; 
+    }
+    
+    const peserta = getPeserta();
+    const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+    
+    if (pesertaList.length === 0) {
+        alert('⚠️ Belum ada peserta terdaftar!');
+        return;
+    }
+    
+    const dataUjian = getDataUjian();
+    const sudahDiekspor = dataUjian.some(u => u.id === p.id && u.status === 'aktif');
+    
+    const dataGrid = [
+        { label: '📚 Mata Pelajaran', value: p.mapel },
+        { label: '📝 Jumlah Soal', value: p.soal.length + ' soal' },
+        { label: '👥 Target Peserta', value: pesertaList.length + ' orang' },
+        { label: '📅 Tanggal', value: p.tanggal },
+        { label: '⏰ Waktu', value: p.jamMulai + ' - ' + p.jamSelesai },
+        { label: '⏱️ Durasi', value: p.durasi + ' menit' }
+    ];
+    
+    if (sudahDiekspor) {
+        dataGrid.push({ label: '⚠️ Status', value: 'SUDAH DIEKSPOR (akan diperbarui)' });
+    } else {
+        dataGrid.push({ label: '📌 Status', value: 'BELUM DIEKSPOR' });
+    }
+    
+    showConfirmKeren({
+        type: sudahDiekspor ? 'warning' : 'success',
+        icon: sudahDiekspor ? 'fa-sync-alt' : 'fa-cloud-upload-alt',
+        title: sudahDiekspor ? '📤 Ekspor Ulang' : '📤 Ekspor Paket',
+        subtitle: sudahDiekspor ? 'Memperbarui data untuk semua peserta' : 'Mengirim ke semua peserta terdaftar',
+        data: dataGrid,
+        pesan: sudahDiekspor 
+            ? '⚠️ Semua riwayat ujian sebelumnya untuk mapel ini akan direset!' 
+            : '✅ Soal dan opsi akan diacak untuk setiap peserta.',
+        pesanType: sudahDiekspor ? 'warning' : 'success',
+        btnYa: sudahDiekspor ? '🔄 Ekspor Ulang' : '📤 Ekspor Sekarang',
+        btnYaClass: sudahDiekspor ? 'btn-warning' : 'btn-primary',
+        onConfirm: function() {
+            // Eksekusi ekspor
+            const shuffledSoal = [...p.soal];
+            for (let i = shuffledSoal.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledSoal[i], shuffledSoal[j]] = [shuffledSoal[j], shuffledSoal[i]];
+            }
+            
+            shuffledSoal.forEach(s => {
+                if (s.opsi && s.opsi.length > 0) {
+                    for (let i = s.opsi.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [s.opsi[i], s.opsi[j]] = [s.opsi[j], s.opsi[i]];
+                    }
+                }
+            });
+            
+            const dataUjian2 = getDataUjian();
+            const existingIndex = dataUjian2.findIndex(u => u.id === p.id);
+            const ujianBaru = {
+                id: p.id,
+                mapel: p.mapel,
+                tanggal: p.tanggal,
+                tanggalAsli: p.tanggalAsli || new Date().toISOString().split('T')[0],
+                jamMulai: p.jamMulai,
+                jamSelesai: p.jamSelesai,
+                durasi: p.durasi,
+                soal: shuffledSoal,
+                status: 'aktif',
+                peserta: pesertaList,
+                diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+            };
+            
+            if (existingIndex !== -1) {
+                dataUjian2[existingIndex] = ujianBaru;
+            } else {
+                dataUjian2.push(ujianBaru);
+            }
+            saveDataUjian(dataUjian2);
+            
+            const semuaPeserta = getPeserta();
+            for (const [username, user] of Object.entries(semuaPeserta)) {
+                if (user.role === 'peserta') {
+                    if (user.riwayatUjian) {
+                        user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+                    }
+                    if (user.nilaiPerMapel) {
+                        delete user.nilaiPerMapel[p.mapel];
+                    }
+                    if (user.ujianSelesai) {
+                        delete user.ujianSelesai[p.mapel];
+                    }
+                }
+            }
+            savePeserta(semuaPeserta);
+            
+            alert('✅ EKSPOR BERHASIL!\n\n' +
+                  '📚 ' + p.mapel + '\n' +
+                  '📝 ' + shuffledSoal.length + ' soal (diacak)\n' +
+                  '👥 Dikirim ke ' + pesertaList.length + ' peserta');
+            
+            refreshAdminData();
+        }
+    });
+}
 function selectTab(tab) {
     closeSidebar();
     const isAdmin = currentUser.role === 'admin';
@@ -1517,24 +3295,115 @@ function renderDaftarSoalSementara() {
 
 function selesaiBuatPaket() {
     if (!paketSementara || paketSementara.soal.length === 0) {
-        alert('Tambahkan minimal 1 soal!');
+        alert('⚠️ Tambahkan minimal 1 soal terlebih dahulu!');
         return;
     }
     
-    // Simpan paket ke daftar paket (HANYA di admin, TIDAK otomatis ke peserta)
+    // Tampilkan ringkasan konfirmasi
+    let ringkasan = '📋 RINGKASAN PAKET SOAL\n';
+    ringkasan += '═══════════════════════════════\n';
+    ringkasan += `📚 Mata Pelajaran: ${paketSementara.mapel}\n`;
+    ringkasan += `📅 Tanggal: ${paketSementara.tanggal}\n`;
+    ringkasan += `⏰ Waktu: ${paketSementara.jamMulai} - ${paketSementara.jamSelesai}\n`;
+    ringkasan += `⏱️ Durasi: ${paketSementara.durasi} menit\n`;
+    ringkasan += `📝 Jumlah Soal: ${paketSementara.soal.length} soal\n`;
+    ringkasan += '═══════════════════════════════\n\n';
+    ringkasan += '✅ Paket akan disimpan di daftar paket.\n';
+    ringkasan += '📌 Paket BELUM diekspor ke peserta.\n\n';
+    ringkasan += 'Apakah Anda yakin ingin menyimpan paket ini?';
+    
+    if (!confirm(ringkasan)) return;
+    
+    // Simpan paket
     const paket = getPaketSoal();
     paket.push(paketSementara);
     savePaketSoal(paket);
     
-    alert('Paket "' + paketSementara.mapel + '" berhasil disimpan!\n\n📌 Paket ini BELUM diekspor ke peserta.\nKlik tombol "Ekspor" di menu Kelola Paket untuk mengirim ke peserta.');
+    const mapel = paketSementara.mapel;
+    const jumlahSoal = paketSementara.soal.length;
+    const tanggal = paketSementara.tanggal;
+    const jamMulai = paketSementara.jamMulai;
+    const jamSelesai = paketSementara.jamSelesai;
+    const durasi = paketSementara.durasi;
     
+    // Reset
     paketSementara = null;
     paketSementaraSoal = [];
     document.getElementById('tambahSoalPanel').style.display = 'none';
     
+    // ====== TAMPILKAN UCAPAN ELEGAN ======
+    const modal = document.createElement('div');
+    modal.className = 'modal-ucapan';
+    modal.innerHTML = `
+        <div class="card">
+            <button class="close-btn" onclick="this.closest('.modal-ucapan').remove()">&times;</button>
+            
+            <div class="icon-wrapper">
+                <i class="fas fa-check-circle"></i>
+                <div class="badge-check">
+                    <i class="fas fa-check" style="font-size:0.7rem;"></i>
+                </div>
+            </div>
+            
+            <div class="title">
+                <h2>✅ Paket Berhasil Dibuat!</h2>
+                <p>Paket soal telah tersimpan di daftar paket</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="item">
+                    <div class="label">📚 Mata Pelajaran</div>
+                    <div class="value">${mapel}</div>
+                </div>
+                <div class="item">
+                    <div class="label">📝 Jumlah Soal</div>
+                    <div class="value">${jumlahSoal} soal</div>
+                </div>
+                <div class="item">
+                    <div class="label">📅 Tanggal</div>
+                    <div class="value">${tanggal}</div>
+                </div>
+                <div class="item">
+                    <div class="label">⏱️ Durasi</div>
+                    <div class="value">${durasi} menit</div>
+                </div>
+                <div class="item-full">
+                    <div class="label">⏰ Waktu Pelaksanaan</div>
+                    <div class="value">${jamMulai} - ${jamSelesai}</div>
+                </div>
+            </div>
+            
+            <div class="notif">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    <strong>Paket ini BELUM diekspor ke peserta.</strong><br>
+                    Klik tombol <strong>"Ekspor"</strong> di menu Kelola Paket untuk mengirim ke semua peserta.
+                </p>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" onclick="this.closest('.modal-ucapan').remove(); showAdminMenu('paket');">
+                    <i class="fas fa-box"></i> Lihat Paket
+                </button>
+                <button class="btn btn-warning" onclick="this.closest('.modal-ucapan').remove(); showAdminMenu('soal');">
+                    <i class="fas fa-plus-circle"></i> Buat Lagi
+                </button>
+                <button class="btn btn-danger" onclick="this.closest('.modal-ucapan').remove();">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) this.remove();
+    });
+    
+    // ====== REFRESH UI ======
     renderKelolaPaket(document.getElementById('adminContent'));
-    showAdminMenu('paket');
-    loadUjian();
+    loadUjian(); // Refresh dashboard peserta
 }
 
 function batalBuatPaket() {
@@ -1563,8 +3432,8 @@ function renderKelolaPaket(content) {
                 <button class="btn-admin" onclick="showAdminMenu('soal')"><i class="fas fa-plus-circle"></i> Buat Paket Baru</button>
                 <button class="btn-admin" onclick="eksporSemuaPaket()" style="background:#2196F3;"><i class="fas fa-cloud-upload-alt"></i> Ekspor Semua</button>
                 <button class="btn-admin" onclick="batalkanSemuaEkspor()" style="background:#e74c3c;"><i class="fas fa-times-circle"></i> Batalkan Semua</button>
-                <button class="btn-admin" onclick="resetSemuaPaket()" style="background:#e74c3c;"><i class="fas fa-trash-alt"></i> Reset Semua Paket</button>
-            </div>
+                <button class="btn-admin" onclick="confirmResetSemuaPaket()" style="background:#e74c3c;"><i class="fas fa-trash-alt"></i> Reset Semua Paket</button>           
+         </div>
     `;
     if (paket.length === 0) {
         html += `
@@ -1607,7 +3476,155 @@ function renderKelolaPaket(content) {
     html += `</div>`;
     content.innerHTML = html;
 }
+// ================================================================
+// ========== PERINGATAN PINDAH TAB ==========
+// ================================================================
 
+let warningTimerInterval = null;
+let warningCountdown = 15;
+let isUjianActive = false;
+
+function setupTabWarning() {
+    document.addEventListener('visibilitychange', function() {
+        if (currentUjian && document.hidden) {
+            // User pindah tab
+            isUjianActive = true;
+            showWarning();
+        } else if (document.visibilityState === 'visible' && warningTimerInterval) {
+            // User kembali ke tab
+            clearInterval(warningTimerInterval);
+            warningTimerInterval = null;
+            document.getElementById('warningOverlay').classList.remove('show');
+            warningCountdown = 15;
+        }
+    });
+}
+// ================================================================
+// ========== FUNGSI KONFIRMASI LAINNYA ==========
+// ================================================================
+
+function confirmBatalkanEkspor(id) {
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) {
+        alert('❌ Paket tidak ditemukan!');
+        return;
+    }
+    
+    showConfirmKeren({
+        type: 'warning',
+        icon: 'fa-times-circle',
+        title: '🚫 Batalkan Ekspor',
+        subtitle: 'Hapus dari daftar ujian peserta',
+        data: [
+            { label: '📚 Mata Pelajaran', value: p.mapel },
+            { label: '📝 Jumlah Soal', value: p.soal.length + ' soal' },
+            { label: '📌 Status', value: 'Akan dibatalkan' }
+        ],
+        pesan: '📦 Paket tetap tersimpan di admin.',
+        pesanType: 'warning',
+        btnYa: '🚫 Batalkan Sekarang',
+        btnYaClass: 'btn-warning',
+        onConfirm: function() {
+            let dataUjian = getDataUjian();
+            dataUjian = dataUjian.filter(u => u.id !== id);
+            saveDataUjian(dataUjian);
+            
+            const semuaPeserta = getPeserta();
+            for (const [username, user] of Object.entries(semuaPeserta)) {
+                if (user.role === 'peserta') {
+                    if (user.riwayatUjian) {
+                        user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+                    }
+                    if (user.nilaiPerMapel) {
+                        delete user.nilaiPerMapel[p.mapel];
+                    }
+                    if (user.ujianSelesai) {
+                        delete user.ujianSelesai[p.mapel];
+                    }
+                }
+            }
+            savePeserta(semuaPeserta);
+            
+            alert(`✅ Ekspor paket "${p.mapel}" berhasil dibatalkan!`);
+            refreshAdminData();
+        }
+    });
+}
+
+function confirmResetSemuaPaket() {
+    showConfirmKeren({
+        type: 'danger',
+        icon: 'fa-trash-alt',
+        title: '⚠️ RESET SEMUA PAKET',
+        subtitle: 'Aksi ini tidak bisa dibatalkan!',
+        data: [
+            { label: '📦 Aksi', value: 'Hapus semua paket' },
+            { label: '📝 Dampak', value: 'Semua ujian akan dihapus' },
+            { label: '👥 Peserta', value: 'Semua riwayat direset' }
+        ],
+        pesan: '🚨 INI ADALAH TINDAKAN PERMANEN! Semua data akan hilang.',
+        pesanType: 'danger',
+        btnYa: '🗑️ Reset Sekarang',
+        btnYaClass: 'btn-danger',
+        onConfirm: function() {
+            savePaketSoal([]);
+            saveDataUjian([]);
+            
+            const peserta = getPeserta();
+            for (const [username, user] of Object.entries(peserta)) {
+                if (user.role === 'peserta') {
+                    user.riwayatUjian = [];
+                    user.nilaiPerMapel = {};
+                    user.ujianSelesai = {};
+                }
+            }
+            savePeserta(peserta);
+            
+            alert('✅ Semua paket dan data ujian telah direset!');
+            refreshAdminData();
+        }
+    });
+}
+
+function showWarning() {
+    const overlay = document.getElementById('warningOverlay');
+    overlay.classList.add('show');
+    warningCountdown = 15;
+    document.getElementById('warningTimer').textContent = warningCountdown;
+    
+    if (warningTimerInterval) clearInterval(warningTimerInterval);
+    
+    warningTimerInterval = setInterval(() => {
+        warningCountdown--;
+        document.getElementById('warningTimer').textContent = warningCountdown;
+        
+        if (warningCountdown <= 0) {
+            clearInterval(warningTimerInterval);
+            warningTimerInterval = null;
+            // Kirim ujian otomatis
+            if (currentUjian) {
+                alert('⏰ Waktu habis! Ujian akan dikirim otomatis.');
+                kirimUjian();
+            }
+            document.getElementById('warningOverlay').classList.remove('show');
+        }
+    }, 1000);
+}
+
+function tutupPeringatan() {
+    if (warningTimerInterval) {
+        clearInterval(warningTimerInterval);
+        warningTimerInterval = null;
+    }
+    document.getElementById('warningOverlay').classList.remove('show');
+    warningCountdown = 15;
+}
+
+// Panggil setup saat DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    setupTabWarning();
+});
 // ================================================================
 // ========== EDIT PAKET FULL SCREEN ==========
 // ================================================================
@@ -2031,23 +4048,54 @@ function tutupModalEditPaket() {
     tempSoalEdit = [];
 }
 
-// ================================================================
 function eksporPaket(id) {
     const paket = getPaketSoal();
     const p = paket.find(p => p.id === id);
-    if (!p) { alert('Paket tidak ditemukan!'); return; }
+    if (!p) { 
+        alert('❌ Paket tidak ditemukan!'); 
+        return; 
+    }
+    
+    // Acak soal
+    const shuffledSoal = [...p.soal];
+    for (let i = shuffledSoal.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledSoal[i], shuffledSoal[j]] = [shuffledSoal[j], shuffledSoal[i]];
+    }
+    
+    // Acak opsi jawaban
+    shuffledSoal.forEach(s => {
+        if (s.opsi && s.opsi.length > 0) {
+            for (let i = s.opsi.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [s.opsi[i], s.opsi[j]] = [s.opsi[j], s.opsi[i]];
+            }
+        }
+    });
     
     const dataUjian = getDataUjian();
     const sudahDiekspor = dataUjian.some(u => u.id === p.id && u.status === 'aktif');
-    
-    if (sudahDiekspor) {
-        if (!confirm('Paket "' + p.mapel + '" sudah diekspor.\n\nEkspor ulang akan memperbarui data untuk semua peserta.\n\nLanjutkan?')) return;
-    } else {
-        if (!confirm('📤 Ekspor paket "' + p.mapel + '" ke semua peserta?\n\nPaket akan tersedia untuk dikerjakan oleh semua peserta.')) return;
-    }
-    
     const peserta = getPeserta();
     const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+    
+    let ringkasan = '📤 EKSPOR PAKET SOAL\n';
+    ringkasan += '═══════════════════════════════\n';
+    ringkasan += `📚 Mata Pelajaran: ${p.mapel}\n`;
+    ringkasan += `📅 Tanggal: ${p.tanggal}\n`;
+    ringkasan += `⏰ Waktu: ${p.jamMulai} - ${p.jamSelesai}\n`;
+    ringkasan += `⏱️ Durasi: ${p.durasi} menit\n`;
+    ringkasan += `📝 Jumlah Soal: ${shuffledSoal.length} soal\n`;
+    ringkasan += `👥 Target Peserta: ${pesertaList.length} orang\n`;
+    ringkasan += '═══════════════════════════════\n\n';
+    
+    if (sudahDiekspor) {
+        ringkasan += '⚠️ Paket ini SUDAH diekspor sebelumnya.\n';
+        ringkasan += 'Ekspor ulang akan MEMPERBARUI data untuk semua peserta.\n\n';
+    } else {
+        ringkasan += '✅ Paket akan dikirim ke SEMUA peserta terdaftar.\n\n';
+    }
+    
+    if (!confirm(ringkasan)) return;
     
     if (pesertaList.length === 0) { 
         alert('⚠️ Belum ada peserta terdaftar!'); 
@@ -2055,7 +4103,6 @@ function eksporPaket(id) {
     }
     
     const existingIndex = dataUjian.findIndex(u => u.id === p.id);
-    
     const ujianBaru = {
         id: p.id,
         mapel: p.mapel,
@@ -2064,7 +4111,7 @@ function eksporPaket(id) {
         jamMulai: p.jamMulai,
         jamSelesai: p.jamSelesai,
         durasi: p.durasi,
-        soal: p.soal,
+        soal: shuffledSoal,
         status: 'aktif',
         peserta: pesertaList,
         diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
@@ -2077,34 +4124,118 @@ function eksporPaket(id) {
     }
     
     saveDataUjian(dataUjian);
-    alert('✅ Paket "' + p.mapel + '" berhasil diekspor ke ' + pesertaList.length + ' peserta!');
     
+    // ====== RESET STATUS UJIAN PESERTA UNTUK MAPEL INI ======
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            // Hapus riwayat lama untuk mapel ini
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+            }
+            // Hapus nilai lama
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[p.mapel];
+            }
+            // Reset status selesai
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[p.mapel];
+            }
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert('✅ EKSPOR BERHASIL!\n\n' +
+          '📚 ' + p.mapel + '\n' +
+          '📝 ' + shuffledSoal.length + ' soal (diacak)\n' +
+          '👥 Dikirim ke ' + pesertaList.length + ' peserta');
+    
+    // ====== REFRESH UI ======
     renderKelolaPaket(document.getElementById('adminContent'));
-    loadUjian();
+    loadUjian(); // Refresh dashboard peserta
 }
 
 function hapusUjianDariPeserta(id) {
-    if (!confirm('Batalkan ekspor paket ini?\n\nPaket akan dihapus dari daftar ujian peserta.\n\nPaket tetap tersimpan di admin.')) return;
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) {
+        alert('Paket tidak ditemukan!');
+        return;
+    }
+    
+    if (!confirm(`Batalkan ekspor paket "${p.mapel}"?\n\nPaket akan dihapus dari daftar ujian peserta.\n\nPaket tetap tersimpan di admin.`)) return;
+    
     let dataUjian = getDataUjian();
     dataUjian = dataUjian.filter(u => u.id !== id);
     saveDataUjian(dataUjian);
-    alert('Paket berhasil dibatalkan dari peserta!');
+    
+    // Reset status peserta untuk mapel ini
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+            }
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[p.mapel];
+            }
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[p.mapel];
+            }
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert(`✅ Ekspor paket "${p.mapel}" berhasil dibatalkan!`);
+    
+    // ====== REFRESH UI ======
     renderKelolaPaket(document.getElementById('adminContent'));
     loadUjian();
 }
 
 function hapusPaket(id) {
-    if (confirm('Yakin ingin menghapus paket ini?')) {
-        let paket = getPaketSoal();
-        paket = paket.filter(p => p.id !== id);
-        savePaketSoal(paket);
-        let dataUjian = getDataUjian();
-        dataUjian = dataUjian.filter(u => u.id !== id);
-        saveDataUjian(dataUjian);
-        renderKelolaPaket(document.getElementById('adminContent'));
-        loadUjian();
-        alert('Paket berhasil dihapus!');
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) {
+        alert('Paket tidak ditemukan!');
+        return;
     }
+    
+    if (!confirm(`Yakin ingin menghapus paket "${p.mapel}"?\n\n⚠️ Data ujian terkait juga akan dihapus dari peserta.`)) {
+        return;
+    }
+    
+    // Hapus dari daftar paket
+    let paketBaru = paket.filter(p => p.id !== id);
+    savePaketSoal(paketBaru);
+    
+    // Hapus dari data ujian yang diekspor
+    let dataUjian = getDataUjian();
+    dataUjian = dataUjian.filter(u => u.id !== id);
+    saveDataUjian(dataUjian);
+    
+    // Reset status peserta untuk mapel ini
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+            }
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[p.mapel];
+            }
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[p.mapel];
+            }
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert(`✅ Paket "${p.mapel}" berhasil dihapus!`);
+    
+    // ====== REFRESH UI ======
+    renderKelolaPaket(document.getElementById('adminContent'));
+    loadUjian(); // Refresh dashboard peserta
 }
 
 function eksporSemuaPaket() {
@@ -2117,10 +4248,20 @@ function eksporSemuaPaket() {
         return; 
     }
     
-    if (!confirm('📤 Ekspor ' + belumDiekspor.length + ' paket yang belum diekspor?\n\n' + belumDiekspor.map(p => '📚 ' + p.mapel).join('\n'))) return;
-    
     const peserta = getPeserta();
     const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+    
+    let ringkasan = '📤 EKSPOR SEMUA PAKET\n';
+    ringkasan += '═══════════════════════════════\n';
+    ringkasan += `📦 Paket yang akan diekspor: ${belumDiekspor.length} paket\n`;
+    belumDiekspor.forEach((p, i) => {
+        ringkasan += `\n${i+1}. 📚 ${p.mapel} (${p.soal.length} soal)`;
+    });
+    ringkasan += `\n\n👥 Target Peserta: ${pesertaList.length} orang\n`;
+    ringkasan += '═══════════════════════════════\n\n';
+    ringkasan += '✅ Semua paket di atas akan dikirim ke peserta.\n';
+    
+    if (!confirm(ringkasan)) return;
     
     if (pesertaList.length === 0) { 
         alert('⚠️ Belum ada peserta terdaftar!'); 
@@ -2128,7 +4269,16 @@ function eksporSemuaPaket() {
     }
     
     let diekspor = 0;
+    let daftarEkspor = [];
+    
     belumDiekspor.forEach(p => {
+        // Acak soal
+        const shuffledSoal = [...p.soal];
+        for (let i = shuffledSoal.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledSoal[i], shuffledSoal[j]] = [shuffledSoal[j], shuffledSoal[i]];
+        }
+        
         dataUjian.push({
             id: p.id,
             mapel: p.mapel,
@@ -2137,17 +4287,46 @@ function eksporSemuaPaket() {
             jamMulai: p.jamMulai,
             jamSelesai: p.jamSelesai,
             durasi: p.durasi,
-            soal: p.soal,
+            soal: shuffledSoal,
             status: 'aktif',
             peserta: pesertaList,
             diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
         });
+        daftarEkspor.push(p.mapel);
         diekspor++;
     });
     
     saveDataUjian(dataUjian);
-    alert('✅ ' + diekspor + ' paket berhasil diekspor ke ' + pesertaList.length + ' peserta!');
     
+    // Reset status peserta untuk semua mapel yang diekspor
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            daftarEkspor.forEach(mapel => {
+                if (user.riwayatUjian) {
+                    user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== mapel);
+                }
+                if (user.nilaiPerMapel) {
+                    delete user.nilaiPerMapel[mapel];
+                }
+                if (user.ujianSelesai) {
+                    delete user.ujianSelesai[mapel];
+                }
+            });
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    let detail = '📦 PAKET YANG DIEKSPOR:\n';
+    daftarEkspor.forEach((m, i) => {
+        detail += `\n${i+1}. 📚 ${m}`;
+    });
+    
+    alert('✅ EKSPOR SEMUA BERHASIL!\n\n' +
+          '📦 ' + diekspor + ' paket berhasil diekspor\n' +
+          '👥 Dikirim ke ' + pesertaList.length + ' peserta' + detail);
+    
+    // ====== REFRESH UI ======
     renderKelolaPaket(document.getElementById('adminContent'));
     loadUjian();
 }
@@ -2155,13 +4334,664 @@ function eksporSemuaPaket() {
 function batalkanSemuaEkspor() {
     const dataUjian = getDataUjian();
     const aktif = dataUjian.filter(u => u.status === 'aktif');
-    if (aktif.length === 0) { alert('Tidak ada paket yang diekspor!'); return; }
-    if (!confirm('Batalkan semua ekspor?\n\n' + aktif.length + ' paket akan dihapus dari peserta.\n\nPaket tetap tersimpan di admin.')) return;
+    
+    if (aktif.length === 0) { 
+        alert('Tidak ada paket yang diekspor!'); 
+        return; 
+    }
+    
+    if (!confirm(`Batalkan semua ekspor?\n\n${aktif.length} paket akan dihapus dari peserta.\n\nPaket tetap tersimpan di admin.`)) return;
+    
+    // Dapatkan daftar mapel yang akan dibatalkan
+    const mapelList = aktif.map(u => u.mapel);
+    
+    // Hapus dari data ujian
     const baru = dataUjian.filter(u => u.status !== 'aktif');
     saveDataUjian(baru);
-    alert(aktif.length + ' paket berhasil dibatalkan dari peserta!');
+    
+    // Reset status peserta untuk semua mapel yang dibatalkan
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            mapelList.forEach(mapel => {
+                if (user.riwayatUjian) {
+                    user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== mapel);
+                }
+                if (user.nilaiPerMapel) {
+                    delete user.nilaiPerMapel[mapel];
+                }
+                if (user.ujianSelesai) {
+                    delete user.ujianSelesai[mapel];
+                }
+            });
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert(`${aktif.length} paket berhasil dibatalkan dari peserta!`);
+    
+    // ====== REFRESH UI ======
     renderKelolaPaket(document.getElementById('adminContent'));
     loadUjian();
+}
+
+// ================================================================
+// ========== FUNGSI REFRESH ADMIN DATA ==========
+// ================================================================
+
+function refreshAdminData() {
+    const content = document.getElementById('adminContent');
+    if (!content) return;
+    
+    switch(adminMenuActive) {
+        case 'dashboard': 
+            renderAdminDashboard(content); 
+            break;
+        case 'paket': 
+            renderKelolaPaket(content); 
+            break;
+        case 'soal': 
+            renderBuatSoal(content); 
+            break;
+        case 'hasil': 
+            renderKelolaHasil(content); 
+            break;
+        case 'ranking': 
+            renderRankingAdmin(content); 
+            break;
+        case 'peserta': 
+            renderKelolaPeserta(content); 
+            break;
+        case 'pendataan': 
+            renderAdminPendataan(content); 
+            break;
+        case 'pembayaran': 
+            renderAdminPembayaran(content); 
+            break;
+        default: 
+            renderAdminDashboard(content);
+    }
+    
+    // Update badge counts
+    const paket = getPaketSoal();
+    const dataUjian = getDataUjian();
+    const badgePaket = document.getElementById('badgePaket');
+    const badgeHasil = document.getElementById('badgeHasil');
+    if (badgePaket) badgePaket.textContent = paket.length;
+    if (badgeHasil) badgeHasil.textContent = dataUjian.length;
+    
+    loadUjian(); // Refresh dashboard peserta
+}
+
+// ================================================================
+// ========== FUNGSI HAPUS PAKET (LENGKAP) ==========
+// ================================================================
+
+function hapusPaket(id) {
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) {
+        alert('❌ Paket tidak ditemukan!');
+        return;
+    }
+    
+    if (!confirm(`⚠️ Yakin ingin menghapus paket "${p.mapel}"?\n\n📌 Data ujian terkait juga akan dihapus dari peserta.\n\n🗑️ Aksi ini tidak bisa dibatalkan!`)) {
+        return;
+    }
+    
+    // Hapus dari daftar paket
+    let paketBaru = paket.filter(p => p.id !== id);
+    savePaketSoal(paketBaru);
+    
+    // Hapus dari data ujian yang diekspor
+    let dataUjian = getDataUjian();
+    dataUjian = dataUjian.filter(u => u.id !== id);
+    saveDataUjian(dataUjian);
+    
+    // Reset status peserta untuk mapel ini
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+            }
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[p.mapel];
+            }
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[p.mapel];
+            }
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert(`✅ Paket "${p.mapel}" berhasil dihapus!`);
+    
+    // ====== REFRESH UI ======
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI EKSPOR PAKET (LENGKAP) ==========
+// ================================================================
+
+function eksporPaket(id) {
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) { 
+        alert('❌ Paket tidak ditemukan!'); 
+        return; 
+    }
+    
+    // Acak soal
+    const shuffledSoal = [...p.soal];
+    for (let i = shuffledSoal.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledSoal[i], shuffledSoal[j]] = [shuffledSoal[j], shuffledSoal[i]];
+    }
+    
+    // Acak opsi jawaban
+    shuffledSoal.forEach(s => {
+        if (s.opsi && s.opsi.length > 0) {
+            for (let i = s.opsi.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [s.opsi[i], s.opsi[j]] = [s.opsi[j], s.opsi[i]];
+            }
+        }
+    });
+    
+    const dataUjian = getDataUjian();
+    const sudahDiekspor = dataUjian.some(u => u.id === p.id && u.status === 'aktif');
+    const peserta = getPeserta();
+    const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+    
+    let ringkasan = '📤 EKSPOR PAKET SOAL\n';
+    ringkasan += '═══════════════════════════════\n';
+    ringkasan += `📚 Mata Pelajaran: ${p.mapel}\n`;
+    ringkasan += `📅 Tanggal: ${p.tanggal}\n`;
+    ringkasan += `⏰ Waktu: ${p.jamMulai} - ${p.jamSelesai}\n`;
+    ringkasan += `⏱️ Durasi: ${p.durasi} menit\n`;
+    ringkasan += `📝 Jumlah Soal: ${shuffledSoal.length} soal\n`;
+    ringkasan += `👥 Target Peserta: ${pesertaList.length} orang\n`;
+    ringkasan += '═══════════════════════════════\n\n';
+    
+    if (pesertaList.length === 0) { 
+        alert('⚠️ Belum ada peserta terdaftar!\n\nTambahkan peserta terlebih dahulu melalui menu "Kelola Peserta".'); 
+        return; 
+    }
+    
+    if (sudahDiekspor) {
+        ringkasan += '⚠️ Paket ini SUDAH diekspor sebelumnya.\n';
+        ringkasan += 'Ekspor ulang akan MEMPERBARUI data untuk semua peserta.\n\n';
+        ringkasan += '📌 Semua riwayat ujian sebelumnya untuk mapel ini akan direset.\n\n';
+    } else {
+        ringkasan += '✅ Paket akan dikirim ke SEMUA peserta terdaftar.\n\n';
+    }
+    ringkasan += 'Apakah Anda yakin ingin melanjutkan?';
+    
+    if (!confirm(ringkasan)) return;
+    
+    const existingIndex = dataUjian.findIndex(u => u.id === p.id);
+    const ujianBaru = {
+        id: p.id,
+        mapel: p.mapel,
+        tanggal: p.tanggal,
+        tanggalAsli: p.tanggalAsli || new Date().toISOString().split('T')[0],
+        jamMulai: p.jamMulai,
+        jamSelesai: p.jamSelesai,
+        durasi: p.durasi,
+        soal: shuffledSoal,
+        status: 'aktif',
+        peserta: pesertaList,
+        diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+    };
+    
+    if (existingIndex !== -1) {
+        dataUjian[existingIndex] = ujianBaru;
+    } else {
+        dataUjian.push(ujianBaru);
+    }
+    
+    saveDataUjian(dataUjian);
+    
+    // ====== RESET STATUS UJIAN PESERTA UNTUK MAPEL INI ======
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            // Hapus riwayat lama untuk mapel ini
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+            }
+            // Hapus nilai lama
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[p.mapel];
+            }
+            // Reset status selesai
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[p.mapel];
+            }
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert('✅ EKSPOR BERHASIL!\n\n' +
+          '📚 ' + p.mapel + '\n' +
+          '📝 ' + shuffledSoal.length + ' soal (diacak)\n' +
+          '👥 Dikirim ke ' + pesertaList.length + ' peserta\n' +
+          '📅 ' + p.tanggal + '\n' +
+          '⏰ ' + p.jamMulai + ' - ' + p.jamSelesai + '\n\n' +
+          '🔀 Soal dan opsi telah diacak untuk setiap peserta.\n' +
+          '📌 Peserta sekarang dapat melihat ujian ini di dashboard mereka.');
+    
+    // ====== REFRESH UI ======
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI HAPUS UJIAN DARI PESERTA (LENGKAP) ==========
+// ================================================================
+
+function hapusUjianDariPeserta(id) {
+    const paket = getPaketSoal();
+    const p = paket.find(p => p.id === id);
+    if (!p) {
+        alert('❌ Paket tidak ditemukan!');
+        return;
+    }
+    
+    if (!confirm(`🚫 Batalkan ekspor paket "${p.mapel}"?\n\n📌 Paket akan dihapus dari daftar ujian peserta.\n\n📦 Paket tetap tersimpan di admin.\n\n⚠️ Aksi ini tidak bisa dibatalkan!`)) return;
+    
+    let dataUjian = getDataUjian();
+    dataUjian = dataUjian.filter(u => u.id !== id);
+    saveDataUjian(dataUjian);
+    
+    // Reset status peserta untuk mapel ini
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== p.mapel);
+            }
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[p.mapel];
+            }
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[p.mapel];
+            }
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert(`✅ Ekspor paket "${p.mapel}" berhasil dibatalkan!`);
+    
+    // ====== REFRESH UI ======
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI SELESAI BUAT PAKET (LENGKAP) ==========
+// ================================================================
+
+function selesaiBuatPaket() {
+    if (!paketSementara || paketSementara.soal.length === 0) {
+        alert('⚠️ Tambahkan minimal 1 soal terlebih dahulu!');
+        return;
+    }
+    
+    // Tampilkan ringkasan konfirmasi
+    let ringkasan = '📋 RINGKASAN PAKET SOAL\n';
+    ringkasan += '═══════════════════════════════\n';
+    ringkasan += `📚 Mata Pelajaran: ${paketSementara.mapel}\n`;
+    ringkasan += `📅 Tanggal: ${paketSementara.tanggal}\n`;
+    ringkasan += `⏰ Waktu: ${paketSementara.jamMulai} - ${paketSementara.jamSelesai}\n`;
+    ringkasan += `⏱️ Durasi: ${paketSementara.durasi} menit\n`;
+    ringkasan += `📝 Jumlah Soal: ${paketSementara.soal.length} soal\n`;
+    ringkasan += '═══════════════════════════════\n\n';
+    ringkasan += '✅ Paket akan disimpan di daftar paket.\n';
+    ringkasan += '📌 Paket BELUM diekspor ke peserta.\n\n';
+    ringkasan += 'Apakah Anda yakin ingin menyimpan paket ini?';
+    
+    if (!confirm(ringkasan)) return;
+    
+    // Simpan paket
+    const paket = getPaketSoal();
+    paket.push(paketSementara);
+    savePaketSoal(paket);
+    
+    const mapel = paketSementara.mapel;
+    const jumlahSoal = paketSementara.soal.length;
+    const tanggal = paketSementara.tanggal;
+    const jamMulai = paketSementara.jamMulai;
+    const jamSelesai = paketSementara.jamSelesai;
+    const durasi = paketSementara.durasi;
+    
+    // Reset
+    paketSementara = null;
+    paketSementaraSoal = [];
+    document.getElementById('tambahSoalPanel').style.display = 'none';
+    
+    // ====== TAMPILKAN UCAPAN ELEGAN ======
+    const modal = document.createElement('div');
+    modal.className = 'modal-ucapan';
+    modal.innerHTML = `
+        <div class="card">
+            <button class="close-btn" onclick="this.closest('.modal-ucapan').remove()">&times;</button>
+            
+            <div class="icon-wrapper">
+                <i class="fas fa-check-circle"></i>
+                <div class="badge-check">
+                    <i class="fas fa-check" style="font-size:0.7rem;"></i>
+                </div>
+            </div>
+            
+            <div class="title">
+                <h2>✅ Paket Berhasil Dibuat!</h2>
+                <p>Paket soal telah tersimpan di daftar paket</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="item">
+                    <div class="label">📚 Mata Pelajaran</div>
+                    <div class="value">${mapel}</div>
+                </div>
+                <div class="item">
+                    <div class="label">📝 Jumlah Soal</div>
+                    <div class="value">${jumlahSoal} soal</div>
+                </div>
+                <div class="item">
+                    <div class="label">📅 Tanggal</div>
+                    <div class="value">${tanggal}</div>
+                </div>
+                <div class="item">
+                    <div class="label">⏱️ Durasi</div>
+                    <div class="value">${durasi} menit</div>
+                </div>
+                <div class="item-full">
+                    <div class="label">⏰ Waktu Pelaksanaan</div>
+                    <div class="value">${jamMulai} - ${jamSelesai}</div>
+                </div>
+            </div>
+            
+            <div class="notif">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    <strong>Paket ini BELUM diekspor ke peserta.</strong><br>
+                    Klik tombol <strong>"Ekspor"</strong> di menu Kelola Paket untuk mengirim ke semua peserta.
+                </p>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" onclick="this.closest('.modal-ucapan').remove(); showAdminMenu('paket');">
+                    <i class="fas fa-box"></i> Lihat Paket
+                </button>
+                <button class="btn btn-warning" onclick="this.closest('.modal-ucapan').remove(); showAdminMenu('soal');">
+                    <i class="fas fa-plus-circle"></i> Buat Lagi
+                </button>
+                <button class="btn btn-danger" onclick="this.closest('.modal-ucapan').remove();">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) this.remove();
+    });
+    
+    // ====== REFRESH UI ======
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI HAPUS DATA UJIAN (LENGKAP) ==========
+// ================================================================
+
+function hapusDataUjian(index, mapel) {
+    if (!confirm('⚠️ Yakin ingin menghapus data ujian ini?\n\n🗑️ Aksi ini tidak bisa dibatalkan!')) return;
+    
+    let data = getDataUjian();
+    const deletedData = data[index];
+    data.splice(index, 1);
+    saveDataUjian(data);
+    
+    // Jika data yang dihapus adalah milik peserta, update riwayatnya
+    if (deletedData && deletedData.username) {
+        const peserta = getPeserta();
+        const user = peserta[deletedData.username];
+        if (user && user.riwayatUjian) {
+            user.riwayatUjian = user.riwayatUjian.filter(r => 
+                !(r.mapel === deletedData.mapel && r.tanggal === deletedData.tanggal)
+            );
+            // Hapus nilai per mapel jika tidak ada riwayat lagi untuk mapel tersebut
+            if (user.riwayatUjian.filter(r => r.mapel === deletedData.mapel).length === 0) {
+                if (user.nilaiPerMapel) delete user.nilaiPerMapel[deletedData.mapel];
+                if (user.ujianSelesai) delete user.ujianSelesai[deletedData.mapel];
+            }
+            savePeserta(peserta);
+        }
+    }
+    
+    alert('✅ Data ujian berhasil dihapus!');
+    showHasilMapel(mapel);
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI HAPUS SEMUA HASIL MAPEL (LENGKAP) ==========
+// ================================================================
+
+function hapusSemuaHasilMapel(mapel) {
+    if (!confirm(`⚠️ PERINGATAN! Hapus SEMUA data ujian "${mapel}"?\n\n🗑️ Aksi ini tidak bisa dibatalkan!`)) return;
+    if (!confirm(`🔄 Konfirmasi akhir: Hapus semua data "${mapel}"?`)) return;
+    
+    let dataUjian = getDataUjian();
+    const usernamesToDelete = dataUjian.filter(d => d.mapel === mapel).map(d => d.username);
+    dataUjian = dataUjian.filter(d => d.mapel !== mapel);
+    saveDataUjian(dataUjian);
+    
+    const peserta = getPeserta();
+    usernamesToDelete.forEach(username => {
+        const user = peserta[username];
+        if (user) {
+            if (user.riwayatUjian) {
+                user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== mapel);
+            }
+            if (user.nilaiPerMapel) {
+                delete user.nilaiPerMapel[mapel];
+            }
+            if (user.ujianSelesai) {
+                delete user.ujianSelesai[mapel];
+            }
+        }
+    });
+    savePeserta(peserta);
+    
+    alert(`✅ Semua data ujian "${mapel}" berhasil dihapus!`);
+    showHasilMapel(mapel);
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI RESET SEMUA PAKET (LENGKAP) ==========
+// ================================================================
+
+function resetSemuaPaket() {
+    if (!confirm('⚠️ PERINGATAN! Ini akan menghapus SEMUA paket soal dan ujian yang diekspor.\n\n🗑️ Data yang dihapus tidak bisa dikembalikan!\n\nLanjutkan?')) return;
+    if (!confirm('🔄 Konfirmasi akhir: Hapus semua paket dan data ujian?')) return;
+    
+    savePaketSoal([]);
+    saveDataUjian([]);
+    
+    const peserta = getPeserta();
+    for (const [username, user] of Object.entries(peserta)) {
+        if (user.role === 'peserta') {
+            user.riwayatUjian = [];
+            user.nilaiPerMapel = {};
+            user.ujianSelesai = {};
+        }
+    }
+    savePeserta(peserta);
+    
+    alert('✅ Semua paket dan data ujian telah direset!');
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI EKSPOR SEMUA PAKET (LENGKAP) ==========
+// ================================================================
+
+function eksporSemuaPaket() {
+    const paket = getPaketSoal();
+    const dataUjian = getDataUjian();
+    const belumDiekspor = paket.filter(p => !dataUjian.some(u => u.id === p.id && u.status === 'aktif'));
+    
+    if (belumDiekspor.length === 0) { 
+        alert('✅ Semua paket sudah diekspor!\n\nTidak ada paket yang perlu diekspor.'); 
+        return; 
+    }
+    
+    const peserta = getPeserta();
+    const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
+    
+    let ringkasan = '📤 EKSPOR SEMUA PAKET\n';
+    ringkasan += '═══════════════════════════════\n';
+    ringkasan += `📦 Paket yang akan diekspor: ${belumDiekspor.length} paket\n`;
+    belumDiekspor.forEach((p, i) => {
+        ringkasan += `\n${i+1}. 📚 ${p.mapel} (${p.soal.length} soal)`;
+    });
+    ringkasan += `\n\n👥 Target Peserta: ${pesertaList.length} orang\n`;
+    ringkasan += '═══════════════════════════════\n\n';
+    ringkasan += '✅ Semua paket di atas akan dikirim ke peserta.\n';
+    ringkasan += 'Apakah Anda yakin ingin melanjutkan?';
+    
+    if (!confirm(ringkasan)) return;
+    
+    if (pesertaList.length === 0) { 
+        alert('⚠️ Belum ada peserta terdaftar!\n\nTambahkan peserta terlebih dahulu.'); 
+        return; 
+    }
+    
+    let diekspor = 0;
+    let daftarEkspor = [];
+    
+    belumDiekspor.forEach(p => {
+        // Acak soal
+        const shuffledSoal = [...p.soal];
+        for (let i = shuffledSoal.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledSoal[i], shuffledSoal[j]] = [shuffledSoal[j], shuffledSoal[i]];
+        }
+        
+        // Acak opsi
+        shuffledSoal.forEach(s => {
+            if (s.opsi && s.opsi.length > 0) {
+                for (let i = s.opsi.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [s.opsi[i], s.opsi[j]] = [s.opsi[j], s.opsi[i]];
+                }
+            }
+        });
+        
+        dataUjian.push({
+            id: p.id,
+            mapel: p.mapel,
+            tanggal: p.tanggal,
+            tanggalAsli: p.tanggalAsli || new Date().toISOString().split('T')[0],
+            jamMulai: p.jamMulai,
+            jamSelesai: p.jamSelesai,
+            durasi: p.durasi,
+            soal: shuffledSoal,
+            status: 'aktif',
+            peserta: pesertaList,
+            diekspor: new Date().toLocaleDateString('id-ID') + ' ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+        });
+        daftarEkspor.push(p.mapel);
+        diekspor++;
+    });
+    
+    saveDataUjian(dataUjian);
+    
+    // Reset status peserta untuk semua mapel yang diekspor
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            daftarEkspor.forEach(mapel => {
+                if (user.riwayatUjian) {
+                    user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== mapel);
+                }
+                if (user.nilaiPerMapel) {
+                    delete user.nilaiPerMapel[mapel];
+                }
+                if (user.ujianSelesai) {
+                    delete user.ujianSelesai[mapel];
+                }
+            });
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    let detail = '📦 PAKET YANG DIEKSPOR:\n';
+    daftarEkspor.forEach((m, i) => {
+        detail += `\n${i+1}. 📚 ${m}`;
+    });
+    
+    alert('✅ EKSPOR SEMUA BERHASIL!\n\n' +
+          '📦 ' + diekspor + ' paket berhasil diekspor\n' +
+          '👥 Dikirim ke ' + pesertaList.length + ' peserta\n' +
+          detail + '\n\n' +
+          '📌 Peserta sekarang dapat melihat semua ujian ini di dashboard mereka.');
+    
+    // ====== REFRESH UI ======
+    refreshAdminData();
+}
+
+// ================================================================
+// ========== FUNGSI BATALKAN SEMUA EKSPOR (LENGKAP) ==========
+// ================================================================
+
+function batalkanSemuaEkspor() {
+    const dataUjian = getDataUjian();
+    const aktif = dataUjian.filter(u => u.status === 'aktif');
+    
+    if (aktif.length === 0) { 
+        alert('✅ Tidak ada paket yang diekspor!'); 
+        return; 
+    }
+    
+    if (!confirm(`🚫 Batalkan semua ekspor?\n\n📌 ${aktif.length} paket akan dihapus dari peserta.\n\n📦 Paket tetap tersimpan di admin.\n\n⚠️ Aksi ini tidak bisa dibatalkan!`)) return;
+    
+    // Dapatkan daftar mapel yang akan dibatalkan
+    const mapelList = aktif.map(u => u.mapel);
+    
+    // Hapus dari data ujian
+    const baru = dataUjian.filter(u => u.status !== 'aktif');
+    saveDataUjian(baru);
+    
+    // Reset status peserta untuk semua mapel yang dibatalkan
+    const semuaPeserta = getPeserta();
+    for (const [username, user] of Object.entries(semuaPeserta)) {
+        if (user.role === 'peserta') {
+            mapelList.forEach(mapel => {
+                if (user.riwayatUjian) {
+                    user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== mapel);
+                }
+                if (user.nilaiPerMapel) {
+                    delete user.nilaiPerMapel[mapel];
+                }
+                if (user.ujianSelesai) {
+                    delete user.ujianSelesai[mapel];
+                }
+            });
+        }
+    }
+    savePeserta(semuaPeserta);
+    
+    alert(`✅ ${aktif.length} paket berhasil dibatalkan dari peserta!`);
+    
+    // ====== REFRESH UI ======
+    refreshAdminData();
 }
 
 function resetSemuaPaket() {
@@ -2324,7 +5154,7 @@ function loadUjian() {
         }
         return `
             <div class="ujian-card" style="${status === 'berlangsung' ? 'border-color:#2196F3;border-width:2px;' : status === 'belum' ? 'border-color:#f4b942;' : 'border-color:#e74c3c;'}">
-                <div class="card-title">📝 UJIAN ${u.mapel}</div>
+                <div class="card-title">Soal ${u.mapel}</div>
                 <div class="card-badges">
                     <span class="badge-mapel">📚 ${u.mapel}</span>
                     <span class="badge-soal">🎓 ${jumlahSoal} Soal</span>
@@ -2336,7 +5166,7 @@ function loadUjian() {
                 </div>
                 ${status === 'belum' ? `
                     <div class="countdown-container" style="margin:0.5rem 0;padding:0.8rem;">
-                        <div class="countdown-title">⏳ Ujian akan dimulai dalam:</div>
+                        <div class="countdown-title">Ujian akan dimulai dalam:</div>
                         <div class="countdown-time" id="countdown_${u.id}">
                             <span class="countdown-unit"><span class="number">--</span><span class="label">hari</span></span>
                             <span class="countdown-unit"><span class="number">--</span><span class="label">jam</span></span>
@@ -2487,13 +5317,18 @@ function startUjian() {
     const { mapel, soal } = selectedSoalData;
     const dataUjian = getDataUjian();
     const ujian = dataUjian.find(u => u.mapel === mapel && u.status === 'aktif');
-    if (!ujian) { alert('Data ujian tidak ditemukan!'); return; }
+    if (!ujian) { 
+        alert('⚠️ Data ujian tidak ditemukan!'); 
+        return; 
+    }
+    
     const now = new Date();
     const tanggalUjian = new Date(ujian.tanggalAsli || ujian.tanggal);
     const jamSelesai = ujian.jamSelesai || '09:00';
     const [jamSelesaiH, jamSelesaiM] = jamSelesai.split(':').map(Number);
     const waktuSelesai = new Date(tanggalUjian);
     waktuSelesai.setHours(jamSelesaiH, jamSelesaiM, 0, 0);
+    
     let sisaWaktu = Math.floor((waktuSelesai - now) / 1000);
     if (sisaWaktu < 0) {
         sisaWaktu = 0;
@@ -2501,8 +5336,11 @@ function startUjian() {
         kirimUjian();
         return;
     }
+    
     const durasi = (ujian.durasi || 30) * 60;
     if (sisaWaktu > durasi) sisaWaktu = durasi;
+    
+    // ====== SET CURRENT UJIAN ======
     currentUjian = {
         mapel: mapel,
         soal: soal,
@@ -2510,16 +5348,176 @@ function startUjian() {
         ragu: new Array(soal.length).fill(false),
         currentIndex: 0,
         waktuSelesai: waktuSelesai,
-        sisaWaktu: sisaWaktu
+        sisaWaktu: sisaWaktu,
+        startTime: now.getTime()
     };
+    
+    // ====== AKTIFKAN WARNING PINDAH TAB ======
+    isUjianActive = true;
+    
+    // ====== SIMPAN STATE KE SESSION STORAGE ======
+    try {
+        sessionStorage.setItem('fasa_ujian_state', JSON.stringify({
+            mapel: mapel,
+            jawaban: currentUjian.jawaban,
+            ragu: currentUjian.ragu,
+            currentIndex: currentUjian.currentIndex,
+            sisaWaktu: sisaWaktu,
+            waktuSelesai: waktuSelesai.getTime(),
+            startTime: currentUjian.startTime
+        }));
+    } catch(e) {}
+    
+    // ====== TAMPILKAN HALAMAN UJIAN ======
     document.getElementById('petunjukPage').classList.remove('active');
     document.getElementById('ujianPage').classList.add('active');
     document.getElementById('ujianMapel').textContent = mapel;
+    
     renderSoal();
     renderNomor();
     startTimerFromWaktuSelesai(sisaWaktu);
+    
+    // ====== CEK RESTORE STATE JIKA REFRESH ======
+    restoreUjianState();
+}
+// Tambahkan fungsi untuk restore state ujian
+function restoreUjianState() {
+    try {
+        const saved = sessionStorage.getItem('fasa_ujian_state');
+        if (saved) {
+            const state = JSON.parse(saved);
+            // Cek apakah ujian masih aktif
+            const dataUjian = getDataUjian();
+            const ujian = dataUjian.find(u => u.mapel === state.mapel && u.status === 'aktif');
+            if (ujian) {
+                const now = new Date();
+                const waktuSelesai = new Date(state.waktuSelesai);
+                if (now < waktuSelesai) {
+                    // Restore state
+                    currentUjian = {
+                        mapel: state.mapel,
+                        soal: ujian.soal,
+                        jawaban: state.jawaban,
+                        ragu: state.ragu || new Array(ujian.soal.length).fill(false),
+                        currentIndex: state.currentIndex || 0,
+                        waktuSelesai: waktuSelesai,
+                        sisaWaktu: Math.floor((waktuSelesai - now) / 1000),
+                        startTime: state.startTime
+                    };
+                    // Tampilkan halaman ujian
+                    document.getElementById('dashboardPage').classList.remove('active');
+                    document.getElementById('petunjukPage').classList.remove('active');
+                    document.getElementById('ujianPage').classList.add('active');
+                    document.getElementById('ujianMapel').textContent = state.mapel;
+                    renderSoal();
+                    renderNomor();
+                    startTimerFromWaktuSelesai(currentUjian.sisaWaktu);
+                    return true;
+                } else {
+                    // Waktu habis, kirim otomatis
+                    alert('⏰ Waktu ujian telah habis!');
+                    // Cek apakah sudah dikirim
+                    const riwayat = currentUser.riwayatUjian || [];
+                    if (!riwayat.some(r => r.mapel === state.mapel)) {
+                        // Kirim otomatis dengan jawaban yang ada
+                        // ... logika kirim otomatis
+                    }
+                    sessionStorage.removeItem('fasa_ujian_state');
+                    document.getElementById('dashboardPage').classList.add('active');
+                    document.getElementById('ujianPage').classList.remove('active');
+                    loadUjian();
+                    return false;
+                }
+            }
+        }
+    } catch(e) {
+        console.error('Error restore state:', e);
+    }
+    return false;
 }
 
+// Simpan state secara berkala (setiap 5 detik)
+function saveUjianState() {
+    if (currentUjian) {
+        try {
+            sessionStorage.setItem('fasa_ujian_state', JSON.stringify({
+                mapel: currentUjian.mapel,
+                jawaban: currentUjian.jawaban,
+                ragu: currentUjian.ragu,
+                currentIndex: currentUjian.currentIndex,
+                sisaWaktu: currentUjian.sisaWaktu,
+                waktuSelesai: currentUjian.waktuSelesai.getTime(),
+                startTime: currentUjian.startTime
+            }));
+        } catch(e) {}
+    }
+}
+
+// Panggil saveUjianState setiap 5 detik
+setInterval(saveUjianState, 5000);
+// ================================================================
+// ========== SHOW GREEN NOTIFICATION (UCAPAN TERIMA KASIH) ==========
+// ================================================================
+
+// Setelah kirimUjian() berhasil, panggil:
+function showGreenNotification(mapel) {
+    // Buat modal ucapan terima kasih
+    const modal = document.createElement('div');
+    modal.className = 'modal-ucapan';
+    modal.innerHTML = `
+        <div class="card">
+            <div class="icon-wrapper">
+                <i class="fas fa-check-circle"></i>
+                <div class="badge-check">
+                    <i class="fas fa-check" style="font-size:0.7rem;"></i>
+                </div>
+            </div>
+            <div class="title">
+                <h2>🙏 Terima Kasih!</h2>
+                <p>Jawaban Anda telah berhasil dikirim</p>
+            </div>
+            <div class="info-grid">
+                <div class="item-full">
+                    <div class="label">📚 Mata Pelajaran</div>
+                    <div class="value">${mapel}</div>
+                </div>
+            </div>
+            <div class="doa-box" style="background:linear-gradient(135deg, #e8f5e9, #c8e6d9);border-left:4px solid #1c6e4b;">
+                <p style="color:#1c6e4b;font-size:1rem;font-weight:600;">
+                    🤲 "Semoga hasil yang diperoleh membawa berkah<br>
+                    dan menjadi langkah menuju kesuksesan."
+                </p>
+            </div>
+            <div class="notif">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    <strong>⏳ Silakan tunggu pengumuman resmi dari panitia.</strong>
+                </p>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="tutupUcapan()">
+                    <i class="fas fa-check"></i> OK
+                </button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // Auto close setelah 5 detik
+    setTimeout(() => {
+        tutupUcapan();
+    }, 5000);
+}
+
+function tutupUcapan() {
+    const modal = document.querySelector('.modal-ucapan');
+    if (modal) modal.remove();
+    // Kembali ke dashboard
+    document.getElementById('hasilUjianPage').classList.remove('active');
+    document.getElementById('ujianPage').classList.remove('active');
+    document.getElementById('dashboardPage').classList.add('active');
+    loadUjian();
+}
 // ================================================================
 // ========== RENDER SOAL UJIAN ==========
 // ================================================================
@@ -2670,21 +5668,81 @@ function startTimerFromWaktuSelesai(sisaWaktu) {
     }, 1000);
 }
 
-// ================================================================
-// ========== KIRIM UJIAN ==========
+/// ================================================================
+// ========== KIRIM UJIAN (DENGAN KONFIRMASI) ==========
 // ================================================================
 
 function kirimUjian() {
-    if (!confirm('📤 Yakin ingin mengirim ujian?')) return;
-    if (timerInterval) clearInterval(timerInterval);
-    if (currentUjian && currentUjian.waktuSelesai) {
-        const now = new Date();
-        if (now > currentUjian.waktuSelesai) {
-            alert('⏰ Waktu ujian telah habis! Jawaban akan dikirim otomatis.');
-        }
+    // ====== CEK APAKAH ADA JAWABAN ======
+    if (!currentUjian) {
+        alert('⚠️ Tidak ada ujian yang sedang dikerjakan!');
+        return;
     }
-    sessionStorage.removeItem('fasa_state');
+    
     const { mapel, soal, jawaban } = currentUjian;
+    const total = soal.length;
+    const terjawab = jawaban.filter(j => j !== null && j !== '' && j !== undefined).length;
+    const kosong = total - terjawab;
+    
+    // ====== TAMPILKAN KONFIRMASI DATA ======
+    showConfirmData(mapel, total, terjawab, kosong);
+}
+
+// ================================================================
+// ========== TAMPILKAN KONFIRMASI DATA ==========
+// ================================================================
+
+function showConfirmData(mapel, total, terjawab, kosong) {
+    const overlay = document.getElementById('confirmOverlay');
+    const grid = document.getElementById('confirmDataGrid');
+    
+    // Data untuk ditampilkan
+    const data = [
+        { label: '📚 Mata Pelajaran', value: mapel },
+        { label: '📝 Total Soal', value: total + ' soal' },
+        { label: '✅ Terjawab', value: terjawab + ' soal' },
+        { label: '📭 Kosong', value: kosong + ' soal' }
+    ];
+    
+    grid.innerHTML = '';
+    data.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = index === data.length - 1 && data.length % 2 !== 0 ? 'item-full' : 'item';
+        div.innerHTML = `
+            <div class="label">${item.label}</div>
+            <div class="value">${item.value}</div>
+        `;
+        grid.appendChild(div);
+    });
+    
+    // Tampilkan overlay
+    overlay.classList.add('show');
+}
+
+function tutupConfirm() {
+    document.getElementById('confirmOverlay').classList.remove('show');
+}
+
+// Modifikasi fungsi lanjutkanKirim()
+function lanjutkanKirim() {
+    document.getElementById('confirmOverlay').classList.remove('show');
+    
+    if (timerInterval) clearInterval(timerInterval);
+    
+    // NONAKTIFKAN WARNING
+    isUjianActive = false;
+    if (warningTimerInterval) {
+        clearInterval(warningTimerInterval);
+        warningTimerInterval = null;
+    }
+    document.getElementById('warningOverlay').classList.remove('show');
+    
+    sessionStorage.removeItem('fasa_ujian_state');
+    sessionStorage.removeItem('fasa_state');
+    
+    const { mapel, soal, jawaban } = currentUjian;
+    
+    // HITUNG JAWABAN
     let benar = 0;
     let total = soal.length;
     jawaban.forEach((j, idx) => {
@@ -2706,17 +5764,18 @@ function kirimUjian() {
             }
         }
     });
+    
     const nilai = Math.round((benar / total) * 100);
     const lulus = nilai >= 70;
     const tanggal = new Date().toLocaleDateString('id-ID');
     const jam = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-    
-    // ====== SIMPAN WAKTU SELESAI ======
     const waktuSelesaiStr = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     
     const terjawab = jawaban.filter(j => j !== null && j !== '' && j !== undefined).length;
     const kosong = total - terjawab;
     const salah = total - benar;
+    
+    // ====== SIMPAN DATA ======
     const dataUjian = getDataUjian();
     dataUjian.push({
         username: currentUser.username,
@@ -2731,11 +5790,47 @@ function kirimUjian() {
         total: total,
         tanggal: tanggal,
         jam: jam,
-        waktuSelesai: waktuSelesaiStr, // <-- TAMBAHKAN INI
+        waktuSelesai: waktuSelesaiStr,
         jawabanDetail: jawaban
     });
     saveDataUjian(dataUjian);
-    // ... sisanya sama
+    
+    // ====== UPDATE PESERTA (TANDAI SELESAI) ======
+    const peserta = getPeserta();
+    const user = peserta[currentUser.username];
+    if (!user.riwayatUjian) user.riwayatUjian = [];
+    if (!user.nilaiPerMapel) user.nilaiPerMapel = {};
+    
+    // HAPUS jika sudah ada riwayat untuk mapel ini (mencegah duplikat)
+    user.riwayatUjian = user.riwayatUjian.filter(r => r.mapel !== mapel);
+    
+    user.riwayatUjian.push({ 
+        mapel, 
+        nilai, 
+        lulus, 
+        tanggal,
+        jam,
+        waktuSelesai: waktuSelesaiStr,
+        benar,
+        salah,
+        terjawab,
+        kosong,
+        total
+    });
+    user.nilaiPerMapel[mapel] = nilai;
+    if (!user.ujianSelesai) user.ujianSelesai = {};
+    user.ujianSelesai[mapel] = true; // TANDAI SELESAI
+    
+    savePeserta(peserta);
+    
+    currentUser = { ...user, username: currentUser.username };
+    localStorage.setItem('fasa_session', JSON.stringify(currentUser));
+    
+    const mapelTemp = mapel;
+    currentUjian = null;
+    
+    // ====== TAMPILKAN UCAPAN TERIMA KASIH ======
+    showGreenNotification(mapelTemp);
 }
 
 function kembaliKeDashboard() {
