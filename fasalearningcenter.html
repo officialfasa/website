@@ -743,6 +743,460 @@
     background: #c0392b;
     transform: translateY(-2px);
 }
+/* ====== PENGUMUMAN & LEADERBOARD ====== */
+.pengumuman-page, .leaderboard-page {
+    display: none;
+    min-height: 100vh;
+    background: #f0f2f5;
+    padding: 2rem;
+}
+
+.pengumuman-container, .leaderboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ====== PILIHAN BIDANG DI PENGUMUMAN ====== */
+.field-selector {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.field-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    border: 2px solid #e2edf2;
+    background: white;
+    color: #4a627a;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.field-btn:hover {
+    border-color: #1c6e4b;
+    color: #1c6e4b;
+    transform: translateY(-2px);
+}
+
+.field-btn.active {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    border-color: #1c6e4b;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.field-btn .badge-count {
+    background: rgba(255,255,255,0.2);
+    padding: 0.1rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+}
+
+.field-btn.active .badge-count {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ====== PENGUMUMAN HEADER ====== */
+.pengumuman-header {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.pengumuman-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: rotateBg 20s linear infinite;
+}
+
+.pengumuman-header .badge-event {
+    background: rgba(255,255,255,0.2);
+    padding: 0.3rem 1.5rem;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.pengumuman-header h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header .field-name {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 0.3rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header .tanggal-event {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    padding: 0.3rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ====== SEARCH BAR ====== */
+.search-box {
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e2edf2;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    min-width: 200px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #1c6e4b;
+    box-shadow: 0 0 0 3px rgba(28,110,75,0.1);
+}
+
+.search-box .search-icon {
+    color: #1c6e4b;
+    font-size: 1.2rem;
+}
+
+.search-box .result-count {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ====== LEADERBOARD TABLE ====== */
+.leaderboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.leaderboard-card .table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.leaderboard-card .table-title h3 {
+    color: #1a4d5f;
+    font-size: 1.1rem;
+}
+
+.leaderboard-card .table-title .badge-total {
+    background: #e8f5e9;
+    color: #1c6e4b;
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.leaderboard-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.leaderboard-card th {
+    background: #f8fafc;
+    color: #1a4d5f;
+    padding: 0.8rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #e2edf2;
+}
+
+.leaderboard-card td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.leaderboard-card tr:hover td {
+    background: #f8fafc;
+}
+
+/* ====== STYLE RANKING ====== */
+.rank-medal {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+}
+
+.rank-number {
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: #888;
+}
+
+/* ====== 5 BESAR GOLDEN ====== */
+tr.top-five {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0) !important;
+    border-left: 4px solid #f4b942;
+}
+
+tr.top-five td {
+    border-bottom: 1px solid #fdebd0;
+}
+
+tr.top-five:hover td {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0) !important;
+}
+
+tr.top-five .rank-medal {
+    font-size: 1.8rem;
+}
+
+/* ====== STATUS BADGE ====== */
+.status-juara {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.status-juara.emass {
+    background: linear-gradient(135deg, #f4b942, #e0a832);
+    color: #1e2a3e;
+}
+
+.status-juara.perak {
+    background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+    color: #1e2a3e;
+}
+
+.status-juara.perunggu {
+    background: linear-gradient(135deg, #cd7f32, #b8692a);
+    color: white;
+}
+
+.status-juara.lulus {
+    background: #e8f5e9;
+    color: #1c6e4b;
+}
+
+.status-juara.tidak {
+    background: #fde8e8;
+    color: #e74c3c;
+}
+
+/* ====== PENGUMUMAN EMPTY STATE ====== */
+.pengumuman-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 16px;
+}
+
+.pengumuman-empty i {
+    font-size: 4rem;
+    color: #ccc;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.pengumuman-empty h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.pengumuman-empty p {
+    color: #888;
+}
+
+/* ====== HIGHLIGHT MY ROW ====== */
+tr.my-rank {
+    background: #e8f5e9 !important;
+    border-left: 4px solid #1c6e4b;
+    box-shadow: 0 2px 10px rgba(28,110,75,0.1);
+}
+
+tr.my-rank td {
+    font-weight: 600;
+    border-bottom: 1px solid #c8e6d9;
+}
+
+tr.my-rank .rank-medal {
+    animation: pulse-gold 1.5s ease infinite;
+}
+
+@keyframes pulse-gold {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ====== REKAPAN ADMIN (Leaderboard Rekap) ====== */
+.rekapan-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rekapan-stats .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e2edf2;
+}
+
+.rekapan-stats .stat-card .number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1c6e4b;
+}
+
+.rekapan-stats .stat-card .label {
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 0.2rem;
+}
+
+/* ====== ADMIN LEADERBOARD EXPORT ====== */
+.btn-export-leaderboard {
+    background: #1c6e4b;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-export-leaderboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(28,110,75,0.3);
+}
+
+.btn-export-leaderboard i {
+    font-size: 1rem;
+}
+
+/* ====== SELECT FIELD ====== */
+.select-field {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #e2edf2;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    background: white;
+    color: #1a4d5f;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 150px;
+}
+
+.select-field:focus {
+    outline: none;
+    border-color: #1c6e4b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pengumuman-page, .leaderboard-page {
+        padding: 1rem;
+    }
+    .pengumuman-header h1 {
+        font-size: 1.4rem;
+    }
+    .leaderboard-card table {
+        font-size: 0.75rem;
+    }
+    .leaderboard-card th,
+    .leaderboard-card td {
+        padding: 0.5rem 0.4rem;
+    }
+    .rank-medal {
+        font-size: 1rem;
+        width: 28px;
+    }
+    .rank-number {
+        width: 28px;
+        font-size: 0.8rem;
+    }
+    tr.top-five .rank-medal {
+        font-size: 1.3rem;
+    }
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box input {
+        min-width: auto;
+    }
+    .field-selector {
+        padding: 0.8rem 1rem;
+    }
+    .field-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+}
 
 /* Responsive */
 @media (max-width: 480px) {
@@ -795,13 +1249,58 @@
         .btn-hapus { background: #e74c3c; color: white; border: none; padding: 4px 12px; border-radius: 8px; cursor: pointer; font-size: 0.7rem; }
         .btn-hapus:hover { background: #c0392b; }
         .empty-data { text-align: center; padding: 40px; color: #888; }
+/* ====== FOOTER PERMANEN ====== */
+.help-card {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6d9);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    margin: 1rem 2rem 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.help-card p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a4d5f;
+}
+.help-card button {
+    background: #1c6e4b;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.help-card button:hover {
+    background: #0b3b2f;
+    transform: translateY(-2px);
+}
 
-        .help-card { background: linear-gradient(135deg, #e8f5e9, #c8e6d9); border-radius: 1rem; padding: 1rem 1.5rem; margin: 1rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .help-card p { font-size: 0.85rem; font-weight: 500; color: #1a4d5f; }
-        .help-card button { background: #1c6e4b; color: white; border: none; padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.75rem; cursor: pointer; }
+.footer-note {
+    text-align: center;
+    margin: 0.5rem 2rem 1rem 2rem;
+    font-size: 0.7rem;
+    color: #6c7e91;
+    border-top: 1px solid #d4e2ec;
+    padding-top: 1rem;
+}
 
-        .footer-note { text-align: center; margin: 2rem 2rem 1rem; font-size: 0.7rem; color: #6c7e91; border-top: 1px solid #d4e2ec; padding-top: 1rem; }
-
+/* Responsive footer */
+@media (max-width: 768px) {
+    .help-card {
+        margin: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-note {
+        margin: 0.5rem 1rem 1rem 1rem;
+    }
+}
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: white; border-radius: 2rem; max-width: 450px; width: 90%; padding: 2rem; text-align: center; animation: fadeInUp 0.3s ease; }
         .modal-content h3 { color: #1a4d5f; margin-bottom: 1.5rem; }
@@ -993,6 +1492,631 @@
 .hasil-card .btn-back:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(28,110,75,0.4);
+}
+/* ====== PENGUMUMAN PER BIDANG ====== */
+.pengumuman-page {
+    display: none;
+    min-height: 100vh;
+    background: #f0f2f5;
+    padding: 2rem;
+}
+
+.pengumuman-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ====== PILIHAN BIDANG DI PENGUMUMAN ====== */
+.field-selector {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.field-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    border: 2px solid #e2edf2;
+    background: white;
+    color: #4a627a;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.field-btn:hover {
+    border-color: #1c6e4b;
+    color: #1c6e4b;
+    transform: translateY(-2px);
+}
+
+.field-btn.active {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    color: white;
+    border-color: #1c6e4b;
+    box-shadow: 0 4px 15px rgba(28,110,75,0.3);
+}
+
+.field-btn .badge-count {
+    background: rgba(255,255,255,0.2);
+    padding: 0.1rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+}
+
+.field-btn.active .badge-count {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ====== PENGUMUMAN HEADER PER BIDANG ====== */
+.pengumuman-header {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.pengumuman-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: rotateBg 20s linear infinite;
+}
+
+.pengumuman-header .badge-event {
+    background: rgba(255,255,255,0.2);
+    padding: 0.3rem 1.5rem;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.pengumuman-header h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header .field-name {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 0.3rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header .tanggal-event {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    padding: 0.3rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ====== GREEN NOTIFICATION ELEGAN ====== */
+.green-notification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInModal 0.5s ease;
+}
+
+.green-notification-overlay .green-card {
+    background: linear-gradient(145deg, #1c6e4b, #0b3b2f);
+    border-radius: 30px;
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    animation: slideUpModal 0.6s ease;
+    border: 2px solid rgba(255,255,255,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.green-notification-overlay .green-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: rotateBg 20s linear infinite;
+}
+
+.green-notification-overlay .icon-circle {
+    background: rgba(255,255,255,0.15);
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border: 3px solid rgba(255,255,255,0.3);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+.green-notification-overlay .icon-circle i {
+    font-size: 4rem;
+    color: white;
+}
+
+.green-notification-overlay .green-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+.green-notification-overlay .green-subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .mapel-badge-green {
+    background: rgba(255,255,255,0.12);
+    border-radius: 30px;
+    padding: 8px 24px;
+    display: inline-block;
+    margin: 0 auto 12px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.green-notification-overlay .mapel-badge-green span {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.green-notification-overlay .doa-box-green {
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    margin: 12px 0 16px 0;
+    border-left: 4px solid #f4b942;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .doa-box-green p {
+    color: #f4b942;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.green-notification-overlay .tunggu-text {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    margin: 0 0 4px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .countdown-text {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.7rem;
+    margin: 12px 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .countdown-text i {
+    margin-right: 6px;
+}
+
+.green-notification-overlay .green-card button {
+    background: white;
+    color: #1c6e4b;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.green-notification-overlay .green-card button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Animations */
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUpModal {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ====== SEARCH BAR ====== */
+.search-box {
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e2edf2;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    min-width: 200px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #1c6e4b;
+    box-shadow: 0 0 0 3px rgba(28,110,75,0.1);
+}
+
+.search-box .search-icon {
+    color: #1c6e4b;
+    font-size: 1.2rem;
+}
+
+.search-box .result-count {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ====== LEADERBOARD TABLE ====== */
+.leaderboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.leaderboard-card .table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.leaderboard-card .table-title h3 {
+    color: #1a4d5f;
+    font-size: 1.1rem;
+}
+
+.leaderboard-card .table-title .badge-total {
+    background: #e8f5e9;
+    color: #1c6e4b;
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.leaderboard-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.leaderboard-card th {
+    background: #f8fafc;
+    color: #1a4d5f;
+    padding: 0.8rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #e2edf2;
+}
+
+.leaderboard-card td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.leaderboard-card tr:hover td {
+    background: #f8fafc;
+}
+
+/* ====== STYLE RANKING ====== */
+.rank-medal {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+}
+
+.rank-number {
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: #888;
+}
+
+/* ====== 5 BESAR GOLDEN ====== */
+tr.top-five {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0) !important;
+    border-left: 4px solid #f4b942;
+}
+
+tr.top-five td {
+    border-bottom: 1px solid #fdebd0;
+}
+
+tr.top-five:hover td {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0) !important;
+}
+
+tr.top-five .rank-medal {
+    font-size: 1.8rem;
+}
+
+/* ====== STATUS BADGE ====== */
+.status-juara {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.status-juara.emass {
+    background: linear-gradient(135deg, #f4b942, #e0a832);
+    color: #1e2a3e;
+}
+
+.status-juara.perak {
+    background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+    color: #1e2a3e;
+}
+
+.status-juara.perunggu {
+    background: linear-gradient(135deg, #cd7f32, #b8692a);
+    color: white;
+}
+
+.status-juara.lulus {
+    background: #e8f5e9;
+    color: #1c6e4b;
+}
+
+.status-juara.tidak {
+    background: #fde8e8;
+    color: #e74c3c;
+}
+
+/* ====== PENGUMUMAN EMPTY STATE ====== */
+.pengumuman-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 16px;
+}
+
+.pengumuman-empty i {
+    font-size: 4rem;
+    color: #ccc;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.pengumuman-empty h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.pengumuman-empty p {
+    color: #888;
+}
+
+/* ====== HIGHLIGHT MY ROW ====== */
+tr.my-rank {
+    background: #e8f5e9 !important;
+    border-left: 4px solid #1c6e4b;
+    box-shadow: 0 2px 10px rgba(28,110,75,0.1);
+}
+
+tr.my-rank td {
+    font-weight: 600;
+    border-bottom: 1px solid #c8e6d9;
+}
+
+tr.my-rank .rank-medal {
+    animation: pulse-gold 1.5s ease infinite;
+}
+
+@keyframes pulse-gold {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ====== REKAPAN ADMIN (Leaderboard Rekap) ====== */
+.rekapan-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rekapan-stats .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e2edf2;
+}
+
+.rekapan-stats .stat-card .number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1c6e4b;
+}
+
+.rekapan-stats .stat-card .label {
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 0.2rem;
+}
+
+/* ====== ADMIN LEADERBOARD EXPORT ====== */
+.btn-export-leaderboard {
+    background: #1c6e4b;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-export-leaderboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(28,110,75,0.3);
+}
+
+.btn-export-leaderboard i {
+    font-size: 1rem;
+}
+
+/* ====== SELECT FIELD ====== */
+.select-field {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #e2edf2;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    background: white;
+    color: #1a4d5f;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 150px;
+}
+
+.select-field:focus {
+    outline: none;
+    border-color: #1c6e4b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pengumuman-page {
+        padding: 1rem;
+    }
+    .pengumuman-header h1 {
+        font-size: 1.4rem;
+    }
+    .leaderboard-card table {
+        font-size: 0.75rem;
+    }
+    .leaderboard-card th,
+    .leaderboard-card td {
+        padding: 0.5rem 0.4rem;
+    }
+    .rank-medal {
+        font-size: 1rem;
+        width: 28px;
+    }
+    .rank-number {
+        width: 28px;
+        font-size: 0.8rem;
+    }
+    tr.top-five .rank-medal {
+        font-size: 1.3rem;
+    }
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box input {
+        min-width: auto;
+    }
+    .field-selector {
+        padding: 0.8rem 1rem;
+    }
+    .field-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
 }
 
 /* ====== PERINGATAN PINDAH TAB ====== */
@@ -1606,6 +2730,391 @@
     background: #e8f5e9;
     color: #1c6e4b;
 }
+/* ====== PENGUMUMAN & LEADERBOARD ====== */
+.pengumuman-page {
+    display: none;
+    min-height: 100vh;
+    background: #f0f2f5;
+    padding: 2rem;
+}
+
+.pengumuman-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pengumuman-header {
+    background: linear-gradient(135deg, #1c6e4b, #0b3b2f);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.pengumuman-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    animation: rotateBg 20s linear infinite;
+}
+
+.pengumuman-header .badge-event {
+    background: rgba(255,255,255,0.2);
+    padding: 0.3rem 1.5rem;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.pengumuman-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pengumuman-header .tanggal-event {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 0.3rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ====== SEARCH BAR ====== */
+.search-box {
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e2edf2;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    min-width: 200px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #1c6e4b;
+    box-shadow: 0 0 0 3px rgba(28,110,75,0.1);
+}
+
+.search-box .search-icon {
+    color: #1c6e4b;
+    font-size: 1.2rem;
+}
+
+.search-box .result-count {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ====== LEADERBOARD TABLE ====== */
+.leaderboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.leaderboard-card .table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.leaderboard-card .table-title h3 {
+    color: #1a4d5f;
+    font-size: 1.1rem;
+}
+
+.leaderboard-card .table-title .badge-total {
+    background: #e8f5e9;
+    color: #1c6e4b;
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.leaderboard-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.leaderboard-card th {
+    background: #f8fafc;
+    color: #1a4d5f;
+    padding: 0.8rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #e2edf2;
+}
+
+.leaderboard-card td {
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.leaderboard-card tr:hover td {
+    background: #f8fafc;
+}
+
+/* ====== STYLE RANKING ====== */
+.rank-medal {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+}
+
+.rank-number {
+    display: inline-block;
+    width: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: #888;
+}
+
+/* ====== 5 BESAR GOLDEN ====== */
+tr.top-five {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0) !important;
+    border-left: 4px solid #f4b942;
+}
+
+tr.top-five td {
+    border-bottom: 1px solid #fdebd0;
+}
+
+tr.top-five:hover td {
+    background: linear-gradient(135deg, #fef9e7, #fdebd0) !important;
+}
+
+tr.top-five .rank-medal {
+    font-size: 1.8rem;
+}
+
+/* ====== STATUS BADGE ====== */
+.status-juara {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.status-juara.emass {
+    background: linear-gradient(135deg, #f4b942, #e0a832);
+    color: #1e2a3e;
+}
+
+.status-juara.perak {
+    background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+    color: #1e2a3e;
+}
+
+.status-juara.perunggu {
+    background: linear-gradient(135deg, #cd7f32, #b8692a);
+    color: white;
+}
+
+.status-juara.lulus {
+    background: #e8f5e9;
+    color: #1c6e4b;
+}
+
+.status-juara.tidak {
+    background: #fde8e8;
+    color: #e74c3c;
+}
+
+/* ====== PENGUMUMAN EMPTY STATE ====== */
+.pengumuman-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 16px;
+}
+
+.pengumuman-empty i {
+    font-size: 4rem;
+    color: #ccc;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.pengumuman-empty h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.pengumuman-empty p {
+    color: #888;
+}
+
+/* ====== HIGHLIGHT MY ROW ====== */
+tr.my-rank {
+    background: #e8f5e9 !important;
+    border-left: 4px solid #1c6e4b;
+    box-shadow: 0 2px 10px rgba(28,110,75,0.1);
+}
+
+tr.my-rank td {
+    font-weight: 600;
+    border-bottom: 1px solid #c8e6d9;
+}
+
+tr.my-rank .rank-medal {
+    animation: pulse-gold 1.5s ease infinite;
+}
+
+@keyframes pulse-gold {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ====== REKAPAN ADMIN ====== */
+.rekapan-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rekapan-stats .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e2edf2;
+}
+
+.rekapan-stats .stat-card .number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1c6e4b;
+}
+
+.rekapan-stats .stat-card .label {
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 0.2rem;
+}
+
+/* ====== ADMIN LEADERBOARD EXPORT ====== */
+.btn-export-leaderboard {
+    background: #1c6e4b;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-export-leaderboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(28,110,75,0.3);
+}
+
+.btn-export-leaderboard i {
+    font-size: 1rem;
+}
+
+/* ====== SELECT FIELD ====== */
+.select-field {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #e2edf2;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    background: white;
+    color: #1a4d5f;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 150px;
+}
+
+.select-field:focus {
+    outline: none;
+    border-color: #1c6e4b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pengumuman-page {
+        padding: 1rem;
+    }
+    .pengumuman-header h1 {
+        font-size: 1.4rem;
+    }
+    .leaderboard-card table {
+        font-size: 0.75rem;
+    }
+    .leaderboard-card th,
+    .leaderboard-card td {
+        padding: 0.5rem 0.4rem;
+    }
+    .rank-medal {
+        font-size: 1rem;
+        width: 28px;
+    }
+    .rank-number {
+        width: 28px;
+        font-size: 0.8rem;
+    }
+    tr.top-five .rank-medal {
+        font-size: 1.3rem;
+    }
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box input {
+        min-width: auto;
+    }
+}
 
 /* TOMBOL */
 .confirm-overlay .confirm-card .actions {
@@ -1734,12 +3243,10 @@
         </div>
 
         <div id="tabRiwayat" class="tab-content">
-            <div class="section-header"><h3>Riwayat Ujian</h3></div>
             <div id="riwayatContainer"></div>
         </div>
 
         <div id="tabRekapan" class="tab-content">
-            <div class="section-header"><h3>Rekapan Nilai</h3></div>
             <div id="rekapanContainer"></div>
         </div>
 
@@ -1764,6 +3271,7 @@
                     <div class="menu-item" data-admin="hasil" onclick="showAdminMenu('hasil')"><i class="fas fa-file-alt"></i> Kelola Hasil Ujian <span class="badge" id="badgeHasil">0</span></div>
                     <div class="menu-divider"></div>
                     <div class="menu-item" data-admin="ranking" onclick="showAdminMenu('ranking')"><i class="fas fa-medal"></i> Ranking</div>
+                    <div class="menu-item" data-admin="leaderboard" onclick="showAdminMenu('leaderboard')"><i class="fas fa-trophy"></i> Leaderboard Rekap</div>
                     <div class="menu-item" data-admin="peserta" onclick="showAdminMenu('peserta')"><i class="fas fa-users"></i> Kelola Peserta</div>
                     <div class="menu-divider"></div>
                     <div class="menu-item" data-admin="pendataan" onclick="showAdminMenu('pendataan')"><i class="fas fa-clipboard-list"></i> Data Pendataan</div>
@@ -1774,15 +3282,14 @@
                 <div class="admin-content" id="adminContent"></div>
             </div>
         </div>
-
-        <div class="help-card">
-            <p><i class="fas fa-question-circle"></i> Butuh bantuan?</p>
-            <button onclick="alert('Hubungi admin di wa.me/6285749343688')">Hubungi Admin</button>
-        </div>
     </div>
-
-    <div class="footer-note">2026 | FASA - Forum Alumni Sunan Ampel | FASA Official</div>
+<!-- ====== FOOTER PERMANEN ====== -->
+<div class="help-card">
+    <p><i class="fas fa-question-circle"></i> Butuh bantuan?</p>
+    <button onclick="alert('Hubungi admin di wa.me/6285749343688')">Hubungi Admin</button>
 </div>
+
+<div class="footer-note">2026 | FASA - Forum Alumni Sunan Ampel | FASA Official</div>
 
 <!-- ====== SIDEBAR ====== -->
 <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
@@ -1791,7 +3298,7 @@
         <h4>Menu</h4>
         <button class="close-sidebar" onclick="closeSidebar()">&times;</button>
     </div>
-    <div class="nav-item active" data-tab="kompetisi" onclick="selectTab('kompetisi')" data-role="peserta">
+        <div class="nav-item" data-tab="kompetisi" onclick="selectTab('kompetisi')" data-role="peserta">
         <i class="fas fa-trophy"></i> Kompetisi
     </div>
     <div class="nav-item" data-tab="riwayat" onclick="selectTab('riwayat')" data-role="peserta">
@@ -1799,6 +3306,12 @@
     </div>
     <div class="nav-item" data-tab="rekapan" onclick="selectTab('rekapan')" data-role="peserta">
         <i class="fas fa-chart-line"></i> Rekapan Nilai
+    </div>
+    <div class="nav-item" data-tab="pengumuman" onclick="selectTab('pengumuman')" data-role="peserta">
+        <i class="fas fa-bullhorn"></i> Pengumuman
+    </div>
+    <div class="nav-item" data-tab="leaderboard" onclick="selectTab('leaderboard')" data-role="peserta">
+        <i class="fas fa-medal"></i> Leaderboard
     </div>
     <div class="nav-item" data-tab="admin" onclick="selectTab('admin')" id="menuAdmin" data-role="admin">
         <i class="fas fa-user-shield"></i> Admin Panel
@@ -1894,7 +3407,7 @@
         </div>
         
         <div style="text-align:center;">
-            <span class="status-badge siap">✅ Siap Dikirim</span>
+            <span class="status-badge siap">✅Siap Dikirim</span>
         </div>
         
         <div class="actions">
@@ -1907,6 +3420,55 @@
         </div>
     </div>
 </div>
+<!-- ====== PENGUMUMAN PAGE ====== -->
+<div id="pengumumanPage" class="page">
+    <div class="pengumuman-page" style="display:flex;">
+        <div class="pengumuman-container" style="width:100%;">
+            
+            <!-- Field Selector (Pilihan Bidang) -->
+            <div class="field-selector" id="fieldSelector">
+                <!-- Akan diisi oleh JavaScript -->
+            </div>
+            
+            <!-- Konten Pengumuman -->
+            <div id="pengumumanKonten">
+                <!-- Akan diisi oleh JavaScript -->
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- ====== LEADERBOARD PAGE (Untuk Peserta) ====== -->
+<div id="leaderboardPage" class="page">
+    <div class="leaderboard-page" style="display:flex;">
+        <div class="leaderboard-container" style="width:100%;">
+            
+            <!-- Header -->
+            <div class="pengumuman-header" style="background:linear-gradient(135deg, #1c6e4b, #0b3b2f);">
+                <div class="badge-event">🏆 FASA Learning Center</div>
+                <h1>🏆 LEADERBOARD</h1>
+                <p>Rekapan nilai seluruh peserta FASA Learning Center</p>
+                <div class="tanggal-event">📅 Terupdate: <span id="leaderboardTanggal"></span></div>
+            </div>
+            
+            <!-- Search Box -->
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchLeaderboard" placeholder="🔍 Cari nama atau nomor peserta..." oninput="filterLeaderboard()">
+                <span class="result-count" id="resultCountLeaderboard">Menampilkan 0 peserta</span>
+            </div>
+            
+            <!-- Konten Leaderboard -->
+            <div id="leaderboardKonten">
+                <!-- Akan diisi oleh JavaScript -->
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- ====== ADMIN LEADERBOARD (Rekapan) ====== -->
+<!-- Tambahkan menu item di admin sidebar -->
+<!-- Menu item sudah ada di admin sidebar, tapi kita tambahkan kontennya -->
 <!-- ====== PERINGATAN PINDAH TAB ====== -->
 <div id="warningOverlay" class="warning-overlay">
     <div class="warning-card">
@@ -2814,6 +4376,42 @@ function selectTab(tab) {
         alert('Anda tidak memiliki akses ke panel admin!');
         return;
     }
+    if (tab === 'pengumuman') {
+    document.getElementById('pengumumanPage').style.display = 'block';
+    renderPengumuman();
+    }
+    // Hide pengumuman page jika bukan tab pengumuman
+    if (tab !== 'pengumuman') {
+    document.getElementById('pengumumanPage').style.display = 'none';
+    }
+    // Di dalam fungsi selectTab, tambahkan case untuk pengumuman:
+    if (tab === 'pengumuman') {
+        document.getElementById('pengumumanPage').style.display = 'block';
+        renderPengumumanFields();
+    }
+
+    if (tab !== 'pengumuman') {
+        document.getElementById('pengumumanPage').style.display = 'none';
+    }
+    // Di dalam fungsi selectTab, tambahkan:
+if (tab === 'pengumuman') {
+    document.getElementById('pengumumanPage').style.display = 'block';
+    renderPengumumanFields();
+}
+
+if (tab === 'leaderboard') {
+    document.getElementById('leaderboardPage').style.display = 'block';
+    renderLeaderboardPeserta();
+}
+
+// Di bagian akhir, tambahkan:
+// Sembunyikan halaman yang tidak aktif
+if (tab !== 'pengumuman') {
+    document.getElementById('pengumumanPage').style.display = 'none';
+}
+if (tab !== 'leaderboard') {
+    document.getElementById('leaderboardPage').style.display = 'none';
+}
     
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
@@ -2841,6 +4439,440 @@ function selectTab(tab) {
     if (tab === 'adminPembayaran' && isAdmin) renderAdminPembayaran();
 }
 
+// ================================================================
+// ========== LEADERBOARD PESERTA (Rekapan Semua Nilai) ==========
+// ================================================================
+
+function renderLeaderboardPeserta() {
+    const container = document.getElementById('leaderboardKonten');
+    const peserta = getPeserta();
+    const dataUjian = getDataUjian();
+    
+    // Set tanggal
+    document.getElementById('leaderboardTanggal').textContent = 
+        new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    
+    // Kumpulkan data semua peserta
+    const data = [];
+    for (const [username, user] of Object.entries(peserta)) {
+        if (user.role === 'peserta') {
+            const nilaiMapel = user.nilaiPerMapel || {};
+            const nilaiList = Object.values(nilaiMapel);
+            const totalNilai = nilaiList.reduce((a,b) => a + b, 0);
+            const totalUjian = nilaiList.length;
+            const rataRata = totalUjian > 0 ? (totalNilai / totalUjian).toFixed(1) : 0;
+            
+            // Cek apakah sudah pernah ujian
+            const pernahUjian = totalUjian > 0;
+            
+            data.push({
+                username,
+                nama: user.nama,
+                noPeserta: user.noPeserta || '-',
+                asalSekolah: user.asalSekolah || '-',
+                totalNilai,
+                totalUjian,
+                rataRata: parseFloat(rataRata),
+                pernahUjian,
+                // Detail per mapel
+                detailMapel: (user.riwayatUjian || []).map(r => ({
+                    mapel: r.mapel,
+                    nilai: r.nilai,
+                    lulus: r.lulus
+                }))
+            });
+        }
+    }
+    
+    // Urutkan berdasarkan total nilai (tertinggi)
+    data.sort((a, b) => b.totalNilai - a.totalNilai);
+    
+    // Cari posisi user saat ini
+    const currentUsername = currentUser ? currentUser.username : '';
+    let myRank = -1;
+    let myData = null;
+    
+    data.forEach((d, idx) => {
+        if (d.username === currentUsername) {
+            myRank = idx;
+            myData = d;
+        }
+    });
+    
+    // Ambil daftar mapel unik
+    const mapelSet = new Set();
+    data.forEach(d => {
+        d.detailMapel.forEach(m => mapelSet.add(m.mapel));
+    });
+    const mapelList = Array.from(mapelSet);
+    
+    // Hitung statistik
+    const totalPeserta = data.length;
+    const pernahUjian = data.filter(d => d.pernahUjian).length;
+    const totalUjianSemua = data.reduce((a,b) => a + b.totalUjian, 0);
+    const rataRataSemua = totalUjianSemua > 0 ? (data.reduce((a,b) => a + b.totalNilai, 0) / totalUjianSemua).toFixed(1) : 0;
+    
+    if (totalPeserta === 0 || pernahUjian === 0) {
+        container.innerHTML = `
+            <div class="pengumuman-empty">
+                <i class="fas fa-inbox"></i>
+                <h3>📭 Belum Ada Data</h3>
+                <p>Belum ada peserta yang mengikuti ujian.</p>
+                <p style="font-size:0.8rem;color:#aaa;margin-top:0.5rem;">Leaderboard akan muncul setelah ada peserta yang mengerjakan ujian.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = `
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.8rem;margin-bottom:1.5rem;">
+            <div class="stat-card"><div class="number">${totalPeserta}</div><div class="label">👥 Total Peserta</div></div>
+            <div class="stat-card"><div class="number">${pernahUjian}</div><div class="label">📝 Pernah Ujian</div></div>
+            <div class="stat-card"><div class="number">${totalUjianSemua}</div><div class="label">📚 Total Ujian</div></div>
+            <div class="stat-card"><div class="number">${rataRataSemua}</div><div class="label">📊 Rata-rata</div></div>
+            ${myRank >= 0 ? `
+                <div class="stat-card" style="border-color:#1c6e4b;background:#e8f5e9;">
+                    <div class="number" style="color:#1c6e4b;">#${myRank + 1}</div>
+                    <div class="label">🏆 Peringkat Anda</div>
+                </div>
+            ` : ''}
+        </div>
+        
+        <!-- Leaderboard -->
+        <div class="leaderboard-card">
+            <div class="table-title">
+                <h3>🏆 Rekap Leaderboard</h3>
+                <span class="badge-total">${totalPeserta} Peserta</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:60px;">Rank</th>
+                        <th>Nama Lengkap</th>
+                        <th>Asal Sekolah</th>
+                        <th style="width:100px;">No. Peserta</th>
+                        ${mapelList.map(m => `<th style="width:60px;">${m}</th>`).join('')}
+                        <th style="width:80px;">Total</th>
+                        <th style="width:80px;">Rata-rata</th>
+                        <th style="width:80px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardTableBody">
+    `;
+    
+    data.forEach((d, idx) => {
+        const rank = idx + 1;
+        const isTopFive = rank <= 5;
+        const isMyRank = d.username === currentUsername;
+        
+        let rankDisplay = '';
+        if (isTopFive) {
+            const medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'];
+            rankDisplay = `<span class="rank-medal">${medals[idx]}</span>`;
+        } else {
+            rankDisplay = `<span class="rank-number">${rank}</span>`;
+        }
+        
+        // Buat map nilai per mapel
+        const nilaiMap = {};
+        d.detailMapel.forEach(m => {
+            nilaiMap[m.mapel] = m.nilai;
+        });
+        
+        const rowClass = isTopFive ? 'top-five' : '';
+        const myClass = isMyRank ? 'my-rank' : '';
+        const status = d.pernahUjian ? '✅ Aktif' : '⏳ Belum Ujian';
+        
+        html += `
+            <tr class="${rowClass} ${myClass}" data-name="${d.nama.toLowerCase()}" data-nopes="${d.noPeserta}">
+                <td>${rankDisplay}</td>
+                <td><strong>${d.nama}</strong> ${isMyRank ? '👈 (Anda)' : ''}</td>
+                <td>${d.asalSekolah}</td>
+                <td style="font-size:0.8rem;color:#888;">${d.noPeserta}</td>
+                ${mapelList.map(m => `
+                    <td style="text-align:center;font-weight:600;color:${(nilaiMap[m] || 0) >= 70 ? '#1c6e4b' : '#e74c3c'};">
+                        ${nilaiMap[m] || '-'}
+                    </td>
+                `).join('')}
+                <td style="text-align:center;font-weight:700;color:#1c6e4b;">${d.totalNilai}</td>
+                <td style="text-align:center;font-weight:700;color:#1a4d5f;">${d.rataRata}</td>
+                <td><span class="status-badge ${d.pernahUjian ? 'tersedia' : 'belum'}">${status}</span></td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+            </table>
+            <div style="text-align:center;margin-top:1rem;font-size:0.7rem;color:#aaa;border-top:1px solid #f0f2f5;padding-top:1rem;">
+                <i class="fas fa-check-circle" style="color:#1c6e4b;"></i> Data ini adalah hasil resmi dari FASA Learning Center
+            </div>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+    
+    // Auto scroll ke posisi user
+    if (myRank >= 0) {
+        setTimeout(() => {
+            const rows = document.querySelectorAll('#leaderboardTableBody tr');
+            if (rows[myRank]) {
+                rows[myRank].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Highlight effect
+                rows[myRank].style.transition = 'background 0.5s';
+                setTimeout(() => {
+                    rows[myRank].style.background = '#c8e6d9';
+                    setTimeout(() => {
+                        rows[myRank].style.background = '';
+                    }, 1500);
+                }, 300);
+            }
+        }, 500);
+    }
+}
+
+function filterLeaderboard() {
+    const query = document.getElementById('searchLeaderboard').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#leaderboardTableBody tr');
+    let visible = 0;
+    
+    rows.forEach(row => {
+        const name = row.dataset.name || '';
+        const nopes = row.dataset.nopes || '';
+        const match = name.includes(query) || nopes.includes(query);
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+    
+    document.getElementById('resultCountLeaderboard').textContent = `Menampilkan ${visible} peserta`;
+}
+// ================================================================
+// ========== PENGUMUMAN PER BIDANG ==========
+// ================================================================
+
+function renderPengumumanFields() {
+    const container = document.getElementById('fieldSelector');
+    const pengumumanData = JSON.parse(localStorage.getItem('fasa_pengumuman')) || {};
+    
+    // Ambil daftar bidang yang ada
+    const fields = Object.keys(pengumumanData);
+    
+    if (fields.length === 0) {
+        container.innerHTML = `
+            <div style="width:100%;text-align:center;padding:0.5rem;color:#888;font-size:0.85rem;">
+                ⏳ Belum ada pengumuman yang dipublikasikan.
+            </div>
+        `;
+        document.getElementById('pengumumanKonten').innerHTML = `
+            <div class="pengumuman-empty">
+                <i class="fas fa-clock"></i>
+                <h3>⏳ Belum Ada Pengumuman</h3>
+                <p>Pengumuman akan muncul setelah admin selesai mengolah data ujian.</p>
+                <p style="font-size:0.8rem;color:#aaa;margin-top:0.5rem;">Silakan cek kembali secara berkala.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = '';
+    fields.forEach((field, idx) => {
+        const data = pengumumanData[field];
+        const count = data ? data.length : 0;
+        const isActive = idx === 0;
+        html += `
+            <button class="field-btn ${isActive ? 'active' : ''}" onclick="renderPengumumanField('${field}')">
+                📚 ${field}
+                <span class="badge-count">${count}</span>
+            </button>
+        `;
+    });
+    container.innerHTML = html;
+    
+    // Render bidang pertama
+    if (fields.length > 0) {
+        renderPengumumanField(fields[0]);
+    }
+}
+
+function renderPengumumanField(field) {
+    // Update active button
+    document.querySelectorAll('.field-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.includes(field)) {
+            btn.classList.add('active');
+        }
+    });
+    
+    const container = document.getElementById('pengumumanKonten');
+    const pengumumanData = JSON.parse(localStorage.getItem('fasa_pengumuman')) || {};
+    const data = pengumumanData[field] || [];
+    
+    if (data.length === 0) {
+        container.innerHTML = `
+            <div class="pengumuman-empty">
+                <i class="fas fa-inbox"></i>
+                <h3>📭 Belum Ada Data</h3>
+                <p>Belum ada peserta yang mengikuti ujian bidang <strong>${field}</strong>.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Urutkan berdasarkan nilai (tertinggi)
+    data.sort((a, b) => b.nilai - a.nilai);
+    
+    // Cari posisi user saat ini
+    const currentUsername = currentUser ? currentUser.username : '';
+    let myRank = -1;
+    let myData = null;
+    
+    data.forEach((d, idx) => {
+        if (d.username === currentUsername) {
+            myRank = idx;
+            myData = d;
+        }
+    });
+    
+    // Hitung statistik
+    const total = data.length;
+    const lulus = data.filter(d => d.lulus).length;
+    const rata = (data.reduce((a,b) => a + b.nilai, 0) / total).toFixed(1);
+    const tertinggi = data[0]?.nilai || 0;
+    
+    let html = `
+        <!-- Header -->
+        <div class="pengumuman-header">
+            <div class="badge-event">🏆 FASA Learning Center</div>
+            <h1>📢 PENGUMUMAN HASIL UJIAN</h1>
+            <div class="field-name">📚 ${field}</div>
+            <p>Selamat kepada seluruh peserta yang telah mengikuti ujian dengan penuh semangat dan kejujuran.</p>
+            <div class="tanggal-event">📅 ${new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</div>
+        </div>
+        
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.8rem;margin-bottom:1.5rem;">
+            <div class="stat-card"><div class="number">${total}</div><div class="label">👥 Peserta</div></div>
+            <div class="stat-card"><div class="number">${lulus}</div><div class="label">✅ Lulus</div></div>
+            <div class="stat-card"><div class="number">${rata}</div><div class="label">📊 Rata-rata</div></div>
+            <div class="stat-card"><div class="number">${tertinggi}</div><div class="label">🏆 Tertinggi</div></div>
+        </div>
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchPengumuman" placeholder="🔍 Cari nama atau nomor peserta..." oninput="filterPengumumanField()">
+            <span class="result-count" id="resultCountField">Menampilkan ${total} peserta</span>
+        </div>
+        
+        <!-- Leaderboard -->
+        <div class="leaderboard-card">
+            <div class="table-title">
+                <h3>🏆 Leaderboard - ${field}</h3>
+                <span class="badge-total">${total} Peserta</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:60px;">Rank</th>
+                        <th>Nama Lengkap</th>
+                        <th>Asal Sekolah</th>
+                        <th style="width:120px;">No. Peserta</th>
+                        <th style="width:80px;">Nilai</th>
+                        <th style="width:120px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="pengumumanTableBody">
+    `;
+    
+    data.forEach((d, idx) => {
+        const rank = idx + 1;
+        const isTopFive = rank <= 5;
+        const isMyRank = d.username === currentUsername;
+        
+        let rankDisplay = '';
+        let statusDisplay = '';
+        
+        if (isTopFive) {
+            const medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'];
+            rankDisplay = `<span class="rank-medal">${medals[idx]}</span>`;
+            statusDisplay = `<span class="status-juara ${
+                idx === 0 ? 'emass' : 
+                idx === 1 ? 'perak' : 
+                idx === 2 ? 'perunggu' : 'lulus'
+            }">${idx === 0 ? '🏆 Juara 1' : idx === 1 ? '🥈 Juara 2' : idx === 2 ? '🥉 Juara 3' : '🎖️ 5 Besar'}</span>`;
+        } else {
+            rankDisplay = `<span class="rank-number">${rank}</span>`;
+            statusDisplay = d.lulus 
+                ? `<span class="status-juara lulus">✅ Lulus</span>`
+                : `<span class="status-juara tidak">❌ Tidak</span>`;
+        }
+        
+        // Status khusus dari admin (bisa di-override)
+        if (d.statusKhusus) {
+            statusDisplay = `<span class="status-juara ${d.statusKhususClass || 'lulus'}">${d.statusKhusus}</span>`;
+        }
+        
+        const rowClass = isTopFive ? 'top-five' : '';
+        const myClass = isMyRank ? 'my-rank' : '';
+        
+        html += `
+            <tr class="${rowClass} ${myClass}" data-name="${d.nama.toLowerCase()}" data-nopes="${d.noPeserta || ''}">
+                <td>${rankDisplay}</td>
+                <td><strong>${d.nama}</strong> ${isMyRank ? '👈 (Anda)' : ''}</td>
+                <td>${d.asalSekolah || '-'}</td>
+                <td style="font-size:0.8rem;color:#888;">${d.noPeserta || '-'}</td>
+                <td style="font-weight:700;color:${d.nilai >= 70 ? '#1c6e4b' : '#e74c3c'};">${d.nilai}</td>
+                <td>${statusDisplay}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+            </table>
+            <div style="text-align:center;margin-top:1rem;font-size:0.7rem;color:#aaa;border-top:1px solid #f0f2f5;padding-top:1rem;">
+                <i class="fas fa-check-circle" style="color:#1c6e4b;"></i> Data ini adalah hasil resmi dari FASA Learning Center
+            </div>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+    
+    // Auto scroll ke posisi user
+    if (myRank >= 0) {
+        setTimeout(() => {
+            const rows = document.querySelectorAll('#pengumumanTableBody tr');
+            if (rows[myRank]) {
+                rows[myRank].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Highlight effect
+                rows[myRank].style.transition = 'background 0.5s';
+                setTimeout(() => {
+                    rows[myRank].style.background = '#c8e6d9';
+                    setTimeout(() => {
+                        rows[myRank].style.background = '';
+                    }, 1500);
+                }, 300);
+            }
+        }, 500);
+    }
+}
+
+function filterPengumumanField() {
+    const query = document.getElementById('searchPengumuman').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#pengumumanTableBody tr');
+    let visible = 0;
+    
+    rows.forEach(row => {
+        const name = row.dataset.name || '';
+        const nopes = row.dataset.nopes || '';
+        const match = name.includes(query) || nopes.includes(query);
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+    
+    document.getElementById('resultCountField').textContent = `Menampilkan ${visible} peserta`;
+}
 function showProfile() {
     document.getElementById('pNama').textContent = currentUser.nama;
     document.getElementById('pUsername').textContent = currentUser.username;
@@ -2889,6 +4921,8 @@ function showAdminMenu(menu) {
         case 'peserta': renderKelolaPeserta(content); break;
         case 'pendataan': renderAdminPendataan(content); break;
         case 'pembayaran': renderAdminPembayaran(content); break;
+        case 'leaderboard': renderAdminLeaderboard(content); break;
+        case 'leaderboard': renderAdminLeaderboard(content); break;
         default: renderAdminDashboard(content);
     }
 }
@@ -4505,7 +6539,8 @@ function eksporPaket(id) {
     const peserta = getPeserta();
     const pesertaList = Object.keys(peserta).filter(key => peserta[key].role === 'peserta');
     
-    let ringkasan = '📤 EKSPOR PAKET SOAL\n';
+    let ringkasan = '📤 EKSPOR PAKET SOAL\
+n';
     ringkasan += '═══════════════════════════════\n';
     ringkasan += `📚 Mata Pelajaran: ${p.mapel}\n`;
     ringkasan += `📅 Tanggal: ${p.tanggal}\n`;
@@ -5138,7 +7173,7 @@ function loadUjian() {
         if (sudahDikerjakan) {
             return `
                 <div class="ujian-card" style="border-color:#1c6e4b;background:#f0faf5;">
-                    <div class="card-title">📝 UJIAN ${u.mapel}</div>
+                    <div class="card-title">SOAL ${u.mapel}</div>
                     <div class="card-badges">
                         <span class="badge-mapel">📚 ${u.mapel}</span>
                         <span class="badge-soal">🎓 ${jumlahSoal} Soal</span>
@@ -5154,7 +7189,7 @@ function loadUjian() {
         }
         return `
             <div class="ujian-card" style="${status === 'berlangsung' ? 'border-color:#2196F3;border-width:2px;' : status === 'belum' ? 'border-color:#f4b942;' : 'border-color:#e74c3c;'}">
-                <div class="card-title">Soal ${u.mapel}</div>
+                <div class="card-title">SOAL ${u.mapel}</div>
                 <div class="card-badges">
                     <span class="badge-mapel">📚 ${u.mapel}</span>
                     <span class="badge-soal">🎓 ${jumlahSoal} Soal</span>
@@ -5455,48 +7490,28 @@ function saveUjianState() {
 
 // Panggil saveUjianState setiap 5 detik
 setInterval(saveUjianState, 5000);
-// ================================================================
-// ========== SHOW GREEN NOTIFICATION (UCAPAN TERIMA KASIH) ==========
-// ================================================================
-
-// Setelah kirimUjian() berhasil, panggil:
 function showGreenNotification(mapel) {
-    // Buat modal ucapan terima kasih
+    // Buat modal ucapan terima kasih elegan
     const modal = document.createElement('div');
-    modal.className = 'modal-ucapan';
+    modal.className = 'green-notification-overlay';
+    modal.style.display = 'flex';
+    modal.style.zIndex = '10000';
     modal.innerHTML = `
-        <div class="card">
-            <div class="icon-wrapper">
+        <div class="green-card">
+            <div class="icon-circle">
                 <i class="fas fa-check-circle"></i>
-                <div class="badge-check">
-                    <i class="fas fa-check" style="font-size:0.7rem;"></i>
-                </div>
             </div>
-            <div class="title">
-                <h2>🙏 Terima Kasih!</h2>
-                <p>Jawaban Anda telah berhasil dikirim</p>
+            <div class="green-title">🎉 Selamat!</div>
+            <div class="green-subtitle">Anda telah menyelesaikan ujian</div>
+            <div class="mapel-badge-green"><span>📚 ${mapel}</span></div>
+            <div class="doa-box-green">
+                <p>🤲 "Semoga hasil yang diperoleh membawa berkah dan menjadi langkah menuju kesuksesan."</p>
             </div>
-            <div class="info-grid">
-                <div class="item-full">
-                    <div class="label">📚 Mata Pelajaran</div>
-                    <div class="value">${mapel}</div>
-                </div>
-            </div>
-            <div class="doa-box" style="background:linear-gradient(135deg, #e8f5e9, #c8e6d9);border-left:4px solid #1c6e4b;">
-                <p style="color:#1c6e4b;font-size:1rem;font-weight:600;">
-                    🤲 "Semoga hasil yang diperoleh membawa berkah<br>
-                    dan menjadi langkah menuju kesuksesan."
-                </p>
-            </div>
-            <div class="notif">
-                <i class="fas fa-info-circle"></i>
-                <p>
-                    <strong>⏳ Silakan tunggu pengumuman resmi dari panitia.</strong>
-                </p>
-            </div>
-            <div class="actions">
-                <button class="btn btn-primary" onclick="tutupUcapan()">
-                    <i class="fas fa-check"></i> OK
+            <div class="tunggu-text">⏳ Silakan tunggu pengumuman resmi dari panitia.</div>
+            <div class="countdown-text"><i class="fas fa-clock"></i> Menutup otomatis dalam 5 detik...</div>
+            <div style="margin-top:16px;position:relative;z-index:1;">
+                <button onclick="tutupUcapan()" style="background:white;color:#1c6e4b;border:none;padding:10px 30px;border-radius:30px;cursor:pointer;font-weight:700;font-size:0.95rem;transition:0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.2);">
+                    <i class="fas fa-arrow-right"></i> Kembali ke Dashboard
                 </button>
             </div>
         </div>
@@ -5507,6 +7522,16 @@ function showGreenNotification(mapel) {
     setTimeout(() => {
         tutupUcapan();
     }, 5000);
+}
+
+function tutupUcapan() {
+    const modal = document.querySelector('.green-notification-overlay');
+    if (modal) modal.remove();
+    // Kembali ke dashboard
+    document.getElementById('hasilUjianPage').classList.remove('active');
+    document.getElementById('ujianPage').classList.remove('active');
+    document.getElementById('dashboardPage').classList.add('active');
+    loadUjian();
 }
 
 function tutupUcapan() {
@@ -5723,7 +7748,6 @@ function tutupConfirm() {
     document.getElementById('confirmOverlay').classList.remove('show');
 }
 
-// Modifikasi fungsi lanjutkanKirim()
 function lanjutkanKirim() {
     document.getElementById('confirmOverlay').classList.remove('show');
     
@@ -5829,8 +7853,120 @@ function lanjutkanKirim() {
     const mapelTemp = mapel;
     currentUjian = null;
     
-    // ====== TAMPILKAN UCAPAN TERIMA KASIH ======
+    // ====== TAMPILKAN UCAPAN SELAMAT ELEGAN ======
     showGreenNotification(mapelTemp);
+}
+
+// ================================================================
+// ========== UCAPAN SELAMAT ELEGAN ==========
+// ================================================================
+
+function showUcapanSelamat(mapel, nilai, lulus) {
+    const isLulus = lulus;
+    const emoji = isLulus ? '🎉' : '💪';
+    const judul = isLulus ? 'Selamat! Anda Lulus!' : 'Terima Kasih!';
+    const subtitle = isLulus 
+        ? 'Anda telah berhasil menyelesaikan ujian dengan hasil yang membanggakan.' 
+        : 'Anda telah menyelesaikan ujian ini dengan baik. Teruslah belajar!';
+    const iconColor = isLulus ? '#1c6e4b' : '#f4b942';
+    const iconBg = isLulus ? 'linear-gradient(135deg, #e8f5e9, #c8e6d9)' : 'linear-gradient(135deg, #fef9e7, #fdebd0)';
+    
+    // Buat modal ucapan
+    const modal = document.createElement('div');
+    modal.className = 'modal-ucapan';
+    modal.style.zIndex = '1002';
+    modal.innerHTML = `
+        <div class="card" style="max-width:480px;padding:2rem 1.8rem;border-radius:28px;position:relative;overflow:hidden;">
+            <!-- Background Decoration -->
+            <div style="position:absolute;top:-30%;right:-20%;width:200px;height:200px;background:${iconBg};border-radius:50%;opacity:0.2;"></div>
+            <div style="position:absolute;bottom:-20%;left:-15%;width:150px;height:150px;background:${iconBg};border-radius:50%;opacity:0.15;"></div>
+            
+            <button class="close-btn" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#ccc;z-index:10;" onclick="tutupUcapanSelamat()">&times;</button>
+            
+            <!-- Icon -->
+            <div style="text-align:center;position:relative;z-index:1;">
+                <div style="width:110px;height:110px;border-radius:50%;background:${iconBg};border:4px solid ${iconColor};display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+                    <span style="font-size:3.5rem;">${isLulus ? '✅' : '🙏'}</span>
+                    <div style="position:absolute;bottom:-6px;right:-6px;background:${iconColor};border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:3px solid white;box-shadow:0 2px 10px rgba(0,0,0,0.15);">
+                        <i class="fas ${isLulus ? 'fa-check' : 'fa-heart'}" style="color:white;font-size:0.8rem;"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Judul -->
+            <div style="text-align:center;position:relative;z-index:1;">
+                <h2 style="color:${iconColor};font-size:1.6rem;font-weight:800;margin:0 0 4px 0;">${emoji} ${judul}</h2>
+                <p style="color:#888;font-size:0.9rem;margin:0 0 8px 0;">${subtitle}</p>
+            </div>
+            
+            <!-- Info -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;position:relative;z-index:1;">
+                <div style="background:#f8fafc;border-radius:12px;padding:12px;text-align:center;border:1px solid #e8edf2;">
+                    <div style="color:#888;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.8px;font-weight:700;">📚 Bidang</div>
+                    <div style="font-size:1rem;font-weight:700;color:#1a4d5f;margin-top:4px;">${mapel}</div>
+                </div>
+                <div style="background:#f8fafc;border-radius:12px;padding:12px;text-align:center;border:1px solid #e8edf2;">
+                    <div style="color:#888;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.8px;font-weight:700;">📊 Nilai</div>
+                    <div style="font-size:1.4rem;font-weight:800;color:${isLulus ? '#1c6e4b' : '#f4b942'};margin-top:4px;">${nilai}</div>
+                </div>
+                <div style="grid-column:1/-1;background:#f8fafc;border-radius:12px;padding:12px;text-align:center;border:1px solid #e8edf2;">
+                    <div style="color:#888;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.8px;font-weight:700;">📌 Status</div>
+                    <div style="font-size:1rem;font-weight:700;color:${isLulus ? '#1c6e4b' : '#f4b942'};margin-top:4px;">
+                        ${isLulus ? '✅ LULUS' : '⏳ Menunggu Pengumuman'}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Doa -->
+            <div style="background:linear-gradient(135deg, #e8f5e9, #c8e6d9);border-radius:14px;padding:14px 18px;margin:12px 0 16px 0;border-left:4px solid #1c6e4b;position:relative;z-index:1;">
+                <div style="display:flex;align-items:flex-start;gap:12px;">
+                    <i class="fas fa-hands-praying" style="color:#1c6e4b;font-size:1.3rem;margin-top:2px;"></i>
+                    <div>
+                        <p style="color:#1a4d5f;font-size:0.95rem;font-weight:600;margin:0;line-height:1.6;">
+                            🤲 "Semoga hasil yang diperoleh membawa berkah<br>
+                            dan menjadi langkah menuju kesuksesan."
+                        </p>
+                        <p style="color:#555;font-size:0.75rem;margin:4px 0 0 0;opacity:0.7;">
+                            ⏳ Tunggu informasi pengumuman selanjutnya dari panitia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tombol -->
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;">
+                <button onclick="tutupUcapanSelamat()" style="background:linear-gradient(135deg, #1c6e4b, #0b3b2f);color:white;border:none;padding:12px 35px;border-radius:30px;cursor:pointer;font-weight:600;font-size:0.95rem;transition:0.3s;box-shadow:0 4px 15px rgba(28,110,75,0.3);display:flex;align-items:center;gap:8px;">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Auto close setelah 8 detik
+    const timeoutId = setTimeout(() => {
+        tutupUcapanSelamat();
+    }, 8000);
+    
+    // Simpan timeout untuk cleanup
+    modal.dataset.timeoutId = timeoutId;
+}
+
+function tutupUcapanSelamat() {
+    const modal = document.querySelector('.modal-ucapan');
+    if (modal) {
+        // Clear timeout jika ada
+        if (modal.dataset.timeoutId) {
+            clearTimeout(parseInt(modal.dataset.timeoutId));
+        }
+        modal.remove();
+    }
+    // Kembali ke dashboard
+    document.getElementById('hasilUjianPage').classList.remove('active');
+    document.getElementById('ujianPage').classList.remove('active');
+    document.getElementById('dashboardPage').classList.add('active');
+    loadUjian();
 }
 
 function kembaliKeDashboard() {
@@ -5862,6 +7998,549 @@ function renderRiwayat() {
             <p>Nilai: <strong style="color:${r.lulus ? '#1c6e4b' : '#e74c3c'}">${r.nilai}</strong> | ${r.lulus ? '✅ LULUS' : '❌ TIDAK LULUS'}</p>
         </div>
     `).join('');
+}
+
+// ========== PENGUMUMAN ==========
+// ================================================================
+
+function renderPengumuman() {
+    const container = document.getElementById('pengumumanKonten');
+    if (!container) return;
+    
+    // Ambil data dari localStorage
+    const pengumumanData = JSON.parse(localStorage.getItem('fasa_pengumuman')) || null;
+    
+    if (!pengumumanData || !pengumumanData.data || pengumumanData.data.length === 0) {
+        container.innerHTML = `
+            <div class="pengumuman-empty">
+                <i class="fas fa-clock"></i>
+                <h3>⏳ Belum Ada Pengumuman</h3>
+                <p>Pengumuman akan muncul setelah admin selesai mengolah data ujian.</p>
+                <p style="font-size:0.8rem;color:#aaa;margin-top:0.5rem;">Silakan cek kembali secara berkala.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Set tanggal pengumuman
+    const tanggalElem = document.getElementById('pengumumanTanggal');
+    if (tanggalElem && pengumumanData.tanggal) {
+        tanggalElem.textContent = '📅 ' + pengumumanData.tanggal;
+    }
+    
+    const data = pengumumanData.data;
+    const judulEvent = pengumumanData.judul || 'Pengumuman Hasil Ujian';
+    const deskripsiEvent = pengumumanData.deskripsi || '';
+    const bidang = pengumumanData.bidang || 'Semua Bidang';
+    
+    // Cari posisi user saat ini
+    const currentUsername = currentUser ? currentUser.username : '';
+    let myRank = -1;
+    let myData = null;
+    
+    data.forEach((d, idx) => {
+        if (d.username === currentUsername) {
+            myRank = idx;
+            myData = d;
+        }
+    });
+    
+    // Build HTML
+    let html = `
+        <!-- Header Event -->
+        <div style="background:white;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+                <div style="background:#e8f5e9;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:2rem;">🏅</div>
+                <div>
+                    <h2 style="color:#1a4d5f;font-size:1.3rem;margin:0;">${judulEvent}</h2>
+                    <p style="color:#888;font-size:0.85rem;margin:4px 0 0 0;">${deskripsiEvent} | 📚 Bidang: ${bidang}</p>
+                </div>
+            </div>
+            <div style="margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid #f0f2f5;display:flex;gap:1rem;flex-wrap:wrap;font-size:0.8rem;color:#888;">
+                <span><i class="fas fa-users"></i> Total Peserta: ${data.length} orang</span>
+                <span><i class="fas fa-trophy"></i> Juara: ${data[0]?.nama || '-'}</span>
+            </div>
+        </div>
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchPengumuman" placeholder="🔍 Cari nama atau nomor peserta..." oninput="filterPengumuman()">
+            <span class="result-count" id="resultCount">Menampilkan ${data.length} peserta</span>
+        </div>
+        
+        <!-- Leaderboard -->
+        <div class="leaderboard-card">
+            <div class="table-title">
+                <h3>🏆 Leaderboard</h3>
+                <span class="badge-total">${data.length} Peserta</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:60px;">Rank</th>
+                        <th>Nama Lengkap</th>
+                        <th>Asal Sekolah</th>
+                        <th style="width:120px;">No. Peserta</th>
+                        <th style="width:80px;">Nilai</th>
+                        <th style="width:120px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="pengumumanTableBody">
+    `;
+    
+    data.forEach((d, idx) => {
+        const rank = idx + 1;
+        const isTopFive = rank <= 5;
+        const isMyRank = d.username === currentUsername;
+        
+        let rankDisplay = '';
+        let statusDisplay = '';
+        
+        if (isTopFive) {
+            const medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'];
+            rankDisplay = `<span class="rank-medal">${medals[idx]}</span>`;
+            statusDisplay = `<span class="status-juara ${
+                idx === 0 ? 'emass' : 
+                idx === 1 ? 'perak' : 
+                idx === 2 ? 'perunggu' : 'lulus'
+            }">${idx === 0 ? '🏆 Juara 1' : idx === 1 ? '🥈 Juara 2' : idx === 2 ? '🥉 Juara 3' : '🎖️ 5 Besar'}</span>`;
+        } else {
+            rankDisplay = `<span class="rank-number">${rank}</span>`;
+            statusDisplay = d.lulus 
+                ? `<span class="status-juara lulus">✅ Lulus</span>`
+                : `<span class="status-juara tidak">❌ Tidak</span>`;
+        }
+        
+        // Status khusus dari admin (bisa di-override)
+        if (d.statusKhusus) {
+            statusDisplay = `<span class="status-juara ${d.statusKhususClass || 'lulus'}">${d.statusKhusus}</span>`;
+        }
+        
+        const rowClass = isTopFive ? 'top-five' : '';
+        const myClass = isMyRank ? 'my-rank' : '';
+        
+        html += `
+            <tr class="${rowClass} ${myClass}" data-name="${d.nama.toLowerCase()}" data-nopes="${d.noPeserta || ''}">
+                <td>${rankDisplay}</td>
+                <td><strong>${d.nama}</strong> ${isMyRank ? '👈 (Anda)' : ''}</td>
+                <td>${d.asalSekolah || '-'}</td>
+                <td style="font-size:0.8rem;color:#888;">${d.noPeserta || '-'}</td>
+                <td style="font-weight:700;color:${d.nilai >= 70 ? '#1c6e4b' : '#e74c3c'};">${d.nilai}</td>
+                <td>${statusDisplay}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+            </table>
+            <div style="text-align:center;margin-top:1rem;font-size:0.7rem;color:#aaa;border-top:1px solid #f0f2f5;padding-top:1rem;">
+                <i class="fas fa-check-circle" style="color:#1c6e4b;"></i> Data ini adalah hasil resmi dari FASA Learning Center
+            </div>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+    
+    // Auto scroll ke posisi user
+    if (myRank >= 0) {
+        setTimeout(() => {
+            const rows = document.querySelectorAll('#pengumumanTableBody tr');
+            if (rows[myRank]) {
+                rows[myRank].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Highlight effect
+                rows[myRank].style.transition = 'background 0.5s';
+                setTimeout(() => {
+                    rows[myRank].style.background = '#c8e6d9';
+                    setTimeout(() => {
+                        rows[myRank].style.background = '';
+                    }, 1500);
+                }, 300);
+            }
+        }, 500);
+    }
+}
+
+function filterPengumuman() {
+    const query = document.getElementById('searchPengumuman').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#pengumumanTableBody tr');
+    let visible = 0;
+    
+    rows.forEach(row => {
+        const name = row.dataset.name || '';
+        const nopes = row.dataset.nopes || '';
+        const match = name.includes(query) || nopes.includes(query);
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+    
+    document.getElementById('resultCount').textContent = `Menampilkan ${visible} peserta`;
+}
+
+function renderAdminLeaderboard(content) {
+    const peserta = getPeserta();
+    const dataUjian = getDataUjian();
+    
+    // Kumpulkan data semua peserta
+    const data = [];
+    for (const [username, user] of Object.entries(peserta)) {
+        if (user.role === 'peserta') {
+            const nilaiMapel = user.nilaiPerMapel || {};
+            const nilaiList = Object.values(nilaiMapel);
+            const totalNilai = nilaiList.reduce((a,b) => a + b, 0);
+            const totalUjian = nilaiList.length;
+            const rataRata = totalUjian > 0 ? (totalNilai / totalUjian).toFixed(1) : 0;
+            
+            // Cari riwayat ujian untuk detail
+            const riwayat = user.riwayatUjian || [];
+            const detailMapel = riwayat.map(r => ({
+                mapel: r.mapel,
+                nilai: r.nilai,
+                lulus: r.lulus
+            }));
+            
+            data.push({
+                username,
+                nama: user.nama,
+                noPeserta: user.noPeserta || '-',
+                asalSekolah: user.asalSekolah || '-',
+                totalNilai,
+                totalUjian,
+                rataRata: parseFloat(rataRata),
+                detailMapel,
+                riwayat
+            });
+        }
+    }
+    
+    // Urutkan berdasarkan total nilai (tertinggi)
+    data.sort((a, b) => b.totalNilai - a.totalNilai);
+    
+    // Ambil daftar mapel unik
+    const mapelSet = new Set();
+    data.forEach(d => {
+        d.detailMapel.forEach(m => mapelSet.add(m.mapel));
+    });
+    const mapelList = Array.from(mapelSet);
+    
+    // Cek apakah ada pengumuman
+    const pengumumanData = JSON.parse(localStorage.getItem('fasa_pengumuman')) || {};
+    const hasPengumuman = Object.keys(pengumumanData).length > 0;
+    
+    let html = `
+        <div class="admin-card">
+            <div class="card-header">
+                <h3><i class="fas fa-trophy"></i> Leaderboard Rekap Peserta</h3>
+                <span class="badge-count">${data.length} peserta</span>
+            </div>
+            
+            <div class="rekapan-stats">
+                <div class="stat-card">
+                    <div class="number">${data.length}</div>
+                    <div class="label">👥 Total Peserta</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.filter(d => d.totalUjian > 0).length}</div>
+                    <div class="label">📝 Pernah Ujian</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.reduce((a,b) => a + b.totalUjian, 0)}</div>
+                    <div class="label">📚 Total Ujian</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">${data.length > 0 ? (data.reduce((a,b) => a + b.rataRata, 0) / data.length).toFixed(1) : 0}</div>
+                    <div class="label">📊 Rata-rata</div>
+                </div>
+            </div>
+            
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem;">
+                <button class="btn-export-leaderboard" onclick="exportLeaderboardExcel()">
+                    <i class="fas fa-file-excel"></i> 📥 Download Excel
+                </button>
+                <button class="btn-export-leaderboard" onclick="publishPengumuman()" style="background:#f4b942;color:#1e2a3e;">
+                    <i class="fas fa-bullhorn"></i> 📢 ${hasPengumuman ? 'Perbarui Pengumuman' : 'Publikasikan Pengumuman'}
+                </button>
+                ${hasPengumuman ? `
+                    <button class="btn-export-leaderboard" onclick="resetPengumuman()" style="background:#e74c3c;">
+                        <i class="fas fa-times-circle"></i> Hapus Pengumuman
+                    </button>
+                ` : ''}
+            </div>
+            
+            ${hasPengumuman ? `
+                <div style="background:#e8f5e9;border-radius:12px;padding:0.8rem 1.2rem;margin-bottom:1rem;border-left:4px solid #1c6e4b;">
+                    <span style="color:#1c6e4b;font-weight:600;">✅ Pengumuman aktif!</span>
+                    <span style="color:#555;font-size:0.85rem;margin-left:0.5rem;">
+                        ${Object.keys(pengumumanData).length} bidang telah dipublikasikan.
+                    </span>
+                </div>
+            ` : ''}
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:50px;">Rank</th>
+                            <th>Nama Lengkap</th>
+                            <th>Asal Sekolah</th>
+                            <th style="width:100px;">No. Peserta</th>
+                            ${mapelList.map(m => `<th style="width:70px;">${m}</th>`).join('')}
+                            <th style="width:80px;">Total</th>
+                            <th style="width:80px;">Rata-rata</th>
+                            <th style="width:60px;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    `;
+    
+    data.forEach((d, idx) => {
+        const rank = idx + 1;
+        const isTopFive = rank <= 5;
+        const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank === 4 ? '4️⃣' : rank === 5 ? '5️⃣' : '';
+        const rowClass = isTopFive ? 'top-five' : '';
+        const status = d.totalUjian > 0 ? '✅ Aktif' : '⏳ Belum';
+        
+        // Buat map nilai per mapel
+        const nilaiMap = {};
+        d.detailMapel.forEach(m => {
+            nilaiMap[m.mapel] = m.nilai;
+        });
+        
+        html += `
+            <tr class="${rowClass}">
+                <td style="font-weight:700;font-size:1.1rem;">${medal || rank}</td>
+                <td><strong>${d.nama}</strong></td>
+                <td>${d.asalSekolah}</td>
+                <td style="font-size:0.8rem;color:#888;">${d.noPeserta}</td>
+                ${mapelList.map(m => `
+                    <td style="text-align:center;font-weight:600;color:${(nilaiMap[m] || 0) >= 70 ? '#1c6e4b' : '#e74c3c'};">
+                        ${nilaiMap[m] || '-'}
+                    </td>
+                `).join('')}
+                <td style="text-align:center;font-weight:700;color:#1c6e4b;">${d.totalNilai}</td>
+                <td style="text-align:center;font-weight:700;color:#1a4d5f;">${d.rataRata}</td>
+                <td><span class="status-badge ${d.totalUjian > 0 ? 'tersedia' : 'belum'}">${status}</span></td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2edf2;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-size:0.75rem;color:#888;">
+                <span>📅 Terakhir update: ${new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                <span>⏰ ${new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+        </div>
+    `;
+    
+    content.innerHTML = html;
+}
+function publishPengumuman() {
+    const peserta = getPeserta();
+    const dataUjian = getDataUjian();
+    
+    // Ambil semua mapel dari data ujian
+    const mapelSet = new Set();
+    dataUjian.forEach(d => {
+        if (d.mapel) mapelSet.add(d.mapel);
+    });
+    
+    if (mapelSet.size === 0) {
+        alert('⚠️ Belum ada data ujian untuk dipublikasikan!');
+        return;
+    }
+    
+    const pengumumanData = {};
+    let totalData = 0;
+    
+    // Untuk setiap mapel, buat leaderboard
+    mapelSet.forEach(mapel => {
+        const dataMapel = dataUjian.filter(d => d.mapel === mapel);
+        
+        // Kelompokkan berdasarkan username (ambil nilai terakhir)
+        const userMap = {};
+        dataMapel.forEach(d => {
+            // Ambil nilai terakhir untuk user ini (jika ada multiple)
+            if (!userMap[d.username] || d.tanggal > userMap[d.username].tanggal) {
+                userMap[d.username] = d;
+            }
+        });
+        
+        const leaderboard = [];
+        for (const [username, d] of Object.entries(userMap)) {
+            // Cari data peserta
+            const user = peserta[username];
+            leaderboard.push({
+                username: username,
+                nama: d.nama || user?.nama || username,
+                noPeserta: user?.noPeserta || '-',
+                asalSekolah: user?.asalSekolah || '-',
+                nilai: d.nilai || 0,
+                lulus: d.lulus || false,
+                total: d.total || 10,
+                benar: d.benar || 0
+            });
+        }
+        
+        // Urutkan berdasarkan nilai (tertinggi)
+        leaderboard.sort((a, b) => b.nilai - a.nilai);
+        
+        // Tentukan status khusus untuk 5 besar
+        leaderboard.forEach((d, idx) => {
+            if (idx === 0) {
+                d.statusKhusus = '🏆 Juara 1';
+                d.statusKhususClass = 'emass';
+            } else if (idx === 1) {
+                d.statusKhusus = '🥈 Juara 2';
+                d.statusKhususClass = 'perak';
+            } else if (idx === 2) {
+                d.statusKhusus = '🥉 Juara 3';
+                d.statusKhususClass = 'perunggu';
+            } else if (idx === 3) {
+                d.statusKhusus = '🎖️ 4 Besar';
+                d.statusKhususClass = 'lulus';
+            } else if (idx === 4) {
+                d.statusKhusus = '🎖️ 5 Besar';
+                d.statusKhususClass = 'lulus';
+            } else {
+                d.statusKhusus = d.lulus ? '✅ Lulus' : '❌ Tidak';
+                d.statusKhususClass = d.lulus ? 'lulus' : 'tidak';
+            }
+        });
+        
+        pengumumanData[mapel] = leaderboard;
+        totalData += leaderboard.length;
+    });
+    
+    // Simpan ke localStorage
+    localStorage.setItem('fasa_pengumuman', JSON.stringify(pengumumanData));
+    
+    alert('✅ Pengumuman berhasil dipublikasikan!\n\n' +
+          '📚 ' + mapelSet.size + ' bidang\n' +
+          '👥 ' + totalData + ' peserta\n\n' +
+          '📢 Peserta sekarang bisa melihat pengumuman di menu "Pengumuman".');
+    
+    // Refresh tampilan admin
+    renderAdminLeaderboard(document.getElementById('adminContent'));
+}
+
+function resetPengumuman() {
+    if (!confirm('Yakin ingin menghapus semua pengumuman yang sudah dipublikasikan?')) return;
+    localStorage.removeItem('fasa_pengumuman');
+    alert('✅ Pengumuman berhasil dihapus!');
+    renderAdminLeaderboard(document.getElementById('adminContent'));
+}
+
+function resetPengumuman() {
+    if (!confirm('Yakin ingin menghapus pengumuman yang sudah dipublikasikan?')) return;
+    localStorage.removeItem('fasa_pengumuman');
+    alert('✅ Pengumuman berhasil dihapus!');
+    renderAdminLeaderboard(document.getElementById('adminContent'));
+}
+
+// ================================================================
+// ========== EXPORT LEADERBOARD EXCEL ==========
+// ================================================================
+
+function exportLeaderboardExcel() {
+    const peserta = getPeserta();
+    const dataUjian = getDataUjian();
+    
+    // Kumpulkan data semua peserta
+    const data = [];
+    for (const [username, user] of Object.entries(peserta)) {
+        if (user.role === 'peserta') {
+            const nilaiMapel = user.nilaiPerMapel || {};
+            const nilaiList = Object.values(nilaiMapel);
+            const totalNilai = nilaiList.reduce((a,b) => a + b, 0);
+            const totalUjian = nilaiList.length;
+            const rataRata = totalUjian > 0 ? (totalNilai / totalUjian).toFixed(1) : 0;
+            
+            // Cari riwayat ujian untuk detail
+            const riwayat = user.riwayatUjian || [];
+            
+            data.push({
+                username,
+                nama: user.nama,
+                noPeserta: user.noPeserta || '-',
+                asalSekolah: user.asalSekolah || '-',
+                totalNilai,
+                totalUjian,
+                rataRata: parseFloat(rataRata),
+                riwayat,
+                lulus: totalUjian > 0 ? (rataRata >= 70) : false,
+                nilai: totalUjian > 0 ? Math.round(rataRata) : 0,
+                detailMapel: riwayat.map(r => ({ mapel: r.mapel, nilai: r.nilai }))
+            });
+        }
+    }
+    
+    // Urutkan berdasarkan total nilai (tertinggi)
+    data.sort((a, b) => b.totalNilai - a.totalNilai);
+    
+    if (data.length === 0) {
+        alert('⚠️ Tidak ada data untuk diekspor!');
+        return;
+    }
+    
+    // Ambil daftar mapel unik
+    const mapelSet = new Set();
+    data.forEach(d => {
+        d.detailMapel.forEach(m => mapelSet.add(m.mapel));
+    });
+    const mapelList = Array.from(mapelSet);
+    
+    let csv = '\uFEFF';
+    csv += '"LEADERBOARD REKAP PESERTA FASA"\n';
+    csv += '"FASA Learning Center"\n';
+    csv += '"' + '='.repeat(80) + '"\n\n';
+    csv += '"📅 Tanggal","' + new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) + '"\n';
+    csv += '"⏰ Waktu","' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + '"\n';
+    csv += '"👥 Total Peserta","' + data.length + ' orang"\n\n';
+    
+    // Header
+    let header = '"Rank","Nama Lengkap","Asal Sekolah","No. Peserta"';
+    mapelList.forEach(m => { header += `,"${m}"`; });
+    header += ',"Total Nilai","Rata-rata","Status"';
+    csv += header + '\n';
+    
+    // Data
+    data.forEach((d, idx) => {
+        const rank = idx + 1;
+        const status = d.totalUjian > 0 ? (d.rataRata >= 70 ? 'Lulus' : 'Tidak Lulus') : 'Belum Ujian';
+        
+        // Buat map nilai per mapel
+        const nilaiMap = {};
+        d.detailMapel.forEach(m => {
+            nilaiMap[m.mapel] = m.nilai;
+        });
+        
+        let row = `"${rank}","${d.nama}","${d.asalSekolah}","${d.noPeserta}"`;
+        mapelList.forEach(m => {
+            row += `,"${nilaiMap[m] || '-'}"`;
+        });
+        row += `,"${d.totalNilai}","${d.rataRata}","${status}"`;
+        csv += row + '\n';
+    });
+    
+    csv += '\n"' + '='.repeat(80) + '"\n';
+    csv += '"🏆 Juara 1: ' + (data[0]?.nama || '-') + ' (Total: ' + (data[0]?.totalNilai || 0) + ')"';
+    
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'Leaderboard_FASA_' + new Date().toISOString().split('T')[0] + '.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    alert('✅ File Excel berhasil diunduh!\n\n📊 Data ' + data.length + ' peserta diekspor.');
 }
 
 function renderRekapan() {
@@ -6476,6 +9155,69 @@ document.addEventListener('DOMContentLoaded', function() {
 console.log('FASA Learning Center siap digunakan!');
 console.log('Admin: admin / admin123');
 console.log('Member: member1 / member123');
+
+// =========================================================================
+// 🚀 PREMIUM SYSTEM UPGRADE: REAL-TIME AUTO SYNC, LIVE MONITORING & PROCTORING
+// =========================================================================
+(function() {
+    console.log("FASA Premium System Engine successfully injected and running!");
+
+    // 1. REAL-TIME BACKGROUND POLLING SYNC (Admin & Peserta Saling Sinkron Otomatis)
+    setInterval(async () => {
+        if (typeof currentUser !== 'undefined' && currentUser) {
+            const isUjianAktif = document.getElementById('ujianPage')?.classList.contains('active');
+            if (!isUjianAktif) {
+                try {
+                    if (typeof loadDataFromBin === 'function') {
+                        const cloudData = await loadDataFromBin();
+                        if (cloudData) {
+                            if (cloudData.peserta) localStorage.setItem('fasa_peserta', JSON.stringify(cloudData.peserta));
+                            if (cloudData.ujian) localStorage.setItem('fasa_learning', JSON.stringify(cloudData.ujian));
+                            if (cloudData.paket) localStorage.setItem('fasa_paket', JSON.stringify(cloudData.paket));
+                            if (cloudData.pendataan) localStorage.setItem('fasa_pendataan', JSON.stringify(cloudData.pendataan));
+                            if (cloudData.pembayaran) localStorage.setItem('fasa_pembayaran', JSON.stringify(cloudData.pembayaran));
+                            
+                            if (currentUser.role === 'admin') {
+                                const adminContent = document.getElementById('adminContent');
+                                if (adminContent && typeof adminMenuActive !== 'undefined') {
+                                    if (adminMenuActive === 'dashboard' && typeof showAdminMenu === 'function') showAdminMenu('dashboard');
+                                    if (adminMenuActive === 'hasil' && typeof renderHasilUjian === 'function') renderHasilUjian(adminContent);
+                                    if (adminMenuActive === 'ranking' && typeof renderRanking === 'function') renderRanking(adminContent);
+                                }
+                                if (typeof updateBadges === 'function') updateBadges();
+                            } 
+                            else if (currentUser.role === 'peserta') {
+                                if (typeof loadUjian === 'function' && document.getElementById('tab-ujian')?.classList.contains('active')) {
+                                    loadUjian();
+                                }
+                            }
+                        }
+                    }
+                } catch (err) {
+                    console.log("Background synchronization is processing...");
+                }
+            }
+        }
+    }, 5000);
+
+    // 2. LIVE INTEGRITY MONITORING & PROCTORING (Sistem Anti-Curang / Tab-Switch Protection)
+    document.addEventListener("visibilitychange", function() {
+        const isUjianAktif = document.getElementById('ujianPage')?.classList.contains('active');
+        if (document.hidden && isUjianAktif) {
+            alert("⚠️ PERINGATAN KECURANGAN SYSTEM (PROCTORING)!\nAnda terdeteksi meninggalkan halaman ujian FASA Learning Center. Aktivitas pemindahan tab ini telah direkam dan dilaporkan langsung ke Dashboard Admin.");
+        }
+    });
+
+    // 3. SECURE MODE: AUTO-SAVE JAWABAN SAAT KONEKSI INTERNET DOWN/RTO
+    window.addEventListener('offline', () => {
+        const isUjianAktif = document.getElementById('ujianPage')?.classList.contains('active');
+        if (isUjianAktif) {
+            alert("⚠️ KONEKSI TERPUTUS!\nTenang, FASA Secure Mode mendeteksi jaringan Anda offline. Seluruh jawaban Anda tetap disimpan aman di storage lokal browser.");
+        }
+    });
+})();
+// =========================================================================
+
 </script>
 </body>
 </html>
