@@ -1429,7 +1429,7 @@
         </li>
         <li>
             <a href="#" onclick="window.location.href='fasalearningcenter.html'">
-                <i class="fas fa-sign-in-alt"></i> Login Learning Center
+                <i class="fas fa-sign-in-alt"></i> Login CBT
             </a>
         </li>
     </ul>        
@@ -1954,53 +1954,6 @@
             showLoginPage();
         }
     }
-    
-    // ----- TAMPILAN LOGIN PAGE -----
-    function showLoginPage() {
-        const existingPage = document.getElementById('halamanLogin');
-        if (existingPage) existingPage.remove();
-        
-        const halamanLama = document.getElementById('halamanBaru');
-        if (halamanLama) halamanLama.remove();
-        
-        const container = document.querySelector('.container');
-        const section = document.createElement('section');
-        section.id = 'halamanLogin';
-        section.style.paddingTop = '100px';
-        section.innerHTML = `
-            <div class="login-container">
-                <h2>🔐 Login Member FASA</h2>
-                <p class="subtitle">Silakan login untuk mengakses dashboard</p>
-                <form onsubmit="loginUser(event)">
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" id="loginUsername" placeholder="Masukkan username" required autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" id="loginPassword" placeholder="Masukkan password" required>
-                    </div>
-                    <button type="submit" class="btn-login">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </button>
-                    <div class="error-msg" id="loginError"></div>
-                </form>
-                <div style="margin-top: 20px; padding: 15px; background: #f0f5f2; border-radius: 12px; text-align: center;">
-                    <p style="font-size: 0.8rem; color: #555; margin-bottom: 5px;">
-                        <i class="fas fa-info-circle"></i> Akun Demo:
-                    </p>
-                    <p style="font-size: 0.8rem; color: #1c6e4b;">
-                        <strong>Admin:</strong> admin / admin123
-                    </p>
-                    <p style="font-size: 0.8rem; color: #1c6e4b;">
-                        <strong>Member:</strong> member1 / member123
-                    </p>
-                </div>
-                <p style="text-align: center; margin-top: 15px; font-size: 0.75rem; color: #888;">
-                    <i class="fas fa-shield-alt"></i> Hubungi admin jika lupa password
-                </p>
-            </div>
-        `;
         
         const hero = document.querySelector('.hero');
         if (hero) {
