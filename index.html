@@ -1344,6 +1344,21 @@
         .chat-footer .send-btn:hover {
             background: #0b3b2f;
         }
+        /* Pastikan slider memiliki transition */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Perhatikan waktu dan easing */
+}
+
+/* Pastikan slide memiliki ukuran tetap */
+.slide {
+    min-width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0; /* Mencegah slide menyusut */
+}
 
         .typing-indicator {
             display: none;
@@ -1418,7 +1433,7 @@
             </a>
         </li>
         <li>
-            <a href="#" onclick="window.location.href='pendataan.html'">
+            <a href="#" onclick="window.location.href='pe.html'">
                 <i class="fas fa-clipboard-list"></i> Pendataan
             </a>
         </li>
@@ -1812,17 +1827,79 @@
 </footer>
 
 <script>
-    // SLIDER FOTO KENANGAN otomatis + manual
-    const slider = document.getElementById('sliderKenangan');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.getElementById('prevSlide');
-    const nextBtn = document.getElementById('nextSlide');
-    let currentIndex = 0;
-    const totalSlides = slides.length;
+    // ====== SLIDER FOTO KENANGAN ======
+const slider = document.getElementById('sliderKenangan');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
+let currentIndex = 0;
+const totalSlides = slides.length;
+let slideInterval; // Variabel untuk menyimpan interval
 
-    function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+}
+
+// Fungsi untuk memulai auto-slide
+function startAutoSlide() {
+    // Hapus interval yang lama jika ada
+    if (slideInterval) {
+        clearInterval(slideInterval);
     }
+    // Mulai interval baru
+    slideInterval = setInterval(() => {
+        nextSlide();
+    }, 4000);
+}
+
+// Fungsi untuk menghentikan auto-slide
+function stopAutoSlide() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+    }
+}
+
+// Event listener untuk tombol
+nextBtn.addEventListener('click', function() {
+    stopAutoSlide(); // Hentikan auto-slide
+    nextSlide();
+    startAutoSlide(); // Mulai ulang setelah 4 detik
+});
+
+prevBtn.addEventListener('click', function() {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+});
+
+// Hover pada slider untuk pause
+const sliderContainer = document.querySelector('.slider-container');
+sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+// Mulai auto-slide saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    // Pastikan slider dimulai dari slide pertama
+    currentIndex = 0;
+    updateSlider();
+    // Mulai auto-slide setelah 2 detik
+    setTimeout(startAutoSlide, 2000);
+});
+
+// Hapus interval duplicate di bagian bawah
+// Hapus baris ini di bagian bawah script:
+// setInterval(() => { nextSlide(); }, 4000);
 
             // ================================================================
     // ========== SISTEM LOGIN & DATABASE FASA ==========
@@ -2903,24 +2980,7 @@
         let judul = '';
         
         switch(page) {
-            case 'info':
-                konten = `
-                    <div style="max-width: 700px; margin: 0 auto;">
-                        <h2 style="color: #1c6e4b; margin-bottom: 20px;">Informasi FASA</h2>
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                            <p><strong>📌 Nama:</strong> Forum Alumni Sunan Ampel (FASA)</p>
-                            <p><strong>📍 Alamat:</strong> Jl. Sumber Lungun No.1, Bunder, Kabat, Banyuwangi</p>
-                            <p><strong>📧 Email:</strong> fasa@yayasansunanampel.sch.id</p>
-                            <p><strong>📱 WhatsApp:</strong> +62 857-4934-3688</p>
-                            <p><strong>📅 Didirikan:</strong> 2023</p>
-                            <hr style="margin: 20px 0;">
-                            <p style="font-style: italic;">"Satu Alumni Satu Aksi"</p>
-                            <p>Forum ini bertujuan untuk menjalin silaturahmi antar alumni dan memajukan almamater Yayasan Sunan Ampel.</p>
-                        </div>
-                    </div>
-                `;
-                break;
-            
+
                 
             case 'pendataan':
     konten = `
@@ -3052,9 +3112,6 @@
                 return; // keluar dari fungsi
                 break;
                 
-            default:
-                judul = 'FASA';
-                konten = '<p>Halaman tidak ditemukan.</p>';
         }
         
         // Tampilkan halaman baru
