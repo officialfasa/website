@@ -1418,7 +1418,7 @@
             </a>
         </li>
         <li>
-            <a href="#" onclick="window.location.href='pendataan.html'">
+            <a href="#" onclick="window.location.href='pe.html'">
                 <i class="fas fa-clipboard-list"></i> Pendataan
             </a>
         </li>
@@ -1428,8 +1428,8 @@
             </a>
         </li>
         <li>
-            <a href="#" onclick="window.location.href='fasalearningcenter.html'">
-                <i class="fas fa-sign-in-alt"></i> Login CBT
+            <a href="#" onclick="window.location.href='learning-center.html'">
+                <i class="fas fa-sign-in-alt"></i> Login Learning Center
             </a>
         </li>
     </ul>        
@@ -1953,15 +1953,6 @@
             if (loginPage) loginPage.remove();
             showLoginPage();
         }
-    }
-        
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.insertAdjacentElement('afterend', section);
-        } else {
-            container.prepend(section);
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     // ----- TAMPILAN DASHBOARD -----
@@ -2489,119 +2480,6 @@
             errorMsg.textContent = '❌ Username atau password salah!';
             errorMsg.style.display = 'block';
         }
-    }
-    
-    // ========== FUNGSI LOGOUT ==========
-    function logoutUser() {
-        if (confirm('Yakin ingin logout?')) {
-            saveSession(null);
-            showLoginPage();
-        }
-    }
-    
-    // ========== TAMPILAN HALAMAN ==========
-    function showLoginPage() {
-        // Hapus halaman login/dashboard yang ada
-        const existingPage = document.getElementById('halamanLogin');
-        if (existingPage) existingPage.remove();
-        
-        const container = document.querySelector('.container');
-        const section = document.createElement('section');
-        section.id = 'halamanLogin';
-        section.style.paddingTop = '100px';
-        section.innerHTML = `
-            <div class="login-container">
-                <h2>🔐 Login Member FASA</h2>
-                <p class="subtitle">Silakan login untuk mengakses dashboard</p>
-                <form onsubmit="loginUser(event)">
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" id="loginUsername" placeholder="Masukkan username" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" id="loginPassword" placeholder="Masukkan password" required>
-                    </div>
-                    <button type="submit" class="btn-login">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </button>
-                    <div class="error-msg" id="loginError"></div>
-                </form>
-                <p style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: #888;">
-                    <i class="fas fa-info-circle"></i> Hubungi admin jika lupa password
-                </p>
-            </div>
-        `;
-        
-        // Hapus halaman sebelumnya
-        const halamanLama = document.getElementById('halamanBaru');
-        if (halamanLama) halamanLama.remove();
-        
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.insertAdjacentElement('afterend', section);
-        } else {
-            container.prepend(section);
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    
-    function showDashboard() {
-        const session = getSession();
-        if (!session) {
-            showLoginPage();
-            return;
-        }
-        
-        // Hapus halaman login/dashboard yang ada
-        const existingPage = document.getElementById('halamanLogin');
-        if (existingPage) existingPage.remove();
-        
-        const container = document.querySelector('.container');
-        const section = document.createElement('section');
-        section.id = 'halamanLogin';
-        section.style.paddingTop = '100px';
-        section.innerHTML = `
-            <div class="dashboard-container">
-                <!-- Header -->
-                <div class="dashboard-header">
-                    <h2>📊 Dashboard ${session.role === 'admin' ? 'Admin' : 'Member'} FASA</h2>
-                    <div class="user-badge">
-                        <span>👤 ${session.nama}</span>
-                        <span class="role">${session.role === 'admin' ? '🛡️ Admin' : '⭐ Member'}</span>
-                        <button class="btn-logout" onclick="logoutUser()">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Menu Admin (hanya untuk admin) -->
-                ${session.role === 'admin' ? `
-                <div class="admin-menu">
-                    <button class="menu-btn active" onclick="showAdminMenu('dashboard')" id="menuDashboard">📊 Dashboard</button>
-                    <button class="menu-btn" onclick="showAdminMenu('data')" id="menuData">📋 Data Pendataan</button>
-                    <button class="menu-btn" onclick="showAdminMenu('kelola')" id="menuKelola">👥 Kelola Member</button>
-                </div>
-                ` : ''}
-                
-                <!-- Konten Dashboard -->
-                <div id="dashboardContent">
-                    ${session.role === 'admin' ? getAdminDashboard() : getMemberDashboard(session)}
-                </div>
-            </div>
-        `;
-        
-        // Hapus halaman sebelumnya
-        const halamanLama = document.getElementById('halamanBaru');
-        if (halamanLama) halamanLama.remove();
-        
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.insertAdjacentElement('afterend', section);
-        } else {
-            container.prepend(section);
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     // ========== DASHBOARD ADMIN ==========
