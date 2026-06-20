@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Login Cek Hasil Ujian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e0eafc 0%, #cfdef3 100%);
+            font-family: 'Segoe UI', 'Roboto', 'Poppins', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        /* Kartu form login */
+        .login-card {
+            max-width: 550px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #0b2b5c, #123e7c);
+            padding: 1.8rem 2rem;
+            text-align: center;
+            border-bottom: 6px solid #ffcd3c;
+        }
+
+        .login-header h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: white;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+        }
+
+        .login-header h1 span {
+            font-weight: 600;
+            background: #ffcd3c;
+            color: #0b2b5c;
+            padding: 0.1rem 0.5rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        .form-container {
+            padding: 2rem 2rem 1.8rem;
+        }
+
+        .instruction {
+            background: #f0f6ff;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.8rem;
+            color: #0a3a6b;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-left: 6px solid #ffcd3c;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .instruction:before {
+            content: "📌";
+            font-size: 1.2rem;
+        }
+
+        .field-group {
+            margin-bottom: 1.8rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            color: #1e4663;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+
+        .field-hint {
+            font-size: 0.75rem;
+            font-weight: normal;
+            color: #6c7a89;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 1.2rem;
+            background: #fefefe;
+            transition: all 0.25s;
+            font-family: inherit;
+            outline: none;
+        }
+        /* ========== TAMBAHAN UNTUK MEMBUAT NILAI DI TENGAH ========== */
+.score-section {
+    text-align: center;
+}
+
+.score-table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* Untuk kolom mata pelajaran (kolom pertama) tetap RATA KIRI */
+.score-table td:first-child,
+.score-table th:first-child {
+    text-align: left;
+}
+
+/* Untuk kolom Nilai dan Keterangan (kolom 2 dan 3) RATA TENGAH */
+.score-table td:nth-child(2),
+.score-table td:nth-child(3),
+.score-table th:nth-child(2),
+.score-table th:nth-child(3) {
+    text-align: center;
+}
+
+.score-title {
+    text-align: center;
+    justify-content: center;
+}
+
+        input:focus {
+            border-color: #0b5cad;
+            box-shadow: 0 0 0 3px rgba(11, 92, 173, 0.2);
+            background-color: #fff;
+        }
+
+        .btn-lihat {
+            background: linear-gradient(95deg, #0f3b6f, #0a2e58);
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            border-radius: 3rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 1rem 0 0.8rem;
+            box-shadow: 0 6px 14px rgba(10, 46, 88, 0.3);
+            font-family: inherit;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-lihat:hover {
+            background: linear-gradient(95deg, #0c3d6e, #0e2f53);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-message {
+            background: #ffe8e6;
+            color: #b13e3e;
+            border-radius: 1rem;
+            padding: 0.8rem;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 0.9rem 1rem 1.2rem;
+            background: #fbfdfe;
+            font-size: 0.7rem;
+            color: #6f8eae;
+            border-top: 1px solid #eef2f8;
+        }
+
+        @media (max-width: 500px) {
+            .login-header h1 {
+                font-size: 1.4rem;
+            }
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman FORM Login (halaman awal) -->
+    <div id="pageLogin" class="login-card">
+        <div class="login-header">
+            <h1>CEK HASIL <span>UJIAN</span></h1>
+        </div>
+        <div class="form-container">
+            <div class="instruction"> Masukkan NISN dan Tanggal Lahir untuk melihat hasil ujian.
+            </div>
+
+            <div class="field-group">
+                <label for="nisn">NISN</label>
+                <input type="text" id="nisn" placeholder="Contoh: 0049999310" autocomplete="off">
+                <span class="field-hint">Nomor Induk Siswa Nasional (NISN)</span>
+            </div>
+
+            <div class="field-group">
+                <label for="tglLahir">Tanggal Lahir</label>
+                <input type="text" id="tglLahir" placeholder="DD / MM / YYYY" autocomplete="off">
+                <span class="field-hint">Tanggal / Bulan / Tahun (contoh: 19/03/2005)</span>
+            </div>
+
+            <button class="btn-lihat" id="lihatHasilBtn">LIHAT HASIL</button>
+            <div id="loginError" class="error-message"></div>
+        </div>
+        <div class="footer-note">
+            ©2026 | MTs Sunan Ampel Mulyosari
+        </div>
+    </div>
+
+    <!-- Halaman HASIL KELULUSAN (kode Anda yang sudah jadi, tidak diubah sama sekali) -->
+    <div id="pageResult" style="display: none;">
+        <div class="result-card">
+            <div class="success-header">
+                <h1>SELAMAT! ANDA DINYATAKAN <span>LULUS UJIAN</span></h1>
+            </div>
+
+            <div class="content">
+                <!-- Data Identitas Mahasiswa -->
+                <div class="identity">
+                    <div class="badge-noreg">
+                        <span>NISN <span id="resultNisn">0049999310</span></span>
+                    </div>
+                    <div class="nama-mahasiswa">Achmad Muqorrobin</div>
+                    <div class="jurusan-sekolah">KELAS IX</div>
+                    <div class="univ">🏛️MTs Sunan Ampel Mulyosari</div>
+                </div>
+
+                <!-- Grid informasi diri -->
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Tanggal Lahir</div>
+                        <div class="info-value" id="resultTglLahir">19/03/2005</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">NISN</div>
+                        <div class="info-value">1234567890</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">RANGKING</div>
+                        <div class="info-value">1</div>
+                    </div>
+                </div>
+
+                <!-- RINCIAN NILAI UJIAN, RATA-RATA & RANKING -->
+                <div class="score-section">
+                    <div class="score-title">Rincian Nilai Ujian</div>
+                    <table class="score-table">
+                        <thead>
+                            <tr><th>Mata Pelajaran</th><th>Nilai</th><th>Keterangan</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Bahasa Indonesia</td><td>92.5</td><td>Sangat Baik</td></tr>
+                            <tr><td>Matematika</td><td>88.0</td><td>Baik Sekali</td></tr>
+                            <tr><td>Bahasa Inggris</td><td>90.0</td><td>Baik Sekali</td></tr>
+                            <tr><td>IPA</td><td>86.5</td><td>Baik</td></tr>
+                            <tr><td>IPS</td><td>89.0</td><td>Baik Sekali</td></tr>
+                            <tr class="highlight-row"><td><strong>Total Nilai</strong></td><td><strong>446.0</strong></td><td><strong>-</strong></td></tr>
+                            <tr class="highlight-row"><td><strong>Rata-Rata</strong></td><td><strong>89.2</strong></td><td><strong>Nilai Komprehensif</strong></td></tr>
+                            <tr class="highlight-row"><td><strong>RANGKING</strong></td><td><strong></strong></td><td><strong>1 dari 25 siswa</strong></td></tr                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pesan semangat -->
+                <div class="note-verification">
+                    <strong>🌟 Pesan Semangat:</strong> Teruslah belajar dengan tekun, raih cita-citamu setinggi langit, dan jadilah pribadi yang berkarya nyata untuk bangsa. Prestasi hari ini adalah awal dari perjalanan gemilangmu ke depan. 💪🎓
+                </div>
+                <div class="note-verification" style="background:#edf4fa; border-left-color:#2c7da0;">
+                    <strong>🚀 Terus Berkarya & Berprestasi:</strong> Jangan pernah berhenti bermimpi dan berkarya. Setiap langkah kecil dalam belajar membawamu lebih dekat menuju masa depan yang cemerlang. Yakinlah pada kemampuanmu, dan jadilah inspirasi bagi sekitar.
+                </div>
+
+                <hr>
+
+                <div class="footer-action">
+                    <div id="backToSearchBtn" class="btn-back">◀ Kembali ke pencarian hasil</div>
+                                </div>
+                <div style="text-align: center; margin-top: 1.5rem; font-size: 0.7rem; color: #7f9e8c;">
+                    © MTSSA 2026<br> 
+                    Pengumuman resmi hasil ujian | Data nilai dan ranking berdasarkan hasil ujian.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Gaya untuk halaman hasil (dari kode Anda, sudah lengkap) */
+        .result-card {
+            max-width: 950px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        .success-header {
+            background: linear-gradient(135deg, #1a5f3a, #0f7b4b);
+            padding: 1.6rem 2rem;
+            text-align: center;
+            border-bottom: 6px solid #f9c74f;
+        }
+        .success-header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .success-header h1 span {
+            background: #f9c74f;
+            color: #1a5f3a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        .content {
+            padding: 2rem 2rem 1.8rem;
+        }
+        .identity {
+            background: #f8fafd;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.8rem;
+            border-left: 8px solid #0f7b4b;
+        }
+        .badge-noreg {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #2c5a3b;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px dashed #cbdde9;
+            padding-bottom: 0.6rem;
+        }
+        .nama-mahasiswa {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0a2f2a;
+            margin: 0.5rem 0 0.2rem;
+        }
+        .jurusan-sekolah {
+            font-size: 1rem;
+            color: #2d6a4f;
+            font-weight: 600;
+            background: #e6f4ea;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+        }
+        .univ {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1f543f;
+            margin-top: 0.6rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .info-item {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e6edf4;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #6b8c7c;
+        }
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e3b31;
+        }
+        .score-section {
+            margin: 1.8rem 0;
+            background: #fefef7;
+            border-radius: 1.5rem;
+            border: 1px solid #e2ecdd;
+            overflow-x: auto;
+        }
+        .score-title {
+            background: #eef3ea;
+            padding: 0.9rem 1.5rem;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #1c5a3e;
+            border-bottom: 2px solid #cbdcc2;
+        }
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .score-table th {
+            background: #f5f9f2;
+            padding: 1rem 0.8rem;
+            color: #2c553f;
+        }
+        .score-table td {
+            padding: 0.9rem 0.8rem;
+            border-bottom: 1px solid #e9f0e4;
+            color: #2f4d3c;
+        }
+        .highlight-row td {
+            font-weight: 800;
+            background: #e6f0e0;
+        }
+        .ranking-badge {
+            display: inline-block;
+            background: #1f7b53;
+            color: white;
+            border-radius: 40px;
+            padding: 0.25rem 1rem;
+            font-size: 0.8rem;
+        }
+        .note-verification {
+            background: #fef9e6;
+            border-left: 5px solid #f4c542;
+            padding: 0.9rem 1.2rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            margin: 1rem 0;
+        }
+        .footer-action {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+        .btn-back, .btn-print {
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-back {
+            background: #eef2f7;
+            color: #2c5a4b;
+            border: 1px solid #ccdbe8;
+        }
+        .btn-print {
+            background: #1a5f3a;
+            color: white;
+            border: none;
+        }
+        hr {
+            margin: 1rem 0;
+        }
+        @media (max-width: 650px) {
+            .success-header h1 { font-size: 1.2rem; }
+            .nama-mahasiswa { font-size: 1.4rem; }
+            .content { padding: 1.5rem; }
+        }
+    </style>
+
+    <script>
+        (function() {
+            const pageLogin = document.getElementById('pageLogin');
+            const pageResult = document.getElementById('pageResult');
+            const nisnInput = document.getElementById('nisn');
+            const tglLahirInput = document.getElementById('tglLahir');
+            const lihatBtn = document.getElementById('lihatHasilBtn');
+            const loginError = document.getElementById('loginError');
+            const resultNisnSpan = document.getElementById('resultNisn');
+            const resultTglLahirSpan = document.getElementById('resultTglLahir');
+            const backBtn = document.getElementById('backToSearchBtn');
+
+            // ========== CONTOH DATABASE SEDERHANA ==========
+const databaseSiswa = [
+    {
+        nisn: "0049999310",
+        tanggalLahir: "19/03/2005",
+        nama: "ACHMAD MUQORROBIN",
+        jurusan: "KELAS IX",
+        sekolah: "MTs Sunan Ampel Mulyosari",
+        kabKota: "Kab. Bolaang DUMMY",
+        provinsi: "Prov. Sulawesi Utara",
+        nilai: {
+            bahasaIndonesia: 92.5,
+            matematika: 88.0,
+            bahasaInggris: 90.0,
+            fisika: 86.5,
+            kimia: 89.0,
+            rataRapor: 89.2,
+            totalNilai: 89.2
+        },
+        rankingNasional: "Peringkat 124 dari 9.820 peserta",
+        rankingProvinsi: "Peringkat 3 (Kelompok IPA)",
+        rataSekolah: 87.4
+    },
+    {
+        nisn: "1234567890",
+        tanggalLahir: "15/08/2006",
+        nama: "Achmad Muqorrobin",
+        jurusan: "KELAS IX",
+        sekolah: "Universitas Negeri Semarang",
+        kabKota: "Kota Surabaya",
+        provinsi: "Prov. Jawa Timur",
+        nilai: {
+            bahasaIndonesia: 85.0,
+            matematika: 78.5,
+            bahasaInggris: 82.0,
+            fisika: 80.0,
+            kimia: 79.5,
+            rataRapor: 81.2,
+            totalNilai: 81.2
+        },
+        rankingNasional: "Peringkat 2.450 dari 9.820 peserta",
+        rankingProvinsi: "Peringkat 87 (Kelompok IPS)",
+        rataSekolah: 79.8
+    }
+];
+
+            // Validasi sederhana
+            function validasiInput() {
+                const nisn = nisnInput.value.trim();
+                const tglLahir = tglLahirInput.value.trim();
+
+                if (nisn === "") {
+                    loginError.textContent = "❌NISN tidak boleh kosong!";
+                    loginError.style.display = "block";
+                    return false;
+                }
+                if (tglLahir === "") {
+                    loginError.textContent = "❌Tanggal Lahir tidak boleh kosong!";
+                    loginError.style.display = "block";
+                    return false;
+                }
+
+                // Validasi format tanggal sederhana (DD/MM/YYYY atau dengan spasi)
+                let cleaned = tglLahir.replace(/\s/g, '');
+                let parts = cleaned.split(/[\/\-\.]/);
+                if (parts.length !== 3) {
+                    let bySpace = tglLahir.split(/\s+/);
+                    if (bySpace.length === 3) parts = bySpace;
+                    else {
+                        loginError.textContent = "❌ Format Tanggal Lahir salah! Gunakan DD/MM/YYYY (contoh: 19/03/2005)";
+                        loginError.style.display = "block";
+                        return false;
+                    }
+                }
+                let day = parseInt(parts[0], 10);
+                let month = parseInt(parts[1], 10);
+                let year = parseInt(parts[2], 10);
+                if (isNaN(day) || isNaN(month) || isNaN(year) || day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2026) {
+                    loginError.textContent = "❌Tanggal Lahir tidak valid! Periksa kembali.";
+                    loginError.style.display = "block";
+                    return false;
+                }
+
+                // Validasi NISN (angka saja, minimal 6 digit)
+                if (!/^\d{6,15}$/.test(nisn)) {
+                    loginError.textContent = "❌NISN harus berupa angka (6-15 digit)!";
+                    loginError.style.display = "block";
+                    return false;
+                }
+
+                loginError.style.display = "none";
+                return true;
+            }
+
+            // Tombol Lihat Hasil
+            lihatBtn.addEventListener('click', function() {
+                if (validasiInput()) {
+                    const nisn = nisnInput.value.trim();
+                    const tglLahir = tglLahirInput.value.trim();
+                    // Tampilkan NISN & Tanggal Lahir di halaman hasil
+                    if (resultNisnSpan) resultNisnSpan.textContent = nisn;
+                    if (resultTglLahirSpan) resultTglLahirSpan.textContent = tglLahir;
+
+                    // Sembunyikan halaman login, tampilkan halaman hasil
+                    pageLogin.style.display = 'none';
+                    pageResult.style.display = 'block';
+                }
+            });
+
+            // Tombol Kembali ke pencarian hasil
+            if (backBtn) {
+                backBtn.addEventListener('click', function() {
+                    pageResult.style.display = 'none';
+                    pageLogin.style.display = 'block';
+                    // Reset error message
+                    loginError.style.display = 'none';
+                    // Optional: reset input
+                    nisnInput.value = '';
+                    tglLahirInput.value = '';
+                });
+            }
+
+            // Tombol cetak
+            const printBtn = document.getElementById('printPageBtn');
+            if (printBtn) {
+                printBtn.addEventListener('click', function() {
+                    const originalTitle = document.title;
+                    document.title = "Hasil_UAS_Dwi_DUMMY";
+                    window.print();
+                    document.title = originalTitle;
+                });
+            }
+            // ========== AGAR TIDAK KEMBALI SENDIRI & REFRESH TETAP DI HASIL ==========
+// Simpan status halaman saat ini
+if (sessionStorage.getItem('showResult') === 'true') {
+    // Jika sebelumnya sedang di halaman hasil, sembunyikan login dan tampilkan hasil
+    document.getElementById('pageLogin').style.display = 'none';
+    document.getElementById('pageResult').style.display = 'block';
+}
+
+// Saat tombol "LIHAT HASIL" ditekan
+lihatBtn.addEventListener('click', function() {
+    if (validasiInput()) {
+        // Simpan status ke sessionStorage
+        sessionStorage.setItem('showResult', 'true');
+        sessionStorage.setItem('nisn', nisnInput.value.trim());
+        sessionStorage.setItem('tglLahir', tglLahirInput.value.trim());
+        
+        // ... lanjutkan proses tampilkan hasil ...
+        pageLogin.style.display = 'none';
+        pageResult.style.display = 'block';
+    }
+});
+
+// Saat tombol "Kembali ke pencarian hasil" ditekan
+backBtn.addEventListener('click', function() {
+    // Hapus status dari sessionStorage
+    sessionStorage.removeItem('showResult');
+    sessionStorage.removeItem('nisn');
+    sessionStorage.removeItem('tglLahir');
+    
+    pageResult.style.display = 'none';
+    pageLogin.style.display = 'block';
+});
+
+            
+        })();
+    </script>
+</body>
+</html>
